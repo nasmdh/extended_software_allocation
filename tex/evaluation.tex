@@ -1,0 +1,140 @@
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.4  \textwidth}
+        \includegraphics[width=\textwidth]{util}
+        \caption{Utilization of Nodes.}
+        \label{fig_util}
+    \end{subfigure}
+    ~%\hspace{-0.4cm}
+        \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{power}
+        \caption{Power Consumption of Nodes.}
+        \label{fig_power}
+    \end{subfigure}
+    \caption{Allocation of Applications on Heterogeneous Nodes.}
+    \label{fig_util_power}\vspace{-0.2cm}
+\end{figure*}
+\section{Evaluation}\label{sec_evaluation}
+In this section, we evaluate the proposed approach using  synthesized automotive applications that conform  to the automotive benchmark proposed by Kramel et al.~\cite{Kramer2015RealFree}. The number of runnables, timing specification and activation patterns within the cause-effect chains are also selected according to the benchmark. In order to show the scalability of our approach and to assess the scope of its applicability in practice, in some cases, we use higher specifications standard  than what is indicated in the benchmark, e.g., the maximum number of activation patterns is extended from three to four.
+
+In the rest of the section, we describe the setup and method of evaluation, followed by discussion of the evaluation results.
+
+%\subsection{Preparation}
+\subsection{Evaluation Setup}
+The evaluation setup consists of three hardware platforms with different computing capacities, i.e., processing speed and memory size as shown in Table~\ref{tbl_hardwaremodel}. The evaluation on different platforms can be used as performance indicator and also to identify performance bottlenecks in the model. HP EliteBook and Lenovo 20378 are personal computers with core-i5 and core-i7 processors, respectively, whereas PowerEdge is a workstation with much higher processing and memory specification than the personal computers.
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}p{0.25\columnwidth}p{0.275\columnwidth}llll@{}}
+\toprule
+Hardware Model  & Pro. Model & \rotatebox{70}{\#Pro.} & \rotatebox{70}{\#Core} & \rotatebox{70}{Cache} & \rotatebox{70}{RAM}\\ \midrule
+$^1$HP EliteBook & $^3$Core i5, 2.2GHz & 1 & 2 & 3M & 8G \\ 
+Lenovo 20378 & $^4$Core i7, 2.6GHz & 1 & 4 & 6M & 16G\\ 
+$^2$PowerEdge & $^5$Xeon(R), 2.4GHz & 24 & 6 & 15M & 256G\\
+\bottomrule
+\end{tabular}
+\caption{Summary of the Hardware Specifications.\\
+\footnotesize{$^1$HP EliteBook 840 G2, $^2$PowerEdge R730 Rack Server}\\
+\footnotesize{$^3$Intel® Core™ i7-4720HQ @ 2.60GHz, $^4$Intel® Core™ i7-4720HQ @ 2.60GHz $^5$Intel(R) Xeon(R) CPU E5-2620 v3 @ 2.40GHz}}
+\label{tbl_hardwaremodel}
+\end{table}
+
+\subsubsection{Software Application Specification} In order to evaluate the proposed approach on different ranges of applications, we automatically generate synthetic examples that comply with the automotive benchmark~\cite{Kramer2015RealFree}. The examples denote simple to complex automotive functions such as reverse-parking assistance system and engine control system. For simplicity, we identify three classes of applications with different sizes and complexity, shown as tuple $(c, r, t, g)$, respectively for the number of software components, runnables, tasks, and cause-effect chains. Table \ref{tbl_appsspec} shows the range of values used in the applications for evaluation. 
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Parameter  		& Spec.-I  & spec.-II & spec.-III\\ 
+\midrule
+components, $c$		& $\leq 10$	& $\leq 15$ 	& $> 15$\\ 
+runnables, $r$		& $\leq 50$	& $\leq 100$ 	& $> 100$\\
+tasks, $t$ 			& $\leq 30$ & $\leq 60$ 	& $> 60$\\
+cause-effect chains, $g$ & $\leq$ 30 & $\leq$ 40 & $> 60$\\ \midrule
+activation-pattern	& \multicolumn{3}{c}{$[2,3,4]$}\\ \midrule
+share of activation-patterns	& \multicolumn{3}{c}{$[0.7, 0.2, 0.1]$}\\
+\bottomrule
+\end{tabular}
+\caption{Specification of the Applications for Evaluation.}
+\label{tbl_appsspec}
+\end{table}
+
+\subsubsection{Platform Specification} The specification of nodes can be obtained from simulation, vendor product specification and  experience. Figure~\ref{tbl_nodesspecs} shows the range of values that are used in the nodes' specification. In the experiment, the values are randomly generated while respecting the benchmark.
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Parameter  		& Range\\ 
+\midrule
+nodes							& $4-10$\\
+power consumption (Watt), $p$ 	& $10 - 200$\\
+failure-rate (/Mhr), $\lambda$ 	& $10^4 - 10^{-2}$\\
+speed factor, $hz$			 	& $0.0 - 1.0$\\
+\bottomrule
+\end{tabular}
+\caption{Range of Values for the Specification of Nodes.}
+\label{tbl_nodesspecs}
+\end{table}
+
+\subsubsection{Method of Evaluation}
+We conduct three experiments that assess the proposed approach for scalability in terms of \textit{allocation time}. The allocation time is defined as the time required to prepare and solve the allocation problem using the proposed ILP method. Furthermore, we show resource efficiency in terms of saving nodes (i.e., using smaller number of nodes). The experiments consist of: i) varying the size of applications in order to observe the effect of increasing components, runnables and tasks in the system, ii) varying the complexity of applications in order to observe the effect of cause-effect chains in the system, and iii) varying the replications. The experiments are discussed in detail in the next subsection.
+
+A preliminary analysis of the evaluation indicates a successful termination of the allocation for Spec-I\&II of the applications. Whereas for Spec-III, the allocation problem is intractable. In fact, it took days on the PowerEdge machine and many times it did not terminate successfully. Therefore, the experimental results that are shown in this paper are conducted on the Spec-I\&II classes. 
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\linewidth]{increasing_components}
+\caption{Effect of Varying the Application Size on the Allocation Time and Number of Utilized Nodes.}
+\label{fig_increasing_components}
+\end{figure}
+
+\subsection{Varying the Size of Application} 
+This refers to increasing the number of software components, as well as runnables, tasks, and cause-effect chains in the system. Figure~\ref{fig_increasing_components} shows the effect of increasing the size of an application from $(c4,r40,t19,g30)$ to $(c10,r100,t57,g60)$ on the allocation time and  the number of nodes utilized. The applications are allocated to a pool of 8 heterogeneous nodes sharing a single network and with specifications shown in Table~\ref{tbl_nodesspecs_exp}. The specifications are generated randomly, with uniform distribution, within the scope of Table~\ref{tbl_nodesspecs}.
+\begin{table}
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lllllllll@{}}
+\toprule
+Node  		& m1 & m2 & m3 & m4&m5&m6&m7&m8\\ 
+\midrule
+$P_{min}$ & 10 	& 40 	&	30 	&	20 	& 30 	& 	40	&	20&	10\\
+$P_{max}$ & 80	& 120	&	120	&	170	&	140	&	130	&	140 &110\\
+$\lambda$  &$10^{-3}$	&$10^{-3}$	&$10^{-4}$&$10^{-5}$&$10^{-6}$&$10^{-2}$&$10^{-6}$&$10^{-4}$\\
+\bottomrule
+\end{tabular}
+\caption{Specification of Nodes.}
+\label{tbl_nodesspecs_exp}\vspace{-0.4cm}
+\end{table}
+
+The CPLEX solver returns an optimal solution for the application $(c8, r80,t44,g30)$ within 6.06 sec. The allocation time increased sharply to 30.3 sec and 129.4 sec respectively for 9 and 10 components. Even if not indicated in this chart, the solver, the solver returns an optimal solution within 45 min for components reaching 15 on the PowerEdge machine and OutOfMemory error on the Lenovo and HP machines. Figure~\ref{fig_util} and Figure~\ref{fig_power} show the utilization and power consumption on each node for the different application sizes. The optimal allocation, in the general case, favor nodes with higher processor speed and lower power consumption specifications.
+
+\subsection{Varying the Number of Cause-effect Chains} 
+In order to observe the effect of increasing the cause-effect chains on the allocation time, we vary the number of chains in the application from 10 to 60, which is consistent with the benchmark~\cite{Kramer2015RealFree}. The share of activation patterns also increases proportionally with the ratio $1:[0.7, 0.2, 0.1]$, respectively, for two, three, and four activation patterns. For instance, out of 10 cause-effect chains, there are 7 chains (with two activation patterns), 3 chains (with three activation patterns), and 1 chain (with four activation patterns). The experiment is conducted on two cases of schedulability analysis, namely response time analysis (RTA) and utilization bound (UB), and their result is shown in  Figure~\ref{chart_cause_effect_chain} for increasing number of chains.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{increasing_cause-effect_chains}
+\caption{Effect of Increasing Cause-effect Chains (under RTA and UB) on the Allocation Time.}
+\label{chart_cause_effect_chain}\vspace{-0.4cm}
+\end{figure}
+
+The figures in the data table show an exponential growth of allocation time whenever the cause-effect chains are increased linearly for a specific application, in both cases of schedulability analysis. In the case of RTA, the overhead in the pre-optimization is higher than the overhead in the optimization for 50 or less chains. Whereas in the UB case, the computational time of pre-optimization is almost always less than the computational time of the optimization. 
+The results are consistent with our expectation that the RTA computation, in the preparation of the timing assertions, is expensive, albeit provides schedulable tasks allocation based on the fixed-priority scheduling policy. In contrast, the UB computation time is relatively low; however, the search space gets larger due to more and more feasible tasks partitioning and chains fulfilling the timing constraints. As a result, the optimization time in the case of UB is usually higher as compared to the case of RTA. Therefore, for applications with chains not more than 40 and naive scheduling assumption using UB, the experiments favor the UB assumption. Whereas, the allocation with the RTA assumption should be selected for applications with exact scheduling requirements. Note, the scalability of this experiment should be seen in conjunction with the experiment discussed in the previous subsection.
+
+\subsection{Varying Replications}
+In this experiment, we evaluate the allocation time of the applications with the increase in the number of replications. For the applications specification shown in Figure \ref{fig_replication}, we vary the replications from 1 to 4. 
+The allocation in all applications took not more than 10 sec for replications 1 and 2. For Spec-I with replication 3 and 4, the allocation time went up close to 1 min. For Spec-III with replication 3, the allocation time went up rapidly to 30 min, and took extremely large time for replication 4 which is also the case for Application-II.
+\begin{figure*}[h]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{replications}
+        \caption{Effect on Allocation Time.}
+        \label{fig_replication_1}
+    \end{subfigure}
+    ~
+        \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{replication_comparison}
+        \caption{Effect on Pre-optimization.}
+        \label{fig_replication_2}
+    \end{subfigure}
+    \caption{Effect of Varying the Component Replications on the Allocation Time.}
+    \label{fig_replication}\vspace{-0.5cm}
+\end{figure*}
+
+Figure~\ref{fig_replication_2} shows the effect of shared constraints on the overhead of replications during the pre-optimization and optimization phases of the allocation. In the pre-optimization phase, the allocation time was stable for the increased size of applications. This is due to the fixed constraints regardless of the replications. In contrast, the allocation time increases during optimization as the constraints are applied for the various combination of task partitions, cause-effect chains, and reliability states generated as the result of replications.
