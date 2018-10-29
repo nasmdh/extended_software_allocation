@@ -1,12 +1,6 @@
-%\documentclass[conference]{IEEEtran}
 \documentclass[review]{elsarticle}
 
-% correct bad hyphenation here
-%\hyphenation{op-tical net-works semi-conduc-tor}
-
-% packages
-%\usepackage[dvips]{graphicx}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES
 \usepackage{listings}
 \usepackage[cmex10]{amsmath}
 \usepackage{url}
@@ -28,13 +22,11 @@
 \usepackage{calc,multicol}
 \usepackage{algorithm}
 \usepackage{setspace}
-
 % page number out of Last page
 \usepackage{lastpage}
-% \usepackage{fancyhdr}
-% \pagestyle{fancy} 
-% \fancyfoot[C]{{\thepage} of \pageref{LastPage}}
-% \renewcommand{\headrulewidth}{0pt}
+\usepackage{fancyhdr}
+%\pagestyle{fancy} 
+\fancyfoot[C]{{\thepage} of \pageref{LastPage}}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -67,31 +59,23 @@
 %\newtheorem{remark}{Remark}[section]
 \newtheorem{definition}[remarkdef]{Definition}
 \newtheorem{theorem}[remarkdef]{Theorem}
+
+% Bib style
+\bibliographystyle{elsarticle-num}
+
 % start of the document
 \begin{document}
 % first the title is needed
 \setstretch{0.93}
-\title{Power-aware Allocation of Fault-tolerant Multirate AUTOSAR Applications, this text is added from remote}
-% a short form should be given in case it is too long for the running head
-%\input{./author}
-%
-%  == == =     == == ==    == == ==    == ==
-%  ==    ==    ==          ==          ==  ==
-%  ==    ==    ==          ==          ==   ==
-%  == ==       == == ==    == == ==    == == ==
-%  ==  ==      ==                ==    ==     ==
-%  ==    ==    ==                ==    ==      ==
-%  ==     ==   == == ==    == == ==    ==       ==
-%
-
-% make the title area
-\maketitle
-
+% the title, author, abstract
+\begin{frontmatter}
+\title{Power-aware Allocation of Fault-tolerant Multirate AUTOSAR Applications}
+\input{./author}
 \input{./tex/abstract}
+\end{frontmatter}
+
+% the rest of the sections
 \input{./tex/introduction}
-% * <guillermo.rodriguez-navas@mdh.se> 2018-05-07T06:58:28.699Z:
-%
-% ^.
 \input{./tex/preliminary}
 \input{./tex/systemmodel}
 \input{./tex/extrafuncmodel}
@@ -100,10 +84,7 @@
 \input{./tex/relatedwork}
 \input{./tex/conclusion}
 
-\bibliographystyle{IEEEtran}
-\bibliography{IEEEabrv,main.bib}
-
-% \bibliographystyle{unsrt}
-% \bibliography{./main.bib}
+% the references
+\bibliography{reference}
 
 \end{document} 
