@@ -13,9 +13,18 @@ Delay(x) \leq E2eReq \\
 \label{lbl_reliability_constraint}
 Reliability(x) \leq RelReq,
 \end{align}
-where $x$ is a 3-dimensional binary matrix that represents a feasible solution, $x^k_{ij}$ refers to the allocation of a software component $c^k_i$ on node $m_j$, $c^k$ refers to the $k^{th}$ replica of $c$, and $X$ is the search space of the function $P$. 
+where $x$ is a feasible solution to the allocation problem, and $X$ is the search space of the function $P$.
+%where $x$ isa feasible solution, $x^k_{ij}$ refers to the allocation of a software component $c^k_i$ on node $m_j$, $c^k$ refers to the $k^{th}$ replica of $c$, and $X$ is the search space of the function $P$.
+\subsection{Running Example}
+Throughout this section, we use a simple example to demonstrate our proposed ILP and PSO optimization approaches. The example is a system mode with the software application and hardware platform specifications that must fulfill timing and reliability requirements, and design and hardware constraints.
+\begin{figure}[t!]
+\centering
+\includegraphics[width=1\linewidth]{dag}
+\caption{Effect of Varying the Application Size on the Allocation Time and Number of Utilized Nodes.}
+\label{fig_increasing_components}
+\end{figure}
 
-In order to demonstrate our ILP optimization, we use a  simple example throughout the section, which consist of software application and platform specifications: the software application is constructed from the set of components $C=\{c_1, c_2, c_3, c_4, c_5\}$, with maximum number of replicas $K=2$. The application is deployed on nodes $M=\{m_1,m_2,m_3\}$. A detailed specification of the components and the nodes are shown in Table \ref{tbl_comps_config} and Table \ref{tbl_nodes_config}, respectively. A feasible solution $x$ to the problem is shown in Figure \ref{fig_matrix_feasible_solution}.
+%extra: the software application is constructed from the set of components $C=\{c_1, c_2, c_3, c_4, c_5\}$, with maximum number of replicas $K=2$. The application is deployed on nodes $M=\{m_1,m_2,m_3\}$. A detailed specification of the components and the nodes are shown in Table \ref{tbl_comps_config} and Table \ref{tbl_nodes_config}, respectively. A feasible solution $x$ to the problem is shown in Figure \ref{fig_matrix_feasible_solution}.
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 \begin{table}[h]
@@ -44,52 +53,78 @@ C  & $R=[\text{ execution time}-(e_{m1}, e_{m2}, e_{m3}), period]$ \\ \midrule
 \label{tbl_comps_config}
 \end{table}
 
-\begin{minipage}{.5\columnwidth}%
+\begin{minipage}{.6\columnwidth}%
 \centering
-\begin{tabular}{@{}ll@{}}
+\begin{tabular}{@{}lll@{}}
 \toprule
-M  & {[}$P_{idle}$, $P_{max}$, $\lambda${]} \\ \midrule
-$m_1$ & {[}50.0, 140.0, 1.0E-3{]}  \\
-$m_2$ & {[}10.0, 100.0, 1.0E-4{]}  \\
-$m_3$ & {[}10.0, 140.0, 1 .0E-5{]}  \\ \bottomrule
+Activation Patterns, $AP$ & Ratio & E2EReq. \\ \midrule
+$\tau_1$ & 0.5  & 50\\
+$\tau_1\rightarrow\tau_2$ & 0.2  & 100\\
+$\tau_1\rightarrow\tau_2\rightarrow\tau_3$ & 0.2  & 200\\
+$\tau_1\rightarrow\tau_2\rightarrow\tau_3\rightarrow\tau_4$ & 0.1  & 400\\
+\bottomrule
 \end{tabular}
 \captionof{figure}{Specification of Nodes.}
 \label{tbl_nodes_config}
 \end{minipage}~
 \begin{minipage}{.4\columnwidth}
-\begin{minipage}{.5\columnwidth}
 \centering
-$x^{1}$
- $$
-\begin{pmatrix} 
-0 & 1 & 0\\
-1 & 0 & 0\\
-0 & 1 & 0\\
-0 & 1 & 0\\
-0 & 1 & 0
-\end{pmatrix}
-$$
-\end{minipage}~
-\begin{minipage}{0.5\columnwidth}
-\centering
-$x^{2}$
-$$
-\begin{pmatrix} 
-0 & 0 & 1\\
-0 & 1 & 0\\
-0 & 0 & 1\\
-0 & 0 & 1\\
-0 & 0 & 1
-\end{pmatrix}
-$$
+\begin{tabular}{@{}llll@{}}
+\toprule
+M  & $P_{idle}$& $P_{max}$& $\lambda$ \\ \midrule
+$m_1$ & 50.0& 140.0 &1.0E-3  \\
+$m_2$ & 10.0& 100.0 &1.0E-4  \\
+$m_3$ & 10.0& 140.0 &1 .0E-5 \\ \bottomrule
+\end{tabular}
 \end{minipage}
-\captionof{figure}{A Feasible Solution $x$ for K=2.}
-\label{fig_matrix_feasible_solution}
-\end{minipage}
+
+% \begin{minipage}{.5\columnwidth}%
+% \centering
+% \begin{tabular}{@{}ll@{}}
+% \toprule
+% M  & {[}$P_{idle}$, $P_{max}$, $\lambda${]} \\ \midrule
+% $m_1$ & {[}50.0, 140.0, 1.0E-3{]}  \\
+% $m_2$ & {[}10.0, 100.0, 1.0E-4{]}  \\
+% $m_3$ & {[}10.0, 140.0, 1 .0E-5{]}  \\ \bottomrule
+% \end{tabular}
+% \captionof{figure}{Specification of Nodes.}
+% \label{tbl_nodes_config}
+% \end{minipage}~
+% \begin{minipage}{.4\columnwidth}
+% \begin{minipage}{.5\columnwidth}
+% \centering
+% % $x^{1}$
+% %  $$
+% % \begin{pmatrix} 
+% % 0 & 1 & 0\\
+% % 1 & 0 & 0\\
+% % 0 & 1 & 0\\
+% % 0 & 1 & 0\\
+% % 0 & 1 & 0
+% % \end{pmatrix}
+% % $$
+% % \end{minipage}~
+% % \begin{minipage}{0.5\columnwidth}
+% % \centering
+% % $x^{2}$
+% % $$
+% % \begin{pmatrix} 
+% % 0 & 0 & 1\\
+% % 0 & 1 & 0\\
+% % 0 & 0 & 1\\
+% % 0 & 0 & 1\\
+% % 0 & 0 & 1
+% % \end{pmatrix}
+% % $$
+% \end{minipage}
+% \captionof{figure}{A Feasible Solution $x$ for K=2.}
+% \label{fig_matrix_feasible_solution}
+% \end{minipage}
 
 In the subsequent subsections, we explain the Integer Linear model, including the objective function and the constraints.
 
-\subsection{Power Consumption Optimization }
+\subsection{Integer Linear Programming Mode}
+\subsubsection{Power Consumption Optimization }
 The ILP model of the objective function is shown in (\ref{eqn_avgpowerconsumption_util}-\ref{eqn_util_component}). For a feasible solution $x$, the power consumption $P_{total}(x)$ is computed as the sum of the average power consumption of individual nodes $P_m(x)$. In order to compute the average power consumption of a node, first the node utilization is calculated using (\ref{lbl_util}), which is the sum of the components' utilization (including replicas) that are allocated to that node. A component's utilization is obtained from the sum of sum of the utilization of the tasks that realize the component's functionality as shown in (\ref{eqn_util_component}).
 
 \begin{align}
@@ -191,7 +226,7 @@ $s$   & $p_s$     & {[}$f_{c_i}(x), i=1,2,3,4${]} & $f_a(x)$ \\ \midrule
 
 In the case that the application reliability could be met with less replications, there is no need to keep unnecessary component replicas in the system. To this end, our optimization algorithm imposes soft constraints for $k>1$, which implies that replicas allocated on the same node are reduced to a single replica, essentially discarding the extra replicas by design, since the reliability does not improve following additional replicas on the same node, assuming our fault model.
 
-\subsection{Timing Constraints}
+\subsubsection{Timing Constraints}
 The timing constraints ensure that the response times of the tasks realizing the distributed application meet their deadlines. Furthermore, they ensure that the cause-effect chains satisfy their respective end-to-end timing requirements, for all possible failure-modes of the system. The constraints are formulated as logical constraints in the ILP problem, as explained in the rest of this subsection.
 
 \subsubsection*{Tasks Deadline Constraints}
@@ -237,3 +272,5 @@ The pseudo-code contains three main parts: i) the first part in Line (2) identif
 \end{algorithmic}
 \end{algorithm}\vspace{-0.2cm}
 
+\subsection{Particle Swarm Optimization Model}
+Particle Swarm Optimization (PSO) is a metaheuristic method \cite{} which is inspired by natural swarm intelligence \cite{} observed from the flocking behavior of birds \cite{}. The particles in the swarm represent dynamically changing candidate solutions. In the search space, the particles moves towards the target (or best solution) by following a simple strategy: i) the particles current position $p$, personal best position $p_b$, and swarm best position $s_b$ are considered to guide the the direction of the the particles movement towards the target solution, ii) furthermore, the speed in which the particles move forward by parameter values.
