@@ -1,0 +1,81 @@
+\section{Solving the Problem using Metaheuristics}
+Although the ILP approach delivers an optimal solution, it does not scale well for large software allocations as shown in the previous section of the ILP evaluation. So, we propose the following metaheuristic techniques: Particle Swarm Optimization (PSO) and Differential Evolutionary (DE). Both techniques are population-based approaches and uses varieties of operators to the elements of the population to reach at the target near (optimal) solution. PSO has been applied to solve a wide range of application, including a task allocation problem \cite{yin2007task}, and DE is shown to scale well for problems with large solution dimensions. In this paper, we show the application of both techniques on the problem in study, and evaluate their performance including their computation time and solution quality. Furthermore, we compare the techniques to the ILP approach.
+
+\subsection{Particle Swarm Optimization}
+% What is PSO
+PSO is a population-based technique proposed by Eberhart and Kennedy in 1995 to study social behavior, as inspired by natural swarm intelligence observed from the flocking of birds and schooling of fishes \cite{Kennedy1995ParticleOptimization}. Since then, it extended in order to address various metaheuristic optimization challenges, such as intensification, diversification, convergence analysis, local optima, parameter tuning, computation time, etc. It is successfully applied on several complex real-world problems, e.g., diagnosis and classification of diseases, efficient engineering designs, tuning control design parameters, scheduling problems, etc \cite{Poli2008AnApplications}. 
+
+In PSO, the population (or swarm) is a collection of particles, organized according to a certain population topology \cite{Liu2016TopologyOptimization}. A particle has a position $\textbf{x}$ and a velocity $\textbf{v}$, which denote, respectively, the current location and direction of the the particle, and the current momentum of the particle. It is a memory-based technique, that is it remembers the best performance of every particle as well as the best performance of the swarm $\textbf{z}$ in order to plan the next move of the particles, where $y,z$ are position vectors and have the same dimension as $x$. The velocity of a particle is the resultant vector of its current velocity and the particles attraction vectors $(\textbf{y}-\textbf{x}), (\textbf{z}-\textbf{x})$, respectively, known as \textit{cognitive} and \textit{social} components of the  particle's velocity formula, as shown in Equation \ref{eqn_pso_velocity}. Thus, the next position of a particle is the resultant of its current position and its next velocity as shown in Equation \ref{eqn_pso_position}.
+\begin{align}
+    \label{eqn_pso_velocity}
+    \textbf{v} &\leftarrow  \omega\textbf{v} + c_1Rand()\circ(\textbf{z}-\textbf{x}) + c_2Rand()\circ(\textbf{z}-\textbf{x})\\
+    \label{eqn_pso_position}
+    \textbf{x} &\leftarrow \textbf{x} + \textbf{v}
+\end{align}
+where $\omega$ is the weight of the velocity, also known as \textit{inertia coefficient}, and controls the convergence of the algorithm, $c_1, c_2$ are acceleration coefficients and controls the weight of attraction towards the cognitive and social components, respectively, $Rand()\in U(0,1)$ is a random function, along the acceleration coefficients, is element-wise multiplied with the components to improve diversity of the search by introducing stochastic behavior.
+
+Although PSO was originally proposed for continuous problem, it is applied to discrete problems successfully. In the latter case, the solutions are represented by 0-1 integer variables \cite{KennedyAAlgorithm} or integer programming by approximation to the nearest integer values \cite{Clerc2000DiscreteProblem}, which is the the representation employed for our problem. Accordingly, after the new position (or candidate solution) is determined, following Equations \ref{eqn_pso_velocity} and \ref{eqn_pso_position}, the solution is discretized by rounding off the its elements to the nearest integer values, that is $\textbf{x}\leftarrow [\textbf{x}]$.
+
+\subsection{Solution Representation of the Software Allocation Problem}
+The software allocation problem is a type of job shop scheduling, as such it is discrete, that is its solution takes on discrete values $\textbf{x}\in \{1,…,L\}^N$. The solution is represented by a matrix of size $N\times K$ as show in Figure \ref{fig_pso_solution_representation}, where $x_{ik}=j\in \{1,…,L\}$ denotes allocation of the software component replica $c_{ij}$ on the computation node $m_j$, that is $c_{ik}\mapsto m_j$.
+\begin{equation}
+\label{fig_pso_solution_representation}
+\textbf{x}=
+\begin{bmatrix} 
+x_{11} & x_{12} & \dots & x_{1K}\\
+x_{21} & x_{22} & \dots & x_{2K}\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{I1} & x_{I2} & \cdots & x_{IK}
+\end{bmatrix}
+\end{equation}
+
+In contrast to the \textit{0-1} representation, the integer-linear representation uses much lower number of variables, that is $N*K(L-1)$, e.g., for a software allocation problem with $N=10,L=8,K=2$, 140 variables are saved. Of course the possible values in the former representation is two whereas in the latter representation, it is $L$, which is usually higher and results larger solution space. Nevertheless, the integer-linear representation is compact and computationally more efficient.
+
+\subsection{Defining Fitness Function}
+% Define the fitness function
+Since a metaheuristic method functions over the meta of a problem, the quality of candidate solutions is evaluated based on their fitness to meet the problem's objective. A solution that delivers lower power consumption and violates less constraints is indicated by a lower fitness value. The fitness function $f(\textbf{x})$ combines the original objective function $P(\textbf{x})$ and the constraints $Timing(\textbf{x}),Reliability(\textbf{x})$ in order to compute real-valued numbers that indicate quality of the candidate solutions.
+
+Consequently, the original constrained optimization problem is transformed into unconstrained optimization problem, by extending the objective function $P(\textbf{x})$ with the constrains, represented by a \textit{penalty function} $\Phi(\textbf{x})$. The function returns 0 if no constrains are violated otherwise returns a positive number, essentially to penalize the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. The function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability. \textbf{How to compute the parameters [Hamid]}
+\begin{align}
+\label{}
+    \min_{\textbf{x}\in X}\;\;& f(\textbf{x})=P(\textbf{x}) + \alpha \Phi(\textbf{x})\\
+    \label{eqn_penalityfunc}\Phi(\textbf{x}) &= \sum\phi_i(\textbf{x})
+\end{align}
+
+% Show the representation of the a solution
+% Demonstrated it on the example
+\begin{algorithm}
+\caption{PSO Algorithm}\label{alg_pso}
+\begin{algorithmic}[1]
+\Require n
+\Ensure Near (Optimal) Solution
+\State $x_{sb}\leftarrow$ getWorstPosition()
+\State $Particles\leftarrow$ createParticles($n$)
+\State initParticles($Particles$)
+\While{$!stoppingCritera$}
+    % Calculate personal best, swarm best positions
+    \State \Comment{Calculate personal best and swarm best positions of the particles}
+    \ForAll{$p \in Particles$}
+        \State $particle \leftarrow$  getPosition($p$)
+        \State $x_{pb} \leftarrow$  getPosition($p$) 
+        \If{$fitness(x)\leq fitness(x_{pb})$} \Comment{Personal best position}
+            \State $x_{pb}\leftarrow x$
+            \If{$fitness(x)\leq fitness(x_{sb})$} \Comment{Swarm best position}
+                \State $x_{sb}\leftarrow x$
+            \EndIf 
+        \EndIf 
+    \EndFor
+    % Calculate next positions of the particles
+    \State \Comment{Calculate next positions of the particles}
+	\ForAll{$p \in Particles$}
+        \State $v\leftarrow v+c1*r1*(x_{pb}-x)+c2*r2*(x_{sb}-x)$ 
+        \State $x\leftarrow$ getPosition($p$)$ + v$
+        %\State setParticlePosition($p,x$)
+    \EndFor
+\EndWhile
+\end{algorithmic}
+\end{algorithm}\vspace{-0.2cm}
+
+\subsection{Differential Evolution}
+
+\subsection{Hybrid Particle Swarm Optimization}

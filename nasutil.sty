@@ -1,0 +1,71 @@
+\NeedsTeXFormat{LaTeX2e}[2018/10/30]
+\ProvidesPackage{nasutil}[2018/10/30 NasUtil Package]
+
+
+%% Commands and Theorems
+% Commands
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+\newtheorem{grammar}{Grammar snippet\#}
+\let\oldnl\nl% Store \nl in \oldnl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one line
+\newcommand{\sangle}[1]{$\stretchleftright{\langle}{#1}{\rangle}$}
+\newcommand{\mcell}[3][c]{%
+    \begin{tabular}[#1]{@{}#2@{}}#3\end{tabular}}%
+\newcommand{\east}[0]{{\sc EAST-ADL}\xspace}
+% Theorems
+\newtheorem{remarkex}{Remark}
+\newtheorem{remarkreq}{Remark}
+\newtheorem{remarkdef}{Remark}
+\newtheorem{example}[remarkex]{Example}
+\newtheorem{req}[remarkreq]{Req\texttt{\#}}
+\newtheorem{definition}[remarkdef]{Definition}
+\newtheorem{theorem}[remarkdef]{Theorem}
+
+%%Graphics
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\graphicspath{ {./img/} }
+
+%% Page number out of total pages
+\fancyfoot[C]{{\thepage} of \pageref{LastPage}}
+%% Ceiling and Floor functions
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% \RequirePackage{lmodern}
+
+% %% 'sans serif' option
+% \DeclareOption{sans}{
+%   \renewcommand{\familydefault}{\sfdefault}
+% }
+
+% %% 'roman' option
+% \DeclareOption{roman}{
+%   \renewcommand{\familydefault}{\rmdefault}
+% }
+
+% %% Global indentation option
+% \newif\if@neverindent\@neverindentfalse
+% \DeclareOption{neverindent}{
+%   \@neverindenttrue
+% }
+
+% \ExecuteOptions{roman}
+
+% \ProcessOptions\relax
+
+% %% Traditional LaTeX or TeX follows...
+% % ...
+
+% \newlength{\pardefault}
+% \setlength{\pardefault}{\parindent}
+% \newcommand{\neverindent}{ \setlength{\parindent}{0pt} }
+% \newcommand{\autoindent}{ \setlength{\parindent}{\pardefault} }
+
+% \if@neverindent
+% \neverindent
+% \fi
+
+% ...
+
+\endinput

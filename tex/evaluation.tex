@@ -1,19 +1,3 @@
-\begin{figure*}
-    \centering
-    \begin{subfigure}[b]{0.4  \textwidth}
-        \includegraphics[width=\textwidth]{util}
-        \caption{Utilization of Nodes.}
-        \label{fig_util}
-    \end{subfigure}
-    ~%\hspace{-0.4cm}
-        \begin{subfigure}[b]{0.4\textwidth}
-        \includegraphics[width=\textwidth]{power}
-        \caption{Power Consumption of Nodes.}
-        \label{fig_power}
-    \end{subfigure}
-    \caption{Allocation of Applications on Heterogeneous Nodes.}
-    \label{fig_util_power}\vspace{-0.2cm}
-\end{figure*}
 \section{Evaluation}\label{sec_evaluation}
 In this section, we evaluate the proposed approach using  synthesized automotive applications that conform  to the automotive benchmark proposed by Kramel et al.~\cite{Kramer2015RealFree}. The number of runnables, timing specification and activation patterns within the cause-effect chains are also selected according to the benchmark. In order to show the scalability of our approach and to assess the scope of its applicability in practice, in some cases, we use higher specifications standard  than what is indicated in the benchmark, e.g., the maximum number of activation patterns is extended from three to four.
 
@@ -57,6 +41,7 @@ share of activation-patterns	& \multicolumn{3}{c}{$[0.7, 0.2, 0.1]$}\\
 \label{tbl_appsspec}
 \end{table}
 
+
 \subsubsection{Platform Specification} The specification of nodes can be obtained from simulation, vendor product specification and  experience. Figure~\ref{tbl_nodesspecs} shows the range of values that are used in the nodes' specification. In the experiment, the values are randomly generated while respecting the benchmark.
 \begin{table}[h]
 \centering\small
@@ -80,11 +65,13 @@ We conduct three experiments that assess the proposed approach for scalability i
 A preliminary analysis of the evaluation indicates a successful termination of the allocation for Spec-I\&II of the applications. Whereas for Spec-III, the allocation problem is intractable. In fact, it took days on the PowerEdge machine and many times it did not terminate successfully. Therefore, the experimental results that are shown in this paper are conducted on the Spec-I\&II classes. 
 \begin{figure}[t!]
 \centering
-\includegraphics[width=1\linewidth]{increasing_components}
+\includegraphics[width=0.7\linewidth]{increasing_components}
 \caption{Effect of Varying the Application Size on the Allocation Time and Number of Utilized Nodes.}
 \label{fig_increasing_components}
 \end{figure}
 
+
+\usepackage{Extended Performance Analysis}
 \subsection{Varying the Size of Application} 
 This refers to increasing the number of software components, as well as runnables, tasks, and cause-effect chains in the system. Figure~\ref{fig_increasing_components} shows the effect of increasing the size of an application from $(c4,r40,t19,g30)$ to $(c10,r100,t57,g60)$ on the allocation time and  the number of nodes utilized. The applications are allocated to a pool of 8 heterogeneous nodes sharing a single network and with specifications shown in Table~\ref{tbl_nodesspecs_exp}. The specifications are generated randomly, with uniform distribution, within the scope of Table~\ref{tbl_nodesspecs}.
 \begin{table}
@@ -102,6 +89,22 @@ $\lambda$  &$10^{-3}$	&$10^{-3}$	&$10^{-4}$&$10^{-5}$&$10^{-6}$&$10^{-2}$&$10^{-
 \caption{Specification of Nodes.}
 \label{tbl_nodesspecs_exp}\vspace{-0.4cm}
 \end{table}
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.4  \textwidth}
+        \includegraphics[width=\textwidth]{util}
+        \caption{Utilization of Nodes.}
+        \label{fig_util}
+    \end{subfigure}
+    ~%\hspace{-0.4cm}
+        \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{power}
+        \caption{Power Consumption of Nodes.}
+        \label{fig_power}
+    \end{subfigure}
+    \caption{Allocation of Applications on Heterogeneous Nodes.}
+    \label{fig_util_power}\vspace{-0.2cm}
+\end{figure*}
 
 The CPLEX solver returns an optimal solution for the application $(c8, r80,t44,g30)$ within 6.06 sec. The allocation time increased sharply to 30.3 sec and 129.4 sec respectively for 9 and 10 components. Even if not indicated in this chart, the solver, the solver returns an optimal solution within 45 min for components reaching 15 on the PowerEdge machine and OutOfMemory error on the Lenovo and HP machines. Figure~\ref{fig_util} and Figure~\ref{fig_power} show the utilization and power consumption on each node for the different application sizes. The optimal allocation, in the general case, favor nodes with higher processor speed and lower power consumption specifications.
 
@@ -109,7 +112,7 @@ The CPLEX solver returns an optimal solution for the application $(c8, r80,t44,g
 In order to observe the effect of increasing the cause-effect chains on the allocation time, we vary the number of chains in the application from 10 to 60, which is consistent with the benchmark~\cite{Kramer2015RealFree}. The share of activation patterns also increases proportionally with the ratio $1:[0.7, 0.2, 0.1]$, respectively, for two, three, and four activation patterns. For instance, out of 10 cause-effect chains, there are 7 chains (with two activation patterns), 3 chains (with three activation patterns), and 1 chain (with four activation patterns). The experiment is conducted on two cases of schedulability analysis, namely response time analysis (RTA) and utilization bound (UB), and their result is shown in  Figure~\ref{chart_cause_effect_chain} for increasing number of chains.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=1\linewidth]{increasing_cause-effect_chains}
+\includegraphics[width=0.7\linewidth]{increasing_cause-effect_chains}
 \caption{Effect of Increasing Cause-effect Chains (under RTA and UB) on the Allocation Time.}
 \label{chart_cause_effect_chain}\vspace{-0.4cm}
 \end{figure}

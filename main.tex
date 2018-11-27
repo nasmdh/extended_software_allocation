@@ -1,6 +1,6 @@
-\documentclass[review]{elsarticle}
+\documentclass[preprint]{elsarticle}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES
+%% Packages
 \usepackage{listings}
 \usepackage[cmex10]{amsmath}
 \usepackage{url}
@@ -22,51 +22,20 @@
 \usepackage{calc,multicol}
 \usepackage{algorithm}
 \usepackage{setspace}
-% page number out of Last page
 \usepackage{lastpage}
 \usepackage{fancyhdr}
-%\pagestyle{fancy} 
-\fancyfoot[C]{{\thepage} of \pageref{LastPage}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usetikzlibrary{patterns}
 
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
-
-% define environments
-\patchcmd{\thebibliography}{\clubpenalty4000}{\clubpenalty10000}{}{}
-\patchcmd{\thebibliography}{\widowpenalty4000}{\clubpenalty10000}{}{}
-
-% Graphics
-\DeclareGraphicsExtensions{.pdf,.jpg,.png}
-\graphicspath{ {./img/} }
-
-% New commands
-\newcommand{\keywords}[1]{\par\addvspace\baselineskip
-\noindent\keywordname\enspace\ignorespaces#1}
-\newtheorem{grammar}{Grammar snippet\#}
-\let\oldnl\nl% Store \nl in \oldnl
-\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one line
-\newcommand{\sangle}[1]{$\stretchleftright{\langle}{#1}{\rangle}$}
-\newcommand{\mcell}[3][c]{%
-    \begin{tabular}[#1]{@{}#2@{}}#3\end{tabular}}%
-\newcommand{\east}[0]{{\sc EAST-ADL}\xspace}
-
-\newtheorem{remarkex}{Remark}
-\newtheorem{remarkreq}{Remark}
-\newtheorem{remarkdef}{Remark}
-
-\newtheorem{example}[remarkex]{Example}
-\newtheorem{req}[remarkreq]{Req\texttt{\#}}
-%\newtheorem{remark}{Remark}[section]
-\newtheorem{definition}[remarkdef]{Definition}
-\newtheorem{theorem}[remarkdef]{Theorem}
-
-% Bib style
-\bibliographystyle{elsarticle-num}
+% \patchcmd{\thebibliography}{\clubpenalty4000}{\clubpenalty10000}{}{}
+% \patchcmd{\thebibliography}{\widowpenalty4000}{\clubpenalty10000}{}{}
+\usepackage{nasutil}
 
 % start of the document
 \begin{document}
-% first the title is needed
-\setstretch{0.93}
+
 % the title, author, abstract
 \begin{frontmatter}
 \title{Power-aware Allocation of Fault-tolerant Multirate AUTOSAR Applications}
@@ -74,17 +43,19 @@
 \input{./tex/abstract}
 \end{frontmatter}
 
-% the rest of the sections
+% The rest of the sections
 \input{./tex/introduction}
 \input{./tex/preliminary}
 \input{./tex/systemmodel}
 \input{./tex/extrafuncmodel}
-\input{./tex/optimization}
+\input{./tex/ilp}
+\input{./tex/metaheuristic}
 \input{./tex/evaluation}
 \input{./tex/relatedwork}
 \input{./tex/conclusion}
 
-% the references
+% The references
 \bibliography{reference}
+\bibliographystyle{elsarticle-num}
 
 \end{document} 
