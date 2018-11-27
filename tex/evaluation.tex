@@ -63,6 +63,25 @@ speed factor, $hz$			 	& $0.0 - 1.0$\\
 We conduct three experiments that assess the proposed approach for scalability in terms of \textit{allocation time}. The allocation time is defined as the time required to prepare and solve the allocation problem using the proposed ILP method. Furthermore, we show resource efficiency in terms of saving nodes (i.e., using smaller number of nodes). The experiments consist of: i) varying the size of applications in order to observe the effect of increasing components, runnables and tasks in the system, ii) varying the complexity of applications in order to observe the effect of cause-effect chains in the system, and iii) varying the replications. The experiments are discussed in detail in the next subsection.
 
 A preliminary analysis of the evaluation indicates a successful termination of the allocation for Spec-I\&II of the applications. Whereas for Spec-III, the allocation problem is intractable. In fact, it took days on the PowerEdge machine and many times it did not terminate successfully. Therefore, the experimental results that are shown in this paper are conducted on the Spec-I\&II classes. 
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.475  \textwidth}
+        \includegraphics[width=\textwidth]{img/fitness_c20_g30_m10.pdf}
+        \caption{Utilization of Nodes.}
+        \label{fig_util}
+    \end{subfigure}
+    ~%\hspace{-0.4cm}
+        \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{img/time_c20_g30_m10.pdf}
+        \caption{Power Consumption of Nodes.}
+        \label{fig_power}
+    \end{subfigure}
+    \caption{Allocation of Applications on Heterogeneous Nodes.}
+    \label{fig_util_power}\vspace{-0.2cm}
+\end{figure*}
+
+
+
 \begin{figure}[t!]
 \centering
 \includegraphics[width=0.7\linewidth]{increasing_components}
