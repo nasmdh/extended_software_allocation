@@ -1,35 +1,89 @@
-\section{The Proposed ILP Model}
+\section{Integer Linear Programming Approach}
 In the ILP approach, we represent the feasible solution $x$ of the allocation problem as a 3-dimensional binary matrix, where $x^k_{ij}$ refers to the allocation of a software component $c^k_i$ on node $m_j$, $c^k$ refers to the $k^{th}$ replica of $c$. For the running example, a particular feasible solution is shown in Figure \ref{fig_matrix_feasible_solution}.
+
+
 \begin{center}
-\begin{minipage}{.4\textwidth}
+
+
+\begin{equation*}
+\textbf{$\textbf{x}$}=
+\begin{bmatrix} 
+
+%first element
+\begin{minipage}{.3\textwidth}
 \centering
-$x^{1}$
- $$
-\begin{pmatrix} 
-0 & 1 & 0\\
-1 & 0 & 0\\
-0 & 1 & 0\\
-0 & 1 & 0\\
-0 & 1 & 0
-\end{pmatrix}
-$$
+\[
+\begin{bmatrix} 
+x_{11}^1 & x_{12}^1 & \dots & x_{1J}^1\\
+x_{21}^1 & x_{22}^1 & \dots & x_{2J}^1\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{I1}^1 & x_{I2}^1 & \cdots & x_{IJ}^1
+\end{bmatrix}
+\]
+%second element
 \end{minipage}~
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.3\textwidth}
 \centering
-$x^{2}$
-$$
-\begin{pmatrix} 
-0 & 0 & 1\\
-0 & 1 & 0\\
-0 & 0 & 1\\
-0 & 0 & 1\\
-0 & 0 & 1
-\end{pmatrix}
-$$
+\[
+\begin{bmatrix} 
+x_{11}^2 & x_{12}^2 & \dots & x_{1J}^2\\
+x_{21}^2 & x_{22}^2 & \dots & x_{2J}^2\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{I1}^2 & x_{I2}^2 & \cdots & x_{IJ}^2
+\end{bmatrix}
+\]
 \end{minipage}
+% dots
+...
+%last element
+\begin{minipage}{0.3\textwidth}
+\centering
+\[
+\begin{bmatrix} 
+x_{11}^K & x_{12}^K & \dots & x_{1J}^K\\
+x_{21}^K & x_{22}^K & \dots & x_{2J}^K\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{I1}^K & x_{I2}^K & \cdots & x_{IJ}^K
+\end{bmatrix}
+\]
+\end{minipage}
+
+\end{bmatrix}
+\end{equation*}
+
 \captionof{figure}{A Feasible Solution $x$ for K=2.}
 \label{fig_matrix_feasible_solution}
 \end{center}
+% \begin{center}
+% \begin{minipage}{.4\textwidth}
+% \centering
+% \begin{equation}
+% \textbf{x$^0$}=
+% \begin{bmatrix} 
+% 0 & 1 & 0\\
+% 1 & 0 & 0\\
+% 0 & 1 & 0\\
+% 0 & 1 & 0\\
+% 0 & 1 & 0
+% \end{bmatrix}
+% \end{equation}
+% \end{minipage}~
+% \begin{minipage}{0.4\textwidth}
+% \centering
+% \begin{equation}
+% \textbf{x$^1$}=
+% \begin{bmatrix} 
+% 0 & 0 & 1\\
+% 0 & 1 & 0\\
+% 0 & 0 & 1\\
+% 0 & 0 & 1\\
+% 0 & 0 & 1
+% \end{bmatrix}
+% \end{equation}
+% \end{minipage}
+% \captionof{figure}{A Feasible Solution $x$ for K=2.}
+% \label{fig_matrix_feasible_solution}
+% \end{center}
 
 \subsection{Objective Function}
 The power consumption $p(x)$ is computed as the sum of the average power consumption of individual nodes $p_m(x)$ by using Equation \ref{eqn_avgpowerconsumption_util}, where $p_m(x)$ is computed first using Equation x, with utilization of the node $u_m$ as its argument, which is calculated using Equation \ref{lbl_util}as the sum of the utilization of the components (including the replicas) allocated to that node. A component's utilization is obtained from the sum of the utilization of the tasks that realize the component's functionality using Equation \ref{eqn_util_component}.
