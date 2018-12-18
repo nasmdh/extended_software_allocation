@@ -7,7 +7,7 @@ Metaheuristic techniques perform differently for different problem types, size, 
 % What is PSO
 PSO is a population-based technique proposed by Eberhart and Kennedy in 1995 to study social behavior, as inspired by natural swarm intelligence observed from the flocking of birds and schooling of fishes \cite{Kennedy1995ParticleOptimization}. Since then, it extended in order to address various metaheuristic optimization challenges, such as intensification, diversification, convergence analysis, local optima, parameter tuning, computation time, etc. It is successfully applied on several complex real-world problems, e.g., diagnosis and classification of diseases, efficient engineering designs, tuning control design parameters, scheduling problems, etc \cite{Poli2008AnApplications}. 
 
-In PSO, the population (or swarm) is a collection of particles, organized according to a certain population topology \cite{Liu2016TopologyOptimization}. A particle has a position $\textbf{x}$ and a velocity $\textbf{v}$, which denote, respectively, the current location and direction of the the particle, and the current momentum of the particle. It is a memory-based technique, that is it remembers the best performance of every particle as well as the best performance of the swarm $\textbf{z}$ in order to plan the next move of the particles, where $y,z$ are position vectors and have the same dimension as $x$. The velocity of a particle is the resultant vector of its current velocity and the particles attraction vectors $(\textbf{y}-\textbf{x}), (\textbf{z}-\textbf{x})$, respectively, known as \textit{cognitive} and \textit{social} components of the  particle's velocity formula, as shown in Equation \ref{eqn_pso_velocity}. Thus, the next position of a particle is the resultant of its current position and its next velocity as shown in Equation \ref{eqn_pso_position}.
+In PSO, the population (or swarm) $PN=\{p_1,p_2,…,p_N\}$ is a collection of particles $p_i\in PN$, organized according to a certain population topology \cite{Liu2016TopologyOptimization}. A particle has a position $\textbf{x}$ and a velocity $\textbf{v}$, which denote current location and direction of the particle's motion, and current momentum, respectively. It is a memory-based technique, that is, it remembers the best performance of every particle as well as the best performance of the swarm $\textbf{z}$ in order to plan the next move of the particles, where $\textbf{y},\textbf{z}$ are position vectors and have the same dimensions as $\textbf{x}$. The velocity of a particle is the resultant vector of its current velocity and the particles attraction vectors $(\textbf{y}-\textbf{x}), (\textbf{z}-\textbf{x})$, respectively, known as \textit{cognitive} and \textit{social} components of the  particle's velocity formula, as shown in Equation \ref{eqn_pso_velocity}. The attraction vectors impose force of attraction on the particle to move closer to their respective components. Thus, the next position of a particle is the resultant of its current position and its next velocity as shown in Equation (\ref{eqn_pso_position}).
 \begin{align}
     \label{eqn_pso_velocity}
     \textbf{v} &\leftarrow  \omega\textbf{v} + c_1Rand()\circ(\textbf{z}-\textbf{x}) + c_2Rand()\circ(\textbf{z}-\textbf{x})\\
@@ -18,7 +18,7 @@ where $\omega$ is the weight of the velocity, also known as \textit{inertia coef
 
 Although PSO was originally proposed for continuous problem, it is applied to discrete problems successfully. In the latter case, the solutions are represented by 0-1 integer variables \cite{KennedyAAlgorithm} or integer programming by approximation to the nearest integer values \cite{Clerc2000DiscreteProblem}, which is the the representation employed for our problem. Accordingly, after the new position (or candidate solution) is determined, following Equations \ref{eqn_pso_velocity} and \ref{eqn_pso_position}, the solution is discretized by rounding off the its elements to the nearest integer values, that is $\textbf{x}\leftarrow [\textbf{x}]$.
 
-\subsection{Solution Representation of the Software Allocation Problem}
+\subsubsection{Solution Representation of the Software Allocation Problem}
 The software allocation problem is a type of job shop scheduling, as such it is discrete, that is its solution takes on discrete values $\textbf{x}\in \{1,…,L\}^N$. The solution is represented by a matrix of size $N\times K$ as show in Figure \ref{fig_pso_solution_representation}, where $x_{ik}=j\in \{1,…,L\}$ denotes allocation of the software component replica $c_{ij}$ on the computation node $m_j$, that is $c_{ik}\mapsto m_j$.
 \begin{equation}
 \label{fig_pso_solution_representation}
@@ -33,7 +33,7 @@ x_{I1} & x_{I2} & \cdots & x_{IK}
 
 In contrast to the \textit{0-1} representation, the integer-linear representation uses much lower number of variables, that is $N*K(L-1)$, e.g., for a software allocation problem with $N=10,L=8,K=2$, 140 variables are saved. Of course the possible values in the former representation is two whereas in the latter representation, it is $L$, which is usually higher and results larger solution space. Nevertheless, the integer-linear representation is compact and computationally more efficient.
 
-\subsection{Defining Fitness Function}
+\subsubsection{Defining Fitness Function}
 % Define the fitness function
 Since a metaheuristic method functions over the meta of a problem, the quality of candidate solutions is evaluated based on their fitness to meet the problem's objective. A solution that delivers lower power consumption and violates less constraints is indicated by a lower fitness value. The fitness function $f(\textbf{x})$ combines the original objective function $P(\textbf{x})$ and the constraints $Timing(\textbf{x}),Reliability(\textbf{x})$ in order to compute real-valued numbers that indicate quality of the candidate solutions.
 
@@ -46,38 +46,105 @@ Consequently, the original constrained optimization problem is transformed into 
 
 % Show the representation of the a solution
 % Demonstrated it on the example
-\begin{algorithm}
-\caption{PSO Algorithm}\label{alg_pso}
-\begin{algorithmic}[1]
-\Require n
-\Ensure Near (Optimal) Solution
-\State $x_{sb}\leftarrow$ getWorstPosition()
-\State $Particles\leftarrow$ createParticles($n$)
-\State initParticles($Particles$)
-\While{$!stoppingCritera$}
-    % Calculate personal best, swarm best positions
-    \State \Comment{Calculate personal best and swarm best positions of the particles}
-    \ForAll{$p \in Particles$}
-        \State $particle \leftarrow$  getPosition($p$)
-        \State $x_{pb} \leftarrow$  getPosition($p$) 
-        \If{$fitness(x)\leq fitness(x_{pb})$} \Comment{Personal best position}
-            \State $x_{pb}\leftarrow x$
-            \If{$fitness(x)\leq fitness(x_{sb})$} \Comment{Swarm best position}
-                \State $x_{sb}\leftarrow x$
-            \EndIf 
-        \EndIf 
-    \EndFor
-    % Calculate next positions of the particles
-    \State \Comment{Calculate next positions of the particles}
-	\ForAll{$p \in Particles$}
-        \State $v\leftarrow v+c1*r1*(x_{pb}-x)+c2*r2*(x_{sb}-x)$ 
-        \State $x\leftarrow$ getPosition($p$)$ + v$
-        %\State setParticlePosition($p,x$)
-    \EndFor
-\EndWhile
-\end{algorithmic}
-\end{algorithm}\vspace{-0.2cm}
+% \begin{algorithm}
+% \caption{PSO Algorithm}\label{alg_pso}
+% \begin{algorithmic}[1]
+% \Require n
+% \Ensure Near (Optimal) Solution
+% \State $x_{sb}\leftarrow$ getWorstPosition()
+% \State $Particles\leftarrow$ createParticles($n$)
+% \State initParticles($Particles$)
+% \While{$!stoppingCritera$}
+%     % Calculate personal best, swarm best positions
+%     \State \Comment{Calculate personal best and swarm best positions of the particles}
+%     \ForAll{$p \in Particles$}
+%         \State $particle \leftarrow$  getPosition($p$)
+%         \State $x_{pb} \leftarrow$  getPosition($p$) 
+%         \If{$fitness(x)\leq fitness(x_{pb})$} \Comment{Personal best position}
+%             \State $x_{pb}\leftarrow x$
+%             \If{$fitness(x)\leq fitness(x_{sb})$} \Comment{Swarm best position}
+%                 \State $x_{sb}\leftarrow x$
+%             \EndIf 
+%         \EndIf 
+%     \EndFor
+%     % Calculate next positions of the particles
+%     \State \Comment{Calculate next positions of the particles}
+% 	\ForAll{$p \in Particles$}
+%         \State $v\leftarrow v+c1*r1*(x_{pb}-x)+c2*r2*(x_{sb}-x)$ 
+%         \State $x\leftarrow$ getPosition($p$)$ + v$
+%         %\State setParticlePosition($p,x$)
+%     \EndFor
+% \EndWhile
+% \end{algorithmic}
+% \end{algorithm}\vspace{-0.2cm}
 
 \subsection{Differential Evolution}
+Similar to PSO, Differential Evolution (DE) is a population-based metaheuristic technique for the global optimization which includes non-linear and non-differentiable problems. It was initially proposed by Storn and Price in 19995 \cite{Storn1997DifferentialSpaces}, and since then it has improved with regard to the different operators of DE such as mutation and crossover, and variants over population topology and hybridization \cite{Das2016RecentSurvey}. It is a parallel search technique, therefore, is ideal for computationally intensive problems, and employs mutation and crossover operators that allow the search to skip local minima as opposed to PSO.
 
+In every generation, the population undergoes mutation, crossover, and selection according to the formulas shown in Equation , (\ref{eqn_de_crossover}), and (\ref{eqn_de_selection}), respectively. A mutant vector $v$ is created from randomly selected elements $\{a,b,c\}\in PN$ according the mutation operation shown in Equation (\ref{eqn_de_mutation}), that is by adding the base matrix to the weighted difference matrix $F\circ(b-c)$, where $F$ controls the amplification of the $(\textbf{b}-\textbf{c})$ variation.
+\begin{align}
+    \label{eqn_de_mutation}
+    \textbf{v} & \leftarrow   \textbf{a} + F\circ(\textbf{b}-\textbf{c})\\
+    \label{eqn_de_crossover}
+    u_{ik} & \leftarrow 
+    \begin{cases}
+    v_{ik} & \mbox{if } U(0,1) \leq CF \mbox{ and } h = (i*K+k)\\
+    x_{ik} & \mbox{if } U(0,1) > CF \mbox{ and } h \neq (i*K+j)
+    \end{cases}\\
+    \label{eqn_de_selection}
+    \textbf{x} &\leftarrow 
+    \begin{cases}
+    \textbf{u} & \mbox{if } f(\textbf{u}) < f(\textbf{x})\mbox{ functions}\\
+    \textbf{x} & \mbox{otherwise }
+    \end{cases}
+\end{align}
 \subsection{Hybrid Particle Swarm Optimization}
+The canonical PSO technique uses the constriction factors to balance exploitation and exploration of the search space, that is to deliver better quality solutions. Nevertheless, it still suffers from local minima especially for complex and large problems that exhibit multimodal behavior. Hybridization of PSO is one the most widely studied approach in the improvement of the the PSO technique. Basically, it combines other optimization techniques, for instance to intensify local search, and improve diversification by introducing stochastic search. However, hybridization of PSO usually incurs additional computation time. Therefore, the benefit of hybridization has to be studied carefully in conjunction to computation time. Moreover, it should not complicate the user-configurable parameters, to be inline with the philosophy of the PSO inception for ease-of-use.
+
+PSO is hybridized with several optimization techniques, such as Genetic Algorithm (GA), DE, local searches (e.g., Hill-climbing, gradient decent, etc.), ant colony, simulated annealing, etc. Of which, it is shown to perform better when hybridized with DE on constrained, discrete, large benchmarks. Furthermore, it is shown to perform better when hybridized with Hill-climbing for software allocation problem \cite{} in particular. In this paper, we hybridize PSO with DE (DEPSO) and Hill-climbing (HCPSO) to the solve the software allocation problem as formulated in Equation (x). In the latter case, we also apply the stochastic variant of Hill-climbing (SHPSO) in order to offset stagnation of the steepest Hill-climbing for large software allocation problems.
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+\SetKwData{P}{P}\SetKwData{S}{sBest}
+\SetKwData{Generation}{Generation}
+\SetKwData{Interval}{Interval}
+\SetKwData{Particles}{Particles}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+\SetKwFunction{OptimizeUsingDE}{optimizeUsingDE}
+\SetKwFunction{OptimizeUsingHC}{optimizeUsingHC}
+\SetKwFunction{OptimizeUsingSHC}{optimizeUsingSHC}
+\SetKwFunction{ComputeParticleVelocity}{computeParticleVelocity}
+\SetKwFunction{ComputeParticlePosition}{computeParticlePosition}
+\SetKwFunction{InitPSO}{initPSO}
+
+\BlankLine
+\Input{PSO parameters, DE parameters}
+\Output{Software allocation solution \S .\textbf{x}}
+\BlankLine
+\Particles $P$ $\leftarrow$ \InitPSO{}\;
+\BlankLine
+ \While{termination criteria}{
+  $P$ $\leftarrow$\ComputePersonalBest{$P$}\;
+  \S $\leftarrow$\ComputeSwarmBest{$P$}\;
+  \BlankLine
+   \ForEach{$p\in P$}{
+        \ComputeParticleVelocity{$p$} according to Equation (\ref{eqn_pso_velocity})\;
+        \ComputeParticlePosition{$p$} according to Equation (\ref{eqn_pso_position})\;
+   }
+   \If{interval criteria}{
+        $P$ $\leftarrow$ \OptimizeUsingDE{$P$}\;
+    \tcp{$P$ $\leftarrow$ \OptimizeUsingHC{$P$}}\label{hc}
+    \tcp{$P$ $\leftarrow$ \OptimizeUsingSHC{$P$}}\label{sh}
+   }
+ }
+ \caption{Hybrid PSO Algorithms.}\label{alg_depso}
+\end{algorithm}\DecMargin{1em}
+ 
+\subsubsection{Differential Evolution PSO}
+DE complements the classical PSO by introducing stochastic behavior via the evolutionary operators such as mutation, cross-over and selection. In this specific hybridization approach, we allow the DE algorithm to run intermittently for some number of generations before the next PSO generation starts.
+
+\subsubsection{Hill-climbing PSO}
+Hill-climbing is a popular local search based on the notion of \textit{neighborhood}, that is, the candidate solution (or neighbor) that performs better is selected iteratively until no improvements can be made. The software allocation solution $\textbf{x}$ is neighbor to $\textbf{x\textquotesingle}$ if $\textbf{x}=\textbf{x\textquotesingle}$ except $\exists i,j|\;x_{ij}\neq x\textquotesingle_{ij}$, that is, a single mapping is different. In every iteration, the best neighbor is selected, and subsequently replaces the current candidate solution if it performs better, and continues until maximum iteration, this variant is known as Steepest-descent Hill-climbing (SHC).
+
+Since SHC exhaustively checks all neighbors before moving to the next iteration, the computation time is high especially for high-dimensional problems. To offset this problem, we also apply the stochastic version of Hill-climbing. In the later case, the neighbor is selected randomly, first by selecting the dimension, that is the component $c_{ij}$, where $i=U(1,I)$ and $j=U(1,K)$, second, selecting the value, that is the node $n_j$, where $j=U(1,J)$. If the neighbor improves the current candidate solution sufficiently, the search moves to the next iteration, which is until no more improvements can be made.
+
