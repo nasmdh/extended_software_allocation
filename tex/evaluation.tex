@@ -165,6 +165,12 @@ Table \ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic} shows the fitness 
 The result shows that the ILP approach returned solutions for the first three problems, in which case it becomes the benchmark for the quality assessment of the metaheuristic algorithms. Whereas, for the last three problems, ILP does not return solution, which conforms the previous ILP evaluation results. The metaheuristic results are further discussed as follows, that is with regard to solution quality and computation time.
 
 \paragraph{Solution Quality} For the first problem, which models the smallest software allocation over heterogeneous nodes, the algorithms DE, LPSO, HCPSO, SHPSO returned the optimal results besides ILP, with zero deviations. However, DEPSO performed relatively worse but better than PSO. The same results are repeated out of the second allocation problem for the algorithms HCPSO, and SHPSO, which are optimal. In contrast, DE and LPSO performed worse followed by DEPSO, and PSO performed relatively the worst. For the third problem, no metaheuristic algorithms returned the optimal solutions on average. Furthermore, the stability of the solutions for the algorithms DE and PSO, as indicated by the standard deviations of the fitness values, are quite higher than the rest metaheuristic algorithms.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\linewidth]{img/power_consumption.pdf}
+\caption{(Near) Optimal Power Consumption of the Different Software Allocation Problems.}
+\label{fig_powerconsumption_ilp_metaheuristic}\vspace{-0.4cm}
+\end{figure}
 
 As the size of the problem further increases, that is \textit{c20m10g30} and \textit{c20m10g30}, the hybrid PSO performed the far better, with HCPSO the best followed by SHPSO and DEPSO. However, as the size of the problem further increases, that is with \textit{c80m20g60}, HCPSO did not return solutions at reasonable time. In contrast, its stochastic variant HCPSO performed the best followed by DEPSO, LPSO, and PSO, in order of their solutions quality, and DE performed the last.
 
