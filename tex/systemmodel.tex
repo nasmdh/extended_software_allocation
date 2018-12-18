@@ -9,6 +9,25 @@ The system model consists of three parts: a software application, an execution p
 
 In this work, we target AUTOSAR-based systems due to the increasing popularity of the specification standard in  the automotive industry, and the challenges and opportunities that automotive industry is facing especially in resource optimization and dependability of automotive systems. Note that our approach can also be applied on different domains of distributed embedded systems with a slight change in the application modeling.
 
+\paragraph{Notations} Throughout the paper, we use the following mathematical notations to define, explain, and discuss the problem, for the purpose of smooth reading. For convenience, we use similar symbols intermittently, in which case their usage is explained in the context and the latter overrides the respective notation.
+\begin{table}[]
+\begin{tabular}{@{}llp{0.65\textwidth}@{}}
+\toprule
+ & Notation                        & Description                                                               \\ 
+\midrule
+$\bullet$ & $C=\{c_i\ |i\in[1,I]\}$         & a set of software components, where $I$ is caridnatlity of $C$, that is $I=\abs{C}$ \\
+$\bullet$ & $c_i^k$                         & the $k^{th}$ replica (or prototype of) the $c_i$ software component, and $K=\abs{replica(c_i)}$\\
+$\bullet$ & $R=\{r_i\ |i\in[1,N]\}$         & a set of runnables, where $N=\abs{R}$                                 \\
+$\bullet$ & $M=\{m_i\ |i\in[1,J]\}$         & a set of computation nodes (or ECUs), $J=\abs{M}$                      \\
+$\bullet$ & $a=(V,E)$                       & a software application, modeled as a digraph of runnable nodes $V$ and edges $E$             \\
+$\bullet$ & $\Gamma=\{\Gamma_i\ |i\in[1,M]\}$ & a set of end-to-end paths (or cause-effect chains) of the graph $a$                      \\
+$\bullet$ & $\Gamma_i=(V_{r_i})_{i=1}^Z$   & a chain of runnable nodes, where $Z=\abs{\Gamma_i}$ is the length of the chain           \\ 
+$\bullet$ & $\zeta:\Gamma_i\mapsto \Gamma_i^T$ & a function that groups and maps runnables to operating system tasks, $T=\{\tau_i\ |i\in[1,H]\}$, where $H=\abs{T}$   \\
+$\bullet$ & $P$                            & power consumption of a software application                                             \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Software Application Model}
 In AUTOSAR-based systems, a software application is developed using AUTOSAR application software components $C$ that consist of one or more runnables $R_c$~\cite{Schreiner2007ABus}. In this notation, $R_{c_i}$ refers to the set of runnables that are co-hosted in the component $C_i$.
 \begin{definition}[Software Application] We define an AUTOSAR software application $\zeta$ as a \textit{Digraph} (acyclic directed graph) $\langle V_r, E\rangle$ of runnable nodes $V_r$, where $\langle u,v\rangle\in E$ is a set of directed links from $u$ to $v$, which denote the logical flow of the application, and $u,v\in V_r$. The runnable is a tuple $\langle e, p \rangle$, where $\bigcup_{i=1}^{N} e_{i}$ is a set of execution times, $p$ is a periodic activation, and $e_i$ refers to the execution time of the runnable $r$ on the node $m_i$.

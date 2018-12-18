@@ -41,7 +41,6 @@ share of activation-patterns	& \multicolumn{3}{c}{$[0.7, 0.2, 0.1]$}\\
 \label{tbl_appsspec}
 \end{table}
 
-
 \subsubsection{Platform Specification} The specification of nodes can be obtained from simulation, vendor product specification and  experience. Figure~\ref{tbl_nodesspecs} shows the range of values that are used in the nodes' specification. In the experiment, the values are randomly generated while respecting the benchmark.
 \begin{table}[h]
 \centering\small
@@ -67,16 +66,16 @@ A preliminary analysis of the evaluation indicates a successful termination of t
     \centering
     \begin{subfigure}[b]{0.525  \textwidth}
         \includegraphics[width=\textwidth]{img/fitness_c20_g30_m10.pdf}
-        \caption{Utilization of Nodes.}
+        \caption{Fitness and Power Consumption.}
         \label{fig_util}
     \end{subfigure}
     ~%\hspace{-0.4cm}
         \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{img/time_c20_g30_m10.pdf}
-        \caption{Power Consumption of Nodes.}
+        \caption{Computation Time}
         \label{fig_power}
     \end{subfigure}
-    \caption{Allocation of Applications on Heterogeneous Nodes.}
+    \caption{Allocation of Software Application $(N_c=20,N_r=200,N_\Gamma=30)$ on $N_m$ number of Heterogeneous Nodes using Different Optimization Methods.}
     \label{fig_util_power}\vspace{-0.2cm}
 \end{figure*}
 
@@ -90,24 +89,23 @@ A preliminary analysis of the evaluation indicates a successful termination of t
 \end{figure}
 
 
-\usepackage{Extended Performance Analysis}
+
+\subsection{Extended Performance Analysis}
 \subsection{Varying the Size of Application} 
 This refers to increasing the number of software components, as well as runnables, tasks, and cause-effect chains in the system. Figure~\ref{fig_increasing_components} shows the effect of increasing the size of an application from $(c4,r40,t19,g30)$ to $(c10,r100,t57,g60)$ on the allocation time and  the number of nodes utilized. The applications are allocated to a pool of 8 heterogeneous nodes sharing a single network and with specifications shown in Table~\ref{tbl_nodesspecs_exp}. The specifications are generated randomly, with uniform distribution, within the scope of Table~\ref{tbl_nodesspecs}.
-\begin{table}
-\centering\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}lllllllll@{}}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\small
+\begin{tabular}{@{}llllllll@{}}
 \toprule
-Node  		& m1 & m2 & m3 & m4&m5&m6&m7&m8\\ 
-\midrule
-$P_{min}$ & 10 	& 40 	&	30 	&	20 	& 30 	& 	40	&	20&	10\\
-$P_{max}$ & 80	& 120	&	120	&	170	&	140	&	130	&	140 &110\\
-$\lambda$  &$10^{-3}$	&$10^{-3}$	&$10^{-4}$&$10^{-5}$&$10^{-6}$&$10^{-2}$&$10^{-6}$&$10^{-4}$\\
-\bottomrule
+Application & Measure & PSO & LPSO & DE & DEPSO & HCPSO & SHPSO \\ \midrule
+App1 & Mean &  &  &  &  &  &  \\
+ & Std.Dev. &  &  &  &  &  &  \\
+App2 &  &  &  &  &  &  &  \\ \bottomrule
 \end{tabular}
-\caption{Specification of Nodes.}
-\label{tbl_nodesspecs_exp}\vspace{-0.4cm}
 \end{table}
+
 \begin{figure*}
     \centering
     \begin{subfigure}[b]{0.4  \textwidth}
@@ -160,3 +158,6 @@ The allocation in all applications took not more than 10 sec for replications 1 
 \end{figure*}
 
 Figure~\ref{fig_replication_2} shows the effect of shared constraints on the overhead of replications during the pre-optimization and optimization phases of the allocation. In the pre-optimization phase, the allocation time was stable for the increased size of applications. This is due to the fixed constraints regardless of the replications. In contrast, the allocation time increases during optimization as the constraints are applied for the various combination of task partitions, cause-effect chains, and reliability states generated as the result of replications.
+
+%\input{tex/evaluation_result_table.tex}
+\input{tex/evaluation_result_computationtime.tex}
