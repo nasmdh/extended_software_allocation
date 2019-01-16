@@ -1,0 +1,21 @@
+\section{Problem Definition}\label{sec_allocation}
+In this section, we define the allocation problem of a fault-tolerant software application on a network of heterogeneous nodes which is formulatd as ann optimization problem as shown in Equation (\ref{eqn_const_func}). The optimization problem considers minimizing of power consumption $p(x)$ as the objective while fulfilling timing (\ref{eqn_timing}) and application reliability requirements (\ref{eqn_reliability}) of the software applications as well as satisfying design and hardware constraints, e.g., respecting affinity of software components to dedicated nodes.
+\begin{align}
+\label{eqn_optimization}
+\min_{x\in X}\;\;& P(\textbf{x}) & \\
+\text{Subjected to:} &\\
+& ResponseTime_i(\textbf{x}) \leq Deadline_i & \text{for }\tau_i\in T, i=1,2,...,N_\tau \\ 
+\label{eqn_e2e}
+&Delay_i(\textbf{x}) \leq EndToEnd_i & \text{for }\Gamma_i\in \Gamma, i=1,2,...,N_\Gamma \\
+\label{eqn_reliability}
+&Reliability(\textbf{x}) \leq relReq\\
+\label{eqn_mapping}
+&StaticMapping_i(\textbf{x})\models \top & \text{for }c_i\in C, i=1,2,...,N_c
+\end{align}
+where $x\in X$ is a feasible solution of the allocation problem and 
+$X$ is the search space of the problem (or domain of the function $P$), $t_i(x) \leq c^{timing}_i$ are a set of timing specification constraints, $Timing\in \Bbb R^n$ is a set of timing boundaries, and $c^{reliability}\in \Bbb R^n$ is a set of reliability boundaries.
+
+In the rest of this section, we show the ILP model and the PSO algorithm of the software allocation problem, which are validated on an automotive use case and evaluated for performance in the next section. Throughout this section, we use a simple running example of a system model in order to demonstrate our proposed ILP model and the PSO optimization algorithm.
+
+\subsection{Objective Function}
+\subsection{Constraints}
