@@ -3,20 +3,7 @@ Although the proposed ILP approach provides exact solutions, that is with an AUT
 
 Metaheuristic techniques perform differently for different problem types, size, and complexity. In this section, we show application of different metaheuristic techniques that employ swarm intelligence and evolutionary approaches in finding the (near) optimal solutions. Specifically, we apply the Particle Swarm Intelligent (PSO), Differential Evolution techniques primarily, and further hybrid PSO with DE and Hill-climbing for improved performance. PSO has been applied to solve a wide range of problems, including a task allocation problem \cite{yin2007task}, and DE is shown to scale well for problems with high dimensions. In fact, PSO and DE are used together for improved performance in several optimization problems, likewise, PSO is used with local search techniques such as Hill climbing to intensify the search. Finally, we evaluate the different metaheuristic methods based on solution quality and allocation (or computation) time for different software allocation problems.
 
-
 \subsection{Solution Representation}
-The software allocation problem is a type of job shop scheduling with constraint, as such it is discrete, that is its solution takes on discrete values $\textbf{x}\in \{1,…,L\}^N$. The solution is represented by a matrix of size $I\times K$ as show in Figure \ref{fig_pso_solution_representation}, where $x_{ik}=j\in \{1,…,J\}$ denotes allocation of the software component replica $c_{ij}$ on the computation node $m_j$, that is $c_{ik}\mapsto m_j$.
-\begin{equation}
-\label{fig_pso_solution_representation}
-\textbf{x}=
-\begin{bmatrix} 
-x_{11} & x_{12} & \dots & x_{1K}\\
-x_{21} & x_{22} & \dots & x_{2K}\\
-\vdots & \vdots & \ddots & \vdots\\
-x_{I1} & x_{I2} & \cdots & x_{IK}
-\end{bmatrix}
-\end{equation}
-
 In contrast to the \textit{0-1} representation, the integer-linear representation uses much lower number of variables, that is $N*K(L-1)$, e.g., for a software allocation problem with $N=10,L=8,K=2$, 140 variables are saved. Of course the possible values in the former representation is two whereas in the latter representation, it is $L$, which is usually higher and results larger solution space. Nevertheless, the integer-linear representation is compact and computationally more efficient.
 
 \subsection{Fitness Function Definition}

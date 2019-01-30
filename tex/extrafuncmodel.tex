@@ -1,16 +1,53 @@
-\section{Models of Extra-functional Properties}\label{sec_extrafunc}
-In this section, we discuss the timing, application reliability, and power consumption models used throughout the paper.
+\section{Problem Model}\label{sec_extrafunc}
+The software allocation problem is a type of job shop scheduling with constraints, as such it is a discrete optimization problem \cite{}. The solution to the allocation problem is represented by a matrix $\textbf{x}$ of size $N_c\times K$, where $N_c$ is the number of component types and $K=Max(K_i)$ is the maximum replica size of type $c_i$, where $x_{ij}=k\in \{1,…,N_m\}$ represents the mapping of the software component replica $c_{ij}$ to the computation node $m_k$.
+\begin{equation}
+\label{fig_pso_solution_representation}
+\textbf{x}=
+\begin{bmatrix} 
+x_{11} & x_{12} & \dots & x_{1K}\\
+x_{21} & x_{22} & \dots & x_{2K}\\
+\vdots & \vdots & \ddots & \vdots\\
+x_{I1} & x_{I2} & \cdots & x_{IK}
+\end{bmatrix}
+\end{equation}
 
-\subsection{Power Consumption Model}
-Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. Depending on the nature of the integrated circuit and intended use, there exist low-level and high-level models of power and energy consumption estimation techniques. The low-level models, for instance in CMOS-based integrated circuits estimate power consumption via the power consumption of flip-flops and combinatorial gates \cite{Najm1994ACircuits}\cite{Najm1995PowerCircuits}, and they are frequently used in the design of power-efficient electronic circuits designs. The high-level models apply dynamic profiling of computer components, e.g., CPU, memory, I/O devices, etc., to estimate power consumption of the computer system, and they are primarily used in energy management techniques, e.g., in dynamic Voltage and Frequency Scaling (DVFS) \cite{Contreras2005PowerEvents}.
+In this work, the main objective of the allocation problem is to satisfy the user-defined requirements, namely reliability requirements, end-to-end timing requirements, and criticality of the software applications $A_i$ by effectively mapping the software components to the computation nodes. Furthermore, the components are allocated efficiently to minimize the total power consumption $Power(\textbf{x})=\sum_{m\in M'}{P_{m}(\textbf{x})}$ of the applications by selecting lower-power consuming nodes, where $M'\subseteq M$ is the set of nodes that are employed in the allocation $\textbf{x}$, $P_{m}(\textbf{x})$ is the power consumption on a single node.
 
-However, the previously mentioned power estimation techniques have limitations especially for applications in the early stages of system design. Their limitations are as follows: i) the lack of complete and accurate information of electrical specification of integrated circuits makes the use of low-level power estimation methods difficult, and ii) the dynamic profiling of high-level techniques requires runtime mechanisms, such as performance counter monitor, which is not applicable in our case. Instead, in this work, we employ a different approach that is based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computational node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The mode states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
+%Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. 
+There are several power consumption models and different techniques to estimate the power consumption of a computing node. In this work, we employ a technique based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computational node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The mode states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
 \begin{equation}
 \label{eqn_powerconsumption}
 f_p(u)=P_{idle} + (P_{busy}-P_{idle})*u,
 \end{equation}
 
-where $u$ is the utilization (or load) of a computation node, $p_{idle}$ and $p_{busy}$, respectively, refer to the power consumption of a node measured at minimum and maximum processor loads. Such measurements can be obtained by running performance benchmark suits, e.g., MiBench \cite{Guthaus2001MiBench:Suite}, AutoBench \cite{EMBC2018AutoBenchProcessors}, etc.
+where $u$ is the utilization (or load) of a computation node, $p_{idle}$ and $p_{busy}$, respectively, refer to the power consumption of a node measured at minimum and maximum processor loads. Such measurements can be obtained by running performance benchmark suits, e.g., MiBench \cite{Guthaus2001MiBench:Suite}, AutoBench \cite{EMBC2018AutoBenchProcessors}, etc., which is computed based on the utilization of the node via the linear power consumption model shown in Equation (\ref{eqn_powerconsumption}).
+
+Consequently, the power consumption of a node $m$ for a given mapping $\textbf{x}$ is computed using Equations (\ref{eqn_powerconsumption_x}-\ref{eqn_util_component}), first by calculating its utilization $U_m(\textbf{x})$ using Equation (\ref{eqn_util_x}). The utilization of the node is computed from the set of components allocated to it (which is $\forall_{ij} x_{ij}=m$) using Equation (\ref{eqn_util_x}). And the utilization of a component on the node $m$ is computed from its constituent tasks $T_c$ using Equation (\ref{eqn_util_component}).
+\begin{align}
+\label{eqn_powerconsumption_x}
+P_m(\textbf{x})&=f_p(U_m(\textbf{x}))\\
+\label{eqn_util_x}
+U_{m}(\textbf{x}) &= \sum_{i}{\sum_{j}{U_{c_i}}(x_{ij})} & \text{: }x_{ij}=m\\
+\label{eqn_util_component}
+U_c(m) &= \sum_{\tau\in T_c} \frac{\tau.e_m}{\tau.P},&
+\end{align}
+
+where
+%the mapping solution $\textbf{x}$ is computed over the node's utilization (or load) $u_m(\textbf{x})$, which is computed over the tasks that are allocated on the node.
+
+%$\textbf{x}$, , where  is the power consumption of the node $m$ with utilization $u_m(\textbf{x}). $for a solution $\textbf{x}$ as shown from Equation 
+%(\textbf{x})=f_p(u_m(x))
+%The In this section, we discuss the timing, application reliability, and power consumption models used throughout the paper.
+%\subsection{Power Consumption Model}
+%Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. Depending on the nature of the integrated circuit and intended use, there exist low-level and high-level models of power and energy consumption estimation techniques. The low-level models, for instance in CMOS-based integrated circuits estimate power consumption via the power consumption of flip-flops and combinatorial gates \cite{Najm1994ACircuits}\cite{Najm1995PowerCircuits}, and they are frequently used in the design of power-efficient electronic circuits designs. The high-level models apply dynamic profiling of computer components, e.g., CPU, memory, I/O devices, etc., to estimate power consumption of the computer system, and they are primarily used in energy management techniques, e.g., in dynamic Voltage and Frequency Scaling (DVFS) \cite{Contreras2005PowerEvents}.
+
+%However, the previously mentioned power estimation techniques have limitations especially for applications in the early stages of system design. Their limitations are as follows: i) the lack of complete and accurate information of electrical specification of integrated circuits makes the use of low-level power estimation methods difficult, and ii) the dynamic profiling of high-level techniques requires runtime mechanisms, such as performance counter monitor, which is not applicable in our case. Instead, in this work, we employ a different approach that is based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computational node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The mode states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
+% \begin{equation}
+% \label{eqn_powerconsumption}
+% f_p(u)=P_{idle} + (P_{busy}-P_{idle})*u,
+% \end{equation}
+
+%where $u$ is the utilization (or load) of a computation node, $p_{idle}$ and $p_{busy}$, respectively, refer to the power consumption of a node measured at minimum and maximum processor loads. Such measurements can be obtained by running performance benchmark suits, e.g., MiBench \cite{Guthaus2001MiBench:Suite}, AutoBench \cite{EMBC2018AutoBenchProcessors}, etc.
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[b]{0.25\textwidth}
@@ -57,6 +94,24 @@ The software application can be considered as a set of cause-effect chains, whic
 
 The calculation of data-propagation delays in multirate software applications is not trivial due to the oversampling and undersampling effects, caused by the different activation patterns. Consequently, there are different delay semantics, which differ depending on the timed paths through which the data is propagated from the input to the output of the chains~\cite{mubeen2013support}. In this work, we focus on the \textit{age} and \textit{reaction} delays, which are the most widely used delay semantics in the automotive embedded systems. The two delays in a cause-effect chain that is distributed over two nodes  are demonstrated in Figure~\ref{fig_timedpath}. The tasks t1 and t2 execute on one node, whereas task t3 executes on the second node. Note that t2 communicates with t3 via a network message, that is not shown in the figure for simplicity. The red inverted arrows in Figure~\ref{fig_timedpath} represent the arrival of events at the input of the chain, whereas the dashed-curve arrows represent the timed paths through which the data propagates from the input to the output of the chain. The age delay is the time elapsed between a stimulus and its corresponding latest non-overwritten response, i.e., between the $2^{nd}$ instance of t1 and the $5^{th}$ instance of t3. This delay is frequently used in the control systems applications where freshness of data is paramount. For example, the torque applied to turn the wheels must correspond to the position of the steering wheel and must be time bound. The reaction delay is the earliest time the system takes to respond to a stimulus that ``just missed" the read access at the input of the chain. Assume that an event occurs just after the start of execution of the $1^{st}$ instance of t1. The data corresponding to this event is not read by the current instance of t1. In fact, the data will be read by the $2^{nd}$ instance of t1. The earliest effect of this event at the output of the chain will appear at the $4^{th}$ instance of t3, which represents the reaction delay. This delay is useful in body-electronics domain where first reaction to events is important, e.g., in the button-to-reaction applications. We refer the reader to \cite{mubeen2013support} for the formal semantics of the two delays used in this paper.
 
+\subsection{Software Allocation Optimization P}\label{sec_allocation}
+In this section, we define the allocation problem of a fault-tolerant software application on a network of heterogeneous nodes which is formulatd as ann optimization problem as shown in Equation (\ref{eqn_const_func}). The optimization problem considers minimizing of power consumption $p(x)$ as the objective while fulfilling timing (\ref{eqn_timing}) and application reliability requirements (\ref{eqn_reliability}) of the software applications as well as satisfying design and hardware constraints, e.g., respecting affinity of software components to dedicated nodes.
+\begin{align}
+\label{eqn_optimization}
+\min_{x\in X}\;\;& P(\textbf{x}) & \\
+\text{Subj to:} &\\
+& ResponseTime_i(\textbf{x}) \leq Deadline_i & \text{for }\tau_i\in T, i=1,2,...,N_\tau \\ 
+\label{eqn_e2e}
+&Delay_i(\textbf{x}) \leq EndToEnd_i & \text{for }\Gamma_i\in \Gamma, i=1,2,...,N_\Gamma \\
+\label{eqn_reliability}
+&Reliability_i(\textbf{x}) \leq RelReq_i & \text{for }a_i\in A, i=1,2,...,N_A\\
+\label{eqn_mapping}
+&StaticMapping_i(\textbf{x})\models \top & \text{for }c_i\in C, i=1,2,...,N_c
+\end{align}
+where $x\in X$ is a feasible solution from the search space
+$X$, is the search space of the problem,  are a set of timing specification constraints, $Timing\in \Bbb R^n$ is a set of timing boundaries, and $c^{reliability}\in \Bbb R^n$ is a set of reliability boundaries.
+
+In the rest of this section, we show the ILP model and the PSO algorithm of the software allocation problem, which are validated on an automotive use case and evaluated for performance in the next section. Throughout this section, we use a simple running example of a system model in order to demonstrate our proposed ILP model and the PSO optimization algorithm.
 
 \subsection{Running Example}
 The example employs an AUTOSAR system, which consists of a software application model and a hardware platform model, as well as functional and extra-functional requirements such as timing and reliability of the software application. The software application is modeled as a digraph of runnables, which is shown in Figure \ref{fig_application}. It consist of 50 runnables, 35 cause-effect chains (or paths), with their activation patterns and timing specifications shown in Table \ref{tbl_requirements}. The timing specifications of the runnables as well as the software components from which the runnables are instantiated are shown in Table \ref{tbl_comps_config}. The hardware platform model consists of three computation nodes, with specifications shown in Table \ref{tbl_nodes_specification}.
@@ -78,21 +133,25 @@ C& $r_i$ & $(e_{r_im_1}, e_{r_im_2}, e_{r_im_3})$ & $period$\\ \midrule
 &$r_2$ & (0.041, 0.081, 0.122) & 2\\
 &$r_3$ & (0.083, 0.167, 0.250)  & 5\\ 
 &$r_4$ & (0.310, 0.620, 0.930) & 10 \\[0.3em]
+\hline
 \multirow{2}{4em}{c2} 
 &$r_1$ & (0.310, 0.620, 0.930) & 10\\
 &$r_2$ & (0.310, 0.620, 0.930) & 10\\
 &$r_3$ & (0.310, 0.620, 0.930)  & 10\\ 
 &$r_4$ & (0.310, 0.620, 0.930) & 10 \\[0.3em]
+\hline
 \multirow{2}{4em}{c3} 
 &$r_1$ & (0.310, 0.620, 0.930) & 10\\
 &$r_2$ & (0.291, 0.583, 0.874)) & 10\\
 &$r_3$ & (0.291, 0.583, 0.874)  & 20\\ 
 &$r_4$ & (0.291, 0.583, 0.874) & 20 \\[0.3em]
+\hline
 \multirow{2}{4em}{c4} 
 &$r_1$ & (0.291, 0.583, 0.874) & 20\\
 &$r_2$ & (0.291, 0.583, 0.874)) & 10\\
 &$r_3$ & (0.291, 0.583, 0.874)  & 20\\ 
 &$r_4$ & (0.093, 0.186, 0.279) & 50 \\[0.3em]
+\hline
 \multirow{2}{4em}{c5} 
 &$r_1$ & (0.420, 0.841, 1.261) & 100\\
 &$r_2$ & (0.420, 0.841, 1.261)) & 100\\
@@ -108,10 +167,10 @@ C& $r_i$ & $(e_{r_im_1}, e_{r_im_2}, e_{r_im_3})$ & $period$\\ \midrule
     \begin{tabular}{@{}lll@{}}
     \toprule
     Activation, $AP$ & Share & Time, ms \\ \midrule
-    $\tau_1$ & 0.5  & 50\\
-    $\tau_1\rightarrow\tau_2$ & 0.2  & 100\\
-    $\tau_1\rightarrow\tau_2\rightarrow\tau_3$ & 0.2  & 200\\
-    $\tau_1\rightarrow\tau_2\rightarrow\tau_3\rightarrow\tau_4$ & 0.1  & 400\\
+    $\tau_1$ & 50  & 50\\
+    $\tau_1\rightarrow\tau_2$ & 20  & 100\\
+    $\tau_1\rightarrow\tau_2\rightarrow\tau_3$ & 20  & 200\\
+    $\tau_1\rightarrow\tau_2\rightarrow\tau_3\rightarrow\tau_4$ & 10  & 400\\
     \bottomrule
     \end{tabular}
     \captionof{table}{Activation Patters of Cause-effect Chains, their Share and End-to-end Timing Requirements.}
@@ -131,4 +190,4 @@ C& $r_i$ & $(e_{r_im_1}, e_{r_im_2}, e_{r_im_3})$ & $period$\\ \midrule
 \end{minipage}
 \end{center}
 
-In the next subsequent subsections, we propose an ILP mode and a PSO algorithm that encodes the software allocation problem. Furthermore, we elaborate concepts of the proposed solutions via the running example.
+In the next subsequent subsections, we propose a metaheuristic approach which is based on Particle Swarm Optimization (PSO) and hybrid PSO. Furthermore, we elaborate the approach using the presented running example.

@@ -1,70 +1,93 @@
 \section{System Model}\label{sec_system}
-The system model is composed of three parts: software applications $A=\{a_1, a_2,...a_{l_c}\}$, an execution platform $p=M=\{m_1, m_2,...m_{l_m}\}\cup B$, and an allocation scheme $f:A\mapsto B$ as illustrated in the Figure \ref{fig_softwareallocation}. The applications are user-defined software systems, such as x-by-wire, electronic throttle control, flight control, etc., which are developed using software components \cite{softwarecomponents}\cite{Crnkovic2002BuildingSystems}. The applications are deployed on a network of computation nodes, which are logical hardware components that provide an execution platform together with operating systems and middleware software applications. The allocation scheme defines the mappings of the software components to computation nodes and  denotes the deployment of the software applications.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.6]{}
-\caption{System Model.}
-\label{fig_softwareallocation}
-\end{figure}
-
-The system realizes fault-tolerance by replicating two or more software components on distinct nodes in order to meet reliability requirements. Furthermore, the system is real time, that is applications must exhibit functional behavior on timely manner. Essentially, the applications are annotated with timing information both at the higher-level (user-level) abstraction and lower-level (or operating system level), respectively via action-reaction (or stimuli-response) timing constraints and timing models of operating system processes (or tasks). The allocation scheme should satisfy the reliability and timing requirements of the applications. Since, different allocation schemes provide different system performance, we consider optimizing of the design on the basis of power consumption at the same time fulfilling the stated reliability and timing requirements of the applications.
-
-
-\paragraph{Notations}  For the purpose of smooth reading, we use the following mathematical notations to describe the system model, define the software allocation problem, explain and analyze the problem throughout the paper. %For convenience, we use similar symbols intermittently, in which case their usage is explained in the context and the latter overrides the respective notation.
+The system model is composed of three parts: software applications, an execution platform, and an allocation scheme. In this section, we show models of the different parts and describe them detail. For smooth reading, first we list the main mathematical notations used throughout the paper, e.g., to define the system model as the software allocation problem.
 \begin{table}[]
 \begin{tabular}{@{}llp{0.65\textwidth}@{}}
 \toprule
- & Notation                        & Description                                                               \\ 
+ & Notation                        & Description                                             \\ 
 \midrule
-$\bullet$ & $C=\{c_i\ |i\in[1,I]\}$         & a set of software components, where $I$ is caridnatlity of $C$, that is $I=\abs{C}$ \\
-$\bullet$ & $c_i^k$                         & the $k^{th}$ replica (or prototype of) the $c_i$ software component, and $K=\abs{replica(c_i)}$\\
-$\bullet$ & $R=\{r_i\ |i\in[1,N]\}$         & a set of runnables, where $N=\abs{R}$                                 \\
-$\bullet$ & $M=\{m_i\ |i\in[1,J]\}$         & a set of computation nodes (or ECUs), $J=\abs{M}$                      \\
-$\bullet$ & $(V,E)$                       & a software application, modeled as a digraph of runnable nodes $V$ and edges $E$             \\
-$\bullet$ & $\Gamma=\{\Gamma_i\ |i\in[1,M]\}$ & a set of end-to-end paths (or cause-effect chains) of the graph $a$                      \\
-$\bullet$ & $\Gamma_i=(V_{r_i})_{i=1}^Z$   & a chain of runnable nodes, where $Z=\abs{\Gamma_i}$ is the length of the chain           \\ 
-$\bullet$ & $\zeta:\Gamma_i\mapsto \Gamma_i^T$ & a function that groups and maps runnables to operating system tasks, $T=\{\tau_i\ |i\in[1,H]\}$, where $H=\abs{T}$   \\
-$\bullet$ & $P$                            & power consumption of a software application                                             \\
+$\bullet$ & $A=\{A_i: i=1,\dots, N_a\}$       & a set of software applications, where $N-a=|A|$ \\
+$\bullet$ & $C=\{c_i: i=1,\dots, N_c\}$       & a set of software components, where $N_c=\abs{C}$ \\
+$\bullet$ & $R=\{r_i: i=1,\dots, N_r\}$      & a set of runnables, where $N_r=\abs{R}$            \\
+$\bullet$ & $T=\{\tau_i:1,\dots, N_\tau\}$   & a set of runnables, where $N_\tau=\abs{T}$                \\
+$\bullet$ & $M=\{m_i:i\in[1,J]\}$           & a set of computation nodes (or ECUs), $N_m=\abs{M}$       \\
+$\bullet$ & $\Gamma=\{\Gamma_i\ :i=1,\dots, N_\gamma\}$ & a set of end-to-end chains             \\
+$\bullet$ & $\Gamma_i=(e_i)_{i=1}^Z$   & a chain of elements $e_i=r_i$ or $e_i=\tau_i$, $Z=\abs{\Gamma_i}$ is the length of the chain\\ 
+$\bullet$ & $\zeta:T\mapsto R$ & a function that groups and maps runnables to tasks\\[6pt]
+
+$\bullet$ & $c_{i,k}$                            & the component co-hosted at $A_k$         \\
+$\bullet$ & $c_{ij,k}$                           & the $k^{th}$ replica of $c_{i,k}$        \\
+$\bullet$ & $K_{i,k}$                            & the replica size of $c_{i,k}$\\[6pt]
+
+$\bullet$ & $\textbf{x}:C\mapsto M$            & a feasible software allocation solution                  \\
+$\bullet$ & $Power(\textbf{x})$                & total power consumption of applications $A$               \\
+$\bullet$ & $Reliability_{i}(\textbf{x})$      & the reliability violation of application $A_i$              \\
+$\bullet$ & $ResponseTime_{i}(\textbf{x})$     & the response time violation of task $A_i$                       \\
+$\bullet$ & $Delay_{i}(\textbf{x})$            & the age delay violation of chains in $A_i$         \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-%he system overview is illustrated illustrated in Figure \ref{fig_softwareallocation}.
-%on the computation nodes (or mappings of the software components) which is a network of heterogeneous nodes with possibly different processor frequencies, power consumption, and failure-rates. The allocation scheme, which defines a mapping relation from software components to computational nodes, guarantees that the extra-functional properties such as application reliability and timing requirements are met. Furthermore, it takes the optimization of power consumption as its objective in the allocation process.
+\subsection{Software Applications}
+The software applications are user-defined software systems, e.g., x-by-wire, electronic throttle control, flight control, etc., that are developed using software components \cite{softwarecomponents}\cite{Crnkovic2002BuildingSystems}. A software application $A_i$ is associated with high-level and user defined requirements $\langle RelReq_i, E2eReq_i,L_i\rangle$, where the tuple elements denote, respectively the reliabiity requirement, end-to-end timing requirements and criticality-level of the application $A_i$. The critical level signifies the importance of an application over other applications that have lower criticality levels, thus prioritizing the application during resource contention. The criticality levels are defined systematically, e.g., following the hazard analysis according to ISO 26262 standard. The end-to-end timing requirements define the timing constraints over end-to-end functional behaviors of applications, which are referred to as cause-effect chains $\Gamma$, and finally the reliability requirement defines the expected reliability goal of an application which is discussed further in (). 
 
-\subsection{AUTOSAR System Model}
-In this work, we target AUTOSAR-based systems due to the increasing popularity of the standard in  the automotive industry, and the challenges and opportunities that automotive industry is facing especially in resource optimization and dependability of automotive systems. The model is illustrated in Figure \ref{fig_softwareallocation}. Note that our approach can also be applied on different domains of distributed embedded systems with a slight change in the application modeling.
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.6]{softwareallocation}
-\caption{System Model.}
-\label{fig_softwareallocation}
-\end{figure}
+The software applications are parallel and therefore can potentially be distributed on different computation nodes $M =\{m_i:i=1,2,\dots J\}$, where $J=|M|$ is the cardinality of the set $M$, which we assume are heterogeneous with respect to processor speed, failure-rate and power consumption as indicated by the tuple $(hz, \lambda, p)$, respectively. 
 
-\subsection{Software Application Model}
-AUTOSAR software applications are constructed from communicating AUTOSAR application components $\bigcup_{i=1}^{I} C_i$, where the component $c_i^k$ is the $k^{th}$ replica of the component type $C_i$ and $I$ is the number of software component types (or the cardinality of the infinitary union). Each software component co-hosts a set of runnables $R^*\subseteq R$ that are disjoint.
-
-\begin{definition}[AUTOSAR Software Application] For simplicity, we model an AUTOSAR software application $\zeta$ as a \textit{DAG} (directed acyclic graph) $\langle V_r, E\rangle$ of runnable nodes $V_r$, where $\langle u,v\rangle\in E$ is a set of directed links from $u$ to $v$ which denote the logical data flow of the application, and $u,v\in V_r$. A runnable is a tuple $\langle \bigcup_{j=1}^{J} e_{j} , p \rangle$, where $e_{j}$ is the execution of the runnable on node $m_j$ and $p$ is its periodic activation.
+%$\bigcup_{i=1}^{N_a} A_i$ 
+\begin{definition}[Software Application Model]
+A software application is modeled as \textit{undirected} graph $\langle V_c,L_c\rangle$ of software component nodes, where $a_{ij}\in L_c$ refers to the communication link from node $c_i$ to node $c_j$. It is associated to a function behavior that is modeled as \textit{directed acyclic vertex-weighted} graph $\langle V_\tau,L_\tau, w\rangle$ of periodic task nodes $V_\tau$, where $a_{ij}\in L_\tau$ refers to the data-flow link from node $\tau_i$ to node $\tau_i$ and $i \neq j$. The computation cost $w(\tau)=\langle e_m,D,P\rangle$ refers to the periodic task model of the node and the tuple elements denote the execution time on node $m$, deadline and periodic activation, respectively.
 \end{definition}
 
-Before software components are allocated to nodes, the runnables are mapped to tasks according to AUTOSAR development approach \cite{AUTOSAR2017SpecificationSoftware}:
-\begin{itemize}
-\item Case1: A runnable is mapped to a single task as one-to-one, $r\mapsto \tau$
-\item Case2: Runnables that are co-hosted in a software component are mapped to a single task, that is a component is mapped to a task as one-to-one, $R_{c_i^k}\mapsto \tau_i^k$
-\item Case3: Runnables from the same software components that proceed one another and have the same activation period are mapped to a single task
-For more information, please see the AUTOSAR documentation \cite{AUTOSAR2017SpecificationSoftware}.
-\end{itemize}
+For efficient computation, we consider software applications with different criticality levels to share the execution platform resources such as the computation nodes and communication network. In this regard, the system in consideration is \textit{mixed-critical} \cite{Vestal2007PreemptiveAssurance}, which is an existing practice in avionics and also trending in other domains, e.g., automotive. The notion behind mixed-critical design is the separation of applications with different criticality levels, e.g., separation of safety-critical applications x-by-wire and electronic throttle control from infotainment applications, in order to avoid interference, e.g., to contain faults.  
 
-We assume runnables communicate (or send data messages) at the end of the corresponding tasks' executions. The messages are packed into a single frame if destined to the same node otherwise each runnable communicats across a shared bus via a dedicated message entity, which is schedulable by the CAN bus controller. In essence, the assumed read-exec-write semantics of the runnables lowers the number of schedulable messages entities in the bus by facilitating packing of signals at the expense of restrictive (or less flexible) inter-runnables communication.
+\subsection{Scheduling Software Applications}
+The applications are scheduled on the execution platform by considering their respective requirements such as the criticality levels, reliability requirements, and end-to-end timing requirements. There are several techniques in the literature that deal with the scheduling of mixed-critical applications on a \textit{uniprocessor} systems \cite{Vestal2007PreemptiveAssurance}. In this work, we consider the \textit{partitioned criticality (PA)}  technique, which basically prioritizes higher critical applications over their lower critical counterparts. In contrast to other techniques, PA does not require a runtime monitoring of tasks, e.g., using servers \cite{AbeniIntegratingSystems,Ashjaei2017DesigningSystems,Inam2014ThePlatforms}.
 
-Furthermore, we assume fixed and dynamic preemptive scheduling policies, that is each tasks sets allocated to a node must be schedulable according to the choice of the scheduling policy. For convenience, we assume priorities are assigned to tasks according to Rate Monotonic (RM) for the case of fixed scheduling policy, that is a task with a lower period get a higher priority.
+\subsubsection{Scheduling Tasks}
+By refinement, the tasks $Tasks_{A_i}$ and messages $Msg_{A_i}$ inherit the priority of $A_i$, essentially prioritizing higher critical tasks and messages, respectively at the computation and network levels \cite{Baruah2011Response-timeSystems,Burns2013MixedNetwork}. In this context, the task set allocated to node $m_i$, $T_{m_i}$ is scheduled by the \textit{fixed-priority preemptive scheduling polity} (FPPS), using the \textit{deadline monotonic} (DM) scheduler. The schedulability of the tasks is verified via the classical response time analysis (RTA) technique \cite{Baruah2011Response-timeSystems}. 
+
+\subsubsection{Scheduling Messages on the CAN Bus}
+Likewise, the messages in the CAN network bus are scheduled using fixed priority non-preemptive scheduling policy using.
+
+\subsubsection{Scheduling Cause-effect Chains}
+
+\subsection{AUTOSAR System}
+The AUTOSAR standard introduced the notion of \textit{Runnables} to facilitate early analysis, that is at the VBF level, and to support interoperability of automotive applications across different execution platforms. Basically, runnables are schedulable piece of code similar to tasks. In this work, we assume periodically activated runnables with support for multiple worst-case executions that correspond to the different computation processor types. Unlike tasks, runnables' functional and extra-functional properties, e.g., timing, memory requirements, are part of the AUTOSAR software component specifications. Therefore, the software application model is extended to accommodate the notion of runnables, using the following simplified formal definition.
+
+\begin{definition}[AUTOSAR Software Application Model]
+It is modeled as directed acyclic vertex-weighted graph $g_r=\langle V_r, L_r, w, v\rangle$ of runnable nodes $V_r$, where $a_{ij}\in L_r$ represents either a triggering or data-flow link from the runnable $r_i$ to runnable $r_j$ and $i\neq j$. The cost at the node refers to the timing model of the runnable, where the tuple elements, respectively denote execution time on node $m$, deadline and period. 
+\end{definition}
+
+Essentially, the software applications are entirety developed using AUTOSAR software components, and eventually via as graphs of runnables. The refinement from a runnables graph to a tasks graph is conducted using the following heuristic rules, which is according to the AUTOSAR specification \cite{AUTOSAR2017SpecificationSoftware}. The rules are executed in order of appearance. Thus, the runnable link $(a, b)\in L_r$ merges to a task node $v\in V(g_r)$ if the following conditions hold':
+% \begin{figure}[!h]
+% \centering
+% \includegraphics[scale=0.6]{softwareallocation}
+% \caption{System Model.}
+% \label{fig_softwareallocation}
+% \end{figure}
+\begin{description}
+\item [Condition 1:] the runnables are co-hosted in the same computation node, i.e., \[a\mapsto m \land b\mapsto m\]
+\item [Condition 2:] activation periods of the runnables are the same, i.e., $a.P = b.P$
+\end{description}
+
+If the condition hold, the task timing specifications are set as follows: i) the WCET of the task is set to the sum of the WCET of the runnables, i.e., $v.e_i=a.e_i + b.e_i$, ii) the period of the task is set to the period of the runnables, $v.P=a.P=b.P$. However, if condition 1 is satisfied but the runnables have different periods, the task period is set to the minimum of the runnables' periods, i.e., $v.P=Min(a.P, b.P)$. Otherwise, runnables are not merged, instead, each runnable is mapped to a task, while preserving the timing specifications.
+
+% Following the grouping of runnables to tasks, We assume runnables communicate (or send data messages) at the end of the corresponding tasks' executions. The messages are packed into a single frame if destined to the same node otherwise each runnable communicats across a shared bus via a dedicated message entity, which is schedulable by the CAN bus controller. In essence, the assumed read-exec-write semantics of the runnables lowers the number of schedulable messages entities in the bus by facilitating packing of signals at the expense of restrictive (or less flexible) inter-runnables communication.
+
+% Furthermore, we assume fixed and dynamic preemptive scheduling policies, that is each tasks sets allocated to a node must be schedulable according to the choice of the scheduling policy. For convenience, we assume priorities are assigned to tasks according to Rate Monotonic (RM) for the case of fixed scheduling policy, that is a task with a lower period get a higher priority.
+
+\subsection{Execution Platform}
+The execution platform provides computation and communication resources to the user applications, and is modeled as a \textit{complete} graph $\langle M,L^m\rangle$ of computation nodes, where $(m_i,m_j)\in L^m \land i\neq j$ refer to the communication links of the nodes, which are realized by a network bus, e.g., CAN. The computation nodes are heterogeneous with respect to parameters defined as a tuple $\langle hz, \lambda, p \rangle$, respectively denote processor speed, failure-rate and power consumption specifications. The allocation scheme is a mapping table $f:C\mapsto M$ from software components to computation nodes, where $C=\bigcup_{i=1}^{|A|} {V(A_i)}$ is the \textit{infinitary} union of the user applications' vertices, which denote nodes o software components.
 
 \subsection{Fault-tolerant Software Application Model}
 Redundancy is the most common way to increase the reliability of an application. It can be implemented according to different schemes, such as hot stand-by, cold stand-by, etc~\cite{Dubrova2013Fault-tolerantDesign}. In this work the details of the redundancy scheme are abstracted away under the following assumptions: i) Hot stand-by redundancy technique is used for the replacement of failed components, which are identical and are allocated on different nodes, ii) software components need to be replicated if the application's reliability requirement is not met without replication, otherwise they are not replicated, iii) the time needed to detect and replace a faulty component is considered negligible and will not be taken into account in the response time analysis of tasks and delay calculation of cause-effect chains, iv) Because of its simplicity, the mechanism for detection and replacement of faulty components will be considered fault-free, and therefore will not be included in the reliability calculations.
 
 We denote the $k^{th}$ replica of a software component $c$ as $c^k$, with $1\le k\leq K$; where $K$ is the maximum number of replicas allowed for each application component.
 
-\subsection{Platform Model}
-The application is deployed on a network of heterogeneous computing nodes that are connected via a reliable communication network, the CAN bus. The computation node is specified as a 3-tuple $\langle hz, \lambda, p \rangle$, respectively, refer to the processor frequency, failure-rate and power consumption of a computation node. Due to the heterogeneity assumption of the processors, an application maybe be deployed on nodes with higher processor frequencies, and therefore fewer number of nodes in order to minimize the total power consumption of the system. However, due to the application reliability requirement, the application could be deployed differently, and with more resources. The CAN bus is considered reliable, for instance through redundancy. Therefore, its exclusion from the overall calculation of the system's reliability does not impact our proposed software allocation. %Figure~\ref{fig_softwareallocation} illustrates an overview of an AUTOSAR software application deployment on a set of computational nodes via a software allocation scheme that is discussed in Section~\ref{sec_allocation}.
+%\subsection{Platform Model}
+%The application is deployed on a network of heterogeneous computing nodes that are connected via a reliable communication network, the CAN bus. The computation node is specified as a 3-tuple $\langle hz, \lambda, p \rangle$, respectively, refer to the processor frequency, failure-rate and power consumption of a computation node. Due to the heterogeneity assumption of the processors, an application maybe be deployed on nodes with higher processor frequencies, and therefore fewer number of nodes in order to minimize the total power consumption of the system. However, due to the application reliability requirement, the application could be deployed differently, and with more resources. The CAN bus is considered reliable, for instance through redundancy. Therefore, its exclusion from the overall calculation of the system's reliability does not impact our proposed software allocation. %Figure~\ref{fig_softwareallocation} illustrates an overview of an AUTOSAR software application deployment on a set of computational nodes via a software allocation scheme that is discussed in Section~\ref{sec_allocation}.
 
+
+
+
+%\subsection{AUTOSAR Software Application Model}
+%AUTOSAR software applications are constructed from communicating AUTOSAR application components $\bigcup_{i=1}^{I} C_i$, where the component $c_i^k$ is the $k^{th}$ replica of the component type $C_i$ and $I$ is the number of software component types (or the cardinality of the infinitary union). Each software component co-hosts a set of runnables $R^*\subseteq R$ that are disjoint.

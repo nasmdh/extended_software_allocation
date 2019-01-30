@@ -42,41 +42,39 @@
 \let\oldabs\abs
 \def\abs{\@ifstar{\oldabs}{\oldabs*}}
 
+% research goals Commands
+\newcommand{\og}[1]{\paragraph{Overall goal: }~\parbox[c]{0.7\textwidth}{#1}\\}
+\newcounter{rgcounter}
+\newcommand{\rg}{%
+\stepcounter{rgcounter}%
+Research Goal \thergcounter: }
 
-% \RequirePackage{lmodern}
+% research contribution command
+\newcounter{rccounter}
+\newcommand{\rc}{%
+\stepcounter{rccounter}%
+Contribution \therccounter}
+\newcommand{\cc}[1]{%
+\stepcounter{rccounter}%
+\paragraph{Contribution \therccounter:}\parbox[c]{0.7\textwidth}{#1}\\}
 
-% %% 'sans serif' option
-% \DeclareOption{sans}{
-%   \renewcommand{\familydefault}{\sfdefault}
-% }
+\newcommand{\ogl}[1]{
+\fcolorbox{gray}{light-gray}{
+          \begin{minipage}[t]{0.8\textwidth}
+    #1
+    \end{minipage}}
+}
+\newcommand{\rgl}[1]{
+\rg
+\fcolorbox{gray}{light-gray}{
+          \begin{minipage}[t]{0.7\textwidth}
+    #1
+    \end{minipage}}
+}
 
-% %% 'roman' option
-% \DeclareOption{roman}{
-%   \renewcommand{\familydefault}{\rmdefault}
-% }
-
-% %% Global indentation option
-% \newif\if@neverindent\@neverindentfalse
-% \DeclareOption{neverindent}{
-%   \@neverindenttrue
-% }
-
-% \ExecuteOptions{roman}
-
-% \ProcessOptions\relax
-
-% %% Traditional LaTeX or TeX follows...
-% % ...
-
-% \newlength{\pardefault}
-% \setlength{\pardefault}{\parindent}
-% \newcommand{\neverindent}{ \setlength{\parindent}{0pt} }
-% \newcommand{\autoindent}{ \setlength{\parindent}{\pardefault} }
-
-% \if@neverindent
-% \neverindent
-% \fi
-
-% ...
+\definecolor{light-gray}{gray}{0.95}
+\newenvironment{researchgoal}
+{\begin{center}}
+{\end{center}}
 
 \endinput
