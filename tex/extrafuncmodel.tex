@@ -11,10 +11,10 @@ x_{I1} & x_{I2} & \cdots & x_{IK}
 \end{bmatrix}
 \end{equation}
 
-In this work, the main objective of the allocation problem is to satisfy the user-defined requirements, namely reliability requirements, end-to-end timing requirements, and criticality of the software applications $A_i$ by effectively mapping the software components to the computation nodes. Furthermore, the components are allocated efficiently to minimize the total power consumption $Power(\textbf{x})=\sum_{m\in M'}{P_{m}(\textbf{x})}$ of the applications by selecting lower-power consuming nodes, where $M'\subseteq M$ is the set of nodes that are employed in the allocation $\textbf{x}$, $P_{m}(\textbf{x})$ is the power consumption on a single node.
+In this work, the main objective of the allocation problem is to satisfy the user-defined requirements, namely reliability requirements, end-to-end timing requirements, and criticality of the software applications $A_i$ by effectively mapping the software components to the computation nodes. Furthermore, the components are allocated efficiently to minimize the total power consumption $Power(\textbf{x})=\sum_{m\in M'}{P_{m}(\textbf{x})}$ of the applications by selecting lower-power consuming nodes $M'\subseteq M$, provided the requirements are met, where $\textbf{x}$, $P_{m}(\textbf{x})$ is the power consumption of a single node on the mapping $\textbf{x}$. Power consumption, in this context, refers to the energy usage of electronic components in the integrated circuits of the node, e.g., processor, memory, I/O devices, etc., per time unit. 
 
 %Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. 
-There are several power consumption models and different techniques to estimate the power consumption of a computing node. In this work, we employ a technique based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computational node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The mode states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
+There are several power consumption models and different techniques to estimate the power consumption of a computing node. In this work, we employ a technique based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computation node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The mode states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
 \begin{equation}
 \label{eqn_powerconsumption}
 f_p(u)=P_{idle} + (P_{busy}-P_{idle})*u,
@@ -32,22 +32,7 @@ U_{m}(\textbf{x}) &= \sum_{i}{\sum_{j}{U_{c_i}}(x_{ij})} & \text{: }x_{ij}=m\\
 U_c(m) &= \sum_{\tau\in T_c} \frac{\tau.e_m}{\tau.P},&
 \end{align}
 
-where
-%the mapping solution $\textbf{x}$ is computed over the node's utilization (or load) $u_m(\textbf{x})$, which is computed over the tasks that are allocated on the node.
 
-%$\textbf{x}$, , where  is the power consumption of the node $m$ with utilization $u_m(\textbf{x}). $for a solution $\textbf{x}$ as shown from Equation 
-%(\textbf{x})=f_p(u_m(x))
-%The In this section, we discuss the timing, application reliability, and power consumption models used throughout the paper.
-%\subsection{Power Consumption Model}
-%Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. Depending on the nature of the integrated circuit and intended use, there exist low-level and high-level models of power and energy consumption estimation techniques. The low-level models, for instance in CMOS-based integrated circuits estimate power consumption via the power consumption of flip-flops and combinatorial gates \cite{Najm1994ACircuits}\cite{Najm1995PowerCircuits}, and they are frequently used in the design of power-efficient electronic circuits designs. The high-level models apply dynamic profiling of computer components, e.g., CPU, memory, I/O devices, etc., to estimate power consumption of the computer system, and they are primarily used in energy management techniques, e.g., in dynamic Voltage and Frequency Scaling (DVFS) \cite{Contreras2005PowerEvents}.
-
-%However, the previously mentioned power estimation techniques have limitations especially for applications in the early stages of system design. Their limitations are as follows: i) the lack of complete and accurate information of electrical specification of integrated circuits makes the use of low-level power estimation methods difficult, and ii) the dynamic profiling of high-level techniques requires runtime mechanisms, such as performance counter monitor, which is not applicable in our case. Instead, in this work, we employ a different approach that is based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computational node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The mode states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
-% \begin{equation}
-% \label{eqn_powerconsumption}
-% f_p(u)=P_{idle} + (P_{busy}-P_{idle})*u,
-% \end{equation}
-
-%where $u$ is the utilization (or load) of a computation node, $p_{idle}$ and $p_{busy}$, respectively, refer to the power consumption of a node measured at minimum and maximum processor loads. Such measurements can be obtained by running performance benchmark suits, e.g., MiBench \cite{Guthaus2001MiBench:Suite}, AutoBench \cite{EMBC2018AutoBenchProcessors}, etc.
 \begin{figure*}[h!]
     \centering
     \begin{subfigure}[b]{0.25\textwidth}
