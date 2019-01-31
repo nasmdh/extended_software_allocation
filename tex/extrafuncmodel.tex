@@ -24,48 +24,98 @@ where $u$ is the utilization (or load) of a computation node, $p_{idle}$ and $p_
 
 Consequently, the power consumption of a node $m$ for a given mapping $\textbf{x}$ is computed using Equations (\ref{eqn_powerconsumption_x}-\ref{eqn_util_component}), by calculating first the node's utilization $U_m(\textbf{x})$ using Equation (\ref{eqn_util_x}). The node's utilization is computed from the set of components allocated to it (which are $\forall_{ij} x_{ij}=m$) using Equation (\ref{eqn_util_x}). And the utilization of a component on the node $m$ is computed from its constituent tasks $T_c$ using Equation (\ref{eqn_util_component}).
 \begin{align}
-\label{eqn_powerconsumption_x}
-P_m(\textbf{x})&=f_p(U_m(\textbf{x}))\\
-\label{eqn_util_x}
-U_{m}(\textbf{x}) &= \sum_{i}{\sum_{j}{U_{c_i}}(x_{ij})} & \text{: }x_{ij}=m\\
-\label{eqn_util_component}
-U_c(m) &= \sum_{\tau\in T_c} \frac{\tau.e_m}{\tau.P},&
+	\label{eqn_powerconsumption_x}
+P_m(\textbf{x}) & =f_p(U_m(\textbf{x}))                         &  \\
+	\label{eqn_util_x}
+U_{m}(\textbf{x})           & = \sum_{i}{\sum_{j}{U_{c_i}}(x_{ij})}         & \text{: }x_{ij}=m \\
+	\label{eqn_util_component}
+U_c(m)              & = \sum_{\tau\in T_c} \frac{\tau.e_m}{\tau.P}, &
 \end{align}
 
+The applications requirements are modeled as constraints that need to be satisfied in the allocation problem. The constraints formulations are shown in the following subsections, respectively for reliability, timing and other design constraints such as related to runnables-to-tasks merging and replication.
 
-\begin{figure*}[h!]
-    \centering
-    \begin{subfigure}[b]{0.25\textwidth}
-    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_singlenode}
-    \caption{Deployment on a Single Node.}
-    \label{fig_datachainsingle}
-    \end{subfigure}
-    ~ %\quad, \qquad, \hfill 
-    \begin{subfigure}[b]{0.365\textwidth}
-    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_multinode}
-    \caption{Deployment on Multiple Nodes.}
-    \label{fig_datachainmulti}
-    \end{subfigure}
-   ~\vspace{-0.2cm}
-    \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{timedpath}
-    \caption{Timed Paths of Age and Reaction Delays.}
-    \label{fig_timedpath}
-    \end{subfigure}
-    \caption{Cause-effect Chain with Three Activation Patterns.}
-    \label{fig:datachain}
-\end{figure*}
+%\begin{figure*}[h!]
+%    \centering
+%    \begin{subfigure}[b]{0.25\textwidth}
+%    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_singlenode}
+%    \caption{Deployment on a Single Node.}
+%    \label{fig_datachainsingle}
+%    \end{subfigure}
+%    ~ %\quad, \qquad, \hfill 
+%    \begin{subfigure}[b]{0.365\textwidth}
+%    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_multinode}
+%    \caption{Deployment on Multiple Nodes.}
+%    \label{fig_datachainmulti}
+%    \end{subfigure}
+%   ~\vspace{-0.2cm}
+%    \begin{subfigure}[b]{0.35\textwidth}
+%    \includegraphics[width=\textwidth]{timedpath}
+%    \caption{Timed Paths of Age and Reaction Delays.}
+%    \label{fig_timedpath}
+%    \end{subfigure}
+%    \caption{Cause-effect Chain with Three Activation Patterns.}
+%    \label{fig:datachain}
+%\end{figure*}
 
-\subsection{Software Application Reliability}
-\textit{Application reliability} $R_a$ refers to the probability that a software application functions correctly by the time $t$, or within the time interval $[0, t]$ \cite{Goel1985SoftwareApplicability}. We assume that  applications are free from design errors and, therefore, an application failure can be caused only by failures from the computational nodes in which the application is deployed. The failure rate of a node over time is represented by $\lambda(t)$, and the reliability of a node is represented by the exponential density function over constant failure rate $\lambda e^{-\lambda t}$, where $\lambda=\lambda(t)$.
+\subsection{Software Application Reliability Constraint}\label{subsec_reliability_constraint}
+The applications reliability constraints ensure the mapping solution $\textbf{x}$ satisfies the user-defined reliability requirements, that is $ \forall i\in [1,N_a]\ \rel_{A_i}(\textbf{x})\leq RelReq_{A_i}$. 
+The reliability of a software application is computed from the execution framework part that is responsible to run the application, that is from the computation nodes $M^{'}_{A_i}\in M$ where $C_{A_i}\mapsto M'$ and the shared CAN bus \textbf{B}, consequently $Reliability_{A_i}(\textbf{x})=Reliability(M')*Reliability(B)$. The reliability of the nodes $Reliability(M')$ is calculated using the \textit{state-enumeration} technique \cite{Lucet1999ExactReliability}  as shown in Equations (\ref{eqn_appreliability}). According to the technique, the reliability is basically the total probability that the application $A_i$ \textit{functions} under the mutually exclusive events of the nodes failures  (or state-space) $PS_{A_i}(\textbf{x})=\{0,1\}^{M'}$, where  0 - the node fails, 1 - the node is operational, e.g., for $M'=\{m_1,m_2,m_3\}$ implies $PS_{A_i}=\{001,010,011,...,111\}$. We refer to the state of a node $m\in M'$ for $s\in PS_{A_i}$ as $s.Index(m)\in\{0,1\}$. 
+\begin{align}
+\label{eqn_appreliability}
+Reliability(M')&=\sum_{s\in PS_{A_i}|g(A_i, s)=1}probability(s)
+\end{align}
 
-In a system without replication, the failure of any arbitrary node that hosts the software application renders the whole application faulty. Reliability calculation is then straightforward, using a series-parallel model: $R_a = \prod_{m\in M}r_m$.  However, with the introduction of replication, to enable fault tolerance, the reliability calculation is not straightforward due to the replicas of the same software component allocated to different nodes that result in functional interdependencies between nodes. A software application functions \textit{ correctly} if each software component is executed at least by one non-faulty node, and will be \textit{faulty} otherwise (i.e., if there are one or more software components that are allocated only to faulty nodes and thus these components cannot be executed correctly).
+For a mapping solutoin $\textbf{x}$ and some event of nodes failures $s\in PS_{A_i}$, the fact that an application fails or not is deductively defined as follows:
+\begin{definition}[Software Application Failure]
+The application $A_i$ \textit{fails}  in the event $s$, that is $g(a, s)=0$ (\ref{eqn_app_failure}), if there exists a component type $c_i$ where all of its replica $Q_i$ \textit{fails}, otherwise, the application functions.  A component replica $q_{ij}\in Q_i$ fails if the node $m_k$ that host it fails, where $k=x_{ij}$. 
+\begin{align}
+\label{eqn_app_failure}
+g(a, s)&=
+\begin{cases}
+\textbf{0} \mbox{ (fails)} & \mbox{if }  \prod_{m\in M^{''}}{h(m,s)}\\
+\textbf{1} \mbox{ (functions)} & \mbox{otherwise }
+\end{cases}\\
+\label{eqn_appreliability_node}
+h(m, s)&=
+\begin{cases}
+\textbf{1} & \mbox{if } s.Index(m) = 1\\
+\textbf{0} & \mbox{otherwise }
+\end{cases}
+\end{align}
+
+where $M^{''}={m\in M'|}$
+ %c \in C_a\forall q\in Q_i \ldotp h(m,s)=1
+ %of its components are \textit{running} under a given mapping $\textbf{x}$ and state $s\in PS_{A_i}(\textbf{x})$. 
+\end{definition}
+%WeAn application functions (which is indicated by \textbf{1}, otherwise \textbf{0}) if all of its components are \textit{running} under a given mapping $\textbf{x}$ and state $s\in PS_{A_i}(\textbf{x})$.  A component runs (or is alive) (which is indicated by \textbf{1}, otherwise \textbf{0}) under the mapping $\textbf{x}$ and state $s\in PS_{A_i}(\textbf{x})$ if the node that hosts the component \textit{functions}, which is determined using Equation (\ref{eqn_appreliability_node}).
+%\begin{align}
+%	g(a, s)&=
+%	\begin{cases}
+%	\textbf{1} & \mbox{if } \forall c\in C_a\ldotp\exists m\in M'\ldotp h(m,s)=1\\
+%	\textbf{0} & \mbox{otherwise }
+%	\end{cases}\\
+%	\label{eqn_appreliability_node}
+%	h(m, s)&=
+%	\begin{cases}
+%	\textbf{1} & \mbox{if } s.Index(m) = 1\\
+%	\textbf{0} & \mbox{otherwise }
+%	\end{cases}
+%\end{align}
+
+%, e.g., if s={0,1,1} respectively for $\{m_1,m_2,m_3\}$, $stateOf(m_1,s)$=0%, are functioning (that is )and  $Reliability(B)\in [0,1]$ is the reliability of the share CAN bus.
+
+%where $PS_{A_i}={Fail=0,Function=1}^{|M'|]}$ is the enumerated state-space of $M'$, $g(s):PS_{A_i}\rightarrow {Fail, Function}
+% where  as Note: we assume the communication is reliable.
+%\textit{Application reliability} $R_a$ refers to the probability that a software application functions correctly by the time $t$, or within the time interval $[0, t]$ \cite{Goel1985SoftwareApplicability}. We assume that  applications are free from design errors and, therefore, an application failure can be caused only by failures from the computational nodes in which the application is deployed. The failure rate of a node over time is represented by $\lambda(t)$, and the reliability of a node is represented by the exponential density function over constant failure rate $\lambda e^{-\lambda t}$, where $\lambda=\lambda(t)$.
+%In a system without replication, the failure of any arbitrary node that hosts the software application renders the whole application faulty. Reliability calculation is then straightforward, using a series-parallel model: $R_a = \prod_{m\in M}r_m$.  However, with the introduction of replication, to enable fault tolerance, the reliability calculation is not straightforward due to the replicas of the same software component allocated to different nodes that result in functional interdependencies between nodes. A software application functions \textit{ correctly} if each software component is executed at least by one non-faulty node, and will be \textit{faulty} otherwise (i.e., if there are one or more software components that are allocated only to faulty nodes and thus these components cannot be executed correctly).
 
 To calculate the reliability in such cases, we use state enumeration, which is one of the reliability-preserving methods that are used to compute the reliability of a system with dependent components (or subsystems) \cite{Lucet1999ExactReliability}. The state enumeration method allows the exploration of all possible states of a system in the probability space $P\!S$. Our goal is to differentiate between the states in which the application functions, denoted by \textit{Functions(s)}, and the states in which the application fails, denoted by \textit{Fails(s)}. The application reliability $R_a$ is then calculated as follows:
-\begin{equation}
+\begin{align}
 \label{eqn_appreliability}
-R_a=\sum_{s\in PS|Functions(s)}p_s=1-\sum_{s\in PS|Fails(s)}p_s
-\end{equation}
+R_a=\sum_{s\in PS_{A_i}|Functions(s)}p_s=1-\sum_{s\in PS|Fails(s)}p_s\\
+PS_{A_i}=2^{M_{A_i}}\\
+g:\textbf{x}\rightarrow M_{A_i}
+\end{align}
 
 To obtain $p_s$, that means the probability that the application is in state $s\in PS$, we define the Boolean variable $z_m \in \{0,1\}$ to indicate whether a node $m \in M$ is either faulty, $z_m = 0$, or not, $z_m = 1$. Then, the probability is calculated using (´\ref{eqn_stateprobability}).
 \begin{align}
