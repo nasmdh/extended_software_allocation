@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}[2018/10/30]
 \ProvidesPackage{nasutil}[2018/10/30 NasUtil Package]
 
+%%%%%%%%%%%%%%%%%%%% GENERAL %%%%%%%%%%%%%%%%%%%%
 
 %% Commands and Theorems
 % Commands
@@ -13,6 +14,9 @@
 \newcommand{\mcell}[3][c]{%
     \begin{tabular}[#1]{@{}#2@{}}#3\end{tabular}}%
 \newcommand{\east}[0]{{\sc EAST-ADL}\xspace}
+
+
+
 % Theorems
 \newtheorem{remarkex}{Remark}
 \newtheorem{remarkreq}{Remark}
@@ -76,5 +80,11 @@ Contribution \therccounter}
 \newenvironment{researchgoal}
 {\begin{center}}
 {\end{center}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% SPECIFIC %%%%%%%%%%%%%%%%%%%%%
+\newcommand{\rel}{Reliability}
+\newcommand{\rst}{ResponseTime}
+\newcommand{\ete}{EndToEnd}
+
 
 \endinput
