@@ -3,6 +3,9 @@
 
 %%%%%%%%%%%%%%%%%%%% GENERAL %%%%%%%%%%%%%%%%%%%%
 
+\usepackage{xparse}
+
+
 %% Commands and Theorems
 % Commands
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
@@ -86,5 +89,43 @@ Contribution \therccounter}
 \newcommand{\rst}{ResponseTime}
 \newcommand{\ete}{EndToEnd}
 
+%% Matrix 
+\newcommand{\ttx}[1][k]{\textbf{x}^{(A_#1)}}
+\newcommand{\x}[1][k]{$\textbf{x}^{(A_#1)}$}
+
+\newcommand{\sbx}[2][x]{$#1_{#2}$}
+\newcommand{\spx}[2][x]{$#1^{(#2)}$}
+\newcommand{\ssx}[3]{$#1^{(#2)}_{#3}$}
+\newcommand{\xkij}{x^{(k)}_{ij}}
+
+\newcommand{\ttssx}[3][x]{#1^{(#2)}_{#3}}
+\newcommand{\bspx}[1]{\textbf{x}^{(#1)}}
+\newcommand{\ttbspx}[1]{\textbf{x}^{(#1)}}
+\newcommand{\bx}{\textbf{x}}
+
+%% sets
+\NewDocumentCommand{\sss}{ O{k} O{i} m }{$#3^{(#1)}_{#2}$}
+\NewDocumentCommand{\ssp}{ m O{A} O{k}}{$#1^{(#2_{#3})}$}
+\NewDocumentCommand{\ssb}{ m O{i}}{$#1_{#2}$}
+
+\NewDocumentCommand{\ttsss}{ O{k} O{i} m }{#3^{(A_#1)}_{#2}}
+\NewDocumentCommand{\ttssp}{ m O{A} O{k}}{#1^{(#2_{#3})}}
+\NewDocumentCommand{\ttssb}{ m O{i}}{#1_{#2}}
+
+%% set expressions
+%set +  expression, e.g.,
+\NewDocumentCommand{\setExp}{m m O{i}}{$#1=\{#2_{#3}: #3=1,\dots, n_#1\}$ }%set
+%set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
+\newcommand{\sspExp}[2]{$#1^{(k)}=\{#1^{(k)}_{#2}: #2=1,\dots, n_#1\}$  }
+%set + superscript + + subscript + expression, e.g., Q^(k)_i={q_ij^(k): j=1,...,N_Q_i}
+\NewDocumentCommand{\sssExp}{m O{i} m O{j}}{$#1^{(k)}_{#2}=\{#3^{(k)}_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
+
+
+
+%%%%%%%
+\newcommand{\sspxx}[3][k]{$#2^{(#1)}=\{#3^{(#1)}: #1=1,\dots, N_#2\}$  }%set of elements with superscript
+\newcommand{\ssbxx}[3][k]{$#2_{(#1)}=\{#3_{(#1)}: #1=1,\dots, N_#2\}$  }%set of elements with subscript
+\newcommand{\sssxx}[4][k]{$#3_{#2}=\{#4^{(#1)}_{#2}: #2=1,\dots, N_#3\}$  }%set of elements with subscript + superscript
+%\newcommand{\sssExp}[2][#2]{$#1=\{#1^{(k)}_{#3}: #3=1,\dots, N_#2\}$  }%set of sets with subscript + superscript
 
 \endinput

@@ -1,20 +1,20 @@
 \section{Problem Model}\label{sec_extrafunc}
-The software allocation problem is a type of job shop scheduling with constraints, as such it is a discrete optimization problem \cite{}. The solution to the allocation problem is represented by a matrix $\textbf{x}$ of size $N_c\times K$, where $N_c$ is the number of component types and $K=Max(K_i)$ is the maximum replica size of type $c_i$, where $x_{ij}=k\in \{1,…,N_m\}$ represents the mapping of the software component replica $c_{ij}$ to the computation node $m_k$.
+The software allocation problem is a type of job shop scheduling with constraints, as such it is a discrete optimization problem \cite{}. The solution to the allocation problem is represented by a vectormatrix $\bx=\{\bspx{k}:k=1,...,N_a\}$, where \spx{k} is a matrix of size $N_c\times K$, and \ssx{x}{k}{ij}$=k\in \{1,…,N_m\}$ represents the mapping of the software component replica \ssx{c}{k}{ij} to the computation node $m_k$.
 \begin{equation}
 \label{fig_pso_solution_representation}
-\textbf{x}=
+\bspx{k}=
 \begin{bmatrix} 
-x_{11} & x_{12} & \dots & x_{1K}\\
-x_{21} & x_{22} & \dots & x_{2K}\\
+\ttssx{k}{11} & \ttssx{k}{12} & \dots & \ttssx{k}{1K}\\
+\ttssx{k}{21} & \ttssx{k}{22} & \dots & \ttssx{k}{2K}\\
 \vdots & \vdots & \ddots & \vdots\\
-x_{I1} & x_{I2} & \cdots & x_{IK}
+\ttssx{k}{N_c1} & \ttssx{k}{N_c2} & \cdots & \ttssx{k}{N_cK}
 \end{bmatrix}
 \end{equation}
 
-In this work, the main objective of the allocation problem is to satisfy the user-defined requirements, namely reliability requirements, end-to-end timing requirements, and criticality of the software applications $A_i$ by effectively mapping the software components to the computation nodes, $C\mapsto M$. Furthermore, the components are allocated efficiently to minimize the total power consumption $Power(\textbf{x})=\sum_{m\in M'}{P_{m}(\textbf{x})}$ of the applications by selecting lower-power consuming nodes $M'\subseteq M$, provided the requirements are met, where $P_{m}(\textbf{x})$ is the power consumption of node $m$ on the mapping $\textbf{x}$. Power consumption, in this context, refers to the energy usage of electronic components in the integrated circuits of the node, e.g., processor, memory, I/O devices, etc., per time unit. 
+In this work, the main objective of the allocation problem is to satisfy the user-defined requirements, namely reliability requirements, end-to-end timing requirements, and criticality of the software applications $A_i$ by effectively mapping the software components to the computation nodes, $C^{(k)}\mapsto M$. Furthermore, the components are allocated efficiently to minimize the total power consumption $Power(\textbf{x})=\sum_{m\in M'}{P_{m}(\textbf{x})}$ of the applications by selecting lower-power consuming nodes $M'\subseteq M$, provided the requirements are met, where $P_{m}(\textbf{x})$ is the power consumption of node $m$ on the mapping $\textbf{x}$. Power consumption, in this context, refers to the energy usage of electronic components in the integrated circuits of the node, e.g., processor, memory, I/O devices, etc., per time unit. 
 
 %Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. 
-There are several power consumption models and different techniques to estimate the power consumption of a computing node. In this work, we employ a technique based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computation node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The mode states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
+There are several power consumption models and different techniques to estimate the power consumption of a computing node. In this work, we employ a technique based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computation node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The model states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
 \begin{equation}
 \label{eqn_powerconsumption}
 f_p(u)=P_{idle} + (P_{busy}-P_{idle})*u,
@@ -25,11 +25,11 @@ where $u$ is the utilization (or load) of a computation node, $p_{idle}$ and $p_
 Consequently, the power consumption of a node $m$ for a given mapping $\textbf{x}$ is computed using Equations (\ref{eqn_powerconsumption_x}-\ref{eqn_util_component}), by calculating first the node's utilization $U_m(\textbf{x})$ using Equation (\ref{eqn_util_x}). The node's utilization is computed from the set of components allocated to it (which are $\forall_{ij} x_{ij}=m$) using Equation (\ref{eqn_util_x}). And the utilization of a component on the node $m$ is computed from its constituent tasks $T_c$ using Equation (\ref{eqn_util_component}).
 \begin{align}
 	\label{eqn_powerconsumption_x}
-P_m(\textbf{x}) & =f_p(U_m(\textbf{x}))                         &  \\
+nodPow(\textbf{x}) & =f_p(nodUti(\textbf{x},m))                         &  \\
 	\label{eqn_util_x}
-U_{m}(\textbf{x})           & = \sum_{i}{\sum_{j}{U_{c_i}}(x_{ij})}         & \text{: }x_{ij}=m \\
+nodUtil(\textbf{x},m)           & = \sum_{k}{\sum_{i}{\sum_{j}{comUtil(m,c)}}}|\xkij=m         & \text{, where } c=\ttsss{C}\\
 	\label{eqn_util_component}
-U_c(m)              & = \sum_{\tau\in T_c} \frac{\tau.e_m}{\tau.P}, &
+comUtil(m,c)              & = \sum_{r\in c.R} \frac{r.e(m)}{r.\tau.P}, &
 \end{align}
 
 The applications requirements are modeled as constraints that need to be satisfied in the allocation problem. The constraints formulations are shown in the following subsections, respectively for reliability, timing and other design constraints such as related to runnables-to-tasks merging and replication.
@@ -58,8 +58,16 @@ The applications requirements are modeled as constraints that need to be satisfi
 %\end{figure*}
 
 \subsection{Software Application Reliability Constraint}\label{subsec_reliability_constraint}
-The applications reliability constraints ensure the mapping solution $\textbf{x}$ satisfies the user-defined reliability requirements, that is $ \forall i\in [1,N_a]\ \rel_{A_i}(\textbf{x})\leq RelReq_{A_i}$. 
-The reliability of a software application is computed from the execution framework part that is responsible to run the application, that is from the computation nodes $M^{'}_{A_i}\in M$ where $C_{A_i}\mapsto M'$ and the shared CAN bus \textbf{B}, consequently $Reliability_{A_i}(\textbf{x})=Reliability(M')*Reliability(B)$. The reliability of the nodes $Reliability(M')$ is calculated using the \textit{state-enumeration} technique \cite{Lucet1999ExactReliability}  as shown in Equations (\ref{eqn_appreliability}). According to the technique, the reliability is basically the total probability that the application $A_i$ \textit{functions} under the mutually exclusive events of the nodes failures  (or state-space) $PS_{A_i}(\textbf{x})=\{0,1\}^{M'}$, where  0 - the node fails, 1 - the node is operational, e.g., for $M'=\{m_1,m_2,m_3\}$ implies $PS_{A_i}=\{001,010,011,...,111\}$. We refer to the state of a node $m\in M'$ for $s\in PS_{A_i}$ as $s.Index(m)\in\{0,1\}$. 
+The applications reliability constraints ensure the mapping solution $\textbf{x}$ satisfies the user-defined reliability requirements, that is $ \forall i\in [1,n_A]\ \rel_{A_i}(\ttbspx{i})\leq RelReq_{A_i}$. 
+The reliability of a software application is computed from the execution framework that is provided to run the application using Equation (\ref{eqn_nodes_app}) , which consist of computation nodes $M_{A_i}$ and the shared CAN bus B as shown in Equation (\ref{eqn_appreliability_app}). The $M_{A_i}$ nodes are the ones that host \ssp{C}[A][i] and are determined by searching the mapping solution in polynomial time using Equation (\ref{eqn_nodes_app}).
+\begin{align}
+	\label{eqn_appreliability_app}
+	&Reliability_{A_i}(\ttbspx{i})=Reliability(M_{A_i})*Reliability(B)\\
+	\label{eqn_nodes_app}
+	&M_{A_i}=\{e|e\in M \land \forall ijk (e=m_h)|\ttsss{c}\in \ttssp{C} \},\mbox{ where } h=\ttssx{k}{ij} 
+\end{align}
+
+The reliability of the nodes $Reliability(M_{A_i})$ is calculated using the \textit{state-enumeration} technique \cite{Lucet1999ExactReliability}  as shown in Equations (\ref{eqn_appreliability}). According to the technique, the reliability is basically the total probability that the application $A_i$ \textit{functions} under the mutually exclusive events of the nodes failures  (or state-space), reprresented by $PS_{A_i}(\ttx{i})=\{\textbf{0},\textbf{1}\}^{M_{A_i}}$, where  \textbf{0} means the node fails, \textbf{1} means the node is operational. Note: we reference the state of a node $s\in PS_{A_i}$, which is represented as a tuple by $\pi_{m_i}(s)$, e.g., for $M_{A_i}=\{m_1,m_2,m_3\}$,  $PS_{A_i}=\{(0,0,0),(0,0,1),...,(1,1,1)\},s_2=(0,0,1)$ and $\pi_{m_2}=\textbf{0}(fails)$. Therefore, the application reliability is the $M$ fails is the total probability that 
 \begin{align}
 \label{eqn_appreliability}
 Reliability(M')&=\sum_{s\in PS_{A_i}|g(A_i, s)=1}probability(s)

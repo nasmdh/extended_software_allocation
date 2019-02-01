@@ -5,11 +5,12 @@ The system model is composed of three parts: software applications, an execution
 \toprule
  & Notation                        & Description                                             \\ 
 \midrule
-$\bullet$ & $A=\{A_i: i=1,\dots, N_a\}$       & a set of software applications, where $N-a=|A|$ \\
-$\bullet$ & $C=\{c_i: i=1,\dots, N_c\}$       & a set of software components, where $N_c=\abs{C}$ \\
-$\bullet$ & $R=\{r_i: i=1,\dots, N_r\}$      & a set of runnables, where $N_r=\abs{R}$            \\
-$\bullet$ & $T=\{\tau_i:1,\dots, N_\tau\}$   & a set of runnables, where $N_\tau=\abs{T}$                \\
-$\bullet$ & $M=\{m_i:i\in[1,J]\}$           & a set of computation nodes (or ECUs), $N_m=\abs{M}$       \\
+$\bullet$ & \setExp{A}{A}     & a set of software applications, where $N-a=|A|$ \\
+$\bullet$ & \sspExp{C}{i}     & a set of software component types, where $N_c=\abs{C}$ \\
+$\bullet$ & \sssExp{Q}{q}    & a set of component replicas of type \sss{C}\\
+$\bullet$ & \sssExp{R}[i]{r}[j]   & a set of runnables which implement \sss{C}\\
+$\bullet$ & \sssxx{i}{T}{\tau}   & a set of runnables, where $N_\tau=\abs{T}$                \\
+$\bullet$ &  \setExp{M}{m}         & a set of computation nodes, $N_m=\abs{M}$       \\
 $\bullet$ & $\Gamma=\{\Gamma_i\ :i=1,\dots, N_\gamma\}$ & a set of end-to-end chains             \\
 $\bullet$ & $\Gamma_i=(e_i)_{i=1}^Z$   & a chain of elements $e_i=r_i$ or $e_i=\tau_i$, $Z=\abs{\Gamma_i}$ is the length of the chain\\ 
 $\bullet$ & $\zeta:T\mapsto R$ & a function that groups and maps runnables to tasks\\[6pt]
