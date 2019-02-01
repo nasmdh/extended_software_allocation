@@ -29,111 +29,76 @@ nodPow(\textbf{x}) & =f_p(nodUti(\textbf{x},m))                         &  \\
 	\label{eqn_util_x}
 nodUtil(\textbf{x},m)           & = \sum_{k}{\sum_{i}{\sum_{j}{comUtil(m,c)}}}|\xkij=m         & \text{, where } c=\ttsss{C}\\
 	\label{eqn_util_component}
-comUtil(m,c)              & = \sum_{r\in c.R} \frac{r.e(m)}{r.\tau.P}, &
+comUtil(m,c)              & = \sum_{r\in c.R} \frac{r.e_m}{r.\tau.P}, &
 \end{align}
+
+where $c.R$ is set of runnables in component $c$, $r.e_m$ and $r.\tau.P$ are the execution of runnable $r$ on node $m$ and its period, respectively.
 
 The applications requirements are modeled as constraints that need to be satisfied in the allocation problem. The constraints formulations are shown in the following subsections, respectively for reliability, timing and other design constraints such as related to runnables-to-tasks merging and replication.
 
-%\begin{figure*}[h!]
-%    \centering
-%    \begin{subfigure}[b]{0.25\textwidth}
-%    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_singlenode}
-%    \caption{Deployment on a Single Node.}
-%    \label{fig_datachainsingle}
-%    \end{subfigure}
-%    ~ %\quad, \qquad, \hfill 
-%    \begin{subfigure}[b]{0.365\textwidth}
-%    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_multinode}
-%    \caption{Deployment on Multiple Nodes.}
-%    \label{fig_datachainmulti}
-%    \end{subfigure}
-%   ~\vspace{-0.2cm}
-%    \begin{subfigure}[b]{0.35\textwidth}
-%    \includegraphics[width=\textwidth]{timedpath}
-%    \caption{Timed Paths of Age and Reaction Delays.}
-%    \label{fig_timedpath}
-%    \end{subfigure}
-%    \caption{Cause-effect Chain with Three Activation Patterns.}
-%    \label{fig:datachain}
-%\end{figure*}
-
 \subsection{Software Application Reliability Constraint}\label{subsec_reliability_constraint}
-The applications reliability constraints ensure the mapping solution $\textbf{x}$ satisfies the user-defined reliability requirements, that is $ \forall i\in [1,n_A]\ \rel_{A_i}(\ttbspx{i})\leq RelReq_{A_i}$. 
-The reliability of a software application is computed from the execution framework that is provided to run the application using Equation (\ref{eqn_nodes_app}) , which consist of computation nodes $M_{A_i}$ and the shared CAN bus B as shown in Equation (\ref{eqn_appreliability_app}). The $M_{A_i}$ nodes are the ones that host \ssp{C}[A][i] and are determined by searching the mapping solution in polynomial time using Equation (\ref{eqn_nodes_app}).
+The applications reliability constraints ensure the mapping $\textbf{x}$ satisfies the user-defined reliability requirements, that is $ \forall k\in [1,n_A]\ \rel_{A_k}(\ttxsp{k})\leq RelReq_{A_k}$. 
+The reliability  is computed from the execution framework that is provided to run the application, which consists of computation nodes \ssp{M} and the shared CAN bus B, as shown in Equation (\ref{eqn_appreliability_app}). The nodes \ssp{M} host the components \ssp{C} and are determined by searching the mapping \xsp{k}  in polynomial time using Equation (\ref{eqn_nodes_app}).
 \begin{align}
 	\label{eqn_appreliability_app}
-	&Reliability_{A_i}(\ttbspx{i})=Reliability(M_{A_i})*Reliability(B)\\
+	&Reliability_{A_i}(\ttx)=Reliability_{A_i}(\ttssp{M})*Reliability(B)\\
 	\label{eqn_nodes_app}
-	&M_{A_i}=\{e|e\in M \land \forall ijk (e=m_h)|\ttsss{c}\in \ttssp{C} \},\mbox{ where } h=\ttssx{k}{ij} 
+	&\ttssp{M}=\{e|e\in M \land \forall ij (e=m_h) \},\mbox{ where } h=\ttssx{k}{ij} 
 \end{align}
 
-The reliability of the nodes $Reliability(M_{A_i})$ is calculated using the \textit{state-enumeration} technique \cite{Lucet1999ExactReliability}  as shown in Equations (\ref{eqn_appreliability}). According to the technique, the reliability is basically the total probability that the application $A_i$ \textit{functions} under the mutually exclusive events of the nodes failures  (or state-space), reprresented by $PS_{A_i}(\ttx{i})=\{\textbf{0},\textbf{1}\}^{M_{A_i}}$, where  \textbf{0} means the node fails, \textbf{1} means the node is operational. Note: we reference the state of a node $s\in PS_{A_i}$, which is represented as a tuple by $\pi_{m_i}(s)$, e.g., for $M_{A_i}=\{m_1,m_2,m_3\}$,  $PS_{A_i}=\{(0,0,0),(0,0,1),...,(1,1,1)\},s_2=(0,0,1)$ and $\pi_{m_2}=\textbf{0}(fails)$. Therefore, the application reliability is the $M$ fails is the total probability that 
+The reliability of the nodes, $Reliability_{A_i}(\ttssp{M})$ with respect to the application ${A_k}$ is calculated using the \textit{state-enumeration} technique \cite{Lucet1999ExactReliability}  as shown in Equations (\ref{eqn_appreliability}). According to the technique, the reliability is basically the total probability that the application $A_k$ \textit{functions} under mutually exclusive and uniformly distributed failure-events of the nodes, represented by $\ttssp{\mathcal{F}}(\ttssp{M})=\{\textbf{0},\textbf{1}\}^{\ttssp{M}}$, where  \textbf{0} means node fails, \textbf{1} means  node is operational. An event $\omega\in \mathcal{F}_{A_k}(\ttssp{M})$ represents the states of nodes by a sequence of 0-1 variables $(b_1,...,b_n)$, where $\omega.b_i$ denote the state of node $m_i\in \ttssp{M}$. %as the state of the nodes $\ttssp{M}=\{e_1,...,e_n\}$ by $s\in \ttssp{\mathcal{F}}(\ttssp{M})=(b_{e_1},...,b_{e_n})$, where $n=|\ttssp{M}|$, whereas the state of a node is referenced by $s.b_{e}$.
 \begin{align}
 \label{eqn_appreliability}
-Reliability(M')&=\sum_{s\in PS_{A_i}|g(A_i, s)=1}probability(s)
+Reliability_{A_i}(\ttssp{M})&=\sum_{s\in \ttssp{\mathcal{F}}|g(A_i, s)=1}probability(s)
 \end{align}
 
-For a mapping solutoin $\textbf{x}$ and some event of nodes failures $s\in PS_{A_i}$, the fact that an application fails or not is deductively defined as follows:
+The fact that an application functions $g(A_k, s)$ is defined via its inverse, which is \textit{software application failure}, deductively as follows:
 \begin{definition}[Software Application Failure]
-The application $A_i$ \textit{fails}  in the event $s$, that is $g(a, s)=0$ (\ref{eqn_app_failure}), if there exists a component type $c_i$ where all of its replica $Q_i$ \textit{fails}, otherwise, the application functions.  A component replica $q_{ij}\in Q_i$ fails if the node $m_k$ that host it fails, where $k=x_{ij}$. 
+The application $A_k$ fails in the event $\omega \in \ttssp{\mathcal{F}}(\ttssp{M})$ if there exists a component type \sss{c} where all of its replica \sss{Q} \textit{fail}, otherwise, the application functions, as shown in Equation (\ref{eqn_app_failure}).  A component replica $\ttsss{q}[k][ij]\in \ttsss{Q}$ fails if the node that host it $m_h$ fails, where $h=\xkij$.  
 \begin{align}
 \label{eqn_app_failure}
-g(a, s)&=
+g(a, \omega)&= 
 \begin{cases}
-\textbf{0} \mbox{ (fails)} & \mbox{if }  \prod_{m\in M^{''}}{h(m,s)}\\
-\textbf{1} \mbox{ (functions)} & \mbox{otherwise }
+\textbf{0} & \mbox{ if } \exists i\forall j\ (m_h\in \ttsss{M}[k][\omega] )\\
+\textbf{1} & \mbox{ otherwise }
 \end{cases}\\
-\label{eqn_appreliability_node}
-h(m, s)&=
-\begin{cases}
-\textbf{1} & \mbox{if } s.Index(m) = 1\\
-\textbf{0} & \mbox{otherwise }
-\end{cases}
+\label{eqn_appreliability_node_s}
+\ttsss{M}[A_k][\omega]&=\{e|e\in \ttssp{M} \land (\omega.b_e=1) \},
 \end{align}
-
-where $M^{''}={m\in M'|}$
- %c \in C_a\forall q\in Q_i \ldotp h(m,s)=1
- %of its components are \textit{running} under a given mapping $\textbf{x}$ and state $s\in PS_{A_i}(\textbf{x})$. 
 \end{definition}
-%WeAn application functions (which is indicated by \textbf{1}, otherwise \textbf{0}) if all of its components are \textit{running} under a given mapping $\textbf{x}$ and state $s\in PS_{A_i}(\textbf{x})$.  A component runs (or is alive) (which is indicated by \textbf{1}, otherwise \textbf{0}) under the mapping $\textbf{x}$ and state $s\in PS_{A_i}(\textbf{x})$ if the node that hosts the component \textit{functions}, which is determined using Equation (\ref{eqn_appreliability_node}).
-%\begin{align}
-%	g(a, s)&=
-%	\begin{cases}
-%	\textbf{1} & \mbox{if } \forall c\in C_a\ldotp\exists m\in M'\ldotp h(m,s)=1\\
-%	\textbf{0} & \mbox{otherwise }
-%	\end{cases}\\
-%	\label{eqn_appreliability_node}
-%	h(m, s)&=
-%	\begin{cases}
-%	\textbf{1} & \mbox{if } s.Index(m) = 1\\
-%	\textbf{0} & \mbox{otherwise }
-%	\end{cases}
-%\end{align}
+where \sss{M}[k][\omega] denote the nodes that function at the event $\omega$, and can be found by searching the nodes \ssp{M} with state $\omega.b_e=1$ in constant time , as show in Equation (\ref{eqn_pro}).
 
-%, e.g., if s={0,1,1} respectively for $\{m_1,m_2,m_3\}$, $stateOf(m_1,s)$=0%, are functioning (that is )and  $Reliability(B)\in [0,1]$ is the reliability of the share CAN bus.
+The probability that a nodes-failure event $\omega$ occurs is computed as a product of the probabilities of its consitutuent elements $\omega.b$ as shown in Equation (\ref{label}).
+\begin{equation}
+\label{eqn_pro}
+	\prod_{(m,b)\in (M,\omega)}{\lambda_m*(1-b)+(1-\lambda_m)*b}
+\end{equation}
+where $\lambda_m$ is the failure-rate of node $m$.
 
-%where $PS_{A_i}={Fail=0,Function=1}^{|M'|]}$ is the enumerated state-space of $M'$, $g(s):PS_{A_i}\rightarrow {Fail, Function}
-% where  as Note: we assume the communication is reliable.
-%\textit{Application reliability} $R_a$ refers to the probability that a software application functions correctly by the time $t$, or within the time interval $[0, t]$ \cite{Goel1985SoftwareApplicability}. We assume that  applications are free from design errors and, therefore, an application failure can be caused only by failures from the computational nodes in which the application is deployed. The failure rate of a node over time is represented by $\lambda(t)$, and the reliability of a node is represented by the exponential density function over constant failure rate $\lambda e^{-\lambda t}$, where $\lambda=\lambda(t)$.
-%In a system without replication, the failure of any arbitrary node that hosts the software application renders the whole application faulty. Reliability calculation is then straightforward, using a series-parallel model: $R_a = \prod_{m\in M}r_m$.  However, with the introduction of replication, to enable fault tolerance, the reliability calculation is not straightforward due to the replicas of the same software component allocated to different nodes that result in functional interdependencies between nodes. A software application functions \textit{ correctly} if each software component is executed at least by one non-faulty node, and will be \textit{faulty} otherwise (i.e., if there are one or more software components that are allocated only to faulty nodes and thus these components cannot be executed correctly).
-
-To calculate the reliability in such cases, we use state enumeration, which is one of the reliability-preserving methods that are used to compute the reliability of a system with dependent components (or subsystems) \cite{Lucet1999ExactReliability}. The state enumeration method allows the exploration of all possible states of a system in the probability space $P\!S$. Our goal is to differentiate between the states in which the application functions, denoted by \textit{Functions(s)}, and the states in which the application fails, denoted by \textit{Fails(s)}. The application reliability $R_a$ is then calculated as follows:
-\begin{align}
-\label{eqn_appreliability}
-R_a=\sum_{s\in PS_{A_i}|Functions(s)}p_s=1-\sum_{s\in PS|Fails(s)}p_s\\
-PS_{A_i}=2^{M_{A_i}}\\
-g:\textbf{x}\rightarrow M_{A_i}
-\end{align}
-
-To obtain $p_s$, that means the probability that the application is in state $s\in PS$, we define the Boolean variable $z_m \in \{0,1\}$ to indicate whether a node $m \in M$ is either faulty, $z_m = 0$, or not, $z_m = 1$. Then, the probability is calculated using (´\ref{eqn_stateprobability}).
-\begin{align}
-\label{eqn_stateprobability}
-p_s=\prod_{m\in M}((z_m*r_m) + (1-z_m)*(1-r_m)),
-\end{align}
-where $r_m$ and $1-r_m$ are a computation node's reliability and probability of failure, respectively.
-
-\subsection{The Timing Model}
+\subsection{End-to-end Timing Constraints}
 The software application can be considered as a set of cause-effect chains, which are directed paths in the application graph, e.g.,  activation of a cruise control system by pressing a rotary-wheel on the dashboard, slowing down of a car by pressing the brake pedal, etc. Each cause-effect chain is annotated with an end-to-end timing requirement that specifies the maximum time between a stimulus and the corresponding response of a chain. A cause-effect chain can be hosted on a single node or multiple nodes as illustrated in Figure \ref{fig_datachainsingle} and Figure \ref{fig_datachainmulti}, respectively. Moreover, it can be activated by a single activation pattern, or multiple activation patterns (multirate).
+\begin{figure*}[h!]
+    \centering
+    \begin{subfigure}[b]{0.25\textwidth}
+    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_singlenode}
+    \caption{Deployment on a Single Node.}
+    \label{fig_datachainsingle}
+    \end{subfigure}
+    ~ %\quad, \qquad, \hfill 
+    \begin{subfigure}[b]{0.365\textwidth}
+    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_multinode}
+    \caption{Deployment on Multiple Nodes.}
+    \label{fig_datachainmulti}
+    \end{subfigure}
+   ~\vspace{-0.2cm}
+    \begin{subfigure}[b]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{timedpath}
+    \caption{Timed Paths of Age and Reaction Delays.}
+    \label{fig_timedpath}
+    \end{subfigure}
+    \caption{Cause-effect Chain with Three Activation Patterns.}
+    \label{fig:datachain}
+\end{figure*}
 
 The calculation of data-propagation delays in multirate software applications is not trivial due to the oversampling and undersampling effects, caused by the different activation patterns. Consequently, there are different delay semantics, which differ depending on the timed paths through which the data is propagated from the input to the output of the chains~\cite{mubeen2013support}. In this work, we focus on the \textit{age} and \textit{reaction} delays, which are the most widely used delay semantics in the automotive embedded systems. The two delays in a cause-effect chain that is distributed over two nodes  are demonstrated in Figure~\ref{fig_timedpath}. The tasks t1 and t2 execute on one node, whereas task t3 executes on the second node. Note that t2 communicates with t3 via a network message, that is not shown in the figure for simplicity. The red inverted arrows in Figure~\ref{fig_timedpath} represent the arrival of events at the input of the chain, whereas the dashed-curve arrows represent the timed paths through which the data propagates from the input to the output of the chain. The age delay is the time elapsed between a stimulus and its corresponding latest non-overwritten response, i.e., between the $2^{nd}$ instance of t1 and the $5^{th}$ instance of t3. This delay is frequently used in the control systems applications where freshness of data is paramount. For example, the torque applied to turn the wheels must correspond to the position of the steering wheel and must be time bound. The reaction delay is the earliest time the system takes to respond to a stimulus that ``just missed" the read access at the input of the chain. Assume that an event occurs just after the start of execution of the $1^{st}$ instance of t1. The data corresponding to this event is not read by the current instance of t1. In fact, the data will be read by the $2^{nd}$ instance of t1. The earliest effect of this event at the output of the chain will appear at the $4^{th}$ instance of t3, which represents the reaction delay. This delay is useful in body-electronics domain where first reaction to events is important, e.g., in the button-to-reaction applications. We refer the reader to \cite{mubeen2013support} for the formal semantics of the two delays used in this paper.
 

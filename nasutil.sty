@@ -90,8 +90,15 @@ Contribution \therccounter}
 \newcommand{\ete}{EndToEnd}
 
 %% Matrix 
-\newcommand{\ttx}[1][k]{\textbf{x}^{(A_#1)}}
-\newcommand{\x}[1][k]{$\textbf{x}^{(A_#1)}$}
+\newcommand{\ttxk}[1][k]{\textbf{x}^{(A_#1)}}
+\newcommand{\xk}[1][k]{$\textbf{x}^{(A_#1)}$}
+
+%% Solution x - bold
+\newcommand{\x}{$\textbf{x}$ }
+\newcommand{\ttx}{\textbf{x}}
+%% Solution x^k - bold
+\newcommand{\xsp}[1]{$\textbf{x}^{(#1)}$}
+\newcommand{\ttxsp}[1]{\textbf{x}^{(#1)}}
 
 \newcommand{\sbx}[2][x]{$#1_{#2}$}
 \newcommand{\spx}[2][x]{$#1^{(#2)}$}
@@ -104,13 +111,13 @@ Contribution \therccounter}
 \newcommand{\bx}{\textbf{x}}
 
 %% sets
-\NewDocumentCommand{\sss}{ O{k} O{i} m }{$#3^{(#1)}_{#2}$}
-\NewDocumentCommand{\ssp}{ m O{A} O{k}}{$#1^{(#2_{#3})}$}
-\NewDocumentCommand{\ssb}{ m O{i}}{$#1_{#2}$}
+\NewDocumentCommand{\sss}{m O{k} O{i}}{$#1^{(A_{#2})}_{#3}$}
+\NewDocumentCommand{\ssp}{m O{A} O{k}}{$#1^{(#2_{#3})}$}
+\NewDocumentCommand{\ssb}{m O{i}}{$#1_{#2}$}
 
-\NewDocumentCommand{\ttsss}{ O{k} O{i} m }{#3^{(A_#1)}_{#2}}
-\NewDocumentCommand{\ttssp}{ m O{A} O{k}}{#1^{(#2_{#3})}}
-\NewDocumentCommand{\ttssb}{ m O{i}}{#1_{#2}}
+\NewDocumentCommand{\ttsss}{m O{k} O{i}}{#1^{(A_{#2})}_{#3}}
+\NewDocumentCommand{\ttssp}{m O{A} O{k}}{#1^{(#2_{#3})}}
+\NewDocumentCommand{\ttssb}{m O{i}}{#1_{#2}}
 
 %% set expressions
 %set +  expression, e.g.,
