@@ -1,31 +1,34 @@
 \section{System Model}\label{sec_system}
 The system model is composed of three parts: software applications, an execution platform, and an allocation scheme. In this section, we show models of the different parts and describe them detail. For smooth reading, first we list the main mathematical notations used throughout the paper, e.g., to define the system model and the software allocation problem.
 \begin{table}[]
-\begin{tabular}{@{}llp{0.65\textwidth}@{}}
+	\small
+\begin{tabular}{@{}llp{0.55\textwidth}@{}}
 \toprule
  & Notation                        & Description                                             \\ 
 \midrule
-$\bullet$ & \setExp{A}{A}     & a set of software applications, where $N-a=|A|$ \\
-$\bullet$ & \sspExp{C}{i}     & a set of software component types, where $N_c=\abs{C}$ \\
-$\bullet$ & \sssExp{Q}{q}    & a set of component replicas of type \sss{C}\\
-$\bullet$ & \sssExp{R}[i]{r}[j]   & a set of runnables which implement \sss{C}\\
-$\bullet$ & \sssxx{i}{T}{\tau}   & a set of runnables, where $N_\tau=\abs{T}$                \\
-$\bullet$ &  \setExp{M}{m}         & a set of computation nodes, $N_m=\abs{M}$       \\
-$\bullet$ & $\Gamma=\{\Gamma_i\ :i=1,\dots, N_\gamma\}$ & a set of end-to-end chains             \\
-$\bullet$ & $\Gamma_i=(e_i)_{i=1}^Z$   & a chain of elements $e_i=r_i$ or $e_i=\tau_i$, $Z=\abs{\Gamma_i}$ is the length of the chain\\ 
-$\bullet$ & $\zeta:T\mapsto R$ & a function that groups and maps runnables to tasks\\[6pt]
+$\bullet$ & \setExp{A}{A}[k]     & software applications \\
+$\bullet$ & \sspExp{C}{c}     & software component types\\
+$\bullet$ & \sssExp{Q}{q}    & component replicas of type \ttsss{C}\\
+$\bullet$ & \sssExp{R}[i]{r}[j]   & runnables that implement \ttsss{C}\\
+$\bullet$ & \sssExp{T}{\tau}   & tasks mapped to \ttsss{C}               \\
+$\bullet$ & \setExp{N}{n}         & computation nodes      \\
+$\bullet$ & \setExp{M}{m}         & messages on the CAN bus   \\
+$\bullet$ & B         					& shared CAN bus   \\
+$\bullet$ & \sspExp{\Gamma}{\Gamma} & end-to-end chains             \\
+$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a chain of tasks, with length \ttn{Z}\\ 
+$\bullet$ & $\zeta:T\mapsto R$ & a mapping from  \ttssp{C}  to  \ttssp{T} \\[6pt]
 
-$\bullet$ & $c_{i,k}$                            & the component co-hosted at $A_k$         \\
-$\bullet$ & $c_{ij,k}$                           & the $k^{th}$ replica of $c_{i,k}$        \\
-$\bullet$ & $K_{i,k}$                            & the replica size of $c_{i,k}$\\[6pt]
+$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote, respectively task, component, cause-effect chain and node iterator variables, e.g., $\forall \tau \in  \ssp{T}$. }\\[6pt]
 
-$\bullet$ & $\textbf{x}:C\mapsto M$            & a feasible software allocation solution                  \\
-$\bullet$ & $Power(\textbf{x})$                & total power consumption of applications $A$               \\
-$\bullet$ & $Reliability_{i}(\textbf{x})$      & the reliability violation of application $A_i$              \\
-$\bullet$ & $ResponseTime_{i}(\textbf{x})$     & the response time violation of task $A_i$                       \\
-$\bullet$ & $Delay_{i}(\textbf{x})$            & the age delay violation of chains in $A_i$         \\
-\bottomrule
+$\bullet$ & $\textbf{x}:C\mapsto M$            & a mapping from \ttssp{Q} to \ttssp{M}              \\[6pt]
+
+$\bullet$ & $Power(\textbf{x})$                & total power consumption of  $A$    \\
+$\bullet$ & $Reliability_{a}(\x)$      & application reliability  of $a\in A_i$              \\
+$\bullet$ & $ResponseTime_{\tau}(\x)$     & response time of  $\tau \in \sss{T}$                       \\
+$\bullet$ & $Delay_{\gamma}(\x)$            & age delay of $\gamma \in \sss{\Gamma} $         \\
+\bottomrule\\
 \end{tabular}
+{\footnotesize Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes number ofapplications. As a general rule, the variables $k,i$ are indices counters for applications $A$ and component types $C$, respectively. Similarly, and depending on the context, $j$ refers to component replicas, runnables and tasks. The counters are bound by the interval $[1,n]$, where $n$ refers to the cardinality of the set that the indices refers to, e.g., $\forall k\ A_k$ means for all applications.} 
 \end{table}
 
 \subsection{Software Applications}
@@ -43,13 +46,10 @@ Multiple applications can be executed on the same computation node(s) and can sh
 \subsection{Scheduling Software Applications}
 The applications are scheduled on the execution platform by considering their respective requirements such as the criticality levels, reliability requirements, and end-to-end timing requirements. There are several techniques in the literature that deal with the scheduling of mixed-critical applications on a \textit{uniprocessor} systems \cite{Vestal2007PreemptiveAssurance}. In this work, we consider the \textit{partitioned criticality (PA)}  technique, which basically prioritizes higher critical applications over their lower critical counterparts. In contrast to other techniques, PA does not require a runtime monitoring of tasks, e.g., using servers \cite{AbeniIntegratingSystems,Ashjaei2017DesigningSystems,Inam2014ThePlatforms}.
 
-\subsubsection{Scheduling Tasks}
+\subsubsection{Scheduling Tasks}\label{subsec_responsetimeanalysis}
 By refinement, the tasks $Tasks_{A_i}$ and messages $Msg_{A_i}$ inherit the priority of $A_i$, essentially prioritizing higher critical tasks and messages, respectively at the computation and network levels \cite{Baruah2011Response-timeSystems,Burns2013MixedNetwork}. In this context, the task set allocated to node $m_i$, $T_{m_i}$ is scheduled by the \textit{fixed-priority preemptive scheduling polity} (FPPS), using the \textit{deadline monotonic} (DM) scheduler. The schedulability of the tasks is verified via the classical response time analysis (RTA) technique \cite{Baruah2011Response-timeSystems}. 
 
-\subsubsection{Scheduling Messages on the CAN Bus}
-Likewise, the messages in the CAN network bus are scheduled using fixed priority non-preemptive scheduling policy using.
-
-\subsubsection{Scheduling Cause-effect Chains}
+\subsubsection{Scheduling Cause-effect Chains}\label{subsec_causeeffectchains}
 
 \subsection{AUTOSAR System}
 The AUTOSAR standard introduced the notion of \textit{Runnables} to facilitate early analysis, that is at the VBF level, and to support interoperability of automotive applications across different execution platforms. Basically, runnables are schedulable piece of code similar to tasks. In this work, we assume periodically activated runnables with support for multiple worst-case executions that correspond to the different computation processor types. Unlike tasks, runnables' functional and extra-functional properties, e.g., timing, memory requirements, are part of the AUTOSAR software component specifications. Therefore, the software application model is extended to accommodate the notion of runnables, using the following simplified formal definition.

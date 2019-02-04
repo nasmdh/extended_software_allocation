@@ -89,41 +89,47 @@ Contribution \therccounter}
 \newcommand{\rst}{ResponseTime}
 \newcommand{\ete}{EndToEnd}
 
-%% Matrix 
-\newcommand{\ttxk}[1][k]{\textbf{x}^{(A_#1)}}
-\newcommand{\xk}[1][k]{$\textbf{x}^{(A_#1)}$}
+%% Matrix
+\newcommand{\xk}[1][k]{\textbf{x}^{(A_#1)}}
+\newcommand{\ttxk}[1][k]{$\textbf{x}^{(A_#1)}$}
 
 %% Solution x - bold
-\newcommand{\x}{$\textbf{x}$ }
-\newcommand{\ttx}{\textbf{x}}
+\newcommand{\ttx}{$\textbf{x}$ }
+\newcommand{\x}{\textbf{x}}
 %% Solution x^k - bold
-\newcommand{\xsp}[1]{$\textbf{x}^{(#1)}$}
-\newcommand{\ttxsp}[1]{\textbf{x}^{(#1)}}
+\newcommand{\ttxsp}[1]{$\textbf{x}^{(#1)}$}
+\newcommand{\xsp}[1]{\textbf{x}^{(#1)}}
 
 \newcommand{\sbx}[2][x]{$#1_{#2}$}
 \newcommand{\spx}[2][x]{$#1^{(#2)}$}
-\newcommand{\ssx}[3]{$#1^{(#2)}_{#3}$}
+
+%% Solution: text mode
+\newcommand{\ttxkij}{$x^{(k)}_{ij}$}
+\newcommand{\ttssx}[3]{$#1^{(#2)}_{#3}$}
+\newcommand{\ttbspx}[1]{$\textbf{x}^{(#1)}$}
+
+%% Solution: math mode
 \newcommand{\xkij}{x^{(k)}_{ij}}
-
-\newcommand{\ttssx}[3][x]{#1^{(#2)}_{#3}}
+\newcommand{\ssx}[3][x]{#1^{(#2)}_{#3}}
 \newcommand{\bspx}[1]{\textbf{x}^{(#1)}}
-\newcommand{\ttbspx}[1]{\textbf{x}^{(#1)}}
-\newcommand{\bx}{\textbf{x}}
 
-%% sets
-\NewDocumentCommand{\sss}{m O{k} O{i}}{$#1^{(A_{#2})}_{#3}$}
-\NewDocumentCommand{\ssp}{m O{A} O{k}}{$#1^{(#2_{#3})}$}
-\NewDocumentCommand{\ssb}{m O{i}}{$#1_{#2}$}
 
-\NewDocumentCommand{\ttsss}{m O{k} O{i}}{#1^{(A_{#2})}_{#3}}
-\NewDocumentCommand{\ttssp}{m O{A} O{k}}{#1^{(#2_{#3})}}
-\NewDocumentCommand{\ttssb}{m O{i}}{#1_{#2}}
+\newcommand{\n}[1]{n_{#1}}
+\newcommand{\ttn}[1]{$n_{#1}$}
+%% sets: math mode
+\NewDocumentCommand{\sss}{m O{k} O{i}}{#1^{({#2})}_{#3}}
+\NewDocumentCommand{\ssp}{m O{A} O{k}}{#1^{(#2_{#3})}}
+\NewDocumentCommand{\ssb}{m O{i}}{#1_{#2}}
+%% sets: text mode
+\NewDocumentCommand{\ttsss}{m O{k} O{i}}{$#1^{({#2})}_{#3}$}
+\NewDocumentCommand{\ttssp}{m O{A} O{k}}{$#1^{(#2_{#3})}$}
+\NewDocumentCommand{\ttssb}{m O{i}}{$#1_{#2}$}
 
 %% set expressions
 %set +  expression, e.g.,
 \NewDocumentCommand{\setExp}{m m O{i}}{$#1=\{#2_{#3}: #3=1,\dots, n_#1\}$ }%set
 %set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
-\newcommand{\sspExp}[2]{$#1^{(k)}=\{#1^{(k)}_{#2}: #2=1,\dots, n_#1\}$  }
+\NewDocumentCommand{\sspExp}{m O{k} m O{i}}{$#1^{(#2)}=\{#3^{(#2)}_{#4}: #4=1,\dots, n_#1\}$  }
 %set + superscript + + subscript + expression, e.g., Q^(k)_i={q_ij^(k): j=1,...,N_Q_i}
 \NewDocumentCommand{\sssExp}{m O{i} m O{j}}{$#1^{(k)}_{#2}=\{#3^{(k)}_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
 
