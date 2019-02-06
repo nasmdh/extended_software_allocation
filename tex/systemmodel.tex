@@ -1,31 +1,44 @@
 \section{System Model}\label{sec_system}
 The system model is composed of three parts: software applications, an execution platform, and an allocation scheme. In this section, we show models of the different parts and describe them detail. For smooth reading, first we list the main mathematical notations used throughout the paper, e.g., to define the system model and the software allocation problem.
+ \begin{figure}[!h]
+ \centering
+ \includegraphics[scale=0.6]{softwareallocation}
+ \caption{System Model.}
+ \label{fig_softwareallocation}
+ \end{figure}
 \begin{table}[]
 	\small
 \begin{tabular}{@{}llp{0.55\textwidth}@{}}
 \toprule
  & Notation                        & Description                                             \\ 
 \midrule
-$\bullet$ & \setExp{A}{A}[k]     & software applications \\
-$\bullet$ & \sspExp{C}{c}     & software component types\\
-$\bullet$ & \sssExp{Q}{q}    & component replicas of type \ttsss{C}\\
-$\bullet$ & \sssExp{R}[i]{r}[j]   & runnables that implement \ttsss{C}\\
-$\bullet$ & \sssExp{T}{\tau}   & tasks mapped to \ttsss{C}               \\
-$\bullet$ & \setExp{N}{n}         & computation nodes      \\
-$\bullet$ & \setExp{M}{m}         & messages on the CAN bus   \\
-$\bullet$ & B         					& shared CAN bus   \\
-$\bullet$ & \sspExp{\Gamma}{\Gamma} & end-to-end chains             \\
+ &/* Application related */&\\
+$\bullet$ & \setExp{A}{A}[k]     	            & software applications \\
+$\bullet$ & \sspExp{C}{c}     		             & software component types\\
+$\bullet$ & \sssExp{Q}{q}    		            & component replicas of type \ttsss{c}\\
+$\bullet$ & \sssExp{R}[i]{r}[j]   	             & runnables that implement \ttsss{c}\\
+$\bullet$ & \sssExp{H}[i,j]{r}[h]              & runnables that implement $\sss{q}[k][i,j]$\\
+$\bullet$ & $\sss{g}[k][r]$   		           & directed acyclic graph of $\bigcup\sss{q}[k][i,j]$ \\
+$\bullet$ & $V(g)$   		 & node/vertices of graph $g$\\
+$\bullet$ & $E(g)$   		 & links/edges of graph $g$\\
+&/* Execution platform related */ &\\
+$\bullet$ & \setExp{N}{n}         	            & computation (or computing) nodes      \\
+$\bullet$ & B         						           & shared CAN bus   \\
+$\bullet$ & \setExp{M}{m}         	           & messages on the CAN bus   \\
+$\bullet$ & \sspExp{\Gamma}{\Gamma}  & end-to-end chains             \\
 $\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a chain of tasks, with length \ttn{Z}\\ 
-$\bullet$ & $\zeta:T\mapsto R$ & a mapping from  \ttssp{C}  to  \ttssp{T} \\[6pt]
+$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote iterator variables,  respectively for task, component, chain and node, e.g., $\forall \tau \in  \ssp{T}$. }\\
+ &/* Mapping related */&\\
 
-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote, respectively task, component, cause-effect chain and node iterator variables, e.g., $\forall \tau \in  \ssp{T}$. }\\[6pt]
+$\bullet$ & \setexpsp{\textbf{x}}{\textbf{x}}[k]:$\bigcup{\sss{Q}}\mapsto M$            & a mapping vector from \ttssp{Q} to \ttssp{M}              \\
+$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$k,i,j$ denote iterator index-variables,  respectively for the mapping vector \ttx, and rows and columns of the matrix \ttxsp{k}, e.g., \ttxkij.}\\
+$\bullet$ & $\sss{g}[k][\tau](\x)$   		           & directed acyclic graph of tasks\\
+&/* Functions related */ &\\
 
-$\bullet$ & $\textbf{x}:C\mapsto M$            & a mapping from \ttssp{Q} to \ttssp{M}              \\[6pt]
-
-$\bullet$ & $Power(\textbf{x})$                & total power consumption of  $A$    \\
-$\bullet$ & $Reliability_{a}(\x)$      & application reliability  of $a\in A_i$              \\
-$\bullet$ & $ResponseTime_{\tau}(\x)$     & response time of  $\tau \in \sss{T}$                       \\
-$\bullet$ & $Delay_{\gamma}(\x)$            & age delay of $\gamma \in \sss{\Gamma} $         \\
+$\bullet$ & $Power(\textbf{x})$                		& total power consumption of  $A$ in \ttx    \\
+$\bullet$ & $Reliability_{a}(\x)$      					& application reliability  of $a\in A$ in \ttx              \\
+$\bullet$ & $ResponseTime_{\tau}(\x)$     		& response time of  $\tau \in V(\sss{g}[k][\tau])(\x)$                       \\
+$\bullet$ & $Delay_\Gamma(\x)$            			& age delay of $\Gamma \in \sss{\Gamma} $   in \ttx     \\
 \bottomrule\\
 \end{tabular}
 {\footnotesize Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes number ofapplications. As a general rule, the variables $k,i$ are indices counters for applications $A$ and component types $C$, respectively. Similarly, and depending on the context, $j$ refers to component replicas, runnables and tasks. The counters are bound by the interval $[1,n]$, where $n$ refers to the cardinality of the set that the indices refers to, e.g., $\forall k\ A_k$ means for all applications.} 
@@ -50,27 +63,97 @@ The applications are scheduled on the execution platform by considering their re
 By refinement, the tasks $Tasks_{A_i}$ and messages $Msg_{A_i}$ inherit the priority of $A_i$, essentially prioritizing higher critical tasks and messages, respectively at the computation and network levels \cite{Baruah2011Response-timeSystems,Burns2013MixedNetwork}. In this context, the task set allocated to node $m_i$, $T_{m_i}$ is scheduled by the \textit{fixed-priority preemptive scheduling polity} (FPPS), using the \textit{deadline monotonic} (DM) scheduler. The schedulability of the tasks is verified via the classical response time analysis (RTA) technique \cite{Baruah2011Response-timeSystems}. 
 
 \subsubsection{Scheduling Cause-effect Chains}\label{subsec_causeeffectchains}
+The software application can be considered as a set of \textit{cause-effect chains} \sspExp{\Gamma}{\Gamma}, which are  directed paths in the graph, annotated by end-to-end timing requirements \ttsss{End2end}. They represent sequences of actions triggered usually by external events (or causal actions or stimuli) and produce corresponding effects (or responses), e.g.,  pressing a rotary-wheel to activate a cruise control system, pressing a brake pedal to slow down a car, etc. The end-to-end requirements put upper-bounds on the duration of the stimuli-reponse elapse time. An example of a cause-effect chain is shown in Figure \ref{fig_causeeffectchainntk}, which consists of three independently clocked tasks $\tau_1,\tau_2,\tau_3$, and message $m_1,m_2$. It uses single-register buffers for communication, which is a common practice in control systems design, e.g., automotive software applications.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/cause_effect_chain_ntk}
+	\caption{A Cause-effect Chain, mapped on nodes $n_1$ and $n_2$.}
+	\label{fig_causeeffectchainntk}
+\end{figure}
 
-\subsection{AUTOSAR System}
-The AUTOSAR standard introduced the notion of \textit{Runnables} to facilitate early analysis, that is at the VBF level, and to support interoperability of automotive applications across different execution platforms. Basically, runnables are schedulable piece of code similar to tasks. In this work, we assume periodically activated runnables with support for multiple worst-case executions that correspond to the different computation processor types. Unlike tasks, runnables' functional and extra-functional properties, e.g., timing, memory requirements, are part of the AUTOSAR software component specifications. Therefore, the software application model is extended to accommodate the notion of runnables, using the following simplified formal definition.
+The delay of a chain is the duration between the reading of data from the input register by the source task $Source(\sss{\Gamma})$ to the writing of same data to the ouput register by the last (or sink) task $Sink(\sss{\Gamma})$. Since we assume the chains consist of independently clocked tasks, the delay usually varies due the undersampling/and oversampling effects caused as a result. In this work, we are interested on particular types of delays that are widely used in automotive and similar systems such as \textit{age delay} and\textit{ reaction delay}. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{img/timedchain_ntk}
+	\caption{Reaction and Age Delays of the Cause-effect Chain, Shown in Figure {\ref{fig_causeeffectchainntk}}.}
+	\label{fig_timedchainntk}
+\end{figure}
+
+The difference between the two types of delays is demonstrated in Figure~\ref{fig_timedpath}. The tasks $\tau_1$ and $\tau_2$ execute on node $n_1$, whereas task $\tau_3$ executes on node $n_2$. Note: $\tau_1$ communicates with $\tau_2$ via a CAN bus, which is not shown in the figure for simplicity. The red inverted arrows in the figure represent the reading of data from the input register, whereas the dashed-curve arrows represent the timed paths through which the data propagates from the input to the output of the chain. Thus, the age delay is the time elapsed between a stimulus and its corresponding latest non-overwritten response, i.e., between the $3^{nd}$ instance of  $\tau_1$  and the $10^{th}$ instance of $\tau_3$. It is frequently used in the control systems applications where freshness of data is paramount, e.g., braking a car over a bounded time. And, the reaction delay is the earliest time the system takes to respond to a stimulus that ``just missed" the read access at the input of the chain. Assume that data arrives just after the start of the $1^{st}$ instance of $\tau_1$ execution. The data corresponding to this event is not read by the current instance of $\tau_1$. In fact, the data will be read by the $2^{nd}$ instance of $\tau_1$. The earliest effect of this data at the output of the chain will appear at the $7^{th}$ instance of $\tau_3$, which represents the reaction delay. This delay is useful in body-electronics domain where first reaction to events is important, e.g., in the button-to-reaction applications. For detailed discussion of the different delay semantics, we direct the reader to check research work by Saad et al.~\cite{mubeen2013support}. The age delay is analytically calculated using Equation \ref{eqn_agedelay}, and is explained as follows.
+\begin{align}
+	\label{eqn_agedelay}
+	AgeDelay(\Gamma)=
+	\begin{cases}
+	\alpha(Sink(\Gamma)-\alpha(Source(\Gamma) + \delta(Sink(\Gamma))& \shortintertext{ (if chain mapped on a single node)}\\
+	\sum_{a\in Part(\Gamma)}{AgeDelay(\Gamma)} + \sum_{m\in M'}{\delta(m)}&\shortintertext{ (if chain mapped on multiple nodes)}
+	\end{cases}
+\end{align}
+
+Assume $\Gamma \in \sss{\Gamma}$ is a chain, if the chain is mapped on a single node, the age delay is a mere difference between the activation of the sink task $\alpha(Sink(\Gamma))$ and the activation of the source task $\alpha(Source(\Gamma))$ plus the worst-case execution time of the sink task. Otherwise, if the chain is mapped on multiple nodes, the delay is compositionally computed as follows: the chain is partitioned  into a set of chains per node, indicated by the predicate $Part(\Gamma)$ and for each partitioned chain $a\in Part(\Gamma)$, the age delay is computed recursively, and the result is added to the response-times of the messages involved in the chain $M'$.
+
+\subsection{AUTOSAR System}\label{subsec_autosarsystem}
+The AUTOSAR standard introduced the notion of \textit{Runnables} to facilitate early analysis, that is at the VBF level, and to support interoperability of automotive applications across different execution platforms. Basically, runnables are schedulable pieces of codes similar to tasks. In this work, we assume periodically activated runnables with support for multiple worst-case executions that correspond to the different computation processor types. Unlike tasks, runnables' functional and extra-functional properties, e.g., timing, memory requirements, are part of the AUTOSAR software component specifications. Therefore, the software application model is extended to accommodate the notion of runnables, using the following simplified formal definition.
 
 \begin{definition}[AUTOSAR Software Application Model]
-It is modeled as directed acyclic vertex-weighted graph $g_r=\langle V_r, L_r, w, v\rangle$ of runnable nodes $V_r$, where $a_{ij}\in L_r$ represents either a triggering or data-flow link from the runnable $r_i$ to runnable $r_j$ and $i\neq j$. The cost at the node refers to the timing model of the runnable, where the tuple elements, respectively denote execution time on node $m$, deadline and period. 
+It is modeled as directed acyclic vertex-weighted graph $g_r=\langle V_r, L_r, w, v\rangle$ of runnable nodes $V_r$, where $a_{ij}\in L_r$ represents either a triggering or data-flow link from the runnable $r_i$ to runnable $r_j$ and $i\neq j$. The cost at the node refers to the timing model of the runnable, where the tuple elements, respectively denote execution time on node $m$, deadline and period. Example: Figure \ref{fig_appexample}(a).
 \end{definition}
 
-Essentially, the software applications are entirety developed using AUTOSAR software components, and eventually via as graphs of runnables. The refinement from a runnables graph to a tasks graph is conducted using the following heuristic rules, which is according to the AUTOSAR specification \cite{AUTOSAR2017SpecificationSoftware}. The rules are executed in order of appearance. Thus, the runnable link $(a, b)\in L_r$ merges to a task node $v\in V(g_r)$ if the following conditions hold':
-% \begin{figure}[!h]
-% \centering
-% \includegraphics[scale=0.6]{softwareallocation}
-% \caption{System Model.}
-% \label{fig_softwareallocation}
-% \end{figure}
-\begin{description}
-\item [Condition 1:] the runnables are co-hosted in the same computation node, i.e., \[a\mapsto m \land b\mapsto m\]
-\item [Condition 2:] activation periods of the runnables are the same, i.e., $a.P = b.P$
-\end{description}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/runnable_task_dag}
+	\caption[Example of a Software Application.]{Example of a Software Application, Modeled as Directed Acyclic Graph, where $\dashrightarrow$, $\dashrightarrow$ denote triggering link, data-flow link, respectively.}
+	\label{fig_appexample}
+\end{figure}
 
-If the condition hold, the task timing specifications are set as follows: i) the WCET of the task is set to the sum of the WCET of the runnables, i.e., $v.e_i=a.e_i + b.e_i$, ii) the period of the task is set to the period of the runnables, $v.P=a.P=b.P$. However, if condition 1 is satisfied but the runnables have different periods, the task period is set to the minimum of the runnables' periods, i.e., $v.P=Min(a.P, b.P)$. Otherwise, runnables are not merged, instead, each runnable is mapped to a task, while preserving the timing specifications.
+\begin{table}
+	\parbox{.45\linewidth}{
+		\centering
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+	\ttsss{r}[k][i,j] &$m_h$& $(e_h, P)$ & $\prec$ \ttsss{r} [k][i,j]\\ 
+	\hline 
+	1,1 & 1&$(1,10)$ & 2,1 \\ 
+	\hline 
+	2,1 &1& $(1,5)$ &  \\ 
+	\hline 
+	2,2 &1& $(1,15)$ &  \\ 
+	\hline 
+	3,1 & 2&$(1,20)$ &  \\ 
+	\hline 
+	4,1 & 3&$(1,10)$ &  \\ 
+	\hline 
+	5,1 & 3&$(1,20)$ &  \\ 
+	\hline 
+\end{tabular} 
+		\caption{Runnables Timing Specifications.}
+	}
+	\hfill
+	\parbox{.45\linewidth}{
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			\ttsss{\tau} &$\bigcup\sss{r}[k][i,j]$& $(e_h,P)$ \\ 
+			\hline 
+			1 & 1,2;2,1 &  $(2,5)$\\ 
+			\hline 
+			2& 2,2 &  $(1,15)$\\ 
+			\hline 
+			3& 3,1 &  $(1,20)$\\ 
+			\hline 
+			4 & 4,1;5,1 &  $(1,10)$\\ 
+			\hline 
+		\end{tabular} 
+		\caption{Tasks-Runnables Mappings.}
+	}
+\end{table}
+
+According to AUTOSAR specification \cite{AUTOSAR2017SpecificationSoftware}, runnables are mapped to tasks, and the tasks execute the runnables respecting their timing specifications. In the mapping process, one or more runnables can be merged to optimize the runtime execution by reducing the number of schedulable tasks. Thereore, through the mappings, eventually runnables graphs are refined by tasks graphs as shown in Figure{\ref{fig_appexample} (b). In this work, the following rules are applied in order to merge any runnables $a,b$, that is the link $(a, b)\in L_r$ merges to a task node $v\in V(g_\tau)$, if the following rules satisfy':
+\begin{enumerate*}[label=(\roman*)]
+\item the runnables are co-hosted in the same computation node, i.e., $a\mapsto m \land b\mapsto m$
+\item activation periods of the runnables are the same, i.e., $a.P = b.P$
+\end{enumerate*}
+
+If the rules are satisfied, the task's timing specifications are set as follows: i) the WCET of the task is set to the sum of the WCET of the runnables, $v.e_i=a.e_i + b.e_i$, ii) the period and deadline of the task is  set to the least-common multiple (LCM) of the runnables' periods, $v.P=v.D=LCM(a.P, b.P)$. Otherwise, runnables are not merged, instead, each runnable that is not merged is mapped to a task while preserving the timing specifications of runnables on the tasks.
 
 % Following the grouping of runnables to tasks, We assume runnables communicate (or send data messages) at the end of the corresponding tasks' executions. The messages are packed into a single frame if destined to the same node otherwise each runnable communicats across a shared bus via a dedicated message entity, which is schedulable by the CAN bus controller. In essence, the assumed read-exec-write semantics of the runnables lowers the number of schedulable messages entities in the bus by facilitating packing of signals at the expense of restrictive (or less flexible) inter-runnables communication.
 

@@ -76,63 +76,42 @@ The probability that a nodes-failure event $\omega$ occurs is computed as a prod
 where $\lambda_m$ is the failure-rate of node $m$.
 
 \subsection{Timing constraints}
-The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and cause-effect chains of each application meet their deadlines. The schedulability of each task is checked using the worst-case response-time anlaysis presented in \ref{subsec_responsetimeanalysis}, and the schedulability of cause-effect chains is checked using the delay analysis shown in Subsection \ref{subsec_causeeffectchains}. To calculate the delay, the response time of tasks is a prerequisite, therefore, the latter is calculated first as follows.
+The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and cause-effect chains of each application meet their deadlines. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and for the cause-effect chains using delay analysis shown in Subsection \ref{subsec_causeeffectchains}. Before we formulate the timing constraints, first we derive the task graph for a mapping \ttx from the runnables graph \ttsss{g}[k][r], that is using Equation (\ref{eqn_generatetasksgraphs}).  Using Equation (\ref{eqn_uprdaterunnables}), we update the runnables with nodes information, to which they are mapped by traversing elements of the mapping \ttx, $\xkij$, in linear-time complexity $O(n)$, where $n=|\x|*N_r$, and $N_r$ is the total number of runnables in the system. Consequently, we traverse the runnables graphs, and apply the merging rules stated in the Subsection \ref{subsec_autosarsystem} to derive the tasks graphs. In the case that only runnables from the same component are mapped to at least on task, the derivation of tasks graphs is indpedent of the mapping \ttx, and thus can be performed before the mapping activity. However, the tasks graphs has to be updated with the nodes information after the mapping \ttx is identified.
+\begin{align}
+\label{eqn_uprdaterunnables}
+&\forall k,ij\ \forall r\in \sss{H}[k][i,j]\ r.node = n_h& \mbox{, where } h=\xkij\\
+\label{eqn_generatetasksgraphs}
+&\forall k\ \sss{g}[k][r](\x)\xrightarrow{\text{Eqn. (13);Merging Rules}}\sss{g}[k][\tau](\x)
+\end{align}
+
+where $\sss{H}[k][i,j]$ is the set if runnables that implement component $\sss{q}[k][i,j]$.
+
+%To calculate the delay, the response time of tasks is a prerequisite, therefore, the latter is calculated first as follows.
 
 \subsection{Tasks Timing constraints}
-For a mapping \x, the worst-case response time of the tasks in the distributed system \ttsss{T}[k][i,j] should be less than or equal to their respective deadlines, that is $\forall k\forall ij\ ResponseTime_\tau(\x)\leq Deadline_\tau$, where $\tau \in$ \ttsss{T}[k][i,j]. To calculate the response time of each task, first we drive the set of components and tasks mapped to each node in the system, respectively using Equation (\ref{eqn_components_nodes}) and (\ref{eqn_tasks_nodes}), all in polynomial time. In the former, we search the mapping \ttx and collect components \ttsss{q}[k][i,j] mapped to each node $m_h$. In the latter, we infer the tasks mapped to each component by invoking the mapping function $\zeta(\sss{q}[k][i,j])$.
+The tasks timing constraints states that the worst-case response time of each task in the system meets its respective deadlines for a mapping \ttx, that is $\forall k\forall \tau\in V(g_r(\x))$ $ResponseTime(\tau)\leq Deadline(\tau)$, where $V(\sss{g_r(\x)})$ is the nodes in the tasks graphs. To compute the worst-case response time of the tasks, first we partition the tasks per node, that is tasks mapped to the same node grouped, represented by the $\ssb{T}[n_h]$, by traversing the tasks graphs using Equation (\ref{eqn_tasks_nodes}). The complexity of this equation, considering an adjucency matrix tasks graphs representation is linear-time $O(N_a*n^k)$, where $n$ is the sum of the order and size of graph $\sss{g}[k][\tau](\x)$.
 \begin{align}
-\label{eqn_components_nodes}
-Q_{m_h}&=\left\{e | \forall k\forall ij\ (\xkij = h \land e\in \sss{Q}\right\}& \mbox{ for all } h=1,...,n_M\\
 \label{eqn_tasks_nodes}
-T_{m_h}&=\{e | \forall q\in Q_{m_h} \ \zeta(q) \}& \mbox{ for all } h=1,...,n_M
+T_{m_h}&=\{e | e\in V(\sss{g}[k][\tau](\x)) \land e.node == m_h, \}& \mbox{ for all } h=1,...,n_N
 \end{align}
 
 Then, we calculate the response time of each task $\tau \in T_{m_h}$ by invoking the response-time analyais formula and construct the tasks timing constraints as shown in Equation (\ref{eqn_tasks_constraints}).
 \begin{align}
 \label{eqn_tasks_constraints}
-\forall \tau\in T_{m_h} RT(\tau,m_h)&\leq Deadline(\tau)& \mbox{ for all } h=1,...,\n{M}\\
+\forall \tau\in T_{m_h} \delta(\tau,m_h)&\leq Deadline(\tau)& \mbox{ for all } h=1,...,\n{M}\\
 \end{align}
 
 \subsection{Cause-effect Chains Timing constraints}
-For a mapping \x, the delay of cause-effect chains in the system should be less than or equal to their respective deadlines, that is $\forall k\forall ij\ Delay_\gamma(\x)\leq E2eReq_\gamma$. In this work, we assume a particular type of end-to-end delay, known as age delay, which is discussed in Subsection \ref{subsec_causeeffectchains}. 
-
-In order to calculate, the cause-effect chain delays, the messages for a mapping \x should be identified first using Equation x. Then we update the cause-effect chains that communicate over the shared CAN bus to incorporate the messages in the chains using Eqaution x. We assume each task communicating over the network, uses a message with the same priority and period that of the predecessor task.
-\begin{figure}
-	\centering
-	\includegraphics[width=0.5\linewidth]{img/cause_effect_chain_ntk}
-	\caption[A cause-effect chain deployed on node 1 and node2.]{}
-	\label{fig:causeeffectchainntk}
-\end{figure}
+For a mapping \x, the age delays of cause-effect chains should meet thier respective end-to-end requirements, that is $\forall k\forall ij\ AgeDelay_\Gamma(\x)\leq \sss{E2eReq}[k][\Gamma]$, where $\Gamma\in \sss{\Gamma}$. To calculate the age delays, first we identify the messages scheduled by the CAN bus for the mapping \ttx using Equation (\ref{eqn_messages}). 
+\begin{align}
+\label{eqn_messages}
+	M=\{e|\forall (a,b)\in g_\tau(\x)\forall n\in N\ (a\mapsto n \land b\mapsto n=false)\implies createMsg(e)\},
+\end{align}
+where $Period(e)=Period(a)$, that is the message inherits the period of its predecessor (or sender) task. Accordingly, we update only the chains that communicate over the shared CAN bus to incorporate the messages, that is $\sss{\Gamma}=\{\sss{\Gamma}[k][1],e^*,\sss{\Gamma}[k][N]\}$, where $e\in V(g_\tau(\x))\cup M$. Using Equation (\ref{eqn_agedelay}), we calculate the age delays of each cause-effect chains. 
 
 
-For a multirate cause-effect chain   timing constraints on the cause-effect chains of the applications
-The software application can be considered as a set of cause-effect chains, which are directed paths in the application graph, e.g.,  activation of a cruise control system by pressing a rotary-wheel on the dashboard, slowing down of a car by pressing the brake pedal, etc. Each cause-effect chain is annotated with an end-to-end timing requirement that specifies the maximum time between a stimulus and the corresponding response of a chain. A cause-effect chain can be hosted on a single node or multiple nodes as illustrated in Figure \ref{fig_datachainsingle} and Figure \ref{fig_datachainmulti}, respectively. Moreover, it can be activated by a single activation pattern, or multiple activation patterns (multirate).
-\begin{figure*}[h!]
-    \centering
-    \begin{subfigure}[b]{0.25\textwidth}
-    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_singlenode}
-    \caption{Deployment on a Single Node.}
-    \label{fig_datachainsingle}
-    \end{subfigure}
-    ~ %\quad, \qquad, \hfill 
-    \begin{subfigure}[b]{0.365\textwidth}
-    \includegraphics[trim=0 0 0 0,clip,width=\textwidth]{datachain_multinode}
-    \caption{Deployment on Multiple Nodes.}
-    \label{fig_datachainmulti}
-    \end{subfigure}
-   ~\vspace{-0.2cm}
-    \begin{subfigure}[b]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{timedpath}
-    \caption{Timed Paths of Age and Reaction Delays.}
-    \label{fig_timedpath}
-    \end{subfigure}
-    \caption{Cause-effect Chain with Three Activation Patterns.}
-    \label{fig:datachain}
-\end{figure*}
 
-The calculation of data-propagation delays in multirate software applications is not trivial due to the oversampling and undersampling effects, caused by the different activation patterns. Consequently, there are different delay semantics, which differ depending on the timed paths through which the data is propagated from the input to the output of the chains~\cite{mubeen2013support}. In this work, we focus on the \textit{age} and \textit{reaction} delays, which are the most widely used delay semantics in the automotive embedded systems. The two delays in a cause-effect chain that is distributed over two nodes  are demonstrated in Figure~\ref{fig_timedpath}. The tasks t1 and t2 execute on one node, whereas task t3 executes on the second node. Note that t2 communicates with t3 via a network message, that is not shown in the figure for simplicity. The red inverted arrows in Figure~\ref{fig_timedpath} represent the arrival of events at the input of the chain, whereas the dashed-curve arrows represent the timed paths through which the data propagates from the input to the output of the chain. The age delay is the time elapsed between a stimulus and its corresponding latest non-overwritten response, i.e., between the $2^{nd}$ instance of t1 and the $5^{th}$ instance of t3. This delay is frequently used in the control systems applications where freshness of data is paramount. For example, the torque applied to turn the wheels must correspond to the position of the steering wheel and must be time bound. The reaction delay is the earliest time the system takes to respond to a stimulus that ``just missed" the read access at the input of the chain. Assume that an event occurs just after the start of execution of the $1^{st}$ instance of t1. The data corresponding to this event is not read by the current instance of t1. In fact, the data will be read by the $2^{nd}$ instance of t1. The earliest effect of this event at the output of the chain will appear at the $4^{th}$ instance of t3, which represents the reaction delay. This delay is useful in body-electronics domain where first reaction to events is important, e.g., in the button-to-reaction applications. We refer the reader to \cite{mubeen2013support} for the formal semantics of the two delays used in this paper.
-
-\subsection{Software Allocation Optimization P}\label{sec_allocation}
+\subsection{Software Allocation Optimization Problem	}\label{sec_allocation}
 In this section, we define the allocation problem of a fault-tolerant software application on a network of heterogeneous nodes which is formulatd as ann optimization problem as shown in Equation (\ref{eqn_const_func}). The optimization problem considers minimizing of power consumption $p(x)$ as the objective while fulfilling timing (\ref{eqn_timing}) and application reliability requirements (\ref{eqn_reliability}) of the software applications as well as satisfying design and hardware constraints, e.g., respecting affinity of software components to dedicated nodes.
 \begin{align}
 \label{eqn_optimization}
