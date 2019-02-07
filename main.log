@@ -1,0 +1,2490 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  7 FEB 2019 08:42
+entering extended mode
+**./main.tex
+(main.tex
+LaTeX2e <2018-12-01>
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/elsa
+rticle/elsarticle.cls"
+Document Class: elsarticle 2019/01/14, 3.1: Elsevier Ltd
+\@bls=\dimen102
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/article.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/size10.clo"
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/grap
+hics/graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/grap
+hics/keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/grap
+hics/graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/grap
+hics/trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/grap
+hics-cfg/graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/grap
+hics-def/pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+\c@tnote=\count88
+\c@fnote=\count89
+\c@cnote=\count90
+\c@ead=\count91
+\c@author=\count92
+\@eadauthor=\toks15
+\c@affn=\count93
+\absbox=\box27
+\keybox=\box28
+\Columnwidth=\dimen106
+\space@left=\dimen107
+\els@boxa=\box29
+\els@boxb=\box30
+\leftMargin=\dimen108
+\@enLab=\toks16
+\@sep=\skip43
+\@@sep=\skip44
+ (main.spl)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/natb
+ib/natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip45
+\bibsep=\skip46
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count94
+)
+\splwrite=\write3
+\openout3 = `main.spl'.
+
+\appnamewidth=\dimen109
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/list
+ings/listings.sty"
+\lst@mode=\count95
+\lst@gtempboxa=\box31
+\lst@token=\toks17
+\lst@length=\count96
+\lst@currlwidth=\dimen110
+\lst@column=\count97
+\lst@pos=\count98
+\lst@lostspace=\dimen111
+\lst@width=\dimen112
+\lst@newlines=\count99
+\lst@lineno=\count100
+\lst@maxwidth=\dimen113
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/list
+ings/lstmisc.sty"
+File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
+\c@lstnumber=\count101
+\lst@skipnumbers=\count102
+\lst@framebox=\box32
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/list
+ings/listings.cfg"
+File: listings.cfg 2018/09/02 1.7 listings configuration
+))
+Package: listings 2018/09/02 1.7 (Carsten Heinz)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsm
+ath/amsmath.sty"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsm
+ath/amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsm
+ath/amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen114
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsm
+ath/amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen115
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsm
+ath/amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count103
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count104
+\leftroot@=\count105
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count106
+\DOTSCASE@=\count107
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box33
+\strutbox@=\box34
+\big@size=\dimen116
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count108
+\c@MaxMatrixCols=\count109
+\dotsspace@=\muskip10
+\c@parentequation=\count110
+\dspbrk@lvl=\count111
+\tag@help=\toks19
+\row@=\count112
+\column@=\count113
+\maxfields@=\count114
+\andhelp@=\toks20
+\eqnshift@=\dimen117
+\alignsep@=\dimen118
+\tagshift@=\dimen119
+\tagwidth@=\dimen120
+\totwidth@=\dimen121
+\lineht@=\dimen122
+\@envbody=\toks21
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/url/
+url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/capt
+ion/caption.sty"
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/capt
+ion/caption3.sty"
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@tempdima=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
+)
+\c@caption@flags=\count115
+\c@ContinuedFloat=\count116
+Package caption Info: listings package is loaded.
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/fanc
+yvrb/fancyvrb.sty"
+Package: fancyvrb 2019/01/15
+ Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
+\FV@CodeLineNo=\count117
+\FV@InFile=\read1
+\FV@TabBox=\box35
+\c@FancyVerbLine=\count118
+\FV@StepNumber=\count119
+\FV@OutFile=\write4
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/upqu
+ote/upquote.sty"
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tool
+s/multicol.sty"
+Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
+\c@tracingmulticols=\count120
+\mult@box=\box36
+\multicol@leftmargin=\dimen130
+\c@unbalance=\count121
+\c@collectmore=\count122
+\doublecol@number=\count123
+\multicoltolerance=\count124
+\multicolpretolerance=\count125
+\full@width=\dimen131
+\page@free=\dimen132
+\premulticols=\dimen133
+\postmulticols=\dimen134
+\multicolsep=\skip50
+\multicolbaselineskip=\skip51
+\partial@page=\box37
+\last@line=\box38
+\maxbalancingoverflow=\dimen135
+\mult@rightbox=\box39
+\mult@grightbox=\box40
+\mult@gfirstbox=\box41
+\mult@firstbox=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\c@columnbadness=\count126
+\c@finalcolumnbadness=\count127
+\last@try=\dimen136
+\multicolovershoot=\dimen137
+\multicolundershoot=\dimen138
+\mult@nat@firstbox=\box60
+\colbreak@box=\box61
+\mc@col@check@num=\count128
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+frontendlayer/tikz.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+basiclayer/pgf.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+utilities/pgfrcs.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgfutil-common.tex"
+\pgfutil@everybye=\toks23
+\pgfutil@tempdima=\dimen139
+\pgfutil@tempdimb=\dimen140
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgfutil-common-lists.tex"))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgfutil-latex.def"
+\pgfutil@abb=\box62
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ms/e
+veryshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgfrcs.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/pgf.revision.tex")
+Package: pgfrcs 2019/01/05 v3.1 (3.1)
+))
+Package: pgf 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+basiclayer/pgfcore.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+systemlayer/pgfsys.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/systemlayer/pgfsys.code.tex"
+Package: pgfsys 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks24
+\pgfkeys@temptoks=\toks25
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgfkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks26
+))
+\pgf@x=\dimen141
+\pgf@y=\dimen142
+\pgf@xa=\dimen143
+\pgf@ya=\dimen144
+\pgf@xb=\dimen145
+\pgf@yb=\dimen146
+\pgf@xc=\dimen147
+\pgf@yc=\dimen148
+\w@pgf@writea=\write5
+\r@pgf@reada=\read2
+\c@pgf@counta=\count129
+\c@pgf@countb=\count130
+\c@pgf@countc=\count131
+\c@pgf@countd=\count132
+\t@pgf@toka=\toks27
+\t@pgf@tokb=\toks28
+\t@pgf@tokc=\toks29
+\pgf@sys@id@count=\count133
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/systemlayer/pgf.cfg"
+File: pgf.cfg 2019/01/05 v3.1 (3.1)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/systemlayer/pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/systemlayer/pgfsys-common-pdf.def"
+File: pgfsys-common-pdf.def 2019/01/05 v3.1 (3.1)
+)))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/systemlayer/pgfsyssoftpath.code.tex"
+File: pgfsyssoftpath.code.tex 2019/01/05 v3.1 (3.1)
+\pgfsyssoftpath@smallbuffer@items=\count134
+\pgfsyssoftpath@bigbuffer@items=\count135
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/systemlayer/pgfsysprotocol.code.tex"
+File: pgfsysprotocol.code.tex 2019/01/05 v3.1 (3.1)
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xcol
+or/xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/grap
+hics-cfg/color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcore.code.tex"
+Package: pgfcore 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmath.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathcalc.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathutil.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen149
+\pgfmath@count=\count136
+\pgfmath@box=\box63
+\pgfmath@toks=\toks30
+\pgfmath@stack@operand=\toks31
+\pgfmath@stack@operation=\toks32
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.basic.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.trigonometric.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.random.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.comparison.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.base.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.round.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.misc.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfunctions.integerarithmetics.code.tex")))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count137
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorepoints.code.tex"
+File: pgfcorepoints.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@picminx=\dimen150
+\pgf@picmaxx=\dimen151
+\pgf@picminy=\dimen152
+\pgf@picmaxy=\dimen153
+\pgf@pathminx=\dimen154
+\pgf@pathmaxx=\dimen155
+\pgf@pathminy=\dimen156
+\pgf@pathmaxy=\dimen157
+\pgf@xx=\dimen158
+\pgf@xy=\dimen159
+\pgf@yx=\dimen160
+\pgf@yy=\dimen161
+\pgf@zx=\dimen162
+\pgf@zy=\dimen163
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorepathconstruct.code.tex"
+File: pgfcorepathconstruct.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@path@lastx=\dimen164
+\pgf@path@lasty=\dimen165
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorepathusage.code.tex"
+File: pgfcorepathusage.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@shorten@end@additional=\dimen166
+\pgf@shorten@start@additional=\dimen167
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorescopes.code.tex"
+File: pgfcorescopes.code.tex 2019/01/05 v3.1 (3.1)
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count138
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcoregraphicstate.code.tex"
+File: pgfcoregraphicstate.code.tex 2019/01/05 v3.1 (3.1)
+\pgflinewidth=\dimen168
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcoretransformations.code.tex"
+File: pgfcoretransformations.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@pt@x=\dimen169
+\pgf@pt@y=\dimen170
+\pgf@pt@temp=\dimen171
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2019/01/05 v3.1 (3.1)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcoreobjects.code.tex"
+File: pgfcoreobjects.code.tex 2019/01/05 v3.1 (3.1)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorepathprocessing.code.tex"
+File: pgfcorepathprocessing.code.tex 2019/01/05 v3.1 (3.1)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorearrows.code.tex"
+File: pgfcorearrows.code.tex 2019/01/05 v3.1 (3.1)
+\pgfarrowsep=\dimen172
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@max=\dimen173
+\pgf@sys@shading@range@num=\count139
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcoreimage.code.tex"
+File: pgfcoreimage.code.tex 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcoreexternal.code.tex"
+File: pgfcoreexternal.code.tex 2019/01/05 v3.1 (3.1)
+\pgfexternal@startupbox=\box67
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorelayers.code.tex"
+File: pgfcorelayers.code.tex 2019/01/05 v3.1 (3.1)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcoretransparency.code.tex"
+File: pgfcoretransparency.code.tex 2019/01/05 v3.1 (3.1)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorepatterns.code.tex"
+File: pgfcorepatterns.code.tex 2019/01/05 v3.1 (3.1)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/basiclayer/pgfcorerdf.code.tex"
+File: pgfcorerdf.code.tex 2019/01/05 v3.1 (3.1)
+)))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/modules/pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2019/01/05 v3.1 (3.1)
+\pgfnodeparttextbox=\box68
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/modules/pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2019/01/05 v3.1 (3.1)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+compatibility/pgfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2019/01/05 v3.1 (3.1)
+\pgf@nodesepstart=\dimen174
+\pgf@nodesepend=\dimen175
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+compatibility/pgfcomp-version-1-18.sty"
+Package: pgfcomp-version-1-18 2019/01/05 v3.1 (3.1)
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+utilities/pgffor.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+utilities/pgfkeys.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgfkeys.code.tex"))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgf/
+math/pgfmath.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmath.code.tex"))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/utilities/pgffor.code.tex"
+Package: pgffor 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/math/pgfmath.code.tex")
+\pgffor@iter=\dimen176
+\pgffor@skip=\dimen177
+\pgffor@stack=\toks33
+\pgffor@toks=\toks34
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/frontendlayer/tikz/tikz.code.tex"
+Package: tikz 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/libraries/pgflibraryplothandlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@plot@mark@count=\count140
+\pgfplotmarksize=\dimen178
+)
+\tikz@lastx=\dimen179
+\tikz@lasty=\dimen180
+\tikz@lastxsaved=\dimen181
+\tikz@lastysaved=\dimen182
+\tikzleveldistance=\dimen183
+\tikzsiblingdistance=\dimen184
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count141
+\tikznumberofchildren=\count142
+\tikznumberofcurrentchild=\count143
+\tikz@fig@count=\count144
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/modules/pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2019/01/05 v3.1 (3.1)
+\pgfmatrixcurrentrow=\count145
+\pgfmatrixcurrentcolumn=\count146
+\pgf@matrix@numberofcolumns=\count147
+)
+\tikz@expandcount=\count148
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2019/01/05 v3.1 (3.1)
+)))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/scal
+erel/scalerel.sty"
+Package: scalerel 2016/12/29 v1.8 Routines for constrained scaling and stretchi
+ng of objects, relative to a reference object or in absolute terms
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tool
+s/calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count149
+\calc@Bcount=\count150
+\calc@Adimen=\dimen185
+\calc@Bdimen=\dimen186
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count151
+\calc@Cskip=\skip54
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/etoo
+lbox/etoolbox.sty"
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count152
+)
+\thesrwidth=\skip55
+\thesrheight=\skip56
+\srblobheight=\skip57
+\srblobdepth=\skip58
+\mnxsrwidth=\skip59
+\LMex=\skip60
+\LMpt=\skip61
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tool
+s/longtable.sty"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
+\LTleft=\skip62
+\LTright=\skip63
+\LTpre=\skip64
+\LTpost=\skip65
+\LTchunksize=\count153
+\LTcapwidth=\dimen187
+\LT@head=\box73
+\LT@firsthead=\box74
+\LT@foot=\box75
+\LT@lastfoot=\box76
+\LT@cols=\count154
+\LT@rows=\count155
+\c@LT@tables=\count156
+\c@LT@chunks=\count157
+\LT@p@ftn=\toks35
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/floa
+t/float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count158
+\float@exts=\toks36
+\float@box=\box77
+\@float@everytoks=\toks37
+\@floatcapt=\box78
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsf
+onts/amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsf
+onts/amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/math
+tools/mathtools.sty"
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/math
+tools/mhsetup.sty"
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count159
+\l_MT_multwidth_dim=\dimen188
+\origjot=\skip66
+\l_MT_shortvdotswithinadjustabove_dim=\dimen189
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen190
+\l_MT_above_intertext_sep=\dimen191
+\l_MT_below_intertext_sep=\dimen192
+\l_MT_above_shortintertext_sep=\dimen193
+\l_MT_below_shortintertext_sep=\dimen194
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/capt
+ion/subcaption.sty"
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+\c@subfigure=\count160
+\c@subtable=\count161
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/book
+tabs/booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen195
+\lightrulewidth=\dimen196
+\cmidrulewidth=\dimen197
+\belowrulesep=\dimen198
+\belowbottomsep=\dimen199
+\aboverulesep=\dimen256
+\abovetopsep=\dimen257
+\cmidrulesep=\dimen258
+\cmidrulekern=\dimen259
+\defaultaddspace=\dimen260
+\@cmidla=\count162
+\@cmidlb=\count163
+\@aboverulesep=\dimen261
+\@belowrulesep=\dimen262
+\@thisruleclass=\count164
+\@lastruleclass=\count165
+\@thisrulewidth=\dimen263
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/mult
+irow/multirow.sty"
+Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
+\multirow@colwidth=\skip67
+\multirow@cntb=\count166
+\multirow@dima=\skip68
+\bigstrutjot=\dimen264
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/sets
+pace/setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/last
+page/lastpage.sty"
+Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/fanc
+yhdr/fancyhdr.sty"
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip69
+\f@nch@O@elh=\skip70
+\f@nch@O@erh=\skip71
+\f@nch@O@olh=\skip72
+\f@nch@O@orh=\skip73
+\f@nch@O@elf=\skip74
+\f@nch@O@erf=\skip75
+\f@nch@O@olf=\skip76
+\f@nch@O@orf=\skip77
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/pgfp
+lots/pgfplots.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplots.revision.tex")
+Package: pgfplots 2018/03/28 v1.16 Data Visualization (1.16)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplots.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplotscore.code.tex"
+\t@pgfplots@toka=\toks38
+\t@pgfplots@tokb=\toks39
+\t@pgfplots@tokc=\toks40
+\pgfplots@tmpa=\dimen265
+\c@pgfplots@coordindex=\count167
+\c@pgfplots@scanlineindex=\count168
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/sys/pgfplotssysgeneric.code.tex"))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/libs/pgfplotslibrary.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/libraries/pgflibraryfpu.code.tex")
+Package pgfplots: loading complementary arithmetics for your pgf version...
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgflibraryfpu.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count169
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/util/pgfplotsutil.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/liststructure/pgfplotsliststructure.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/liststructure/pgfplotsliststructureext.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/liststructure/pgfplotsarray.code.tex"
+\c@pgfplotsarray@tmp=\count170
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/liststructure/pgfplotsmatrix.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/numtable/pgfplotstableshared.code.tex"
+\c@pgfplotstable@counta=\count171
+\t@pgfplotstable@a=\toks41
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/liststructure/pgfplotsdeque.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/util/pgfplotsbinary.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/util/pgfplotsbinary.data.code.tex"))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/util/pgfplotsutil.verb.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/libs/pgflibrarypgfplots.surfshading.code.tex"
+\c@pgfplotslibrarysurf@no=\count172
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def")))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/util/pgfplotscolormap.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/util/pgfplotscolor.code.tex"))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplotsstackedplots.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplotsplothandlers.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplotsmeshplothandler.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplotsmeshplotimage.code.tex")))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplots.scaling.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplotscoordprocessing.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplots.errorbars.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplots.markers.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplotsticks.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+fplots/pgfplots.paths.code.tex")
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/modules/pgfmoduledecorations.code.tex"
+\pgfdecoratedcompleteddistance=\dimen266
+\pgfdecoratedremainingdistance=\dimen267
+\pgfdecoratedinputsegmentcompleteddistance=\dimen268
+\pgfdecoratedinputsegmentremainingdistance=\dimen269
+\pgf@decorate@distancetomove=\dimen270
+\pgf@decorate@repeatstate=\count173
+\pgfdecorationsegmentamplitude=\dimen271
+\pgfdecorationsegmentlength=\dimen272
+)
+\tikz@lib@dec@box=\box79
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex"))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex"))
+\pgfplots@numplots=\count174
+\pgfplots@xmin@reg=\dimen273
+\pgfplots@xmax@reg=\dimen274
+\pgfplots@ymin@reg=\dimen275
+\pgfplots@ymax@reg=\dimen276
+\pgfplots@zmin@reg=\dimen277
+\pgfplots@zmax@reg=\dimen278
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex"
+File: tikzlibraryplotmarks.code.tex 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/libraries/pgflibraryplotmarks.code.tex"
+File: pgflibraryplotmarks.code.tex 2019/01/05 v3.1 (3.1)
+)))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex"
+File: tikzlibrarypatterns.code.tex 2019/01/05 v3.1 (3.1)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/pg
+f/libraries/pgflibrarypatterns.code.tex"
+File: pgflibrarypatterns.code.tex 2019/01/05 v3.1 (3.1)
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adju
+stbox/adjustbox.sty"
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/xkey
+val/xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/xk
+eyval/xkeyval.tex"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/xk
+eyval/xkvutils.tex"
+\XKV@toks=\toks42
+\XKV@tempa@toks=\toks43
+)
+\XKV@depth=\count175
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adju
+stbox/adjcalc.sty"
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adju
+stbox/trimclip.sty"
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/coll
+ectbox/collectbox.sty"
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box80
+)
+\tc@llx=\dimen279
+\tc@lly=\dimen280
+\tc@urx=\dimen281
+\tc@ury=\dimen282
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/adju
+stbox/tc-pdftex.def"
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen283
+\adjbox@Height=\dimen284
+\adjbox@Depth=\dimen285
+\adjbox@Totalheight=\dimen286
+\adjbox@pwidth=\dimen287
+\adjbox@pheight=\dimen288
+\adjbox@pdepth=\dimen289
+\adjbox@ptotalheight=\dimen290
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ifod
+dpage/ifoddpage.sty"
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count176
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/varw
+idth/varwidth.sty"
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box81
+\sift@deathcycles=\count177
+\@vwid@loff=\dimen291
+\@vwid@roff=\dimen292
+))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/algo
+rithm2e/algorithm2e.sty"
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count178
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip78
+
+
+! LaTeX Error: Unknown option `options' for package `algorithm2e'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1489 \@algocf@algotitleofalgo
+                               % fix name for \TitleOfAlgo to \algorithmcfna...
+
+The option `options' was not declared in package `algorithm2e', perhaps you
+misspelled its name. Try typing  <return>  to proceed.
+
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tool
+s/xspace.sty"
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/rels
+ize/relsize.sty"
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip79
+\skiplinenumber=\skip80
+\skiprule=\skip81
+\skiphlne=\skip82
+\skiptext=\skip83
+\skiplength=\skip84
+\algomargin=\skip85
+\skipalgocfslide=\skip86
+\algowidth=\dimen293
+\inoutsize=\dimen294
+\inoutindent=\dimen295
+\interspacetitleruled=\dimen296
+\interspacealgoruled=\dimen297
+\interspacetitleboxruled=\dimen298
+\algocf@ruledwidth=\skip87
+\algocf@inoutbox=\box82
+\algocf@inputbox=\box83
+\AlCapSkip=\skip88
+\AlCapHSkip=\skip89
+\algoskipindent=\skip90
+\algocf@nlbox=\box84
+\algocf@hangingbox=\box85
+\algocf@untilbox=\box86
+\algocf@skipuntil=\skip91
+\algocf@capbox=\box87
+\algocf@lcaptionbox=\skip92
+\algoheightruledefault=\skip93
+\algoheightrule=\skip94
+\algotitleheightruledefault=\skip95
+\algotitleheightrule=\skip96
+\c@algocfline=\count179
+\c@algocfproc=\count180
+\c@algocf=\count181
+\algocf@algoframe=\box88
+\algocf@algobox=\box89
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/enum
+item/enumitem.sty"
+Package: enumitem 2019/01/14 v3.7 Customized lists
+\labelindent=\skip97
+\enit@outerparindent=\dimen299
+\enit@toks=\toks44
+\enit@inbox=\box90
+\enit@count@id=\count182
+\enitdp@description=\count183
+) (nasutil.sty
+Package: nasutil 2018/10/30 NasUtil Package
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3pa
+ckages/xparse/xparse.sty"
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3ke
+rnel/expl3.sty"
+Package: expl3 2019-01-28 L3 programming layer (loader) 
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3ke
+rnel/expl3-code.tex"
+Package: expl3 2019-01-28 L3 programming layer (code)
+\c_max_int=\count184
+\l_tmpa_int=\count185
+\l_tmpb_int=\count186
+\g_tmpa_int=\count187
+\g_tmpb_int=\count188
+\g__kernel_prg_map_int=\count189
+\c_log_iow=\count190
+\l_iow_line_count_int=\count191
+\l__iow_line_target_int=\count192
+\l__iow_one_indent_int=\count193
+\l__iow_indent_int=\count194
+\c_zero_dim=\dimen300
+\c_max_dim=\dimen301
+\l_tmpa_dim=\dimen302
+\l_tmpb_dim=\dimen303
+\g_tmpa_dim=\dimen304
+\g_tmpb_dim=\dimen305
+\c_zero_skip=\skip98
+\c_max_skip=\skip99
+\l_tmpa_skip=\skip100
+\l_tmpb_skip=\skip101
+\g_tmpa_skip=\skip102
+\g_tmpb_skip=\skip103
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+\l_keys_choice_int=\count195
+\l__intarray_loop_int=\count196
+\c__intarray_sp_dim=\dimen306
+\g__intarray_font_int=\count197
+\c__fp_leading_shift_int=\count198
+\c__fp_middle_shift_int=\count199
+\c__fp_trailing_shift_int=\count266
+\c__fp_big_leading_shift_int=\count267
+\c__fp_big_middle_shift_int=\count268
+\c__fp_big_trailing_shift_int=\count269
+\c__fp_Bigg_leading_shift_int=\count270
+\c__fp_Bigg_middle_shift_int=\count271
+\c__fp_Bigg_trailing_shift_int=\count272
+\c__kernel_randint_max_int=\count273
+\g__fp_array_int=\count274
+\l__fp_array_loop_int=\count275
+\l__sort_length_int=\count276
+\l__sort_min_int=\count277
+\l__sort_top_int=\count278
+\l__sort_max_int=\count279
+\l__sort_true_max_int=\count280
+\l__sort_block_int=\count281
+\l__sort_begin_int=\count282
+\l__sort_end_int=\count283
+\l__sort_A_int=\count284
+\l__sort_B_int=\count285
+\l__sort_C_int=\count286
+\l__tl_analysis_normal_int=\count287
+\l__tl_analysis_index_int=\count288
+\l__tl_analysis_nesting_int=\count289
+\l__tl_analysis_type_int=\count290
+\l__regex_internal_a_int=\count291
+\l__regex_internal_b_int=\count292
+\l__regex_internal_c_int=\count293
+\l__regex_balance_int=\count294
+\l__regex_group_level_int=\count295
+\l__regex_mode_int=\count296
+\c__regex_cs_in_class_mode_int=\count297
+\c__regex_cs_mode_int=\count298
+\l__regex_catcodes_int=\count299
+\l__regex_default_catcodes_int=\count300
+\c__regex_catcode_D_int=\count301
+\c__regex_catcode_S_int=\count302
+\c__regex_catcode_L_int=\count303
+\c__regex_catcode_O_int=\count304
+\c__regex_catcode_A_int=\count305
+\c__regex_all_catcodes_int=\count306
+\l__regex_show_lines_int=\count307
+\l__regex_min_state_int=\count308
+\l__regex_max_state_int=\count309
+\l__regex_left_state_int=\count310
+\l__regex_right_state_int=\count311
+\l__regex_capturing_group_int=\count312
+\l__regex_min_pos_int=\count313
+\l__regex_max_pos_int=\count314
+\l__regex_curr_pos_int=\count315
+\l__regex_start_pos_int=\count316
+\l__regex_success_pos_int=\count317
+\l__regex_curr_char_int=\count318
+\l__regex_curr_catcode_int=\count319
+\l__regex_last_char_int=\count320
+\l__regex_case_changed_char_int=\count321
+\l__regex_curr_state_int=\count322
+\l__regex_step_int=\count323
+\l__regex_min_active_int=\count324
+\l__regex_max_active_int=\count325
+\l__regex_replacement_csnames_int=\count326
+\l__regex_match_count_int=\count327
+\l__regex_min_submatch_int=\count328
+\l__regex_submatch_int=\count329
+\l__regex_zeroth_submatch_int=\count330
+\g__regex_trace_regex_int=\count331
+\c_empty_box=\box91
+\l_tmpa_box=\box92
+\l_tmpb_box=\box93
+\g_tmpa_box=\box94
+\g_tmpb_box=\box95
+\l__box_top_dim=\dimen307
+\l__box_bottom_dim=\dimen308
+\l__box_left_dim=\dimen309
+\l__box_right_dim=\dimen310
+\l__box_top_new_dim=\dimen311
+\l__box_bottom_new_dim=\dimen312
+\l__box_left_new_dim=\dimen313
+\l__box_right_new_dim=\dimen314
+\l__box_internal_box=\box96
+\l__coffin_internal_box=\box97
+\l__coffin_internal_dim=\dimen315
+\l__coffin_offset_x_dim=\dimen316
+\l__coffin_offset_y_dim=\dimen317
+\l__coffin_x_dim=\dimen318
+\l__coffin_y_dim=\dimen319
+\l__coffin_x_prime_dim=\dimen320
+\l__coffin_y_prime_dim=\dimen321
+\c_empty_coffin=\box98
+\l__coffin_aligned_coffin=\box99
+\l__coffin_aligned_internal_coffin=\box100
+\l_tmpa_coffin=\box101
+\l_tmpb_coffin=\box102
+\g_tmpa_coffin=\box103
+\g_tmpb_coffin=\box104
+\c__coffin_empty_coffin=\box105
+\l__coffin_display_coffin=\box106
+\l__coffin_display_coord_coffin=\box107
+\l__coffin_display_pole_coffin=\box108
+\l__coffin_display_offset_dim=\dimen322
+\l__coffin_display_x_dim=\dimen323
+\l__coffin_display_y_dim=\dimen324
+\g__file_internal_ior=\read3
+\l__coffin_bounding_shift_dim=\dimen325
+\l__coffin_left_corner_dim=\dimen326
+\l__coffin_right_corner_dim=\dimen327
+\l__coffin_bottom_corner_dim=\dimen328
+\l__coffin_top_corner_dim=\dimen329
+\l__coffin_scaled_total_height_dim=\dimen330
+\l__coffin_scaled_width_dim=\dimen331
+\l__seq_internal_a_int=\count332
+\l__seq_internal_b_int=\count333
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/l3ke
+rnel/l3pdfmode.def"
+File: l3pdfmode.def 2019-01-28 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count334
+))
+Package: xparse 2018-10-17 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count335
+\g__xparse_grabber_int=\count336
+\l__xparse_m_args_int=\count337
+\l__xparse_mandatory_args_int=\count338
+\l__xparse_v_nesting_int=\count339
+)
+\c@grammar=\count340
+\c@remarkex=\count341
+\c@remarkreq=\count342
+\c@remarkdef=\count343
+\c@definition=\count344
+\c@rgcounter=\count345
+\c@rccounter=\count346
+) (main.aux
+
+LaTeX Warning: Label `fig_util' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig_util' multiply defined.
+
+
+LaTeX Warning: Label `fig_power' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig_power' multiply defined.
+
+
+LaTeX Warning: Label `fig_util_power' multiply defined.
+
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/context/ba
+se/supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count347
+\scratchdimen=\dimen332
+\scratchbox=\box109
+\nofMPsegments=\count348
+\nofMParguments=\count349
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count350
+\MPscratchDim=\dimen333
+\MPnumerator=\count351
+\makeMPintoPDFobject=\count352
+\everyMPtoPDFconversion=\toks46
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ober
+diek/epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ober
+diek/grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ober
+diek/kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/pdftexcmds.sty"
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/generic/ob
+erdiek/ifpdf.sty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.jpg,.png,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/textcomp.sty"
+Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/ts1enc.dfu"
+File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+FEFF (decimal 65279)
+))
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+\c@lstlisting=\count353
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: longtable package is loaded.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/capt
+ion/ltcaption.sty"
+Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+ ABD: EveryShipout initializing macros
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             https://www.ctan.org/pkg/pageslts
+(lastpage)             ! on input line 38.
+
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.16} (current compat level: 1.9).
+
+(author.tex) (tex/abstract.tex
+Overfull \hbox (9.88843pt too wide) in paragraph at lines 1--3
+\OT1/cmr/m/n/10 embedded software applications that are developed using the AUT
+OSAR standard.
+ []
+
+
+Overfull \hbox (5.68587pt too wide) in paragraph at lines 1--3
+\OT1/cmr/m/n/10 platforms. The optimization objective is to minimize the total 
+power consumption
+ []
+
+
+Overfull \hbox (5.69511pt too wide) in paragraph at lines 1--3
+\OT1/cmr/m/n/10 from the automotive domain, which are generated using the real-
+world automotive
+ []
+
+
+Overfull \hbox (6.88036pt too wide) in paragraph at lines 1--3
+\OT1/cmr/m/n/10 benchmark. The evaluation results indicate that our proposed al
+location approach
+ []
+
+) (tex/introduction.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 1.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsf
+onts/umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/amsf
+onts/umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (10.91734pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 to explore system-level solutions that meet functional and extr
+a-functional software
+ []
+
+
+Overfull \hbox (15.76918pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 requirements together with resource availability on the executi
+on platform. Software
+ []
+
+
+Overfull \hbox (0.8617pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 allocation is a well-researched area in the domain of embedded 
+systems, including
+ []
+
+
+Overfull \hbox (1.78392pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 techniques, non-linear functions are approximated using \OT1/cm
+r/m/it/10 Linearization \OT1/cmr/m/n/10 - a widely-
+ []
+
+
+Overfull \hbox (5.19495pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 even larger if we assume that the real-time system executes ove
+r different sampling
+ []
+
+
+Overfull \hbox (2.36177pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 due to the different sampling rates that result in oversampling
+ and undersampling
+ []
+
+
+Overfull \hbox (2.22221pt too wide) has occurred while \output is active
+[] 
+ []
+
+[1
+
+
+{/Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/pdftex/config/pdft
+ex.map}]
+Overfull \hbox (1.91734pt too wide) in paragraph at lines 6--7
+\OT1/cmr/m/n/10 small- and medium-sized fault-tolerant distributed applications
+, with the number
+ []
+
+
+Overfull \hbox (0.29697pt too wide) in paragraph at lines 6--7
+\OT1/cmr/m/n/10 while meeting timing and reliability requirements. Our proposed
+ solution targets
+ []
+
+
+Overfull \hbox (22.57478pt too wide) in paragraph at lines 6--7
+\OT1/cmr/m/n/10 work [[]][[]][[]], we consider a fault-tolerant and multirate s
+ystem model. Furthermore,
+ []
+
+
+Overfull \hbox (5.55621pt too wide) in paragraph at lines 8--9
+\OT1/cmr/m/n/10 generated according to the real-world automotive benchmark prop
+osed by Kramer
+ []
+
+
+Overfull \hbox (3.65799pt too wide) in paragraph at lines 10--11
+\OT1/cmr/m/n/10 software allocation. Section 3[] describes the system model, an
+d Section 4[] describes
+ []
+
+
+Overfull \hbox (15.36188pt too wide) in paragraph at lines 10--11
+\OT1/cmr/m/n/10 the extra-functional models including the timing, reliability, 
+and power consumption
+ []
+
+
+Overfull \hbox (15.7785pt too wide) in paragraph at lines 10--11
+\OT1/cmr/m/n/10 we provide an evaluation of the proposed approach using the aut
+omotive benchmark.
+ []
+
+) (tex/preliminary.tex [2]
+Overfull \hbox (13.74149pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 applications, dependability, efficiency, etc., of automotive so
+lutions. The conceptual
+ []
+
+
+Overfull \hbox (12.69516pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 separation of software applications from their infrastructure (
+or execution platform)
+ []
+
+
+Overfull \hbox (8.16626pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 is an important attribute of AUTOSAR and is realized through di
+fferent functional
+ []
+
+
+Overfull \hbox (1.3618pt too wide) in paragraph at lines 5--6
+\OT1/cmr/m/n/10 Function Bus (VFB), defines a software application over a virtu
+al communication
+ []
+
+
+Overfull \hbox (15.40697pt too wide) in paragraph at lines 5--6
+\OT1/cmr/m/n/10 analysis of a software application at the VFB level. The Runtim
+e Time Environment
+ []
+
+
+Overfull \hbox (0.13734pt too wide) in paragraph at lines 5--6
+\OT1/cmr/m/n/10 Runnables via RTE Application Programming Interface (API) calls
+ that respond
+ []
+
+
+Overfull \hbox (10.11998pt too wide) in paragraph at lines 8--9
+\OT1/cmr/m/n/10 imposed at the system-level via the \OT1/cmr/m/it/10 SystemTimi
+ng \OT1/cmr/m/n/10 element. The timing constraints
+ []
+
+) (tex/systemmodel.tex
+Overfull \hbox (7.16722pt too wide) in paragraph at lines 10--1
+\OT1/cmr/m/n/10 user requirement and, in the allocation process, we aim at meet
+ing the requirement
+ []
+
+[3]
+<./img/softwareallocation.pdf, id=22, 392.92276pt x 394.31566pt>
+File: ./img/softwareallocation.pdf Graphic file (type pdf)
+<use ./img/softwareallocation.pdf>
+Package pdftex.def Info: ./img/softwareallocation.pdf  used on input line 5.
+(pdftex.def)             Requested size: 235.75546pt x 236.5912pt.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 9.
+
+
+Overfull \hbox (34.19962pt too wide) in paragraph at lines 11--45
+[][]
+ []
+
+
+Overfull \hbox (9.54286pt too wide) in paragraph at lines 48--49
+\OT1/cmr/m/n/10 and criticality-level of the application $\OML/cmm/m/it/10 A[]$
+\OT1/cmr/m/n/10 . The critical level signifies the importance
+ []
+
+[4 <./img/softwareallocation.pdf>] [5]
+
+Package natbib Warning: Citation `bibid' on page 6 undefined on input line 57.
+
+
+Overfull \hbox (5.77827pt too wide) in paragraph at lines 60--61
+\OT1/cmr/m/n/10 their respective requirements such as the criticality levels, r
+eliability requirements,
+ []
+
+
+Overfull \hbox (6.10237pt too wide) in paragraph at lines 60--61
+\OT1/cmr/m/n/10 and end-to-end timing requirements. There are several technique
+s in the literature
+ []
+
+[6]
+<img/cause_effect_chain_ntk.pdf, id=59, 340.27126pt x 119.44624pt>
+File: img/cause_effect_chain_ntk.pdf Graphic file (type pdf)
+<use img/cause_effect_chain_ntk.pdf>
+Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 69.
+
+(pdftex.def)             Requested size: 241.49895pt x 84.7746pt.
+<img/timedchain_ntk.pdf, id=60, 386.44376pt x 183.68625pt>
+File: img/timedchain_ntk.pdf Graphic file (type pdf)
+<use img/timedchain_ntk.pdf>
+Package pdftex.def Info: img/timedchain_ntk.pdf  used on input line 77.
+(pdftex.def)             Requested size: 310.4979pt x 147.58821pt.
+
+
+LaTeX Warning: Reference `fig_timedpath' on page 7 undefined on input line 82.
+
+[7 <./img/cause_effect_chain_ntk.pdf
+
+pdfTeX warning: pdflatex (file ./img/cause_effect_chain_ntk.pdf): PDF inclusion
+: invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
+ed.
+>]
+Overfull \hbox (81.67595pt too wide) detected at line 90
+[]
+ []
+
+
+Overfull \hbox (5.15814pt too wide) in paragraph at lines 95--96
+\OT1/cmr/m/n/10 automotive applications across different execution platforms. B
+asically, runnables
+ []
+
+
+Overfull \hbox (37.41748pt too wide) in paragraph at lines 95--96
+\OT1/cmr/m/n/10 runnables' functional and extra-functional properties, e.g., ti
+ming, memory requirements,
+ []
+
+[8 <./img/timedchain_ntk.pdf
+
+pdfTeX warning: pdflatex (file ./img/timedchain_ntk.pdf): PDF inclusion: invali
+d other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
+Overfull \hbox (4.3111pt too wide) in paragraph at lines 98--99
+[]\OT1/cmr/m/n/10 It is modeled as
+ []
+
+<img/runnable_task_dag.pdf, id=109, 388.45125pt x 186.6975pt>
+File: img/runnable_task_dag.pdf Graphic file (type pdf)
+<use img/runnable_task_dag.pdf>
+Package pdftex.def Info: img/runnable_task_dag.pdf  used on input line 103.
+(pdftex.def)             Requested size: 241.49895pt x 116.07031pt.
+[9 <./img/runnable_task_dag.pdf
+
+pdfTeX warning: pdflatex (file ./img/runnable_task_dag.pdf): PDF inclusion: inv
+alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
+Overfull \hbox (16.28432pt too wide) in paragraph at lines 156--157
+\OT1/cmr/m/n/10 multiple (LCM) of the runnables' periods, $\OML/cmm/m/it/10 v:P
+ \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 v:D \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 LCM\
+OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a:P; b:P\OT1/cmr/m/n/10 )$. Otherwise,
+ []
+
+
+Overfull \hbox (16.23387pt too wide) in paragraph at lines 163--164
+\OT1/cmr/m/n/10 to the user applications, and is modeled as a \OT1/cmr/m/it/10 
+complete \OT1/cmr/m/n/10 graph $\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 M; L[]\OMS/c
+msy/m/n/10 i$ \OT1/cmr/m/n/10 of computation
+ []
+
+
+Overfull \hbox (26.61174pt too wide) in paragraph at lines 163--164
+\OT1/cmr/m/n/10 respectively denote processor speed, failure-rate and power con
+sumption specifications.
+ []
+
+
+Overfull \hbox (15.08397pt too wide) in paragraph at lines 166--167
+[]\OT1/cmr/m/n/10 Redundancy is the most common way to increase the reliability
+ of an application.
+ []
+
+
+Overfull \hbox (3.83392pt too wide) in paragraph at lines 166--167
+\OT1/cmr/m/n/10 and are allocated on different nodes, ii) software components n
+eed to be replicated
+ []
+
+
+Overfull \hbox (8.02843pt too wide) in paragraph at lines 166--167
+\OT1/cmr/m/n/10 if the application's reliability requirement is not met without
+ replication, otherwise
+ []
+
+) (tex/extrafuncmodel.tex
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 2.
+
+
+Overfull \hbox (15.69505pt too wide) in paragraph at lines 2--3
+[]\OT1/cmr/m/n/10 The software allocation problem is a type of job shop schedul
+ing with constraints,
+ []
+
+[10]
+Overfull \hbox (6.88548pt too wide) in paragraph at lines 14--15
+\OT1/cmr/m/n/10 requirements, and criticality of the software applications $\OM
+L/cmm/m/it/10 A[]$ \OT1/cmr/m/n/10 by effectively mapping
+ []
+
+
+Overfull \hbox (1.27841pt too wide) in paragraph at lines 14--15
+\OT1/cmr/m/n/10 the components are allocated efficiently to minimize the total 
+power consumption
+ []
+
+
+Overfull \hbox (11.64072pt too wide) in paragraph at lines 14--15
+\OML/cmm/m/it/10 Power\OT1/cmr/m/n/10 ([]) = [][] []$ of the applications by se
+lecting lower-power consuming
+ []
+
+[11]
+Overfull \hbox (0.83043pt too wide) in paragraph at lines 35--36
+[]\OT1/cmr/m/n/10 where $\OML/cmm/m/it/10 c:R$ \OT1/cmr/m/n/10 is set of runnab
+les in component $\OML/cmm/m/it/10 c$\OT1/cmr/m/n/10 , $\OML/cmm/m/it/10 r:e[]$
+ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 r::P$ \OT1/cmr/m/n/10 are the execution
+
+ []
+
+
+Overfull \hbox (8.86961pt too wide) in paragraph at lines 49--50
+[]\OT1/cmr/m/n/10 The reliability of the nodes, $\OML/cmm/m/it/10 Reliability[]
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 )$ with respect to the app
+lication
+ []
+
+
+Overfull \hbox (3.59827pt too wide) in paragraph at lines 49--50
+[]$ \OT1/cmr/m/n/10 is calculated using the \OT1/cmr/m/it/10 state-enumeration 
+\OT1/cmr/m/n/10 technique [[]] as shown in Equations
+ []
+
+
+Overfull \hbox (19.69142pt too wide) in paragraph at lines 49--50
+\OT1/cmr/m/n/10 that the application $\OML/cmm/m/it/10 A[]$ \OT1/cmr/m/it/10 fu
+nctions \OT1/cmr/m/n/10 under mutually exclusive and uniformly distributed
+ []
+
+[12]
+
+LaTeX Warning: Reference `label' on page 13 undefined on input line 71.
+
+[13]
+
+LaTeX Warning: Reference `eqn_const_func' on page 14 undefined on input line 12
+1.
+
+
+LaTeX Warning: Reference `eqn_timing' on page 14 undefined on input line 121.
+
+
+Overfull \hbox (14.47285pt too wide) in paragraph at lines 121--122
+\OT1/cmr/m/n/10 timing ([]) and application reliability requirements (23[]) of 
+the software applications
+ []
+
+[14]
+
+Package amsfonts Warning: Obsolete command \Bbb; \mathbb should be used instead
+ on input line 135.
+
+<./img/dag.pdf, id=146, 326.32985pt x 290.7382pt>
+File: ./img/dag.pdf Graphic file (type pdf)
+<use ./img/dag.pdf>
+Package pdftex.def Info: ./img/dag.pdf  used on input line 143.
+(pdftex.def)             Requested size: 276.00105pt x 245.90865pt.
+
+Overfull \hbox (29.88658pt too wide) in paragraph at lines 154--155
+[][]| 
+ []
+
+
+Overfull \hbox (29.88658pt too wide) in paragraph at lines 160--161
+[][]| 
+ []
+
+
+Overfull \hbox (29.88658pt too wide) in paragraph at lines 166--167
+[][]| 
+ []
+
+
+Overfull \hbox (29.88658pt too wide) in paragraph at lines 172--173
+[][]| 
+ []
+
+
+Overfull \hbox (29.88658pt too wide) in paragraph at lines 178--179
+[][]| 
+ []
+
+
+Overfull \hbox (5.58891pt too wide) in paragraph at lines 190--199
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--210
+[]\OT1/cmr/m/n/8 Table 5: |Computation Nodes
+ []
+
+[15]
+Overfull \vbox (13.0252pt too high) has occurred while \output is active []
+
+
+[16 <./img/dag.pdf>]) (tex/metaheuristic.tex
+Overfull \hbox (20.55516pt too wide) in paragraph at lines 216--1
+\OT1/cmr/m/n/10 which is based on Particle Swarm Optimization (PSO) and hybrid 
+PSO. Furthermore,
+ []
+
+
+Overfull \hbox (13.05515pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 an AUTOSAR software allocation with minimum power consumption, 
+the approach
+ []
+
+
+Overfull \hbox (8.18579pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 size, and complexity. In this section, we show application of d
+ifferent metaheuristic
+ []
+
+
+Overfull \hbox (3.58398pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 techniques that employ swarm intelligence and evolutionary appr
+oaches in finding
+ []
+
+
+Overfull \hbox (2.40805pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 the (near) optimal solutions. Specifically, we apply the Partic
+le Swarm Intelligent
+ []
+
+[17]
+Overfull \hbox (71.4554pt too wide) in paragraph at lines 11--12
+\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ([])$ combines the original objective functio
+n $\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 ([])$ and the constraints $\OML/cmm/m/it/1
+0 Timing\OT1/cmr/m/n/10 ([])\OML/cmm/m/it/10 ; Reliability\OT1/cmr/m/n/10 ([])$
+
+ []
+
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 27.
+
+[18]
+Overfull \hbox (11.77739pt too wide) in paragraph at lines 75--76
+[]\OT1/cmr/m/n/10 Similar to PSO, Differential Evolution (DE) is a population-b
+ased metaheuristic
+ []
+
+
+Overfull \hbox (20.13959pt too wide) in paragraph at lines 75--76
+\OT1/cmr/m/n/10 technique for the global optimization which includes non-linear
+ and non-differentiable
+ []
+
+
+Overfull \hbox (9.72289pt too wide) in paragraph at lines 77--78
+\OT1/cmr/m/n/10 selection according to the formulas shown in Equation , (30[]),
+ and (31[]), respectively.
+ []
+
+[19]
+Overfull \hbox (17.6384pt too wide) in paragraph at lines 96--97
+[]\OT1/cmr/m/n/10 The canonical PSO technique uses the constriction factors to 
+balance exploitation
+ []
+
+
+Overfull \hbox (12.54584pt too wide) in paragraph at lines 98--99
+\OT1/cmr/m/n/10 when hybridized with DE on constrained, discrete, large benchma
+rks. Furthermore,
+ []
+
+! Undefined control sequence.
+<argument>  $P$ $\leftarrow $\ComputePersonalBest 
+                                                  {$P$}\; \S $\leftarrow $\C...
+l.134  \caption
+               {Hybrid PSO Algorithms.}\label{alg_depso}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...; \S $\leftarrow $\ComputeSwarmBest 
+                                                  {$P$}\; \BlankLine \ForEac...
+l.134  \caption
+               {Hybrid PSO Algorithms.}\label{alg_depso}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[20]
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 141.
+
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 141.
+
+
+
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 141.
+
+
+) (tex/evaluation.tex
+Overfull \hbox (12.0006pt too wide) in paragraph at lines 2--3
+[]\OT1/cmr/m/n/10 In this section, we evaluate the proposed approach using synt
+hesized automotive
+ []
+
+
+Overfull \hbox (2.7785pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 than what is indicated in the benchmark, e.g., the maximum numb
+er of activation
+ []
+
+[21]
+Overfull \hbox (1.16722pt too wide) in paragraph at lines 8--24
+\OT1/cmr/m/n/10 computing capacities, i.e., processing speed and memory size as
+ shown in Table 6[].
+ []
+
+
+Overfull \hbox (1.72284pt too wide) in paragraph at lines 25--43
+[]\OT1/cmr/m/n/10 In order to evaluate the proposed approach on different range
+s of applications,
+ []
+
+
+Overfull \hbox (12.18575pt too wide) in paragraph at lines 25--43
+\OT1/cmr/m/n/10 such as reverse-parking assistance system and engine control sy
+stem. For simplicity,
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22]
+Overfull \hbox (7.75055pt too wide) in paragraph at lines 62--63
+[]\OT1/cmr/m/n/10 We conduct three experiments that assess the proposed approac
+h for scalability
+ []
+
+<img/fitness_c20_g30_m10.pdf, id=450, 455.7025pt x 217.81375pt>
+File: img/fitness_c20_g30_m10.pdf Graphic file (type pdf)
+<use img/fitness_c20_g30_m10.pdf>
+Package pdftex.def Info: img/fitness_c20_g30_m10.pdf  used on input line 68.
+(pdftex.def)             Requested size: 181.1229pt x 86.57224pt.
+<img/time_c20_g30_m10.pdf, id=451, 391.4625pt x 217.81375pt>
+File: img/time_c20_g30_m10.pdf Graphic file (type pdf)
+<use img/time_c20_g30_m10.pdf>
+Package pdftex.def Info: img/time_c20_g30_m10.pdf  used on input line 74.
+(pdftex.def)             Requested size: 155.24895pt x 86.38278pt.
+
+
+pdfTeX warning: pdflatex (file ./img/increasing_components.pdf): PDF inclusion:
+ found PDF version <1.6>, but at most version <1.5> allowed
+<./img/increasing_components.pdf, id=452, 752.05215pt x 361.34898pt>
+File: ./img/increasing_components.pdf Graphic file (type pdf)
+<use ./img/increasing_components.pdf>
+Package pdftex.def Info: ./img/increasing_components.pdf  used on input line 86
+.
+(pdftex.def)             Requested size: 241.49895pt x 116.03653pt.
+
+LaTeX Warning: Reference `tbl_nodesspecs_exp' on page 23 undefined on input lin
+e 93.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 96.
+
+
+Overfull \hbox (21.63478pt too wide) in paragraph at lines 93--106
+\OT1/cmr/m/n/10 Figure 7[] shows the effect of increasing the size of an applic
+ation from $(\OML/cmm/m/it/10 c\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; r\OT1/cmr/m/
+n/10 40\OML/cmm/m/it/10 ; t\OT1/cmr/m/n/10 19\OML/cmm/m/it/10 ; g\OT1/cmr/m/n/1
+0 30)$
+ []
+
+[23]
+<./img/util.pdf, id=457, 528.48442pt x 318.75487pt>
+File: ./img/util.pdf Graphic file (type pdf)
+<use ./img/util.pdf>
+Package pdftex.def Info: ./img/util.pdf  used on input line 110.
+(pdftex.def)             Requested size: 137.9979pt x 83.23422pt.
+<./img/power.pdf, id=458, 526.2598pt x 316.6751pt>
+File: ./img/power.pdf Graphic file (type pdf)
+<use ./img/power.pdf>
+Package pdftex.def Info: ./img/power.pdf  used on input line 116.
+(pdftex.def)             Requested size: 137.9979pt x 83.03906pt.
+
+Overfull \hbox (26.88374pt too wide) in paragraph at lines 124--125
+[]\OT1/cmr/m/n/10 The CPLEX solver returns an optimal solution for the applicat
+ion $(\OML/cmm/m/it/10 c\OT1/cmr/m/n/10 8\OML/cmm/m/it/10 ; r\OT1/cmr/m/n/10 80
+\OML/cmm/m/it/10 ; t\OT1/cmr/m/n/10 44\OML/cmm/m/it/10 ; g\OT1/cmr/m/n/10 30)$
+ []
+
+[24 <./img/fitness_c20_g30_m10.pdf> <./img/time_c20_g30_m10.pdf> <./img/increas
+ing_components.pdf>]
+
+pdfTeX warning: pdflatex (file ./img/increasing_cause-effect_chains.pdf): PDF i
+nclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<./img/increasing_cause-effect_chains.pdf, id=525, 757.11305pt x 478.76265pt>
+File: ./img/increasing_cause-effect_chains.pdf Graphic file (type pdf)
+<use ./img/increasing_cause-effect_chains.pdf>
+Package pdftex.def Info: ./img/increasing_cause-effect_chains.pdf  used on inpu
+t line 130.
+(pdftex.def)             Requested size: 241.49895pt x 152.7104pt.
+
+Overfull \hbox (10.77841pt too wide) in paragraph at lines 127--134
+\OT1/cmr/m/n/10 chains in the application from 10 to 60, which is consistent wi
+th the benchmark [[]].
+ []
+
+[25 <./img/util.pdf> <./img/power.pdf
+
+pdfTeX warning: pdflatex (file ./img/power.pdf): PDF inclusion: multiple pdfs w
+ith page group included in a single page
+> <./img/increasing_cause-effect_chains.pdf>]
+
+pdfTeX warning: pdflatex (file ./img/replications.pdf): PDF inclusion: found PD
+F version <1.6>, but at most version <1.5> allowed
+<./img/replications.pdf, id=572, 528.73444pt x 303.11844pt>
+File: ./img/replications.pdf Graphic file (type pdf)
+<use ./img/replications.pdf>
+Package pdftex.def Info: ./img/replications.pdf  used on input line 144.
+(pdftex.def)             Requested size: 163.8771pt x 93.94724pt.
+
+
+pdfTeX warning: pdflatex (file ./img/replication_comparison.pdf): PDF inclusion
+: found PDF version <1.6>, but at most version <1.5> allowed
+<./img/replication_comparison.pdf, id=573, 527.58617pt x 279.00635pt>
+File: ./img/replication_comparison.pdf Graphic file (type pdf)
+<use ./img/replication_comparison.pdf>
+Package pdftex.def Info: ./img/replication_comparison.pdf  used on input line 1
+50.
+(pdftex.def)             Requested size: 163.8771pt x 86.66136pt.
+
+Overfull \hbox (8.11165pt too wide) in paragraph at lines 158--159
+[]\OT1/cmr/m/n/10 Figure 10b[] shows the effect of shared constraints on the ov
+erhead of replications
+ []
+
+
+Overfull \hbox (1.2228pt too wide) in paragraph at lines 163--164
+[]\OT1/cmr/m/n/10 Table 9[] shows the fitness values and allocation time of the
+ different algorithms
+ []
+
+[26 <./img/replications.pdf> <./img/replication_comparison.pdf>]
+<img/power_consumption.pdf, id=603, 736.7525pt x 471.7625pt>
+File: img/power_consumption.pdf Graphic file (type pdf)
+<use img/power_consumption.pdf>
+Package pdftex.def Info: img/power_consumption.pdf  used on input line 170.
+(pdftex.def)             Requested size: 345.0pt x 220.90776pt.
+
+Overfull \hbox (1.8618pt too wide) in paragraph at lines 167--174
+\OT1/cmr/m/n/10 allocation over heterogeneous nodes, the algorithms DE, LPSO, H
+CPSO, SHPSO
+ []
+
+
+Overfull \hbox (0.40797pt too wide) in paragraph at lines 167--174
+\OT1/cmr/m/n/10 returned the optimal results besides ILP, with zero deviations.
+ However, DEPSO
+ []
+
+
+Overfull \hbox (6.04698pt too wide) in paragraph at lines 167--174
+\OT1/cmr/m/n/10 metaheuristic algorithms returned the optimal solutions on aver
+age. Furthermore,
+ []
+
+
+Overfull \hbox (8.3331pt too wide) in paragraph at lines 175--176
+[]\OT1/cmr/m/n/10 As the size of the problem further increases, that is \OT1/cm
+r/m/it/10 c20m10g30 \OT1/cmr/m/n/10 and \OT1/cmr/m/it/10 c20m10g30\OT1/cmr/m/n/
+10 ,
+ []
+
+[27 <./img/power_consumption.pdf>]
+<img/time_summary.pdf, id=633, 795.97375pt x 491.8375pt>
+File: img/time_summary.pdf Graphic file (type pdf)
+<use img/time_summary.pdf>
+Package pdftex.def Info: img/time_summary.pdf  used on input line 180.
+(pdftex.def)             Requested size: 345.0pt x 213.17458pt.
+ (tex/evaluation_result_computationtime.tex
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 3.
+
+)) (tex/relatedwork.tex
+Overfull \hbox (25.97287pt too wide) in paragraph at lines 2--3
+[]\OT1/cmr/m/n/10 In a heterogeneous distributed system where computing nodes a
+nd communications
+ []
+
+[28 <./img/time_summary.pdf>] [29]
+Overfull \hbox (3.66731pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 design approach, redundancy (or replication) of software or har
+dware components
+ []
+
+) (tex/conclusion.tex
+Overfull \hbox (18.19508pt too wide) in paragraph at lines 8--1
+\OT1/cmr/m/n/10 reliability of a distributed system subject to real-time requir
+ements of the automotive
+ []
+
+
+Overfull \hbox (5.38954pt too wide) in paragraph at lines 8--1
+\OT1/cmr/m/n/10 proposes a genetic algorithm for a multi-criteria allocation of
+ software components
+ []
+
+
+Overfull \hbox (16.1951pt too wide) in paragraph at lines 8--1
+\OT1/cmr/m/n/10 also considers a hetrogeneous platform, i.e., nodes with differ
+ent power consumption,
+ []
+
+
+Overfull \hbox (1.8525pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 of distributed and safety-critical embedded systems. Effective 
+software allocation
+ []
+
+
+Overfull \hbox (6.65813pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 reliability. The timing analysis is complex due to oversampling
+ and undersampling
+ []
+
+
+Overfull \hbox (5.47285pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 effects, caused by the different sampling rates, and the comple
+xity of the reliability
+ []
+
+[30]
+Overfull \hbox (10.80627pt too wide) in paragraph at lines 6--7
+\OT1/cmr/m/n/10 medium-sized automotive applications, but does not scale for co
+mplex applications.
+ []
+
+) (main.bbl [31]
+Underfull \hbox (badness 1048) in paragraph at lines 37--43
+\OT1/cmr/m/n/10 for Mapping AUTOSAR Runnables on Multi-core Architectures, in:
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 45--50
+[]\OT1/cmr/m/n/10 H. R. faragardi, B. Lisper, K. Sandstrom, T. Nolte, A Resour
+ce
+ []
+
+
+Underfull \hbox (badness 2970) in paragraph at lines 45--50
+\OT1/cmr/m/n/10 core ECUs, Journal of Systems and Software 139 (2018) 64--83.
+ []
+
+
+Underfull \hbox (badness 4366) in paragraph at lines 52--57
+[]\OT1/cmr/m/n/10 A. Bucaioni, L. Addazi, A. Cicchetti, F. Ciccozzi, R. Eramo,
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 52--57
+\OT1/cmr/m/n/10 S. Mubeen, M. Sjodin, MoVES: A Model-driven Methodology for
+ []
+
+
+Underfull \hbox (badness 4266) in paragraph at lines 52--57
+\OT1/cmr/m/n/10 Vehicular Embedded Systems, IEEE Access 6 (2018) 6424--6445.
+ []
+
+
+Underfull \hbox (badness 1325) in paragraph at lines 86--93
+\OT1/cmr/m/n/10 Polynomials, Computers as Components (2010) 528doi:10.1088/1751
+-
+ []
+
+
+Underfull \hbox (badness 4673) in paragraph at lines 86--93
+\OT1/cmr/m/n/10 URL $\OT1/cmtt/m/n/10 http : / / arxiv . org / abs / 1011 . 166
+9http : / / dx . doi . org / 10 . 1088 /
+ []
+
+[32]
+Underfull \hbox (badness 3078) in paragraph at lines 101--104
+[]\OT1/cmr/m/n/10 S. Kramer, D. Ziegenbein, A. Hamann, Real World Automotive
+ []
+
+
+Underfull \hbox (badness 4673) in paragraph at lines 115--119
+\OT1/cmr/m/n/10 URL $\OT1/cmtt/m/n/10 https : / / www . autosar . org / fileadm
+in / user _ upload / standards /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--125
+[]\OT1/cmr/m/n/10 S. d. C. Kung-Kiu Lau, What are Software Components?,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--125
+\OT1/cmr/m/n/10 World Scientific Publishing Company (June 29, 2017), 2017.
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 138--145
+\OT1/cmr/m/n/10 real-time systems, in: Proceedings 19th IEEE Real-Time Systems
+ []
+
+
+Underfull \hbox (badness 3118) in paragraph at lines 138--145
+\OT1/cmr/m/n/10 Symposium (Cat. No.98CB36279), IEEE Comput. Soc, pp. 4--13.
+ []
+
+
+Underfull \hbox (badness 1755) in paragraph at lines 147--152
+\OT1/cmr/m/n/10 T. Nolte, Designing end-to-end resource reservations in predict
+able
+ []
+
+[33]
+Underfull \hbox (badness 4673) in paragraph at lines 175--179
+\OT1/cmr/m/n/10 URL $\OT1/cmtt/m/n/10 https : / / www . autosar . org / fileadm
+in / user _ upload / standards /
+ []
+
+
+Underfull \hbox (badness 5446) in paragraph at lines 192--198
+\OT1/cmr/m/n/10 R. B. Brown, MiBench: A Free, Commercially Representative
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--198
+\OT1/cmr/m/n/10 on Workload Characterization, WWC 2001, 2001, pp. 3--14.
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 204--209
+[]\OT1/cmr/m/n/10 C. Lucet, J.-F. Manouvrier, Exact Methods to Compute Network
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 204--209
+\OT1/cmr/m/n/10 Reliability, in: Statistical and Probabilistic Models in Reliab
+ility,
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 216--222
+[]\OT1/cmr/m/n/10 J. Kennedy, R. Eberhart, C. A. C. Coello, G. T. Pulido, M. S.
+
+ []
+
+
+Underfull \hbox (badness 5726) in paragraph at lines 216--222
+\OT1/cmr/m/n/10 Lechuga, J. Kennedy, R. Eberhart, C. A. C. Coello, G. T.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
+[]\OT1/cmr/m/n/10 R. Poli, An Analysis of Publications on Particle Swarm
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--227
+\OT1/cmr/m/n/10 Optimisation Applications, Journal of Artificial Evolution and
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 259--266
+\OT1/cmr/m/n/10 URL $\OT1/cmtt/m/n/10 https : / / www . sciencedirect . com / s
+cience / article / pii /
+ []
+
+
+Underfull \hbox (badness 1521) in paragraph at lines 289--293
+\OT1/cmr/m/n/10 for Distributed Embedded Systems under Reliability and Real-tim
+e
+ []
+
+[35]
+Underfull \hbox (badness 1237) in paragraph at lines 318--322
+\OT1/cmr/m/n/10 Real-Time Distributed Computing, 2006. ISORC 2006. Ninth IEEE
+ []
+
+)
+
+Package natbib Warning: There were undefined citations.
+
+
+AED: lastpage setting LastPage
+[36] (main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 150 ({)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 40087 strings out of 494865
+ 914683 string characters out of 3176629
+ 1028325 words of memory out of 3000000
+ 43109 multiletter control sequences out of 15000+200000
+ 543563 words of font info for 66 fonts, out of 3000000 for 9000
+ 0 hyphenation exceptions out of 8191
+ 62i,18n,96p,1861b,648s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/f
+onts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk> </Users/nmd02/Library/Applicatio
+n Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0800.pk> </
+Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jkna
+ppen/ec/dpi600/tcbx1000.pk></Users/nmd02/Library/Application Support/MiKTeX/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/nmd02/Library/App
+lication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx6.pfb
+></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pu
+blic/amsfonts/cm/cmbx7.pfb></Users/nmd02/Library/Application Support/MiKTeX/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/nmd02/Library/Appl
+ication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pu
+blic/amsfonts/cmextra/cmex9.pfb></Users/nmd02/Library/Application Support/MiKTe
+X/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/nmd02/Librar
+y/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi
+5.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb></Users/nmd02/Library/Application Support/MiKTe
+X/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/nmd02/Library
+/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type
+1/public/amsfonts/cm/cmmi9.pfb></Users/nmd02/Library/Application Support/MiKTeX
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/nmd02/Library/
+Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.
+pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1
+/public/amsfonts/cm/cmr5.pfb></Users/nmd02/Library/Application Support/MiKTeX/t
+exmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/nmd02/Library/App
+lication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+</Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/nmd02/Library/Applica
+tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></
+Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmsy5.pfb></Users/nmd02/Library/Applic
+ation Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb></
+Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs
+/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/nmd02/Library/Applica
+tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy9.pfb></U
+sers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs
+/install/fonts/type1/public/amsfonts/cm/cmti8.pfb></Users/nmd02/Library/Applica
+tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
+Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publi
+c/amsfonts/cm/cmtt8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs
+/install/fonts/type1/public/amsfonts/symbols/msam10.pfb></Users/nmd02/Library/A
+pplication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb>
+Output written on main.pdf (36 pages, 2328330 bytes).
+PDF statistics:
+ 786 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+
