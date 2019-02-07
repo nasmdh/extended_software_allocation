@@ -14,7 +14,7 @@ The system model is composed of three parts: software applications, an execution
 \midrule
  &/* Application related */&\\
 $\bullet$ & \setExp{A}{A}[k]     	            & software applications \\
-$\bullet$ & \sspExp{C}{c}     		             & software component types\\
+$\bullet$ & \sspExp{C}{c}     		             & software component types of \ttssb{A}[k]\\
 $\bullet$ & \sssExp{Q}{q}    		            & component replicas of type \ttsss{c}\\
 $\bullet$ & \sssExp{R}[i]{r}[j]   	             & runnables that implement \ttsss{c}\\
 $\bullet$ & \sssExp{H}[i,j]{r}[h]              & runnables that implement $\sss{q}[k][i,j]$\\
@@ -30,7 +30,7 @@ $\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a chain of tasks, with length \tt
 $\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote iterator variables,  respectively for task, component, chain and node, e.g., $\forall \tau \in  \ssp{T}$. }\\
  &/* Mapping related */&\\
 
-$\bullet$ & \setexpsp{\textbf{x}}{\textbf{x}}[k]:$\bigcup{\sss{Q}}\mapsto M$            & a mapping vector from \ttssp{Q} to \ttssp{M}              \\
+$\bullet$ & \setexpsp{\textbf{x}}{\textbf{x}}[k]:$\bigcup{\sss{Q}}\mapsto M$            & a mapping vector from \ttssp{Q} to $M$             \\
 $\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$k,i,j$ denote iterator index-variables,  respectively for the mapping vector \ttx, and rows and columns of the matrix \ttxsp{k}, e.g., \ttxkij.}\\
 $\bullet$ & $\sss{g}[k][\tau](\x)$   		           & directed acyclic graph of tasks\\
 &/* Functions related */ &\\
@@ -38,7 +38,7 @@ $\bullet$ & $\sss{g}[k][\tau](\x)$   		           & directed acyclic graph of ta
 $\bullet$ & $Power(\textbf{x})$                		& total power consumption of  $A$ in \ttx    \\
 $\bullet$ & $Reliability_{a}(\x)$      					& application reliability  of $a\in A$ in \ttx              \\
 $\bullet$ & $ResponseTime_{\tau}(\x)$     		& response time of  $\tau \in V(\sss{g}[k][\tau])(\x)$                       \\
-$\bullet$ & $Delay_\Gamma(\x)$            			& age delay of $\Gamma \in \sss{\Gamma} $   in \ttx     \\
+$\bullet$ & $Delay_\gamma(\x)$            			& age delay of $\gamma \in \ssp{\Gamma} $   in \ttx     \\
 \bottomrule\\
 \end{tabular}
 {\footnotesize Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes number ofapplications. As a general rule, the variables $k,i$ are indices counters for applications $A$ and component types $C$, respectively. Similarly, and depending on the context, $j$ refers to component replicas, runnables and tasks. The counters are bound by the interval $[1,n]$, where $n$ refers to the cardinality of the set that the indices refers to, e.g., $\forall k\ A_k$ means for all applications.} 

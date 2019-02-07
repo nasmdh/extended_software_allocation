@@ -76,7 +76,7 @@ The probability that a nodes-failure event $\omega$ occurs is computed as a prod
 where $\lambda_m$ is the failure-rate of node $m$.
 
 \subsection{Timing constraints}
-The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and cause-effect chains of each application meet their deadlines. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and for the cause-effect chains using delay analysis shown in Subsection \ref{subsec_causeeffectchains}. Before we formulate the timing constraints, first we derive the task graph for a mapping \ttx from the runnables graph \ttsss{g}[k][r], that is using Equation (\ref{eqn_generatetasksgraphs}).  Using Equation (\ref{eqn_uprdaterunnables}), we update the runnables with nodes information, to which they are mapped by traversing elements of the mapping \ttx, $\xkij$, in linear-time complexity $O(n)$, where $n=|\x|*N_r$, and $N_r$ is the total number of runnables in the system. Consequently, we traverse the runnables graphs, and apply the merging rules stated in the Subsection \ref{subsec_autosarsystem} to derive the tasks graphs. In the case that only runnables from the same component are mapped to at least on task, the derivation of tasks graphs is indpedent of the mapping \ttx, and thus can be performed before the mapping activity. However, the tasks graphs has to be updated with the nodes information after the mapping \ttx is identified.
+The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and cause-effect chains of each application meet their deadlines. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and for the cause-effect chains using the delay analysis shown in Subsection \ref{subsec_causeeffectchains}. Before we formulate the timing constraints, first we derive the task graph for a mapping \ttx from the runnables graph \ttsss{g}[k][r], that is using Equation (\ref{eqn_generatetasksgraphs}).  Using Equation (\ref{eqn_uprdaterunnables}), we update the runnables with nodes information, to which they are mapped by traversing elements of the mapping \ttx, $\xkij$, in linear-time complexity $O(n)$, where $n=|\x|*N_r$, and $N_r$ is the total number of runnables in the system. Consequently, we traverse the runnables graphs, and apply the merging rules stated in the Subsection \ref{subsec_autosarsystem} to derive the tasks graphs. In the case that only runnables from the same component are mapped to at least on task, the derivation of tasks graphs is indpedent of the mapping \ttx, and thus can be performed before the mapping activity. However, the tasks graphs has to be updated with the nodes information after the mapping \ttx is identified.
 \begin{align}
 \label{eqn_uprdaterunnables}
 &\forall k,ij\ \forall r\in \sss{H}[k][i,j]\ r.node = n_h& \mbox{, where } h=\xkij\\
@@ -89,16 +89,16 @@ where $\sss{H}[k][i,j]$ is the set if runnables that implement component $\sss{q
 %To calculate the delay, the response time of tasks is a prerequisite, therefore, the latter is calculated first as follows.
 
 \subsection{Tasks Timing constraints}
-The tasks timing constraints states that the worst-case response time of each task in the system meets its respective deadlines for a mapping \ttx, that is $\forall k\forall \tau\in V(g_r(\x))$ $ResponseTime(\tau)\leq Deadline(\tau)$, where $V(\sss{g_r(\x)})$ is the nodes in the tasks graphs. To compute the worst-case response time of the tasks, first we partition the tasks per node, that is tasks mapped to the same node grouped, represented by the $\ssb{T}[n_h]$, by traversing the tasks graphs using Equation (\ref{eqn_tasks_nodes}). The complexity of this equation, considering an adjucency matrix tasks graphs representation is linear-time $O(N_a*n^k)$, where $n$ is the sum of the order and size of graph $\sss{g}[k][\tau](\x)$.
+The tasks timing constraints states that the worst-case response time of each task in the system meets its respective deadlines for a mapping \ttx, that is $\forall k\forall \tau\in V(g_r(\x))$ $ResponseTime(\tau)\leq Deadline(\tau)$, where $V(\sss{g_r(\x)})$ is the nodes in the tasks graphs. To compute the worst-case response time of the tasks, first we partition the tasks per node, that is tasks mapped to the same node grouped, represented by the $\ssb{T}[n_h]$, by traversing the tasks graphs using Equation (\ref{eqn_tasks_nodes}). The complexity of this equation, considering an adjucency matrix tasks graphs representation is linear-time $O(N_a*\ssp{n})$, where \ttssp{n} is the sum of the order and the size of graph $\sss{g}[k][\tau](\x)$.
 \begin{align}
 \label{eqn_tasks_nodes}
-T_{m_h}&=\{e | e\in V(\sss{g}[k][\tau](\x)) \land e.node == m_h, \}& \mbox{ for all } h=1,...,n_N
+T_{m_h}&=\{e\in V(\sss{g}[k][\tau](\x)) | e.node == m_h, \}& \mbox{ where }h=\xkij & \mbox{ for all } h=1,...,n_N
 \end{align}
 
-Then, we calculate the response time of each task $\tau \in T_{m_h}$ by invoking the response-time analyais formula and construct the tasks timing constraints as shown in Equation (\ref{eqn_tasks_constraints}).
+Then, we calculate the response time of each task $\tau \in T_{m}$ by invoking the response-time analyais formula, and construct the tasks timing constraints as shown in Equation (\ref{eqn_tasks_constraints}).
 \begin{align}
 \label{eqn_tasks_constraints}
-\forall \tau\in T_{m_h} \delta(\tau,m_h)&\leq Deadline(\tau)& \mbox{ for all } h=1,...,\n{M}\\
+\forall \tau\in T_{m} \ ResponseTime((\x,\tau)&\leq Deadline(\tau)
 \end{align}
 
 \subsection{Cause-effect Chains Timing constraints}
@@ -107,7 +107,13 @@ For a mapping \x, the age delays of cause-effect chains should meet thier respec
 \label{eqn_messages}
 	M=\{e|\forall (a,b)\in g_\tau(\x)\forall n\in N\ (a\mapsto n \land b\mapsto n=false)\implies createMsg(e)\},
 \end{align}
-where $Period(e)=Period(a)$, that is the message inherits the period of its predecessor (or sender) task. Accordingly, we update only the chains that communicate over the shared CAN bus to incorporate the messages, that is $\sss{\Gamma}=\{\sss{\Gamma}[k][1],e^*,\sss{\Gamma}[k][N]\}$, where $e\in V(g_\tau(\x))\cup M$. Using Equation (\ref{eqn_agedelay}), we calculate the age delays of each cause-effect chains. 
+where $Period(e)=Period(a)$, that is the message inherits the period of its predecessor (or sender) task. Accordingly, we update only the chains that communicate over the shared CAN bus to incorporate the messages, that is $\sss{\Gamma}=\{\tau_1,e^*\}$, where $\tau_1,\tau_2$ are $Source(\sss{\Gamma}) and Sink(\sss{\Gamma})$, respectively, and $e\in V(g_\tau(\x))\cup M$. Then, the cause-effect timing constrains are formulated over the updated list of chains $\sss{\Gamma}$ using Equation (\ref{eqn_chains_constraints}).
+\begin{align}
+\label{eqn_chains_constraints}
+\forall \Gamma \in \sss{\Gamma} \ AgeDelay(\x,\Gamma)&\leq E2eReq(\Gamma)
+\end{align}
+
+%Due to the replication of tasks, the chains are replicated as well, which is demonstrated in Figure x. The replicated cause-effect chains for a given chain \ttsss{\Gamma} is $\{(e_1,...,e_n)|e_1\in T}$Using Equation (\ref{eqn_agedelay}), we calculate the age delays of each cause-effect chains. 
 
 
 
