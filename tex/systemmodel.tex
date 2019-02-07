@@ -1,5 +1,5 @@
 \section{System Model}\label{sec_system}
-The system model is composed of three parts: software applications, an execution platform, and an allocation scheme. In this section, we show models of the different parts and describe them detail. For smooth reading, first we list the main mathematical notations used throughout the paper, e.g., to define the system model and the software allocation problem.
+The system model is composed of three parts: software applications, an execution platform, and an allocation scheme. In this section, we show models of the different parts and describe them in detail. For smooth reading, first we list the main mathematical notations used throughout the paper, such as to define the system model and the software allocation problem.
  \begin{figure}[!h]
  \centering
  \includegraphics[scale=0.6]{softwareallocation}
@@ -13,25 +13,26 @@ The system model is composed of three parts: software applications, an execution
  & Notation                        & Description                                             \\ 
 \midrule
  &/* Application related */&\\
-$\bullet$ & \setExp{A}{A}[k]     	            & software applications \\
-$\bullet$ & \sspExp{C}{c}     		             & software component types of \ttssb{A}[k]\\
-$\bullet$ & \sssExp{Q}{q}    		            & component replicas of type \ttsss{c}\\
-$\bullet$ & \sssExp{R}[i]{r}[j]   	             & runnables that implement \ttsss{c}\\
-$\bullet$ & \sssExp{H}[i,j]{r}[h]              & runnables that implement $\sss{q}[k][i,j]$\\
-$\bullet$ & $\sss{g}[k][r]$   		           & directed acyclic graph of $\bigcup\sss{q}[k][i,j]$ \\
+$\bullet$ & \ttsexp{A}{A}[k]     	            & software applications* \\
+$\bullet$ & \sexpsp{C}{c}     		             & software component types of \ttssb{A}[k]**\\
+$\bullet$ & \sexpss{Q}{q}    		            & component replicas of type \ttsss{c}\\
+$\bullet$ & \sexpss{R}[i]{r}[j]   	             & runnables that implement \ttsss{c}\\
+$\bullet$ & \sexpss{H}[i,j]{r}[h]              & runnables that implement $\sss{q}[k][i,j]$\\
+$\bullet$ & $\sss{g}[k][r]$   		           & directed acyclic graph of $\bigcup\sss{Q}$ \\
 $\bullet$ & $V(g)$   		 & node/vertices of graph $g$\\
 $\bullet$ & $E(g)$   		 & links/edges of graph $g$\\
 &/* Execution platform related */ &\\
-$\bullet$ & \setExp{N}{n}         	            & computation (or computing) nodes      \\
+$\bullet$ & \ttsexp{N}{n}         	            & computation (or computing) nodes      \\
 $\bullet$ & B         						           & shared CAN bus   \\
-$\bullet$ & \setExp{M}{m}         	           & messages on the CAN bus   \\
-$\bullet$ & \sspExp{\Gamma}{\Gamma}  & end-to-end chains             \\
-$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a chain of tasks, with length \ttn{Z}\\ 
-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote iterator variables,  respectively for task, component, chain and node, e.g., $\forall \tau \in  \ssp{T}$. }\\
+$\bullet$ & \ttsexp{M}{m}         	           & messages on the CAN bus   \\
+$\bullet$ & \sexpsp{\Gamma}{\Gamma}  & end-to-end chains             \\
+$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a chain of tasks or messages $e$\\ 
+$\bullet$ & $\pi_i(\sss{\Gamma})$ & the $i^{th}$ element in \ttsss{\Gamma}\\
+$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote iterator variables,  respectively for task, component, chain and node, e.g., $\forall \tau \in  \ssp{T}$.***}\\
  &/* Mapping related */&\\
 
-$\bullet$ & \setexpsp{\textbf{x}}{\textbf{x}}[k]:$\bigcup{\sss{Q}}\mapsto M$            & a mapping vector from \ttssp{Q} to $M$             \\
-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$k,i,j$ denote iterator index-variables,  respectively for the mapping vector \ttx, and rows and columns of the matrix \ttxsp{k}, e.g., \ttxkij.}\\
+$\bullet$ & \sexpsp{\textbf{x}}{\textbf{x}}[k]:$\bigcup{\sss{Q}}\mapsto M$            & a mapping vector from \ttssp{Q} to $M$             \\
+$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$k,i,j$ denote iterator index-variables,  respectively for the mapping vector \ttx, and rows and columns of the matrix \ttxsp{k}, e.g., \ttxkij.***}\\
 $\bullet$ & $\sss{g}[k][\tau](\x)$   		           & directed acyclic graph of tasks\\
 &/* Functions related */ &\\
 
@@ -41,29 +42,55 @@ $\bullet$ & $ResponseTime_{\tau}(\x)$     		& response time of  $\tau \in V(\sss
 $\bullet$ & $Delay_\gamma(\x)$            			& age delay of $\gamma \in \ssp{\Gamma} $   in \ttx     \\
 \bottomrule\\
 \end{tabular}
-{\footnotesize Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes number ofapplications. As a general rule, the variables $k,i$ are indices counters for applications $A$ and component types $C$, respectively. Similarly, and depending on the context, $j$ refers to component replicas, runnables and tasks. The counters are bound by the interval $[1,n]$, where $n$ refers to the cardinality of the set that the indices refers to, e.g., $\forall k\ A_k$ means for all applications.} 
+{\footnotesize 
+	*Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes the number of applications in the set $S$, essentially it refers to its cardinality.\\
+	** For readability, we prefer to use \ttsss{S} in place of $\sss{S}[A_k]$. \\
+   *** IFor other uses of the iterators, they are defined in the context.}
+ 
 \end{table}
 
 \subsection{Software Applications}
-The software applications are user-defined software systems, e.g., x-by-wire, electronic throttle control, flight control, etc., that are developed using software components \cite{softwarecomponents}\cite{Crnkovic2002BuildingSystems}. A software application $A_i$ is associated with high-level and user defined requirements $\langle RelReq_i, E2eReq_i,L_i\rangle$, where the tuple elements denote, respectively the reliabiity requirement, end-to-end timing requirements and criticality-level of the application $A_i$. The critical level signifies the importance of an application over other applications that have lower criticality levels, thus prioritizing the application during resource contention. The criticality levels are defined systematically, e.g., following the hazard analysis according to ISO 26262 standard. The end-to-end timing requirements define the timing constraints over end-to-end functional behaviors of applications, which are referred to as \textit{cause-effect chains}, and finally the reliability requirement defines the expected reliability goal of an application which is discussed further in Subsection \ref{subsec_reliability_constraint}. 
+The software applications are user-defined software systems, e.g., x-by-wire, electronic throttle control, flight control, etc., that are developed using software components \cite{softwarecomponents}\cite{Crnkovic2002BuildingSystems}. A software application $A_k$ is associated with high-level and user defined requirements $(\bigcup_i e2ereq_i,relreq,cl):\mathbb{R}^+\times [0,1]\times \mathbb{I}^+$, where the tuple elements denote, respectively the reliabiliy requirement, end-to-end timing requirements and criticality-level of the application $A_k$, and we access the elements through the projection symbol $\pi$ as $\pi_{e2ereq_i}(A_k)$, e.g., $\pi_{e2ereq_1}(A_2)$ means the first end-to-end requirement of application $A_2$. The critical level signifies the importance of an application over other applications that have lower criticality levels, thus prioritizing the application during resource contention. The criticality levels are defined systematically, e.g., following the hazard analysis according to ISO 26262 standard. The end-to-end timing requirements define the timing constraints over end-to-end functional behaviors of applications, which are referred to as \textit{cause-effect chains}, and finally the reliability requirement defines the expected reliability goal of an application which is discussed further in Subsection \ref{subsec_reliability_constraint}. 
 
-The software applications are run in parallel and therefore can potentially be distributed on different computation nodes $M =\{m_i:i=1,2,\dots J\}$, where $J=|M|$ is the total number of nodes, that we assume are heterogeneous with respect to processor speed, failure-rate and power consumption as indicated by the tuple $(hz, \lambda, p)$, respectively. 
+The software applications are run in parallel and therefore can potentially be distributed on different computation nodes \ttsexp{M}{m}, and we assume the nodes are heterogeneous with respect to processor speed, failure-rate and power consumption as indicated by the tuple $(hz, \lambda, p)$, respectively. 
 
 %$\bigcup_{i=1}^{N_a} A_i$ 
 \begin{definition}[Software Application Model]
-It is modeled as \textit{undirected} graph $\langle V_c,L_c\rangle$ of software component nodes, where $a_{ij}\in L_c$ refers to the communication link from node $c_i$ to node $c_j$. It is associated to a function behavior that is modeled as \textit{directed acyclic vertex-weighted} graph $\langle V_\tau,L_\tau, w\rangle$ of periodic task nodes $V_\tau$, where $a_{ij}\in L_\tau$ refers to the data-flow link from node $\tau_i$ to node $\tau_i$ and $i \neq j$. The computation cost $w(\tau)=\langle e_m,D,P\rangle$ refers to the periodic task model of the node and the tuple elements denote the worst-case execution time {WCET} on node $m$, deadline and periodic activation, respectively.
-\end{definition}
+It is modeled as a set of communicating software components which is associated to a function behavior that is modeled as \textit{directed acyclic vertex-weighted} graph $\langle V_\tau,L_\tau, w\rangle$ of periodic task nodes $V_\tau$, where $a_{ij}\in L_\tau$ refers to the data-flow link from node $\tau_i$ to node $\tau_i$ and $i \neq j$. The computation cost $w(\tau)=\langle \bigcup e_{m_i},D,P, m\rangle$ refers, respectively the worst-case execution times {WCET} on nodes $M$, deadline and period, and its mapping to a node $m\in M$.
+\end{definition}%  \textit{undirected} graph $\langle V_c,L_c\rangle$ of software component nodes, where $a_{ij}\in L_c$ refers to the communication link from node $c_i$ to node $c_j$. It is
 
-Multiple applications can be executed on the same computation node(s) and can share the CAN bus. Since the applications can have different criticality requirements, the execution platforms should provide a separation mechanism in order to avoid interference from lower-critical applications on higher-critical applications, e.g., fault propagation, also known as   \textit{mixed-critical} design \cite{Vestal2007PreemptiveAssurance}, which is an existing practice in avionics and also trending in other domains, e.g., automotive, where  safety-critical applications, such as x-by-wire and electronic throttle control systems, are required to be consolidated with the infotainment system on the same ECUs \cite{bibid}.
+Multiple applications can be executed on the same computation node(s) and can share the CAN bus. Since the applications can have different criticality requirements, the execution platforms should provide a separation mechanism in order to avoid interference of lower-critical applications on higher-critical applications, e.g., faults propagation, also known as   \textit{mixed-critical} design \cite{Vestal2007PreemptiveAssurance}, which is an existing practice in avionics and also trending in other domains, e.g., automotive, where  safety-critical applications, such as x-by-wire and electronic throttle control systems, are required to be consolidated with the infotainment system on the same ECUs \cite{bibid}.
 
 \subsection{Scheduling Software Applications}
-The applications are scheduled on the execution platform by considering their respective requirements such as the criticality levels, reliability requirements, and end-to-end timing requirements. There are several techniques in the literature that deal with the scheduling of mixed-critical applications on a \textit{uniprocessor} systems \cite{Vestal2007PreemptiveAssurance}. In this work, we consider the \textit{partitioned criticality (PA)}  technique, which basically prioritizes higher critical applications over their lower critical counterparts. In contrast to other techniques, PA does not require a runtime monitoring of tasks, e.g., using servers \cite{AbeniIntegratingSystems,Ashjaei2017DesigningSystems,Inam2014ThePlatforms}.
+The applications are scheduled on the heterogenous execution platform by considering their respective requirements such as the criticality levels, reliability requirements, and end-to-end timing requirements. There are several techniques in the literature that deal with the scheduling of mixed-critical applications on a \textit{uniprocessor} systems \cite{Vestal2007PreemptiveAssurance}. In our problem, though distributed applications, each task is mapped to a single node, and the mapping is static. In this case, the schedulability is of tasks can be performed per node, that is using the approach applied to uniprocessing nodes. Therefore, we say the distributed applications are schedulable if the tasks, messageges, and cause-effect chains in the system meet their respective deadlines in the midst of power consumption and reliability constraints. 
 
-\subsubsection{Scheduling Tasks}\label{subsec_responsetimeanalysis}
-By refinement, the tasks $Tasks_{A_i}$ and messages $Msg_{A_i}$ inherit the priority of $A_i$, essentially prioritizing higher critical tasks and messages, respectively at the computation and network levels \cite{Baruah2011Response-timeSystems,Burns2013MixedNetwork}. In this context, the task set allocated to node $m_i$, $T_{m_i}$ is scheduled by the \textit{fixed-priority preemptive scheduling polity} (FPPS), using the \textit{deadline monotonic} (DM) scheduler. The schedulability of the tasks is verified via the classical response time analysis (RTA) technique \cite{Baruah2011Response-timeSystems}. 
+In this work, we consider the \textit{partitioned criticality (PA)}  technique to schedule the mixed-crtitica applications, which basically prioritizes higher critical applications over their lower critical counterparts. In contrast to other techniques, PA does not require a runtime monitoring of tasks, e.g., using servers \cite{AbeniIntegratingSystems,Ashjaei2017DesigningSystems,Inam2014ThePlatforms}, though less efficient. Note: other scheduling techniques can be used on behalf of PA with our approach.
+
+\subsubsection{Scheduling Tasks and Messages}\label{subsec_responsetimeanalysis}
+We assume tasks are scheduled using the \textit{fixed-priority preemptive scheduling polity} (FPPS). Initally, applications are priortized based on their criticality levels followng the PA technique, and within each application the tasks are prioritized with the \textit{deadline monotonic} (DM) priorities assignment. 
+
+\[cri(A_h)>cri(A_l)\implies \forall \tau_1\in\bigcup\sss{T}[h]\tau_2\in\bigcup\sss{T}[l]\ Pri(\tau_1)>Pri(\tau_2)\],
+where $cri, pri$ are predicates which detemine the critiality and priority of tasks $\tau_1,\tau_2$, respectively; $\bigcup\sss{T}[h], \bigcup\sss{T}[h]$ are the set of tasks which implement the applications $A_i,A_j$, respectively.
+
+The schedulability of tasks assigned to a node is performed uisng the classical response-time analysis shown in Equaiton (\ref{eqn_responsetimeanalysis}) \cite{Baruah2011Response-timeSystems,Baruah2011Response-timeSystems}, which computes the worst-case response time of each task $R_\tau$. According to the analysis, if the response time of each task is less than or equal to its deadline, that is $R_\tau\leq Deadline_\tau$, the taskset is schudlable otherwise it is not. 
+
+\begin{align}
+\label{eqn_responsetimeanalysis}
+R_\tau=c_\tau+\sum_{\gamma \in H\!P(\tau)}{\ceil[\Big]{\frac{R_\tau}{P_{\tau_{hi})}}*c_\gamma}},
+\end{align}
+ where $\gamma\in H\!P(\tau)$ is element of the higher-priority tasks returned by $H\!P$.
+
+In this work, we assume heterogenous computation nodes, therefore the schedule that delivers lower power-consumption of a node is considered the effective and efficient. The power-consumption of a node is computed linearly from the utilization of a taskset mapped to a specific node as well as from its power-specification parameters, and is discussed in detail in Subsection \ref{sec_problem}.
+
+Unlike the tasks, the messages in the CAN bus $B$ are scheduled using a non-preemptive and fixed schduling policy. Similar to the mixed-criticality of tasks, the messages in the can should be separated as well for different critial applications, which is achieved by applying the PA technique. In this case though, the priorities of messages are inherited from the send tasks, $pri(m)=pri(\tau)|\tau = pre(m)$, where $pre(\tau)$ is a predicate that computes the predecessor of task $\tau$ from the tasks graph $g_\tau$. The schdulability of messages is checked using the classical response-time analysis of messages in CAN network, as shown in Equation ().
+\begin{align}
+\label{eqn_responsetimeanalysisCAN}
+R_\tau=c_\tau+\sum_{\gamma \in H\!P(\tau)}{\ceil[\Big]{\frac{R_\tau}{P_{\tau_{hi})}}*c_\gamma}},
+\end{align}
+
 
 \subsubsection{Scheduling Cause-effect Chains}\label{subsec_causeeffectchains}
-The software application can be considered as a set of \textit{cause-effect chains} \sspExp{\Gamma}{\Gamma}, which are  directed paths in the graph, annotated by end-to-end timing requirements \ttsss{End2end}. They represent sequences of actions triggered usually by external events (or causal actions or stimuli) and produce corresponding effects (or responses), e.g.,  pressing a rotary-wheel to activate a cruise control system, pressing a brake pedal to slow down a car, etc. The end-to-end requirements put upper-bounds on the duration of the stimuli-reponse elapse time. An example of a cause-effect chain is shown in Figure \ref{fig_causeeffectchainntk}, which consists of three independently clocked tasks $\tau_1,\tau_2,\tau_3$, and message $m_1,m_2$. It uses single-register buffers for communication, which is a common practice in control systems design, e.g., automotive software applications.
+The software application can be considered as a set of \textit{cause-effect chains} \sexpsp{\Gamma}{\Gamma}, which are  directed paths in the graph, annotated by end-to-end timing requirements \ttsss{End2end}. They represent sequences of actions triggered usually by external events (or causal actions or stimuli) and produce corresponding effects (or responses), e.g.,  pressing a rotary-wheel to activate a cruise control system, pressing a brake pedal to slow down a car, etc. The end-to-end requirements put upper-bounds on the duration of the stimuli-reponse elapse time. An example of a cause-effect chain is shown in Figure \ref{fig_causeeffectchainntk}, which consists of three independently clocked tasks $\tau_1,\tau_2,\tau_3$, and message $m_1,m_2$. It uses single-register buffers for communication, which is a common practice in control systems design, e.g., automotive software applications.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{img/cause_effect_chain_ntk}

@@ -127,12 +127,14 @@ Contribution \therccounter}
 
 %% set expressions
 %set +  expression, e.g.,
-\NewDocumentCommand{\setExp}{m m O{i}}{$#1=\{#2_{#3}: #3=1,\dots, n_#1\}$ }%set
+\NewDocumentCommand{\ttsexp}{m m O{i}}{$#1=\{#2_{#3}: #3=1,\dots, n_#1\}$ }%set
+\NewDocumentCommand{\sexp}{m m O{i}}{#1=\{#2_{#3}: #3=1,\dots, n_#1\} }%set
 %set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
-\NewDocumentCommand{\setexpsp}{m m O{i}}{$#1=\{#2^{(k)}: #3=1,\dots, n_#1\}$ }%set
-\NewDocumentCommand{\sspExp}{m O{k} m O{i}}{$#1^{(#2)}=\{#3^{(#2)}_{#4}: #4=1,\dots, n_#1\}$  }
+%\NewDocumentCommand{\sexpsp}{m m O{i}}{$#1=\{#2^{(k)}: #3=1,\dots, n_#1\}$ }
+%set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
+\NewDocumentCommand{\sexpsp}{m O{k} m O{i}}{$#1^{(#2)}=\{#3^{(#2)}_{#4}: #4=1,\dots, n_#1\}$  }
 %set + superscript + + subscript + expression, e.g., Q^(k)_i={q_ij^(k): j=1,...,N_Q_i}
-\NewDocumentCommand{\sssExp}{m O{i} m O{j}}{$#1^{(k)}_{#2}=\{#3^{(k)}_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
+\NewDocumentCommand{\sexpss}{m O{i} m O{j}}{$#1^{(k)}_{#2}=\{#3^{(k)}_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
 
 
 
