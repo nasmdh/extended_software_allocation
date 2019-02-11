@@ -124,7 +124,7 @@ In this subsection, we define the allocation problem, that is the mapping of sof
 \forall \tau\in T_{m_h}\    ResponseTime_{\tau}(\x)&\leq Deadline_{\tau}& \mbox{forall } h=1,...,n_{M}\\ 
 \label{eqn_e2e}
 \forall \gamma \in \ssp{\Gamma}\  Delay_\gamma(\x)&\leq E2eReq_\gamma& \mbox{forall } k=1,...,n_{A}\\
-\forall k\forall ij x_{ij}^{(k)}&\neq x_{ij}^{(k')} & \mbox{ where } k\neq k'=1,...,n_{A}\\ 
+\forall k\forall ij\ x_{ij}^{(k)}&\neq x_{ij}^{(k')},&  \mbox{ where } k\neq k'=1,...,n_{rep}
 \end{align}
 where $X$ is the search space of the problem, $\textbf{x}\in X$ is a feasible solution, and $\xkij\in \textbf{x}$ is a mapping of a component $\sss{q}[k][i,j]$ to the node $m_h$, where $h=\xkij$
 %
