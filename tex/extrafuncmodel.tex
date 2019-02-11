@@ -37,7 +37,7 @@ where $c.R$ is set of runnables in component $c$, $r.e_m$ and $r.\tau.P$ are the
 The applications requirements are modeled as constraints that need to be satisfied in the allocation problem. The constraints formulations are shown in the following subsections, respectively for reliability, timing and other design constraints such as related to runnables-to-tasks merging and replication.
 
 \subsection{Software Application Reliability Constraints}\label{subsec_reliability_constraint}
-The applications reliability constraints ensure the mapping $\textbf{x}$ satisfies the user-defined reliability requirements, that is $ \forall k\in [1,n_A]\ \rel_{A_k}(\xsp{k})\leq RelReq_{A_k}$. 
+The applications reliability constraints ensure the mapping $\textbf{x}$ satisfies the user-defined reliability requirements, that is $\forall k\in [1,n_A]\ \rel_{A_k}(\xsp{k})\leq RelReq_{A_k}$. 
 The reliability  is computed from the execution framework that is provided to run the application, which consists of computation nodes \ttssp{M} and the shared CAN bus B, as shown in Equation (\ref{eqn_appreliability_app}). The nodes \ttssp{M} host the components \ttssp{C} and are determined by searching the mapping \ttxsp{k}  in polynomial time using Equation (\ref{eqn_nodes_app}).
 \begin{align}
 	\label{eqn_appreliability_app}
@@ -76,7 +76,7 @@ The probability that a nodes-failure event $\omega$ occurs is computed as a prod
 where $\lambda_m$ is the failure-rate of node $m$.
 
 \subsection{Timing constraints}
-The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and cause-effect chains of each application meet their deadlines. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and for the cause-effect chains using the delay analysis shown in Subsection \ref{subsec_causeeffectchains}. Before we formulate the timing constraints, first we derive the task graph for a mapping \ttx from the runnables graph \ttsss{g}[k][r], that is using Equation (\ref{eqn_generatetasksgraphs}).  Using Equation (\ref{eqn_uprdaterunnables}), we update the runnables with nodes information, to which they are mapped by traversing elements of the mapping \ttx, $\xkij$, in linear-time complexity $O(n)$, where $n=|\x|*N_r$, and $N_r$ is the total number of runnables in the system. Consequently, we traverse the runnables graphs, and apply the merging rules stated in the Subsection \ref{subsec_autosarsystem} to derive the tasks graphs. In the case that only runnables from the same component are mapped to at least on task, the derivation of tasks graphs is indpedent of the mapping \ttx, and thus can be performed before the mapping activity. However, the tasks graphs has to be updated with the nodes information after the mapping \ttx is identified.
+The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and the cause-effect chains in each application meet their timing requirements. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and for the cause-effect chains using the end-to-end data-propagation delay analysis shown in Subsection \ref{subsec_causeeffectchains}. Before we formulate the timing constraints, first we derive the task graph for a mapping \ttx from the runnables graph \ttsss{g}[k][r], that is using Equation (\ref{eqn_generatetasksgraphs}).  Using Equation (\ref{eqn_uprdaterunnables}), we update the runnables with nodes information, to which they are mapped by traversing elements of the mapping \ttx, $\xkij$, in linear-time complexity $O(n)$, where $n=|\x|*N_r$, and $N_r$ is the total number of runnables in the system. Consequently, we traverse the runnables graphs, and apply the merging rules stated in the Subsection \ref{subsec_autosarsystem} to derive the tasks graphs. In the case that only runnables from the same component are mapped to at least one task, the derivation of tasks graphs is independent of the mapping \ttx, and thus can be performed before the mapping activity. However, the tasks graphs have to be updated with the nodes information after the mapping \ttx is identified.
 \begin{align}
 \label{eqn_uprdaterunnables}
 &\forall k,ij\ \forall r\in \sss{H}[k][i,j]\ r.node = n_h& \mbox{, where } h=\xkij\\
@@ -84,7 +84,7 @@ The timing constraints ensure that the applications are schedulable on the execu
 &\forall k\ \sss{g}[k][r](\x)\xrightarrow{\text{Eqn. (13);Merging Rules}}\sss{g}[k][\tau](\x)
 \end{align}
 
-where $\sss{H}[k][i,j]$ is the set if runnables that implement component $\sss{q}[k][i,j]$.
+where $\sss{H}[k][i,j]$ is the set of runnables that implement component $\sss{q}[k][i,j]$.
 
 %To calculate the delay, the response time of tasks is a prerequisite, therefore, the latter is calculated first as follows.
 
@@ -113,23 +113,16 @@ where $Period(e)=Period(a)$, that is the message inherits the period of its pred
 \forall \Gamma \in \sss{\Gamma} \ AgeDelay(\x,\Gamma)&\leq E2eReq(\Gamma)
 \end{align}
 
-%Due to the replication of tasks, the chains are replicated as well, which is demonstrated in Figure x. The replicated cause-effect chains for a given chain \ttsss{\Gamma} is $\{(e_1,...,e_n)|e_1\in T}$Using Equation (\ref{eqn_agedelay}), we calculate the age delays of each cause-effect chains. 
-
-
-
 \subsection{Software Allocation Optimization Problem	}\label{sec_allocation}
-In this section, we define the allocation problem of a fault-tolerant software application on a network of heterogeneous nodes which is formulatd as ann optimization problem as shown in Equation (\ref{eqn_const_func}). The optimization problem considers minimizing of power consumption $p(x)$ as the objective while fulfilling timing (\ref{eqn_timing}) and application reliability requirements (\ref{eqn_reliability}) of the software applications as well as satisfying design and hardware constraints, e.g., respecting affinity of software components to dedicated nodes.
+In this subsection, we define the allocation problem, that is the mapping of software components to heterogeneous computation nodes, which are networked over a shared CAN bus. The allocation problem objective is to minimize the total power-consumption of the distributed software applications, and its constraints ensures the satisfiability of timing and reliability requirements, as well as design constraints that are imposed by the designer.
 \begin{align}
 \label{eqn_optimization}
-\min_{x\in X}\;\;& P(\textbf{x}) & \\
-\text{Subj to:} &\\
-& ResponseTime_i(\textbf{x}) \leq Deadline_i & \text{for }\tau_i\in T, i=1,2,...,N_\tau \\ 
+\min_{x\in X}\;\;& Power(\textbf{x}) & \text{Subjected to:} \\
+\forall \tau\in T_{m} & ResponseTime_\tau(\x)&\leq Deadline_\tau& \mbox{ forall } h=1,...;\\ 
 \label{eqn_e2e}
-&Delay_i(\textbf{x}) \leq EndToEnd_i & \text{for }\Gamma_i\in \Gamma, i=1,2,...,N_\Gamma \\
+\forall \Gamma \in \ssp{\Gamma} & Delay_{\ssp{\Gamma}}(\x)&\leq E2eReq_\Gamma& \mbox{ forall } k=1,..., \mbox{ forall }i=1,...,\\
 \label{eqn_reliability}
-&Reliability_i(\textbf{x}) \leq RelReq_i & \text{for }a_i\in A, i=1,2,...,N_A\\
-\label{eqn_mapping}
-&StaticMapping_i(\textbf{x})\models \top & \text{for }c_i\in C, i=1,2,...,N_c
+&\rel_{A_k}(\xsp{k})&\leq RelReq_{A_k} & \mbox{ forall } k=1,...,\\
 \end{align}
 where $x\in X$ is a feasible solution from the search space
 $X$, is the search space of the problem,  are a set of timing specification constraints, $Timing\in \Bbb R^n$ is a set of timing boundaries, and $c^{reliability}\in \Bbb R^n$ is a set of reliability boundaries.
