@@ -1,4 +1,4 @@
-\section{Problem Model}\label{sec_problem}
+\section{Software Allocation Problem}\label{sec_problem}
 The software allocation problem is a type of job shop scheduling with constraints, as such it is a discrete optimization problem \cite{}. The solution to the allocation problem is represented by a vectormatrix $\x=\{\xsp{k}:k=1,...,N_a\}$, where \ttxsp{k} is a matrix of size $N_c\times K$, and \ttssx{x}{k}{ij}$=k\in \{1,…,N_m\}$ represents the mapping of the software component replica \ttssx{c}{k}{ij} to the computation node $m_k$.
 \begin{equation}
 \label{fig_pso_solution_representation}
@@ -114,96 +114,97 @@ where $Period(e)=Period(a)$, that is the message inherits the period of its pred
 \end{align}
 
 \subsection{Software Allocation Optimization Problem	}\label{sec_allocation}
-In this subsection, we define the allocation problem, that is the mapping of software components to heterogeneous computation nodes, which are networked over a shared CAN bus. The allocation problem objective is to minimize the total power-consumption of the distributed software applications, and its constraints ensures the satisfiability of timing and reliability requirements, as well as design constraints that are imposed by the designer.
+In this subsection, we define the allocation problem, that is the mapping of software components to heterogeneous computation nodes, which are networked over a shared CAN bus, with constraints. The allocation problem objective is to minimize the total power-consumption of the distributed software applications as formulated in Equation \ref{eqn_optimization}. The inequality constraints shown by Equation (\ref{eqn_reliability}, \ref{eqn_responsetime},\ref{eqn_e2e}), respectively ensure the feasible solution meet the reliability requirements of the applications, the deadlines of the tasks in the system and the end-to-end requirement of the cause-effect chains, and the last inequality constraint ensures that replicas are not allocated to the same computation nodes.
 \begin{align}
 \label{eqn_optimization}
-\min_{x\in X}\;\;& Power(\textbf{x}) & \text{Subjected to:} \\
-\forall \tau\in T_{m} & ResponseTime_\tau(\x)&\leq Deadline_\tau& \mbox{ forall } h=1,...;\\ 
-\label{eqn_e2e}
-\forall \Gamma \in \ssp{\Gamma} & Delay_{\ssp{\Gamma}}(\x)&\leq E2eReq_\Gamma& \mbox{ forall } k=1,..., \mbox{ forall }i=1,...,\\
+\min_{\textbf{x}\in X}\ Power(\textbf{x}) & &\text{ subjected to:} \\
 \label{eqn_reliability}
-&\rel_{A_k}(\xsp{k})&\leq RelReq_{A_k} & \mbox{ forall } k=1,...,\\
+\rel_{A_k}(\x)&\leq RelReq_{A_k} & \mbox{ forall } k=1,...,n_{A_k}\\
+\label{eqn_responsetime}
+\forall \tau\in T_{m_h}\    ResponseTime_{\tau}(\x)&\leq Deadline_{\tau}& \mbox{forall } h=1,...,n_{M}\\ 
+\label{eqn_e2e}
+\forall \gamma \in \ssp{\Gamma}\  Delay_\gamma(\x)&\leq E2eReq_\gamma& \mbox{forall } k=1,...,n_{A}\\
+\forall k\forall ij x_{ij}^{(k)}&\neq x_{ij}^{(k')} & \mbox{ where } k\neq k'=1,...,n_{A}\\ 
 \end{align}
-where $x\in X$ is a feasible solution from the search space
-$X$, is the search space of the problem,  are a set of timing specification constraints, $Timing\in \Bbb R^n$ is a set of timing boundaries, and $c^{reliability}\in \Bbb R^n$ is a set of reliability boundaries.
+where $X$ is the search space of the problem, $\textbf{x}\in X$ is a feasible solution, and $\xkij\in \textbf{x}$ is a mapping of a component $\sss{q}[k][i,j]$ to the node $m_h$, where $h=\xkij$
+%
+%In the rest of this section, we show the ILP model and the PSO algorithm of the software allocation problem, which are validated on an automotive use case and evaluated for performance in the next section. Throughout this section, we use a simple running example of a system model in order to demonstrate our proposed ILP model and the PSO optimization algorithm.
+%
+%\subsection{Running Example}
+%The example employs an AUTOSAR system, which consists of a software application model and a hardware platform model, as well as functional and extra-functional requirements such as timing and reliability of the software application. The software application is modeled as a digraph of runnables, which is shown in Figure \ref{fig_application}. It consist of 50 runnables, 35 cause-effect chains (or paths), with their activation patterns and timing specifications shown in Table \ref{tbl_requirements}. The timing specifications of the runnables as well as the software components from which the runnables are instantiated are shown in Table \ref{tbl_comps_config}. The hardware platform model consists of three computation nodes, with specifications shown in Table \ref{tbl_nodes_specification}.
+%\begin{figure}[t!]
+%\centering
+%\includegraphics[width=0.8\linewidth]{dag}
+%\caption{A Directed Acyclic Graph of the Running AUTOSAR Software Application, Runnables = 50, Paths = 35, Activation Patterns shown in Table \ref{tbl_requirements}.}
+%\label{fig_application}
+%\end{figure}
+%\begin{center}
+%\small
+%\begin{minipage}{.5\textwidth}%
+%\centering
+%\begin{tabular}{@{}p{0.25cm}lll@{}}
+%\toprule
+%C& $r_i$ & $(e_{r_im_1}, e_{r_im_2}, e_{r_im_3})$ & $period$\\ \midrule
+%\multirow{4}{4em}{c1} 
+%&$r_1$ & (0.030, 0.060, 0.090) & 1\\
+%&$r_2$ & (0.041, 0.081, 0.122) & 2\\
+%&$r_3$ & (0.083, 0.167, 0.250)  & 5\\ 
+%&$r_4$ & (0.310, 0.620, 0.930) & 10 \\[0.3em]
+%\hline
+%\multirow{2}{4em}{c2} 
+%&$r_1$ & (0.310, 0.620, 0.930) & 10\\
+%&$r_2$ & (0.310, 0.620, 0.930) & 10\\
+%&$r_3$ & (0.310, 0.620, 0.930)  & 10\\ 
+%&$r_4$ & (0.310, 0.620, 0.930) & 10 \\[0.3em]
+%\hline
+%\multirow{2}{4em}{c3} 
+%&$r_1$ & (0.310, 0.620, 0.930) & 10\\
+%&$r_2$ & (0.291, 0.583, 0.874)) & 10\\
+%&$r_3$ & (0.291, 0.583, 0.874)  & 20\\ 
+%&$r_4$ & (0.291, 0.583, 0.874) & 20 \\[0.3em]
+%\hline
+%\multirow{2}{4em}{c4} 
+%&$r_1$ & (0.291, 0.583, 0.874) & 20\\
+%&$r_2$ & (0.291, 0.583, 0.874)) & 10\\
+%&$r_3$ & (0.291, 0.583, 0.874)  & 20\\ 
+%&$r_4$ & (0.093, 0.186, 0.279) & 50 \\[0.3em]
+%\hline
+%\multirow{2}{4em}{c5} 
+%&$r_1$ & (0.420, 0.841, 1.261) & 100\\
+%&$r_2$ & (0.420, 0.841, 1.261)) & 100\\
+%&$r_3$ & (0.420, 0.841, 1.261)  & 100\\ 
+%&$r_4$ & (0.420, 0.841, 1.261) & 100 \\[0.3em]
+%\bottomrule
+%\end{tabular}
+%\captionof{table}{Specification of Components.}
+%\label{tbl_comps_config}
+%\end{minipage}~
+%\begin{minipage}{.45\textwidth}
+%\begin{center}
+%    \begin{tabular}{@{}lll@{}}
+%    \toprule
+%    Activation, $AP$ & Share & Time, ms \\ \midrule
+%    $\tau_1$ & 50  & 50\\
+%    $\tau_1\rightarrow\tau_2$ & 20  & 100\\
+%    $\tau_1\rightarrow\tau_2\rightarrow\tau_3$ & 20  & 200\\
+%    $\tau_1\rightarrow\tau_2\rightarrow\tau_3\rightarrow\tau_4$ & 10  & 400\\
+%    \bottomrule
+%    \end{tabular}
+%    \captionof{table}{Activation Patters of Cause-effect Chains, their Share and End-to-end Timing Requirements.}
+%    \label{tbl_requirements}
+%\end{center}
+%\begin{center}
+%    \begin{tabular}{@{}llll@{}}
+%    \toprule
+%    M  & $P_{idle}$& $P_{busy}$& $\lambda$ \\ \midrule
+%    $m_1$ & 50.0& 140.0 &1.0E-3  \\
+%    $m_2$ & 10.0& 100.0 &1.0E-4  \\
+%    $m_3$ & 10.0& 140.0 &1 .0E-5 \\ \bottomrule
+%    \end{tabular}
+%    \captionof{table}{Computation Nodes Specification.}
+%    \label{tbl_nodes_specification}
+%\end{center}
+%\end{minipage}
+%\end{center}
 
-In the rest of this section, we show the ILP model and the PSO algorithm of the software allocation problem, which are validated on an automotive use case and evaluated for performance in the next section. Throughout this section, we use a simple running example of a system model in order to demonstrate our proposed ILP model and the PSO optimization algorithm.
-
-\subsection{Running Example}
-The example employs an AUTOSAR system, which consists of a software application model and a hardware platform model, as well as functional and extra-functional requirements such as timing and reliability of the software application. The software application is modeled as a digraph of runnables, which is shown in Figure \ref{fig_application}. It consist of 50 runnables, 35 cause-effect chains (or paths), with their activation patterns and timing specifications shown in Table \ref{tbl_requirements}. The timing specifications of the runnables as well as the software components from which the runnables are instantiated are shown in Table \ref{tbl_comps_config}. The hardware platform model consists of three computation nodes, with specifications shown in Table \ref{tbl_nodes_specification}.
-\begin{figure}[t!]
-\centering
-\includegraphics[width=0.8\linewidth]{dag}
-\caption{A Directed Acyclic Graph of the Running AUTOSAR Software Application, Runnables = 50, Paths = 35, Activation Patterns shown in Table \ref{tbl_requirements}.}
-\label{fig_application}
-\end{figure}
-\begin{center}
-\small
-\begin{minipage}{.5\textwidth}%
-\centering
-\begin{tabular}{@{}p{0.25cm}lll@{}}
-\toprule
-C& $r_i$ & $(e_{r_im_1}, e_{r_im_2}, e_{r_im_3})$ & $period$\\ \midrule
-\multirow{4}{4em}{c1} 
-&$r_1$ & (0.030, 0.060, 0.090) & 1\\
-&$r_2$ & (0.041, 0.081, 0.122) & 2\\
-&$r_3$ & (0.083, 0.167, 0.250)  & 5\\ 
-&$r_4$ & (0.310, 0.620, 0.930) & 10 \\[0.3em]
-\hline
-\multirow{2}{4em}{c2} 
-&$r_1$ & (0.310, 0.620, 0.930) & 10\\
-&$r_2$ & (0.310, 0.620, 0.930) & 10\\
-&$r_3$ & (0.310, 0.620, 0.930)  & 10\\ 
-&$r_4$ & (0.310, 0.620, 0.930) & 10 \\[0.3em]
-\hline
-\multirow{2}{4em}{c3} 
-&$r_1$ & (0.310, 0.620, 0.930) & 10\\
-&$r_2$ & (0.291, 0.583, 0.874)) & 10\\
-&$r_3$ & (0.291, 0.583, 0.874)  & 20\\ 
-&$r_4$ & (0.291, 0.583, 0.874) & 20 \\[0.3em]
-\hline
-\multirow{2}{4em}{c4} 
-&$r_1$ & (0.291, 0.583, 0.874) & 20\\
-&$r_2$ & (0.291, 0.583, 0.874)) & 10\\
-&$r_3$ & (0.291, 0.583, 0.874)  & 20\\ 
-&$r_4$ & (0.093, 0.186, 0.279) & 50 \\[0.3em]
-\hline
-\multirow{2}{4em}{c5} 
-&$r_1$ & (0.420, 0.841, 1.261) & 100\\
-&$r_2$ & (0.420, 0.841, 1.261)) & 100\\
-&$r_3$ & (0.420, 0.841, 1.261)  & 100\\ 
-&$r_4$ & (0.420, 0.841, 1.261) & 100 \\[0.3em]
-\bottomrule
-\end{tabular}
-\captionof{table}{Specification of Components.}
-\label{tbl_comps_config}
-\end{minipage}~
-\begin{minipage}{.45\textwidth}
-\begin{center}
-    \begin{tabular}{@{}lll@{}}
-    \toprule
-    Activation, $AP$ & Share & Time, ms \\ \midrule
-    $\tau_1$ & 50  & 50\\
-    $\tau_1\rightarrow\tau_2$ & 20  & 100\\
-    $\tau_1\rightarrow\tau_2\rightarrow\tau_3$ & 20  & 200\\
-    $\tau_1\rightarrow\tau_2\rightarrow\tau_3\rightarrow\tau_4$ & 10  & 400\\
-    \bottomrule
-    \end{tabular}
-    \captionof{table}{Activation Patters of Cause-effect Chains, their Share and End-to-end Timing Requirements.}
-    \label{tbl_requirements}
-\end{center}
-\begin{center}
-    \begin{tabular}{@{}llll@{}}
-    \toprule
-    M  & $P_{idle}$& $P_{busy}$& $\lambda$ \\ \midrule
-    $m_1$ & 50.0& 140.0 &1.0E-3  \\
-    $m_2$ & 10.0& 100.0 &1.0E-4  \\
-    $m_3$ & 10.0& 140.0 &1 .0E-5 \\ \bottomrule
-    \end{tabular}
-    \captionof{table}{Computation Nodes Specification.}
-    \label{tbl_nodes_specification}
-\end{center}
-\end{minipage}
-\end{center}
-
-In the next subsequent subsections, we propose a metaheuristic approach which is based on Particle Swarm Optimization (PSO) and hybrid PSO. Furthermore, we elaborate the approach using the presented running example.
+In the next section, we propose a hybrid Particle Swarm Optimization (PSO) to solve the allocation problem. 
