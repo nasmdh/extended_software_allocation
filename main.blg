@@ -2,6 +2,8 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: elsarticle-num.bst
 Database file #1: reference.bib
 Warning--I didn't find a database entry for "bibid"
+Warning--I didn't find a database entry for "Sha-RTS-2004"
+Warning--I didn't find a database entry for "RobDavis-CAN-2007"
 Warning--I didn't find a database entry for ""
 Warning--empty pages in Wozniak2013AnArchitectures
 Warning--empty publisher in Fernandez2014SystemApproach
@@ -11,6 +13,7 @@ Warning--empty year in AbeniIntegratingSystems
 Warning--can't use both volume and number fields in Inam2014ThePlatforms
 Warning--empty pages in Inam2014ThePlatforms
 Warning--empty pages in Baruah2011Response-timeSystems
+Warning--empty pages in Feiertag2009ASemantics
 Warning--empty year in KennedyAAlgorithm
 Warning--empty pages in Clerc2000DiscreteProblem
-(There were 12 warnings)
+(There were 15 warnings)

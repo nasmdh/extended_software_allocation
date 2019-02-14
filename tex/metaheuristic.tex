@@ -1,29 +1,61 @@
-\section{Solution Using Hybrid Particle Swarm Optimization}
-%Although the proposed ILP approach provides exact solutions, that is with an AUTOSAR software allocation with minimum power consumption, the approach approach does not scale well for large applications.
-Although well-known ILP solvers such as CPLEX ILP Solver[cite to CPLEX] can be used to find exact solutions for the proposed ILP model, they all suffer from scalability problem. When it comes to allocation of large automotive applications, more scalable approaches such as heuristic and meta-heuristic algorithms are needed to find (near-)optimal solutions. 
+\section{Solution using Hybrid Particle Swarm Optimization (PSO)}
+In our previous work, we provided an ILP model for the same optimization problem, then the CPLEX solver returned optimal solutions to problems in the range \textit{small} and \textit{medim}, where the small problem refers to a software application with software components less than 10, chains less than 30, and similarly the medium problem refers to applications with components less than 15, and chains less than 40. The problems specifications are stipulated from the real automotive benchmark proposed by Kramel et al.~\cite{Kramer2015RealFree}. However, the ILP approach, as also shown for similar problems, suffered from the scalability problem of large software allocation problems. In this section, we propose a metaheuristic approach based on the particle-swarm optimization (PSO), evolutionary, differential evolution (DE), hybrid PSO with DE,  hill-climbing and stochastic hill-climbing. 
 
-In this section, we propose an meta-heuristic approach based on several metaheuristic techniques to address the scalability challenge. Metaheuristic techniques assumes little of the problem in question, and therefore are ideal to solve high dimensional and complex optimization problems, that is, problems that are difficult or practically impossible to solve by exact methods, e.g., linear programming, or exhaustive search methods, e.g., Branch and Bound (BB). They have improved over the last decades with respect to effectiveness, efficiency, and ease of use by providing fewer user-configurable parameters.
+Metaheuristics does not guarantee optimal solutions, nevertheless, the solutions can be good enough (or acceptable) in practice. Thus, although the power consumption of the applications may not be optimal, the solution can be deemed acceptable. PSO has been applied to solve a wide range of problems, including a task allocation problem \cite{yin2007task}, and DE is shown to scale well for problems with high dimensions. In fact, PSO and DE are used together for improved performance in several optimization problems \cite{bibid}, likewise, PSO is used with local search techniques such as Hill climbing to intensify the search \cite{bibid}. Finally, we evaluate the different meta-heuristic methods based on solution quality and computation time for different software allocation problems.
 
-Metaheuristic techniques do not guarantee optimal solutions, nevertheless, the returned solutions can be good enough (or acceptable) in the eyes of the system designer, for this particular problem, it means although the power consumption of the system may not be optimal, the solution can be deemed acceptable, that is as long as not only the constraints are fulfilled but also the energy consumption is better than other naive heuristic algorithms. 
-%In the opposite case, where the constraints could not be fulfilled, the algorithms can be rerun several times until the desired results are found, or the design can be relaxed by weakening the timing and reliability constraints of the system.
-
-Metaheuristic techniques perform differently for different problem types, size, and complexity. In this section, we show application of different metaheuristic techniques employing swarm intelligence and evolutionary approaches in finding the (near) optimal solution for the considered allocation problem.
-Specifically, we apply (i) Particle Swarm Intelligent (PSO), (ii) Differential Evolution (DE) techniques, (iii) hybrid PSO with DE, and (iv) hybrid PSO with Hill-climbing. The hybrid methods aim at improving the performance of the algorithms by exploiting the advantages of the combined algorithms. 
-
-PSO has been applied to solve a wide range of problems, including a task allocation problem \cite{yin2007task}, and DE is shown to scale well for problems with high dimensions. In fact, PSO and DE are used together for improved performance in several optimization problems [some references are needed], likewise, PSO is used with local search techniques such as Hill climbing to intensify the search [some ref are needed]. Finally, we evaluate the different metaheuristic methods based on solution quality and computation time for different software allocation problems.
-
-A meta-heuristic algorithm composes of two major parts, solution representation and a fitness function. The solution representation shows the data structure that is used to represent each point in the problem space and having a significant impact on the performance of the meta-heuristic algorithm. The fitness function is used to evaluate the quality of candidate solutions based on their fitness to meet the problem's objective. A solution that delivers lower power consumption and violates less constraints is indicated by a lower fitness value. In the following, we describe the solution representation and the fitness function proposed in our solution framework to run the meta-heuristic algorithms. 
+A meta-heuristic algorithm comprises two major parts: solution representation and an objective function. The solution representation shows the data structure that is used to represent each point in the problem space, and it has a significant impact on the performance of the meta-heuristic algorithm. The fitness function is used to evaluate the quality of candidate solutions based on their fitness to meet the problem objectives. A solution that delivers lower power consumption and violates less constraints is indicated by a lower fitness value. In the following, we describe the solution representation and the objective function proposed in our solution framework to run the meta-heuristic algorithms. 
 
 \subsection{Solution Representation}
-In contrast to the \textit{0-1} representation, the integer-linear representation uses much lower number of variables, that is $N*K(L-1)$, e.g., for a software allocation problem with $N=10,L=8,K=2$, 140 variables are saved. Of course the possible values in the former representation is two whereas in the latter representation, it is $L$, which is usually higher and results larger solution space. Nevertheless, the integer-linear representation is compact and computationally more efficient.
+The software allocation is a type of Assignment optimization problem, as such, the solutions are discrete values. There are two commonly used solution encodings (or representations) are binary (0-1) and integer. The binary variable indicates if a component is allocated to a computing node or not. In the integer representation, the variable indicate the computing-node identifier to which the component is allocated. The two representations are demonstrated in Figure~\ref{fig_solutionrep} using the example provided in Figure~\ref{fig_deployment}. 
+\begin{figure}
+	\centering
+		\begin{minipage}{.5\textwidth}
+		\centering
+				\begin{minipage}{.3\textwidth}
+				\centering
+				\begin{equation*}
+				\begin{bmatrix} 
+				1 & 0& 0\\
+				0 & 1& 0\\
+				1 &  1& 0\\
+				\end{bmatrix}
+				\end{equation*}
+			\end{minipage}%
+			\begin{minipage}{.3\textwidth}
+				\centering
+				\begin{equation*}
+				\begin{bmatrix} 
+				0 & 1& 0\\
+				0 & 0& 1\\
+				1 &  0& 0\\
+				\end{bmatrix}
+				\end{equation*}
+			\end{minipage}
+		\captionof{figure}{Binary (0-1) Representation.}
+		\label{fig_binary}
+	\end{minipage}
+	\begin{minipage}{.4\textwidth}
+		\centering
+		\begin{equation*}
+		\begin{bmatrix} 
+		1 & 2\\
+		2& 3\\
+		1& 3\\
+		\end{bmatrix}
+		\end{equation*}
+		\captionof{figure}{Integer Representation.}
+		\label{fig_integer}
+	\end{minipage}
+		\caption{Solution Representations for Components $\{c_1,c_2,c_3\}$ Mapped to Computiong Nodes $\{n_1,n_2,n_3\}$ based on Table \ref{fig_depwr}.}
+		\label{fig_solutionrep}
+\end{figure}
 
-\subsection{Fitness Function Definition}
+In this work, consider the integer representation due to efficient encoding (much fewer variables), and  it is computationally more efficient, considering the various operations in the optimization problem, e.g., the binary representation shown in Figure~\ref{fig_solutionrep} uses a pair of metrices to represent the primary and secondary replicas using 18 binary variables versus only 6 variables used in the case of integer representation shown in Figure~\ref{fig_integer}.
+
+\subsection{Fitness Function}
 % Define the fitness function
- The fitness function $f(\textbf{x})$ should include both the objective function $P(\textbf{x})$ and the constraints such as $Timing(\textbf{x}),Reliability(\textbf{x})$ in order to compute real-valued numbers that indicate the quality of the candidate solutions. 
- 
-In the context of meta-heuristics, it is highly desirable to integrate the goal function and all constraints into one function that can be
-used as a fitness function. [cite to talbi2009metaheuristics and faragardi2018efficient].
-
+The fitness function $f:\textbf{x}\rightarrow \mathbb{R}$ is a type of objective function that summerizes the contriutions of the decision variables via real numbers. The fitness value is used to compare feasible solutions, that is the higher the fitness, the better. In the context of metaheuristics, it is highly desirable to integrate the goal function and all constraints into one function that can be
+used as a fitness function. [cite to talbi2009metaheuristics and faragardi2018efficient]. Thus, it combines the objective function, which is the power-consumption minimization, with the constraints such as the reliability and timing constraints into a single function by using a penality function. 
 %@book{talbi2009metaheuristics,
 %  title={Metaheuristics: from design to implementation},
 %  author={Talbi, El-Ghazali},
@@ -64,10 +96,10 @@ The fitness function $f(x)$ is computed as follows.
 %    \label{eqn_penalityfunc}\Phi(\textbf{x}) &= \sum\phi_i(\textbf{x})
 %\end{align}
 
-\begin{equation}
-\label{}
-    \min_{\textbf{x}\in X}\;\;& f(\textbf{x})=P(\textbf{x}) + \beta_1 \phi_{reliability}(\textbf{x}) + \beta_2 \phi_{deadline}(\textbf{x}) + \beta_3 \phi_{e2e}(\textbf{x}) + \beta_4 \phi_{rep}(\textbf{x}) 
-\end{equation}
+\begin{align}
+\label{eqn_penalityfunc}
+\min_{\textbf{x}\in X}\;\;& f(\textbf{x})=P(\textbf{x}) + \beta_1 \phi_{reliability}(\textbf{x}) + \beta_2 \phi_{deadline}(\textbf{x}) + \beta_3 \phi_{e2e}(\textbf{x}) + \beta_4 \phi_{rep}(\textbf{x}) 
+\end{align}
 %The fitness function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability.
 where $\beta_1$ to $\beta_4$ are penalty coefficients used to tune the weight of the penalty functions with regard to the range of the objective function. In Section~\ref{sec:penaltycoefficient}, the proper value of the penalty coefficients is discussed in more details.
 
@@ -183,42 +215,42 @@ The canonical PSO technique uses the constriction factors to balance exploitatio
 
 PSO is hybridized with several optimization techniques, such as Genetic Algorithm (GA), DE, local searches (e.g., Hill-climbing, gradient decent, etc.), ant colony, simulated annealing, etc. Of which, it is shown to perform better when hybridized with DE on constrained, discrete, large benchmarks. Furthermore, it is shown to perform better when hybridized with Hill-climbing (specifically \textit{Steepest-descent} variant)for software allocation problem \cite{} in particular. In this paper, we hybridize PSO with DE (DEPSO) and Hill-climbing (HCPSO) to the solve the software allocation problem as formulated in Equation (x). In the latter case, we also apply the stochastic variant of Hill-climbing (SHPSO) in order to offset stagnation of the steepest Hill-climbing when applied on large software allocation problems.
 
-\IncMargin{1em}
-\begin{algorithm}[H]
-\SetKwData{P}{P}\SetKwData{S}{sBest}
-\SetKwData{Generation}{Generation}
-\SetKwData{Interval}{Interval}
-\SetKwData{Particles}{Particles}
-\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
-\SetKwFunction{OptimizeUsingDE}{optimizeUsingDE}
-\SetKwFunction{OptimizeUsingHC}{optimizeUsingHC}
-\SetKwFunction{OptimizeUsingSHC}{optimizeUsingSHC}
-\SetKwFunction{ComputeParticleVelocity}{computeParticleVelocity}
-\SetKwFunction{ComputeParticlePosition}{computeParticlePosition}
-\SetKwFunction{InitPSO}{initPSO}
-
-\BlankLine
-\Input{PSO parameters, DE parameters}
-\Output{Software allocation solution \S .\textbf{x}}
-\BlankLine
-\Particles $P$ $\leftarrow$ \InitPSO{}\;
-\BlankLine
- \While{termination criteria}{
-  $P$ $\leftarrow$\ComputePersonalBest{$P$}\;
-  \S $\leftarrow$\ComputeSwarmBest{$P$}\;
-  \BlankLine
-   \ForEach{$p\in P$}{
-        \ComputeParticleVelocity{$p$} according to Equation (\ref{eqn_pso_velocity})\;
-        \ComputeParticlePosition{$p$} according to Equation (\ref{eqn_pso_position})\;
-   }
-   \If{interval criteria}{
-        $P$ $\leftarrow$ \OptimizeUsingDE{$P$}\;
-    \tcp{$P$ $\leftarrow$ \OptimizeUsingHC{$P$}}\label{hc}
-    \tcp{$P$ $\leftarrow$ \OptimizeUsingSHC{$P$}}\label{sh}
-   }
- }
- \caption{Hybrid PSO Algorithms.}\label{alg_depso}
-\end{algorithm}\DecMargin{1em}
+%\IncMargin{1em}
+%\begin{algorithm}[H]
+%\SetKwData{P}{P}\SetKwData{S}{sBest}
+%\SetKwData{Generation}{Generation}
+%\SetKwData{Interval}{Interval}
+%\SetKwData{Particles}{Particles}
+%\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+%\SetKwFunction{OptimizeUsingDE}{optimizeUsingDE}
+%\SetKwFunction{OptimizeUsingHC}{optimizeUsingHC}
+%\SetKwFunction{OptimizeUsingSHC}{optimizeUsingSHC}
+%\SetKwFunction{ComputeParticleVelocity}{computeParticleVelocity}
+%\SetKwFunction{ComputeParticlePosition}{computeParticlePosition}
+%\SetKwFunction{InitPSO}{initPSO}
+%
+%\BlankLine
+%\Input{PSO parameters, DE parameters}
+%\Output{Software allocation solution \S .\textbf{x}}
+%\BlankLine
+%\Particles $P$ $\leftarrow$ \InitPSO{}\;
+%\BlankLine
+% \While{termination criteria}{
+%  $P$ $\leftarrow$\ComputePersonalBest{$P$}\;
+%  \S $\leftarrow$\ComputeSwarmBest{$P$}\;
+%  \BlankLine
+%   \ForEach{$p\in P$}{
+%        \ComputeParticleVelocity{$p$} according to Equation (\ref{eqn_pso_velocity})\;
+%        \ComputeParticlePosition{$p$} according to Equation (\ref{eqn_pso_position})\;
+%   }
+%   \If{interval criteria}{
+%        $P$ $\leftarrow$ \OptimizeUsingDE{$P$}\;
+%    \tcp{$P$ $\leftarrow$ \OptimizeUsingHC{$P$}}\label{hc}
+%    \tcp{$P$ $\leftarrow$ \OptimizeUsingSHC{$P$}}\label{sh}
+%   }
+% }
+% \caption{Hybrid PSO Algorithms.}\label{alg_depso}
+%\end{algorithm}\DecMargin{1em}
  
 \subsubsection{Differential Evolution PSO (DEPSO)}
 DE complements the classical PSO by introducing stochastic behavior via the evolutionary operators such as mutation, cross-over and selection. In this specific hybridization approach, we allow the DE algorithm to run intermittently for some number of generations before the next PSO generation starts.

@@ -117,6 +117,10 @@ N.~Naumann, {AUTOSAR Runtime Environment and Virtual Function Bus},
   of Timing Extensions}}, Tech. rep., AUTOSAR (2017).
 \newline\urlprefix\url{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_TPS_TimingExtensions.pdf}
 
+\bibitem{iso201126262}
+I.~ISO, {26262: Road vehicles-Functional safety}, Tech. rep., ISO/TC 22/SC 32
+  Electrical and electronic components and general system aspects (2011).
+
 \bibitem{softwarecomponents}
 S.~d.~C. Kung-Kiu~Lau, {What are Software Components?}, World Scientific
   Publishing Company (June 29, 2017), 2017.
@@ -163,13 +167,17 @@ S.~K. Baruah, A.~Burns, R.~I. Davis, {Response-time analysis for mixed
 \newblock \href {http://dx.doi.org/10.1109/RTSS.2011.12}
   {\path{doi:10.1109/RTSS.2011.12}}.
 
-\bibitem{Burns2013MixedNetwork}
-A.~Burns, R.~Davis, \href{http://ieeexplore.ieee.org/document/6602094/}{{Mixed
-  Criticality on Controller Area Network}}, in: 2013 25th Euromicro Conference
-  on Real-Time Systems, IEEE, 2013, pp. 125--134.
-\newblock \href {http://dx.doi.org/10.1109/ECRTS.2013.23}
-  {\path{doi:10.1109/ECRTS.2013.23}}.
-\newline\urlprefix\url{http://ieeexplore.ieee.org/document/6602094/}
+\bibitem{Becker2017End-to-endSystems}
+M.~Becker, D.~Dasari, S.~Mubeen, M.~Behnam, T.~Nolte, {End-to-end timing
+  analysis of cause-effect chains in automotive embedded systems}, Journal of
+  Systems Architecture\href {http://dx.doi.org/10.1016/j.sysarc.2017.09.004}
+  {\path{doi:10.1016/j.sysarc.2017.09.004}}.
+
+\bibitem{Feiertag2009ASemantics}
+N.~Feiertag, K.~Richter, J.~Nordlander, J.~Jonsson, {A Compositional Framework
+  for End-to-end Path Delay Calculation of Automotive Systems under Different
+  Path Semantics}, in: IEEE Real-Time Systems Symposium: 30/11/2009-03/12/2009,
+  IEEE Communications Society, 2009.
 
 \bibitem{AUTOSAR2017SpecificationSoftware}
 {AUTOSAR},

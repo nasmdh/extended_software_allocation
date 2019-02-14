@@ -1,7 +1,9 @@
-\section{Software Allocation Problem}\label{sec_problem}
-The software allocation problem is a type of job shop scheduling with constraints, as such it is a discrete optimization problem \cite{}. The solution to the allocation problem is represented by a vectormatrix $\x=\{\xsp{k}:k=1,...,N_a\}$, where \ttxsp{k} is a matrix of size $N_c\times K$, and \ttssx{x}{k}{ij}$=k\in \{1,…,N_m\}$ represents the mapping of the software component replica \ttssx{c}{k}{ij} to the computation node $m_k$.
+\section{Define the Problem of Mapping the Software Applications}\label{sec_problem}
+The software applications are deployed on the execution platform in such a way that the user-defined requirements of the software applications such as the reliability requirements, end-to-end timing requirements, and criticality of the applications are satisfied. It is conducted by mapping the software-components replicas (or components in short) effectively on the computing nodes and the network bus, that is that is $\bigcup {\sss{Q}}\mapsto M'$, so that the total power consumption $Power(\textbf{x})$ of the applications is minimized. The latter  is achieved by selecting nodes that consume lower power $M'\subseteq M$, provided that the reliability of each application $Reliability_a(\x)$, the timing $ResponseTime_\tau(\x)$, $Delay_\gamma(\x)$, and placement constraints fullfill respective software applications requirements.It is a type of Job Shop scheduling with constraints, as such, it is a discrete optimization problem. 
+
+The solution to the allocation problem is represented by a vector-matrix $\x=\{\xsp{A_k}:k=1,...,N_a\}$ as shown in Equation (\ref{eqn_solution}), where \ttxsp{k} is a matrix of size $n_C\times K$, and \ttssx{x}{k}{ij}$=h\in \{1,…,n_N\}$ denotes the mapping of the  software-component replica \ttssx{q}{k}{i,j} to the computating node $n_h$.
 \begin{equation}
-\label{fig_pso_solution_representation}
+\label{eqn_solution}
 \bspx{k}=
 \begin{bmatrix} 
 \ssx{k}{11} & \ssx{k}{12} & \dots & \ssx{k}{1K}\\
@@ -11,18 +13,32 @@ The software allocation problem is a type of job shop scheduling with constraint
 \end{bmatrix}
 \end{equation}
 
-In this work, the main objective of the allocation problem is to satisfy the user-defined requirements, namely reliability requirements, end-to-end timing requirements, and criticality of the software applications $A_i$ by effectively mapping the software components to the computation nodes, $C^{(k)}\mapsto M$. Furthermore, the components are allocated efficiently to minimize the total power consumption $Power(\textbf{x})=\sum_{m\in M'}{P_{m}(\textbf{x})}$ of the applications by selecting lower-power consuming nodes $M'\subseteq M$, provided the requirements are met, where $P_{m}(\textbf{x})$ is the power consumption of node $m$ on the mapping $\textbf{x}$. Power consumption, in this context, refers to the energy usage of electronic components in the integrated circuits of the node, e.g., processor, memory, I/O devices, etc., per time unit. 
+The formulation of the power consumption and timing depends on the tasks graphs $\bigcup\sss{g}[k][\tau](\x)$, which are a function of the mapping \ttx. However, if the tasks graphs are apriori to the software allocation problem, the formulation of a task graph is not necessary. Note: the latter is true if no runnables from different components map to a single task, in this case, the tasks graphs are independent of \ttx. The task graph formulation is shown in the next subsection.
 
+\subsection{Task Graph Formulation}
+The task graph formulation implies the generation of a task graph, with the cost of the tasks nodes and the links updated for the mapping \ttx. The tasks nodes are updated with the timing information and the mapping to computing nodes, likewise, the links with the mapping on the bus (1 if mapped on the bus, 0 otherwise). The formulation has two steps: i) for a mapping \ttx , we update the runnables with nodes information to which they are mapped by traversing elements of the mapping \ttx, $\xkij$, in linear-time complexity $O(n)$, where $n=|\x|*n_r$, and $n_r$ is the  runnables per software component using Equation (\ref{eqn_uprdaterunnables}); ii) by applying the merging rules, we traverse the runnables graphs in the system and subsequently generate the tasks graphs using Equation (\ref{eqn_generatetasksgraphs}).
+\begin{align}
+\label{eqn_uprdaterunnables}
+&\forall k,ij\ \forall r\in V(\sss{g}[k][])\ node_r = n_h& \mbox{, where } h=\xkij\\
+\label{eqn_generatetasksgraphs}
+&\forall k\ \sss{g}[k][r](\x)\xrightarrow{\text{Eqn. (13);Merging Rules}}\sss{g}[k][\tau](\x)
+\end{align}
+
+where $V(\sss{g}[k][])$ returns the runnables nodes of the graph $\sss{g}[k][]$.
+
+\subsection{Total Power Consumption}
+%where $P_{m}(\textbf{x})$ is the power consumption of a  computing node $m$ with the mapping $\textbf{x}$. 
+%$Power(\textbf{x})=\sum_{m\in M'}{P_{m}(\textbf{x})}$
 %Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. 
-There are several power consumption models and different techniques to estimate the power consumption of a computing node. In this work, we employ a technique based on processor load (or \textit{Processor Utilization}) to estimate the average power consumption of a computation node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The model states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
+There are several models (or techniques) to estimate the power consumption of a computing node. In this work, we use a technique based on processor load (or utilization) to estimate the average power consumption of a computating node. Specifically, we use the linear polynomial model proposed by Fan et al. \cite{Fan2007PowerComputer}, which is shown in (\ref{eqn_powerconsumption}). The model states that the power consumption of a node is directly proportional to its load, and is inductively formulated from experimental results:
 \begin{equation}
 \label{eqn_powerconsumption}
 f_p(u)=P_{idle} + (P_{busy}-P_{idle})*u,
 \end{equation}
 
-where $u$ is the utilization (or load) of a computation node, $p_{idle}$ and $p_{busy}$, respectively, refer to the power consumption of a node measured at minimum and maximum processor loads. Such measurements can be obtained by running performance benchmark suits, e.g., MiBench \cite{Guthaus2001MiBench:Suite}, AutoBench \cite{EMBC2018AutoBenchProcessors}, etc., which is computed based on the utilization of the node via the linear power consumption model shown in Equation (\ref{eqn_powerconsumption}).
+where $u$ is the utilization of a computating node, $p_{idle}$ and $p_{busy}$, respectively refer to the power consumption measured at minimum and maximum processor loads. Such measurements can be obtained by running performance benchmark suits, e.g., MiBench \cite{Guthaus2001MiBench:Suite}, AutoBench \cite{EMBC2018AutoBenchProcessors}, etc.
 
-Consequently, the power consumption of a node $m$ for a given mapping $\textbf{x}$ is computed using Equations (\ref{eqn_powerconsumption_x}-\ref{eqn_util_component}), by calculating first the node's utilization $U_m(\textbf{x})$ using Equation (\ref{eqn_util_x}). The node's utilization is computed from the set of components allocated to it (which are $\forall_{ij} x_{ij}=m$) using Equation (\ref{eqn_util_x}). And the utilization of a component on the node $m$ is computed from its constituent tasks $T_c$ using Equation (\ref{eqn_util_component}).
+Subsequently, the power consumption of a node $m$ for a given mapping $\textbf{x}$ is formulated as follows: i) first using Equations (\ref{eqn_powerconsumption_x}-\ref{eqn_util_component}), by calculating first the node's utilization $U_m(\textbf{x})$ using Equation (\ref{eqn_util_x}). The node's utilization is computed from the set of components allocated to it (which are $\forall_{ij} x_{ij}=m$) using Equation (\ref{eqn_util_x}). And the utilization of a component on the node $m$ is computed from its constituent tasks $T_c$ using Equation (\ref{eqn_util_component}).
 \begin{align}
 	\label{eqn_powerconsumption_x}
 nodPow(\textbf{x}) & =f_p(nodUti(\textbf{x},m))                         &  \\
@@ -36,9 +52,9 @@ where $c.R$ is set of runnables in component $c$, $r.e_m$ and $r.\tau.P$ are the
 
 The applications requirements are modeled as constraints that need to be satisfied in the allocation problem. The constraints formulations are shown in the following subsections, respectively for reliability, timing and other design constraints such as related to runnables-to-tasks merging and replication.
 
-\subsection{Software Application Reliability Constraints}\label{subsec_reliability_constraint}
-The applications reliability constraints ensure the mapping $\textbf{x}$ satisfies the user-defined reliability requirements, that is $\forall k\in [1,n_A]\ \rel_{A_k}(\xsp{k})\leq RelReq_{A_k}$. 
-The reliability  is computed from the execution framework that is provided to run the application, which consists of computation nodes \ttssp{M} and the shared CAN bus B, as shown in Equation (\ref{eqn_appreliability_app}). The nodes \ttssp{M} host the components \ttssp{C} and are determined by searching the mapping \ttxsp{k}  in polynomial time using Equation (\ref{eqn_nodes_app}).
+\subsection{Software-Applications Reliability Constraints}\label{subsec_reliability_constraint}
+The applications reliability constraints ensure the mapping $\textbf{x}$ satisfies the user-defined reliability requirements, that is $\forall k\ \rel_{A_k}(\x)\leq RelReq_{A_k}$. 
+The reliability  is computed from the execution framework that is provided to run the application, which consists of computation nodes \ttssp{M} and the shared CAN bus B, as shown in Equation (\ref{eqn_appreliability_app}). The nodes host the components \ttssp{C} and are determined by searching the mapping \ttxsp{k}  in polynomial time using Equation (\ref{eqn_nodes_app}).
 \begin{align}
 	\label{eqn_appreliability_app}
 	&Reliability_{A_i}(\x)=Reliability_{A_i}(\ssp{M})*Reliability(B)\\
@@ -63,7 +79,7 @@ g(a, \omega)&=
 \textbf{1} & \mbox{ otherwise }
 \end{cases}\\
 \label{eqn_appreliability_node_s}
-\sss{M}[A_k][\omega]&=\{e|e\in \ssp{M} \land (\omega.b_e=1) \},
+\sss{M}[k][\omega]&=\{e|e\in \ssp{M} \land (\omega.b_e=1) \},
 \end{align}
 \end{definition}
 where \ttsss{M}[k][\omega] denote the nodes that function at the event $\omega$, and can be found by searching the nodes \ttssp{M} with state $\omega.b_e=1$ in constant time , as show in Equation (\ref{eqn_pro}).
@@ -76,15 +92,7 @@ The probability that a nodes-failure event $\omega$ occurs is computed as a prod
 where $\lambda_m$ is the failure-rate of node $m$.
 
 \subsection{Timing constraints}
-The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and the cause-effect chains in each application meet their timing requirements. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and for the cause-effect chains using the end-to-end data-propagation delay analysis shown in Subsection \ref{subsec_causeeffectchains}. Before we formulate the timing constraints, first we derive the task graph for a mapping \ttx from the runnables graph \ttsss{g}[k][r], that is using Equation (\ref{eqn_generatetasksgraphs}).  Using Equation (\ref{eqn_uprdaterunnables}), we update the runnables with nodes information, to which they are mapped by traversing elements of the mapping \ttx, $\xkij$, in linear-time complexity $O(n)$, where $n=|\x|*N_r$, and $N_r$ is the total number of runnables in the system. Consequently, we traverse the runnables graphs, and apply the merging rules stated in the Subsection \ref{subsec_autosarsystem} to derive the tasks graphs. In the case that only runnables from the same component are mapped to at least one task, the derivation of tasks graphs is independent of the mapping \ttx, and thus can be performed before the mapping activity. However, the tasks graphs have to be updated with the nodes information after the mapping \ttx is identified.
-\begin{align}
-\label{eqn_uprdaterunnables}
-&\forall k,ij\ \forall r\in \sss{H}[k][i,j]\ r.node = n_h& \mbox{, where } h=\xkij\\
-\label{eqn_generatetasksgraphs}
-&\forall k\ \sss{g}[k][r](\x)\xrightarrow{\text{Eqn. (13);Merging Rules}}\sss{g}[k][\tau](\x)
-\end{align}
-
-where $\sss{H}[k][i,j]$ is the set of runnables that implement component $\sss{q}[k][i,j]$.
+The timing constraints ensure that the applications are schedulable on the execution platform, that is the tasks and the cause-effect chains in each application meet their timing requirements. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and for the cause-effect chains using the end-to-end data-propagation delay analysis shown in Subsection \ref{subsec_causeeffectchains}. 
 
 %To calculate the delay, the response time of tasks is a prerequisite, therefore, the latter is calculated first as follows.
 
@@ -110,11 +118,11 @@ For a mapping \x, the age delays of cause-effect chains should meet thier respec
 where $Period(e)=Period(a)$, that is the message inherits the period of its predecessor (or sender) task. Accordingly, we update only the chains that communicate over the shared CAN bus to incorporate the messages, that is $\sss{\Gamma}=\{\tau_1,e^*\}$, where $\tau_1,\tau_2$ are $Source(\sss{\Gamma}) and Sink(\sss{\Gamma})$, respectively, and $e\in V(g_\tau(\x))\cup M$. Then, the cause-effect timing constrains are formulated over the updated list of chains $\sss{\Gamma}$ using Equation (\ref{eqn_chains_constraints}).
 \begin{align}
 \label{eqn_chains_constraints}
-\forall \Gamma \in \sss{\Gamma} \ AgeDelay(\x,\Gamma)&\leq E2eReq(\Gamma)
+\forall \gamma \in \sss{\Gamma} \ Delay_\gamma(\x)&\leq E2eReq_\gamma
 \end{align}
 
-\subsection{Software Allocation Optimization Problem	}\label{sec_allocation}
-In this subsection, we define the allocation problem, that is the mapping of software components to heterogeneous computation nodes, which are networked over a shared CAN bus, with constraints. The allocation problem objective is to minimize the total power-consumption of the distributed software applications as formulated in Equation \ref{eqn_optimization}. The inequality constraints shown by Equation (\ref{eqn_reliability}, \ref{eqn_responsetime},\ref{eqn_e2e}), respectively ensure the feasible solution meet the reliability requirements of the applications, the deadlines of the tasks in the system and the end-to-end requirement of the cause-effect chains, and the last inequality constraint ensures that replicas are not allocated to the same computation nodes.
+\subsection{Software Allocation Optimization	}\label{sec_allocation}
+The software allocation is defined as a single-objective optimization problem. The objective function  $Power(\x)$ is a cost function which minimizes the total power consumption of the software applications as deployed in the heterogenuous computing nodes, where \ttx is the decision variable (or solution) of the optimization. The cost function is formulated in Equation \ref{eqn_optimization}, with inequality constraints shown by Equation (\ref{eqn_reliability}, \ref{eqn_responsetime},\ref{eqn_e2e}). The constraints ensure the solution meet the reliability requirements, the tasks deadlines,  and the chains end-to-end requirements.  Furthermore, the overlapping constrain shown in Equation (\ref{eqn_overlapping}) ensure that replicas are not allocated to the same computing nodes.
 \begin{align}
 \label{eqn_optimization}
 \min_{\textbf{x}\in X}\ Power(\textbf{x}) & &\text{ subjected to:} \\
@@ -124,6 +132,7 @@ In this subsection, we define the allocation problem, that is the mapping of sof
 \forall \tau\in T_{m_h}\    ResponseTime_{\tau}(\x)&\leq Deadline_{\tau}& \mbox{forall } h=1,...,n_{M}\\ 
 \label{eqn_e2e}
 \forall \gamma \in \ssp{\Gamma}\  Delay_\gamma(\x)&\leq E2eReq_\gamma& \mbox{forall } k=1,...,n_{A}\\
+\label{eqn_overlapping}
 \forall k\forall ij\ x_{ij}^{(k)}&\neq x_{ij}^{(k')},&  \mbox{ where } k\neq k'=1,...,n_{rep}
 \end{align}
 where $X$ is the search space of the problem, $\textbf{x}\in X$ is a feasible solution, and $\xkij\in \textbf{x}$ is a mapping of a component $\sss{q}[k][i,j]$ to the node $m_h$, where $h=\xkij$
