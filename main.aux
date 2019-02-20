@@ -71,6 +71,7 @@
 \citation{Goel1985SoftwareApplicability}
 \citation{Dubrova2013Fault-tolerantDesign}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Reliability of Software Applications}{11}\protected@file@percent }
+\newlabel{sub_reliability}{{3.4}{11}}
 \newlabel{fig_depwor}{{5a}{12}}
 \newlabel{sub@fig_depwor}{{a}{12}}
 \newlabel{fig_depwr}{{5b}{12}}
@@ -82,120 +83,108 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4}Define the Problem of Mapping the Software Applications}{12}\protected@file@percent }
 \newlabel{sec_problem}{{4}{12}}
 \citation{Fan2007PowerComputer}
-\newlabel{eqn_solution}{{7}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Task Graph Formulation}{13}\protected@file@percent }
-\newlabel{eqn_uprdaterunnables}{{8}{13}}
-\newlabel{eqn_generatetasksgraphs}{{9}{13}}
+\newlabel{eqn_uprdaterunnables}{{7}{13}}
+\newlabel{eqn_generatetasksgraphs}{{8}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Total Power Consumption}{13}\protected@file@percent }
 \citation{Guthaus2001MiBench:Suite}
 \citation{EMBC2018AutoBenchProcessors}
 \citation{Lucet1999ExactReliability}
-\newlabel{eqn_powerconsumption}{{10}{14}}
-\newlabel{eqn_powerconsumption_x}{{11}{14}}
-\newlabel{eqn_util_x}{{12}{14}}
-\newlabel{eqn_util_component}{{13}{14}}
+\newlabel{eqn_powerconsumption}{{9}{14}}
+\newlabel{eqn_util_task}{{10}{14}}
+\newlabel{eqn_util_node}{{11}{14}}
+\newlabel{eqn_total_power}{{12}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Software-Applications Reliability Constraints}{14}\protected@file@percent }
 \newlabel{subsec_reliability_constraint}{{4.3}{14}}
-\newlabel{eqn_appreliability_app}{{14}{14}}
-\newlabel{eqn_nodes_app}{{15}{14}}
-\newlabel{eqn_appreliability}{{16}{15}}
-\newlabel{eqn_app_failure}{{17}{15}}
-\newlabel{eqn_appreliability_node_s}{{18}{15}}
-\newlabel{eqn_pro}{{19}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Timing constraints}{15}\protected@file@percent }
+\newlabel{eqn_appreliability_app}{{13}{14}}
+\newlabel{eqn_nodes_app}{{14}{14}}
+\newlabel{eqn_app_failure}{{15}{15}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Example of Application Reliability Calculation using State Enumeration Over 10-years Operational Lifetime: an Application with Component Types $C=\{c_1,c_2,c_3\}$, Replicas $Q=\{c_{1,1},c_{1,2};c_{2,1},c_{2,2};c_{3,1},c_{3,2}\}$ Partitioned on $N=\{n_1,n_2,n_3\}$ according to Figure (5\hbox {}), the Variable $s_{c_i}\in \{0,1\}$ Indicates if the Replicas of Type $c_i$ Fails or Functions, Respectively.\relax }}{16}\protected@file@percent }
+\newlabel{tbl_application_rel}{{3}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Timing constraints}{16}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Tasks Timing constraints}{16}\protected@file@percent }
-\newlabel{eqn_tasks_nodes}{{20}{16}}
-\newlabel{eqn_tasks_constraints}{{21}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Cause-effect Chains Timing constraints}{16}\protected@file@percent }
-\newlabel{eqn_messages}{{22}{16}}
-\newlabel{eqn_chains_constraints}{{23}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Software Allocation Optimization }{16}\protected@file@percent }
-\newlabel{sec_allocation}{{4.7}{16}}
+\newlabel{eqn_tasks_nodes}{{16}{16}}
+\newlabel{eqn_tasks_constraints}{{17}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Cause-effect Chains Timing constraints}{17}\protected@file@percent }
+\newlabel{eqn_messages}{{18}{17}}
+\newlabel{eqn_chains_constraints}{{19}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Software Allocation Optimization }{17}\protected@file@percent }
+\newlabel{sec_allocation}{{4.7}{17}}
+\newlabel{eqn_optimization}{{20}{17}}
+\newlabel{eqn_reliability}{{21}{17}}
+\newlabel{eqn_responsetime}{{22}{17}}
+\newlabel{eqn_e2e}{{23}{17}}
+\newlabel{eqn_overlapping}{{24}{17}}
 \citation{Kramer2015RealFree}
 \citation{yin2007task}
 \citation{bibid}
 \citation{bibid}
-\newlabel{eqn_optimization}{{24}{17}}
-\newlabel{eqn_reliability}{{25}{17}}
-\newlabel{eqn_responsetime}{{26}{17}}
-\newlabel{eqn_e2e}{{27}{17}}
-\newlabel{eqn_overlapping}{{28}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Solution using Hybrid Particle Swarm Optimization (PSO)}{17}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Binary (0-1) Representation.\relax }}{18}\protected@file@percent }
-\newlabel{fig_binary}{{7}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Integer Representation.\relax }}{18}\protected@file@percent }
-\newlabel{fig_integer}{{8}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Solution Representations for Components $\{c_1,c_2,c_3\}$ Mapped to Computiong Nodes $\{n_1,n_2,n_3\}$ based on Table 5b\hbox {}.\relax }}{18}\protected@file@percent }
-\newlabel{fig_solutionrep}{{9}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Solution using Hybrid Particle Swarm Optimization (PSO)}{18}\protected@file@percent }
+\newlabel{sec_solution}{{5}{18}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Solution Representation}{18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Fitness Function}{18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Binary (0-1) Representation.\relax }}{19}\protected@file@percent }
+\newlabel{fig_binary}{{7}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Integer Representation.\relax }}{19}\protected@file@percent }
+\newlabel{fig_integer}{{8}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Solution Representations for Components $\{c_1,c_2,c_3\}$ Mapped to Computiong Nodes $\{n_1,n_2,n_3\}$ based on Table 5b\hbox {}.\relax }}{19}\protected@file@percent }
+\newlabel{fig_solutionrep}{{9}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Fitness Function}{19}\protected@file@percent }
 \citation{Kennedy1995ParticleOptimization}
 \citation{Poli2008AnApplications}
-\newlabel{eqn_penalityfunc}{{29}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Penalty Function}{19}\protected@file@percent }
-\newlabel{sec:penaltyfunction}{{5.3}{19}}
 \citation{Liu2016TopologyOptimization}
-\citation{KennedyAAlgorithm}
-\citation{Clerc2000DiscreteProblem}
-\citation{Storn1997DifferentialSpaces}
-\citation{Das2016RecentSurvey}
+\newlabel{eqn_penalityfunc}{{25}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Penalty Function}{20}\protected@file@percent }
+\newlabel{sec:penaltyfunction}{{5.3}{20}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Penalty Coefficients}{20}\protected@file@percent }
 \newlabel{sec:penaltycoefficient}{{5.4}{20}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Metaheuristic Algorithms}{20}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Particle Swarm Optimization}{20}\protected@file@percent }
-\newlabel{eqn_pso_velocity}{{34}{20}}
-\newlabel{eqn_pso_position}{{35}{20}}
-\citation{}
+\citation{KennedyAAlgorithm}
+\citation{Clerc2000DiscreteProblem}
+\citation{Storn1997DifferentialSpaces}
+\citation{Das2016RecentSurvey}
+\newlabel{eqn_pso_velocity}{{30}{21}}
+\newlabel{eqn_pso_position}{{31}{21}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Differential Evolution}{21}\protected@file@percent }
-\newlabel{eqn_de_mutation}{{36}{21}}
-\newlabel{eqn_de_crossover}{{37}{21}}
-\newlabel{eqn_de_selection}{{38}{21}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}Hybrid Particle Swarm Optimization}{21}\protected@file@percent }
-\citation{Kramer2015RealFree}
+\citation{}
+\newlabel{eqn_de_mutation}{{32}{22}}
+\newlabel{eqn_de_crossover}{{33}{22}}
+\newlabel{eqn_de_selection}{{34}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}Hybrid Particle Swarm Optimization}{22}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4}Differential Evolution PSO (DEPSO)}{22}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.5}Hill-climbing PSO}{22}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{22}\protected@file@percent }
-\newlabel{sec_evaluation}{{6}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Setup}{22}\protected@file@percent }
 \citation{Kramer2015RealFree}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Summary of the Hardware Specifications.  \relax \fontsize  {8}{9.5}\selectfont  \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip {$^1$HP EliteBook 840 G2, $^2$PowerEdge R730 Rack Server}  \relax \fontsize  {8}{9.5}\selectfont  \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \topsep 4\p@ plus2\p@ minus2\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip {$^3$Intel\IeC {\textregistered } Core\IeC {\texttrademark } i7-4720HQ @ 2.60GHz, $^4$Intel\IeC {\textregistered } Core\IeC {\texttrademark } i7-4720HQ @ 2.60GHz $^5$Intel(R) Xeon(R) CPU E5-2620 v3 @ 2.40GHz}\relax }}{23}\protected@file@percent }
-\newlabel{tbl_hardwaremodel}{{3}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Software Application Benchmark}{23}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Specification of the Applications for Evaluation.\relax }}{23}\protected@file@percent }
-\newlabel{tbl_appsspec}{{4}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Platform Benchmark}{23}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Result}{23}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Range of Values for the Specification of Nodes.\relax }}{24}\protected@file@percent }
-\newlabel{tbl_nodesspecs}{{5}{24}}
-\newlabel{fig_util}{{10a}{24}}
-\newlabel{sub@fig_util}{{a}{24}}
-\newlabel{fig_power}{{10b}{24}}
-\newlabel{sub@fig_power}{{b}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Allocation of Software Application $(N_c=20,N_r=200,N_\Gamma =30)$ on $N_m$ number of Heterogeneous Nodes using Different Optimization Methods.\relax }}{24}\protected@file@percent }
-\newlabel{fig_util_power}{{10}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}ILP Evaluation}{24}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Varying the Size of Application}{24}\protected@file@percent }
-\citation{Kramer2015RealFree}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Effect of Varying the Application Size on the Allocation Time and Number of Utilized Nodes.\relax }}{25}\protected@file@percent }
-\newlabel{fig_increasing_components}{{11}{25}}
-\@writefile{toc}{\contentsline {paragraph}{Varying the Number of Cause-effect Chains}{25}\protected@file@percent }
-\newlabel{fig_util}{{12a}{25}}
-\newlabel{sub@fig_util}{{a}{25}}
-\newlabel{fig_power}{{12b}{25}}
-\newlabel{sub@fig_power}{{b}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Allocation of Applications on Heterogeneous Nodes.\relax }}{25}\protected@file@percent }
-\newlabel{fig_util_power}{{12}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Effect of Increasing Cause-effect Chains (under RTA and UB) on the Allocation Time.\relax }}{26}\protected@file@percent }
-\newlabel{chart_cause_effect_chain}{{13}{26}}
-\@writefile{toc}{\contentsline {paragraph}{Varying Replications}{26}\protected@file@percent }
-\newlabel{fig_replication_1}{{14a}{27}}
-\newlabel{sub@fig_replication_1}{{a}{27}}
-\newlabel{fig_replication_2}{{14b}{27}}
-\newlabel{sub@fig_replication_2}{{b}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Effect of Varying the Component Replications on the Allocation Time.\relax }}{27}\protected@file@percent }
-\newlabel{fig_replication}{{14}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Metaheuristic Evaluation}{27}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Solution Quality}{27}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{23}\protected@file@percent }
+\newlabel{sec_evaluation}{{6}{23}}
+\@writefile{toc}{\contentsline {paragraph}{Software Applications Benchmark}{23}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Execution Platform Specifications}{23}\protected@file@percent }
+\citation{Mahmud5222}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Specification of the Applications for Evaluation.\relax }}{24}\protected@file@percent }
+\newlabel{tbl_app_ranges}{{4}{24}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Ranges of Values for Applications Requirements.\relax }}{24}\protected@file@percent }
+\newlabel{tbl_app_ranges}{{5}{24}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Ranges of Values for Execution Platforms.\relax }}{24}\protected@file@percent }
+\newlabel{tbl_execpla}{{6}{24}}
+\@writefile{toc}{\contentsline {paragraph}{Applications Requirements Specifications }{24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Evaluation Setup}{24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Result}{24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Experiment 1}{24}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Parameters Settings of the Metaheuristic Optimization. .\relax }}{25}\protected@file@percent }
+\newlabel{tbl_para}{{7}{25}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Specifications of the Optimization Problems, Sampled from Table\nobreakspace  {}5\hbox {} and Table\nobreakspace  {}\G@refundefinedtrue \text  {\normalfont  \bfseries  ??}\GenericWarning  {               }{LaTeX Warning: Reference `tbl_exec_ranges' on page 25 undefined}, and Used in Experiment 1 and 2. \relax }}{25}\protected@file@percent }
+\newlabel{tbl_samples}{{8}{25}}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 2}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Analysis}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Analysis of Experiment 1}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Solution Quality}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Convergence Time}{26}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Fitness and Allocation Time of the ILP and the Metaheuristic Techniques, for the Increasing Sizes of the Software Allocation Problem.\relax }}{27}\protected@file@percent }
+\newlabel{tbl_fitness_allocationtime_ilp_plus_metaheuristic}{{9}{27}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Specifications of Samples, tobe Used in Experiment 2.\relax }}{28}\protected@file@percent }
+\newlabel{tbl_samples}{{10}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (Near) Optimal Power Consumption of the Different Software Allocation Problems.\relax }}{28}\protected@file@percent }
+\newlabel{fig_powerconsumption_ilp_metaheuristic}{{10}{28}}
+\@writefile{toc}{\contentsline {paragraph}{Solutions Stability}{28}\protected@file@percent }
 \citation{shatz1992task}
 \citation{kartik1997task}
 \citation{yin2007task}
@@ -203,17 +192,13 @@
 \citation{faragardi2013optimal}
 \citation{Wozniak2013AnArchitectures}
 \citation{Saidi2015AnArchitectures}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces (Near) Optimal Power Consumption of the Different Software Allocation Problems.\relax }}{28}\protected@file@percent }
-\newlabel{fig_powerconsumption_ilp_metaheuristic}{{15}{28}}
-\@writefile{toc}{\contentsline {paragraph}{Allocation Time}{28}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Fitness and Allocation Time of the ILP and the Metaheuristic Techniques, for the Increasing Sizes of the Software Allocation Problem.\relax }}{29}\protected@file@percent }
-\newlabel{tbl_fitness_allocationtime_ilp_plus_metaheuristic}{{6}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Computation Time of the Various Algorithms for Solving Different Instances of the Software Allocation Problem.\relax }}{29}\protected@file@percent }
+\newlabel{fig_allocationtime_ilp_metaheuristic}{{11}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Analysis of Experiment 2}{29}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion}{29}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Related Work}{29}\protected@file@percent }
+\newlabel{sec_RW}{{8}{29}}
 \citation{assayad2004bi}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Computation Time of the Various Algorithms for Solving Different Instances of the Software Allocation Problem.\relax }}{30}\protected@file@percent }
-\newlabel{fig_allocationtime_ilp_metaheuristic}{{16}{30}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion}{30}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Related Work}{30}\protected@file@percent }
-\newlabel{sec_RW}{{8}{30}}
 \citation{bambagini2016energy}
 \citation{devadas2012interplay}
 \citation{wang2015dynamic}
@@ -222,6 +207,8 @@
 \citation{kim2011autosar}
 \citation{wang2004component}
 \citation{vsvogor2014extended}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Effect of Approximate Algorithm over Delay Calculations with Replication.\relax }}{30}\protected@file@percent }
+\newlabel{fig_chainsreplicationimprovements}{{12}{30}}
 \@writefile{toc}{\contentsline {section}{\numberline {9}Conclusions and Future Work}{31}\protected@file@percent }
 \newlabel{sec_conclusion}{{9}{31}}
 \bibdata{reference}
@@ -253,31 +240,33 @@
 \bibcite{Becker2017End-to-endSystems}{{26}{}{{}}{{}}}
 \bibcite{Feiertag2009ASemantics}{{27}{}{{}}{{}}}
 \bibcite{AUTOSAR2017SpecificationSoftware}{{28}{}{{}}{{}}}
-\bibcite{Dubrova2013Fault-tolerantDesign}{{29}{}{{}}{{}}}
-\bibcite{Fan2007PowerComputer}{{30}{}{{}}{{}}}
-\bibcite{Guthaus2001MiBench:Suite}{{31}{}{{}}{{}}}
-\bibcite{EMBC2018AutoBenchProcessors}{{32}{}{{}}{{}}}
-\bibcite{Lucet1999ExactReliability}{{33}{}{{}}{{}}}
-\bibcite{yin2007task}{{34}{}{{}}{{}}}
-\bibcite{Kennedy1995ParticleOptimization}{{35}{}{{}}{{}}}
-\bibcite{Poli2008AnApplications}{{36}{}{{}}{{}}}
-\bibcite{Liu2016TopologyOptimization}{{37}{}{{}}{{}}}
-\bibcite{KennedyAAlgorithm}{{38}{}{{}}{{}}}
-\bibcite{Clerc2000DiscreteProblem}{{39}{}{{}}{{}}}
-\bibcite{Storn1997DifferentialSpaces}{{40}{}{{}}{{}}}
-\bibcite{Das2016RecentSurvey}{{41}{}{{}}{{}}}
-\bibcite{shatz1992task}{{42}{}{{}}{{}}}
-\bibcite{kartik1997task}{{43}{}{{}}{{}}}
-\bibcite{zhang2015maximizing}{{44}{}{{}}{{}}}
-\bibcite{faragardi2013optimal}{{45}{}{{}}{{}}}
-\bibcite{assayad2004bi}{{46}{}{{}}{{}}}
-\bibcite{bambagini2016energy}{{47}{}{{}}{{}}}
-\bibcite{devadas2012interplay}{{48}{}{{}}{{}}}
-\bibcite{wang2015dynamic}{{49}{}{{}}{{}}}
-\bibcite{faragardi2013towards}{{50}{}{{}}{{}}}
-\bibcite{islam2006dependability}{{51}{}{{}}{{}}}
-\bibcite{kim2011autosar}{{52}{}{{}}{{}}}
-\bibcite{wang2004component}{{53}{}{{}}{{}}}
+\bibcite{Goel1985SoftwareApplicability}{{29}{}{{}}{{}}}
+\bibcite{Dubrova2013Fault-tolerantDesign}{{30}{}{{}}{{}}}
+\bibcite{Fan2007PowerComputer}{{31}{}{{}}{{}}}
+\bibcite{Guthaus2001MiBench:Suite}{{32}{}{{}}{{}}}
+\bibcite{EMBC2018AutoBenchProcessors}{{33}{}{{}}{{}}}
+\bibcite{Lucet1999ExactReliability}{{34}{}{{}}{{}}}
+\bibcite{yin2007task}{{35}{}{{}}{{}}}
+\bibcite{Kennedy1995ParticleOptimization}{{36}{}{{}}{{}}}
+\bibcite{Poli2008AnApplications}{{37}{}{{}}{{}}}
+\bibcite{Liu2016TopologyOptimization}{{38}{}{{}}{{}}}
+\bibcite{KennedyAAlgorithm}{{39}{}{{}}{{}}}
+\bibcite{Clerc2000DiscreteProblem}{{40}{}{{}}{{}}}
+\bibcite{Storn1997DifferentialSpaces}{{41}{}{{}}{{}}}
+\bibcite{Das2016RecentSurvey}{{42}{}{{}}{{}}}
+\bibcite{Mahmud5222}{{43}{}{{}}{{}}}
+\bibcite{shatz1992task}{{44}{}{{}}{{}}}
+\bibcite{kartik1997task}{{45}{}{{}}{{}}}
+\bibcite{zhang2015maximizing}{{46}{}{{}}{{}}}
+\bibcite{faragardi2013optimal}{{47}{}{{}}{{}}}
+\bibcite{assayad2004bi}{{48}{}{{}}{{}}}
+\bibcite{bambagini2016energy}{{49}{}{{}}{{}}}
+\bibcite{devadas2012interplay}{{50}{}{{}}{{}}}
+\bibcite{wang2015dynamic}{{51}{}{{}}{{}}}
+\bibcite{faragardi2013towards}{{52}{}{{}}{{}}}
+\bibcite{islam2006dependability}{{53}{}{{}}{{}}}
+\bibcite{kim2011autosar}{{54}{}{{}}{{}}}
+\bibcite{wang2004component}{{55}{}{{}}{{}}}
 \bibstyle{elsarticle-num}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
 \newlabel{LastPage}{{}{37}}

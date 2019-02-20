@@ -185,6 +185,13 @@ N.~Feiertag, K.~Richter, J.~Nordlander, J.~Jonsson, {A Compositional Framework
   of RTE Software}}, Tech. rep., AUTOSAR (2017).
 \newline\urlprefix\url{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_SWS_RTE.pdf}
 
+\bibitem{Goel1985SoftwareApplicability}
+A.~Goel, {Software Reliability Models: Assumptions, Limitations, and
+  Applicability}, IEEE Transactions on Software Engineering SE-11~(12) (1985)
+  1411--1423.
+\newblock \href {http://dx.doi.org/10.1109/TSE.1985.232177}
+  {\path{doi:10.1109/TSE.1985.232177}}.
+
 \bibitem{Dubrova2013Fault-tolerantDesign}
 E.~Dubrova, {Fault-Tolerant Design}, Springer New York, New York, NY, 2013.
 \newblock \href {http://dx.doi.org/10.1007/978-1-4614-2113-9}
@@ -271,6 +278,13 @@ S.~Das, S.~S. Mullick, P.~Suganthan,
 \newblock \href {http://dx.doi.org/10.1016/J.SWEVO.2016.01.004}
   {\path{doi:10.1016/J.SWEVO.2016.01.004}}.
 \newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S2210650216000146}
+
+\bibitem{Mahmud5222}
+N.~Mahmud, G.~Rodriguez-Navas, H.~R. Faragardi, S.~Mubeen, C.~Seceleanu,
+  \href{http://www.es.mdh.se/publications/5222-}{{Power-aware Allocation of
+  Fault-tolerant Multi-rate AUTOSAR Applications}}, in: 25th Asia-Pacific
+  Software Engineering Conference, 2018.
+\newline\urlprefix\url{http://www.es.mdh.se/publications/5222-}
 
 \bibitem{shatz1992task}
 S.~M. Shatz, J.-P. Wang, M.~Goto, {Task Allocation for Maximizing Reliability

@@ -1,4 +1,4 @@
-\section{Solution using Hybrid Particle Swarm Optimization (PSO)}
+\section{Solution using Hybrid Particle Swarm Optimization (PSO)}\label{sec_solution}
 In our previous work, we provided an ILP model for the same optimization problem, then the CPLEX solver returned optimal solutions to problems in the range \textit{small} and \textit{medim}, where the small problem refers to a software application with software components less than 10, chains less than 30, and similarly the medium problem refers to applications with components less than 15, and chains less than 40. The problems specifications are stipulated from the real automotive benchmark proposed by Kramel et al.~\cite{Kramer2015RealFree}. However, the ILP approach, as also shown for similar problems, suffered from the scalability problem of large software allocation problems. In this section, we propose a metaheuristic approach based on the particle-swarm optimization (PSO), evolutionary, differential evolution (DE), hybrid PSO with DE,  hill-climbing and stochastic hill-climbing. 
 
 Metaheuristics does not guarantee optimal solutions, nevertheless, the solutions can be good enough (or acceptable) in practice. Thus, although the power consumption of the applications may not be optimal, the solution can be deemed acceptable. PSO has been applied to solve a wide range of problems, including a task allocation problem \cite{yin2007task}, and DE is shown to scale well for problems with high dimensions. In fact, PSO and DE are used together for improved performance in several optimization problems \cite{bibid}, likewise, PSO is used with local search techniques such as Hill climbing to intensify the search \cite{bibid}. Finally, we evaluate the different meta-heuristic methods based on solution quality and computation time for different software allocation problems.
@@ -27,7 +27,7 @@ The software allocation is a type of Assignment optimization problem, as such, t
 				\begin{bmatrix} 
 				0 & 1& 0\\
 				0 & 0& 1\\
-				1 &  0& 0\\
+				0 &  0& 1\\
 				\end{bmatrix}
 				\end{equation*}
 			\end{minipage}

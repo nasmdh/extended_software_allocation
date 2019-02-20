@@ -85,6 +85,10 @@ Contribution \therccounter}
 {\end{center}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% SPECIFIC %%%%%%%%%%%%%%%%%%%%%
+% Application
+\newcommand{\A}[1][k]{A_{#1}}
+\newcommand{\ttA}[1][k]{$A_{#1}$ }
+
 \newcommand{\rel}{Reliability}
 \newcommand{\rst}{ResponseTime}
 \newcommand{\ete}{EndToEnd}
@@ -101,15 +105,16 @@ Contribution \therccounter}
 \newcommand{\xsp}[1]{\textbf{x}^{(#1)}}
 
 \newcommand{\sbx}[2][x]{$#1_{#2}$}
-\newcommand{\spx}[2][x]{$#1^{(#2)}$}
+\newcommand{\spx}[2][x]{$#1^{(A_#2)}$}
 
 %% Solution: text mode
 \newcommand{\ttxkij}{$x^{(k)}_{ij}$}
-\newcommand{\ttssx}[3]{$#1^{(#2)}_{#3}$}
-\newcommand{\ttbspx}[1]{$\textbf{x}^{(#1)}$}
+\newcommand{\ttssx}[3]{$#1^{(A_#2)}_{#3}$}
+\newcommand{\ttbspx}[1]{$\textbf{x}^{(A_#1)}$}
 
 %% Solution: math mode
 \newcommand{\xkij}{x^{(k)}_{ij}}
+%\newcommand{\ttxkij}{$x^{(k)}_{ij}$}
 \newcommand{\ssx}[3][x]{#1^{(#2)}_{#3}}
 \newcommand{\bspx}[1]{\textbf{x}^{(#1)}}
 
@@ -122,7 +127,7 @@ Contribution \therccounter}
 \NewDocumentCommand{\ssb}{m O{i}}{#1_{#2}}
 %% sets: text mode
 \NewDocumentCommand{\ttsss}{m O{k} O{i}}{$#1^{({#2})}_{#3}$}
-\NewDocumentCommand{\ttssp}{m O{k}}{$#1^{(#2)}$}
+\NewDocumentCommand{\ttssp}{m O{k}}{$#1^{(A_#2)}$}
 \NewDocumentCommand{\ttssb}{m O{i}}{$#1_{#2}$}
 
 %% set expressions
@@ -143,5 +148,5 @@ Contribution \therccounter}
 \newcommand{\ssbxx}[3][k]{$#2_{(#1)}=\{#3_{(#1)}: #1=1,\dots, N_#2\}$  }%set of elements with subscript
 \newcommand{\sssxx}[4][k]{$#3_{#2}=\{#4^{(#1)}_{#2}: #2=1,\dots, N_#3\}$  }%set of elements with subscript + superscript
 %\newcommand{\sssExp}[2][#2]{$#1=\{#1^{(k)}_{#3}: #3=1,\dots, N_#2\}$  }%set of sets with subscript + superscript
-
+\NewDocumentCommand{\pb}{m m m}{$c_{#1}g_{#2}n_{#3}$}
 \endinput
