@@ -98,7 +98,7 @@ Likewise, the specifications for an execution platform consist of the processor 
 
 \subsection{Result}
 We conduted two experiments: i) the first experiment is designed to compare the performance  such as converge time, computation time, optimality (or solutions quality), and stability of solutions of the meta-heuristic algorithms used in this paper, ii) the second experiment is designed to evaluate the overhead of increasing replication on the optimization especially on the computation of cause-effect chains, and also to evaluate the effect of the approximation algorithms proposed in Subsection x to reduce the overheadd and maybe trade-off with optimality of solutions.
-\begin{table}[h]
+\begin{table}
 	\centering\small
 	\begin{tabular}{@{}lp{0.8\linewidth}@{}}
 		\toprule
@@ -113,89 +113,51 @@ We conduted two experiments: i) the first experiment is designed to compare the 
 	\label{tbl_para}
 \end{table}
 
-\paragraph{Experiment 1} According to the specifications of the range discussed, we synthesized six optimization problems as shown in Table~\ref{tbl_samples}. The problems emulate the software allocation safety-critical distributed automotive applications on a CAN network of heterogenous computing nodes. The problems are identified by handlers of type $\langle c_ig_jn_i\rangle$ to improve readability, where the $c,g,n$ variables indicate respectively the number of components, cause-effect chains and computing nodes. The \pb{6}{10}{4}  and \pb{8}{20}{6} problems conform to Spec-I and denote a small (or light) optimization problem, the \pb{10}{20}{8} problems is based on Spec-II and denote a medium size problem, the \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20} are based on Spec-III and denote large size problem. The optimization problems are executed each 30$\times$ using our ILP method proposed in \cite{Mahmud5222} and the meta-heuristic algorithms presented in Section~\ref{sec_solution}. The optimization parameters such as the penality function coefficient and the meta-heuristic parameters control the metaheuristics optimization, and their settings are shown in  Table~\ref{tbl_para}. The settings are obtained from literature as best practices of using the algorithms, as well as from our experimentaion of the algoriths with the problems at hand. Subsequently, we recorded the computation time, fitness values, power-consumption delivered by each algorithm.
+\paragraph{Experiment 1} According to the specifications of the range discussed, we synthesized six optimization problems as shown in Table~\ref{tbl_opt_problems}. The problems emulate the software allocation safety-critical distributed automotive applications on a CAN network of heterogenous computing nodes. The problems are identified by handlers of type $\langle c_ig_jn_i\rangle$ to improve readability, where the $c,g,n$ variables indicate respectively the number of components, cause-effect chains and computing nodes. The \pb{6}{10}{4}  and \pb{8}{20}{6} problems conform to Spec-I and denote a small (or light) optimization problem, the \pb{10}{20}{8} problems is based on Spec-II and denote a medium size problem, the \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20} are based on Spec-III and denote large size problem. The optimization problems are executed each 30$\times$ using our ILP method proposed in \cite{Mahmud5222} and the meta-heuristic algorithms presented in Section~\ref{sec_solution}. The optimization parameters such as the penality function coefficient and the meta-heuristic parameters control the metaheuristics optimization, and their settings are shown in  Table~\ref{tbl_para}. The settings are obtained from literature as best practices of using the algorithms, as well as from our experimentaion of the algoriths with the problems at hand. Subsequently, we recorded the computation time, fitness values, power-consumption delivered by each algorithm.
 \begin{table}
-\centering\small
+	\centering
 	\begin{tabular}{@{}lllll@{}}
-		\toprule
-		Problem id & Components $c$ & Runnables $r$ & Chains $g$& Units $n$\\ 
-		\midrule
-		\pb{6}{10}{4} 		& 6 	& 60 & 10 & 4\\
-		\pb{8}{20}{6}  		& 8     &80& 20 & 6 \\
-		\pb{10}{20}{8}  	& 10   &100& 20 & 8 \\
-		\pb{20}{30}{10}   & 20 	 & 200&30& 10 \\ 
-		\pb{50}{40}{20}  & 50 	 &500& 60 & 20 \\
-		\pb{80}{60}{20}  & 80	&800& 60 & 20 \\
-		\bottomrule
-	\end{tabular}
-\caption{Specifications of the Optimization Problems, Sampled from Table~\ref{tbl_app_ranges} and Table~\ref{tbl_exec_ranges}, and Used in Experiment 1 and 2. }
-\label{tbl_samples}
-\end{table}
-
-%\begin{table}
-%	\small
-%\begin{subtable}[b]{0.5\textwidth}
-%		\begin{tabular}{@{}lllll@{}}
-%			\toprule
-%			Identifier & EE & RL & F& \#Units (n)\\ 
-%			\midrule
-%			\pb{6}{10}{4} 		& 6 	& 60 & 10 & 4\\
-%			\pb{8}{20}{6}  		& 8     &80& 20 & 6 \\
-%			\pb{10}{20}{8}  	& 10   &100& 20 & 8 \\
-%			\pb{20}{30}{10}   & 20 	 & 200&30& 10 \\ 
-%			\pb{50}{40}{20}  & 50 	 &500& 60 & 20 \\
-%			\pb{80}{60}{20}  & 80	&800& 60 & 20 \\
-%			\bottomrule
-%		\end{tabular}
-%		\caption{Experiment 1.}
-%		\label{tbl_samples}
-%	\end{subtable}
-%	~
-%	\begin{subtable}[b]{0.4\textwidth}
-%			\begin{tabular}{@{}lll@{}}
-%			\toprule
-%			Identifier & Chains& Replication (n)\\ 
-%			\midrule
-%			$g_{30}r_{2}$ 	&30	& 2 	\\
-%			$g_{30}r_{2}$ 	&30	& 3     \\
-%			$g_{30}r_{2}$ 	&60	& 2    \\
-%			$g_{30}r_{2}$ 	 &60& 3 	 \\ 
-%			\bottomrule
-%		\end{tabular}
-%			\caption{Experiment 2.}
-%			\label{tbl_samples}
-%\end{subtable}
-%\caption{Samples Specifications.}
-%\label{tbl_samplesspecs}
-%\end{table}
-
-Table~\ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic} shows a summary of the evaluation results from executing Experiment~1 such as the average and standard deviation of the computation times and fitness values, as well as the quality of solutions. The latter is determined by comparing the power-consumption outcomes delivered from each algorithms agains the optimal or best solutions found (or benchmarks), which are indicated by the \textbf{boldface} type. It simplly indicates how optimal or good the solution is as compared to the benchmark. In the first three optimization problems, the ILP is the benchmark since it returned optimal solutions. Similarly, the SHPSO is the benchmark in the problems \pb{20}{30}{10} and \pb{50}{40}{20}, and SHPSO is the benchmark in the last probem \pb{80}{60}{20}.
-\input{tex/evaluation_result_computationtime.tex}
-
-\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculation of the cause-effect delays due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{sub_repl_delay}, optimizes the calculation of the cause-effec chain delays in the presenece of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
-\begin{table}
-	\centering\small
-	\begin{tabular}{@{}llll@{}}
 	\toprule
-	Identifier & Chain $g$ & Replication $d$ & Problem id.\\ 
+	Identifier &  Components $c$ &  Runnables $r$ &  Chains $g$&  Nodes $n$\\ 
 	\midrule
-	$g_{30}d_{2}$ 	&30	& 2 &	\pb{50}{40}{20}\\
-	$g_{30}d_{2}$ 	&30	& 3  &   \pb{50}{40}{20} \\
-	$g_{30}d_{2}$ 	&60	& 2 &   \pb{80}{60}{20}\\
-	$g_{30}d_{2}$ 	 &60& 3 &	 \pb{80}{60}{20}\\ 
+	\pb{6}{10}{4} 		& 6 	& 60 & 10 & 4\\
+	\pb{8}{20}{6}  		& 8     &80& 20 & 6 \\
+	\pb{10}{20}{8}  	& 10   &100& 20 & 8 \\
+	\pb{20}{30}{10}   & 20 	 & 200&30& 10 \\ 
+	\pb{50}{40}{20}  & 50 	 &500& 60 & 20 \\
+	\pb{80}{60}{20}  & 80	&800& 60 & 20 \\
 	\bottomrule
 \end{tabular}
-\caption{Specifications of Samples, tobe Used in Experiment 2.}
-\label{tbl_samples}
+\caption{Specifications of Optimization Problems.}
+\label{tbl_opt_problems}
+\end{table}
+\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculation of the cause-effect delays due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{sub_repl_delay}, optimizes the calculation of the cause-effec chain delays in the presenece of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
+\begin{table}
+	\centering
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		Identifier &  Chains $g$ &  Replication $d$ & Problem Id.\\ 
+		\midrule
+		$g_{30}d_{2}$ 	&30	& 2 &	\pb{50}{40}{20}\\
+		$g_{30}d_{3}$ 	&30	& 3  &   \pb{50}{40}{20} \\
+		$g_{30}d_{2}$ 	&60	& 2 &   \pb{80}{60}{20}\\
+		$g_{30}d_{3}$ 	 &60& 3 &	 \pb{80}{60}{20}\\ 
+		\bottomrule
+	\end{tabular}
+	\caption{Specifications of Chains $g$ and Degrees of Replication $d$, Used in Experiment 2.}
+	\label{tbl_samples}
 \end{table}
 
 \subsection{Analysis}
 In this subsection, we analyze the results from experiement 1 and 2, respectively.
 \subsubsection{Analysis of Experiment 1}
-We analyze the results over three metrices: computation and convergence time, solution quality and stability, respectively.
+Table~\ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic} shows a summary of the evaluation results from executing Experiment~1 such as the average and standard deviation of the computation times and fitness values, as well as the quality of solutions. The latter is determined by comparing the power-consumption outcomes delivered from each algorithms agains the optimal or best solutions found (or benchmarks), which are indicated by the \textbf{boldface} type. It simplly indicates how optimal or good the solution is as compared to the benchmark. In the first three optimization problems, the ILP is the benchmark since it returned optimal solutions. Similarly, the SHPSO is the benchmark in the problems \pb{20}{30}{10} and \pb{50}{40}{20}, and SHPSO is the benchmark in the last probem \pb{80}{60}{20}.
+\input{tex/evaluation_result_computationtime.tex}
 
-\paragraph{Solution Quality} In the $1^{st}$ sample \pb{6}{10}{4}, the ILP, DE, LPSO, HCPSO, SHPSO returned the optimal power consumption, which is 227KW, but DEPSO and PSO returned near optimal solutions with $>99\%$ quality measures. In the $2^{nd}$ sample  \pb{8}{20}{6}, similar results are obtained from ILP, HCPSO and SHPSO, which are optimal, but this time, in contrast, DE, LPSO and DEPSO performed worse by less than 1\% but better than PSO by ~2\%.  In the $3^{rd}$ sample \pb{12}{20}{8}, only ILP returned the optimal solution, followed by DEPSO, LPSO, HCPSO, SHPSO with near optimal solutions with $>99\%$ quality measures, and rest performed worse. In the last three samples \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20} , ILP did not return solutions due to extremly large computation time, hence terminated manually. However, the hybrid algorithms based on hill-climbing such as HCPSO and SHCPSO performed well, followed by DEPSO in the samples \pb{20}{30}{10} and \pb{80}{60}{20} . However, HCPSO failed to returned solutions in the largest sample \pb{80}{60}{20} but its stochastic verion SHCPSO did.
-\begin{figure}[h!]
+We analyze the results over three metrices: solution quality, computation time, and stability, in order.
+
+\paragraph{Solution Quality} In the $1^{st}$ optimization problem  \pb{6}{10}{4}, the ILP, DE, LPSO, HCPSO, SHPSO returned the optimal power consumption, which is 227KW, but DEPSO and PSO returned near optimal solutions with $>99\%$ quality measures. In the $2^{nd}$ problem  \pb{8}{20}{6}, similar results are obtained from ILP, HCPSO and SHPSO, which are optimal, but this time, in contrast, DE, LPSO and DEPSO performed worse by less than 1\% but better than PSO by ~2\%.  In the $3^{rd}$ problem \pb{12}{20}{8}, only ILP returned the optimal solution, followed by DEPSO, LPSO, HCPSO, SHPSO with near optimal solutions of $>99\%$ quality measure, and rest performed worse. In the last three optimization problems \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20} , ILP did not return solutions due to extremly large computation time, hence terminated manually. However, the hybrid algorithms based on hill-climbing such as HCPSO and SHCPSO performed well, followed by DEPSO in the problems \pb{20}{30}{10} and \pb{80}{60}{20} . However, HCPSO failed to return solutions in the largest problem \pb{80}{60}{20} but its stochastic verion SHCPSO did.
+\begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{img/power_consumption.pdf}
 \caption{(Near) Optimal Power Consumption of the Different Software Allocation Problems.}
@@ -203,7 +165,7 @@ We analyze the results over three metrices: computation and convergence time, so
 \end{figure}
 
 \paragraph{Convergence Time} In the case of metaheuristics, the convergence time refers to the amount of time taken by the algorithm to return solutions before the steady state where new fitness values are observed. In this evalution, it is calculated over a maximum of 5000 iterations (or generations) only for the duration before steady period, which is bounded by 5 minutes. Note: the steady time, where no fitness values change within the maximum iterations, is not considered in the converge time.  Figure \ref{fig_allocationtime_ilp_metaheuristic} summarizes the computation time of the algorithms for the samples listed in Table~\ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic}. For the samples the ILP method returned solutions, the computation times are usually larger than the rest, which are in milliseconds for the $1^{st}$ sample and in seconds for the $2^{st}$  and $3^{rd}$.  The the meta-heuristic algorithms, the convergence time is in milliseconds for the first four samples, and is in seconds for the rest. However, the computation times of the meta-heuristic algorithms, which are not shown in the table usually took less than 50 minutes for the larest sample.
-\begin{figure}[h!]
+\begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{img/time_summary.pdf}
 \caption{Computation Time of the Various Algorithms for Solving Different Instances of the Software Allocation Problem.}

@@ -1,30 +1,27 @@
 \section{Define the Problem of Mapping the Software Applications}\label{sec_problem}
-The software applications $A$ are partitioned on the execution platform $\langle N,B\rangle$ by fulfilling the user-defined software applications requirements such as applications reliability $\ssp{RL}$, end-to-end timing requirements of chains $\sss{EE}$ and software applications criticality $\ssp{cl}$, and by meeting design constrains such as placement restrictions committed by the designer. The partitioning  is conducted by mapping the respective software-component replicas (or software components in short) of applications effectively on the computing units $M'$ and the communication between software components on the network bus. The partitioning should result in reduced total power-consumption of the applications $Power(\textbf{x})$, which is achieved by selecting lower-power computing units $N'\subseteq N$, where $\textbf{x}$ is a possible partitioning matrix (or partition in short) with \ttxkij representing the mapping of the software component \ttsss{q}[k][i,j] to the compuing node $n_h$, where $h=\xkij$.  Note: under this partition, the reliability of applications $Reliability_{A_k}(\textbf{x})$, the timing of chains $Delay_{\sss{\Gamma}}(\textbf{x})$ should satify the respective requirements. 
+The software applications $A$ are partitioned on the execution platform $\langle N,B\rangle$ by satisfing the user-defined software applications requirements such as applications reliability $\ssp{RL}$, end-to-end timing requirements of chains $\sss{EE}$ and applications criticality $\ssp{cl}$, and by meeting design constrains such as placement restrictions committed by the designer. Essentially, the partitioning is achieved by mapping software-component replicas (or software components) of applications effectively on the computing units $N'$. The partitioning should result in a reduced total power-consumption of the applications $Power(\textbf{x})$, which is achieved by selecting lower-power computing units $N'\subseteq N$, where $\textbf{x}$ is a possible mapping matrix, with \ttxkij representing the mapping of the software component \ttsss{q}[k][i,j] to the compuing unit $n_h$, where $h=\xkij$.  Note: under this partition, the reliability of applications $Reliability_{A_k}(\textbf{x})$, the timing of chains $Delay_{\sss{\Gamma}}(\textbf{x})$ should satify the cooresponding requirements. 
 
-%The solution to the allocation problem is represented by a vector-matrix $\x=\{\xsp{A_k}:k=1,...,N_a\}$ as shown in Equation (\ref{eqn_solution}), where \ttxsp{k} is a matrix of size $n_C\times K$, and \ttssx{x}{k}{ij}$=h\in \{1,…,n_N\}$ denotes the mapping of the  software-component replica \ttssx{q}{k}{i,j} to the computinG node $n_h$.
-%\begin{equation}
-%\label{eqn_solution}
-%\bspx{k}=
-%\begin{bmatrix} 
-%\ssx{k}{11} & \ssx{k}{12} & \dots & \ssx{k}{1K}\\
-%\ssx{k}{21} & \ssx{k}{22} & \dots & \ssx{k}{2K}\\
-%\vdots & \vdots & \ddots & \vdots\\
-%\ssx{k}{N_c1} & \ssx{k}{N_c2} & \cdots & \ssx{k}{N_cK}
-%\end{bmatrix}
-%\end{equation}
-
-The power consumption of applications as well as the delay of chains depend on the tasks graphs $\bigcup\sss{g}[k][\tau]$, as well as the mapping of the tasks nodes to computing units and the links to the network bus. In this case, the tasks graphs has be constructed from the partition \ttx. However, if the tasks graphs are apriori to the software partitioning problem,  which can be the case if no runnables from different components map to a single task, only the tasks nodes and the links has to be updated with the mapping information.
+The power consumption of applications as well as the delay of chains depend on the tasks graphs $\bigcup\sss{g}[k][\tau]$, as well as the mapping of the tasks nodes to computing units and the links to the network bus. In this case, the tasks graphs has be constructed from the partition \ttx. However, if the tasks graphs are apriori to the software partitioning problem,  which can be the case if no runnables from different components map to a single task, only the tasks nodes and the links are updated with the mapping information.
 
 \subsection{Task Graph Formulation}
-The task graph formulation implies the generation of a task graph, with the cost over the tasks nodes and the links updated for the partition \ttx. The tasks nodes are updated with the timing information and the mapping to computing units, likewise, the links with the mapping to the network bus. The formulation has two steps: i) for a mapping \ttx , we update the runnables with nodes information to which they are mapped by traversing \ttx, in linear-time complexity $O(n)$, where $n=|\x|*n_r$, and $n_r$ is the  runnables per software component, using Equation (\ref{eqn_uprdaterunnables}), ii) by applying the merging rules, we traverse the runnables graphs in the system and subsequently generate the tasks graphs using Equation (\ref{eqn_generatetasksgraphs}).
+The task graph formulation implies the generation of a task graph \ttat from a runnables graph \ttar in \ttx, and involves two steps: 
+\begin{enumerate*}[label=(\roman*)]
+	\item updating the mapping information of the runnables according to \ttx, that is for every component type $\sss{c}$ mapped to \ttx, we reterive its runnables $\sss{R}[k][c_i]$. Subsequently, we update the computing units $\sss{\mathcal{N}}[k][r]$ to which the runnables are mapped as show in Equation (\ref{eqn_uprdaterunnables}), in linear-time complexity $O(\sum n_{\ssp{C}}*D)$, where $n_{\ssp{C}}$ are the number of component types in \ttar, $D$ is the maximum degree of replication allowed;
+	\item the runnables graph is traversed iteratively to constract the corresponding tasks graph by applying the merging rules as shown in Equation (\ref{eqn_uprdatetasks}), using the method described in Subsection~\ref{subsec_autosarsystem}.
+\end{enumerate*}
 \begin{align}
 \label{eqn_uprdaterunnables}
-&\forall k,ij\ \forall r\in V(\sss{g}[k][])\ node_r = n_h& \mbox{, where } h=\xkij\\
+&\forall ij\forall r\in \sss{R}[k][c_i]\ \sss{\mathcal{N}}[k][r] = n_h \mbox{, where }  h=\xkij &k=1,...,n_A\\
 \label{eqn_generatetasksgraphs}
-&\forall k\ \sss{g}[k][r](\x)\xrightarrow{\text{Eqn. (13);Merging Rules}}\sss{g}[k][\tau](\x),
+& \ar(\x)\xrightarrow{\text{Eqn. (13);Merging Rules}}\at(\x) &k=1,...,n_A
 \end{align}
+where \ttgr{\ar} is nodes of the runnables graph \ttar.
 
-where $V(\sss{g}[k][])$ is the nodes of the runnables graph $\sss{g}[k][]$.
+However, if the tasks graph is apriori, that is, the runnables-to-tasks is static, only the nodes of the tasks graphs are updated with the mappings information using Equation (\ref{eqn_uprdatetasks}). In the AUTOSAR development, the tasks are usually fixed and the mappings from runnables to tasks is usually static. 
+\begin{align}
+	\label{eqn_uprdatetasks}
+	&\forall ij\forall r\in \sss{T}[k][c_i]\ \sss{\mathcal{N}}[k][\tau] = n_h \mbox{, where }  h=\xkij &k=1,...,n_A
+\end{align}
 
 \subsection{Total Power Consumption}
 Power consumption refers to the energy usage of electronic components in an integrated circuit, e.g., processor, memory, I/O devices, etc., per time unit. 
@@ -39,7 +36,7 @@ where $u$ is the utilization of a computing unit, $P_{idle}$ and $P_{busy}$, res
 \label{eqn_util_task}
 \mathcal{U}(\tau)              & =  \frac{\mathrm{WCET}_\tau}{P_\tau}\\
 \label{eqn_util_node}
-(u_1,...,u_{n_N})&\leftarrow\sum_{k=1}^{n_A}\sum_{\tau\in V(\sss{g}[k][\tau](\x))}{(\mathcal{U}(\tau)|Node_\tau=n_h, h=1,..,n_{N})}\\
+(u_1,...,u_{n_N})&=\sum_{k=1}^{n_A}\sum_{\tau\in V(\at)(\x)}{(\mathcal{U}(\tau)|Node_\tau=n_h, h=1,..,n_{N})}\\
 \label{eqn_total_power}
 \mathcal{P}_{total}(\textbf{x})  &=\sum_{h=1}^{n_N}{u_h(\x)}  
 \end{align}
@@ -49,10 +46,10 @@ where $\mathcal{U}$, in Equation (\ref{eqn_util_task}), computes utlization of t
 
 \subsection{Software-Applications Reliability Constraints}\label{subsec_reliability_constraint}
 The applications reliability constraints ensure the mapping $\textbf{x}$ satisfies the user-defined reliability requirements, that is $\forall k\ \rel_{A_k}(\x)\leq RelReq_{A_k}$. 
-The reliability of each application is computed over $t$ period of time from the computing units \ttssp{N} and  the shared network bus $B$, where \ttssp{N} hosts $\A$. The reliability is computed assuming exponentially distributed and constant failure rates of the units $\lambda_{n_h}$ as well as the network bus $\lambda_B$. Thus, the reliability of an application is computed as a product of the reliability of the units and the network bus as shown using Equation (\ref{eqn_appreliability_app}). Note: if application does not use the shared  bus $\rel_{B}=1$. Equation (\ref{eqn_nodes_app}) finds the units \ttssp{N} that the application \ttA uses by traversing the partition \ttx in linear time.
+The reliability of each application is computed over $t$ period of time from the computing units \ttssp{N} and  the shared network bus $B$, where \ttssp{N} hosts \ttar. The reliability is computed assuming exponentially distributed and constant failure rates of the units $\lambda_{n_h}$ as well as the network bus $\lambda_B$. Thus, the reliability of an application is computed as a product of the reliability of the units and the network bus as shown using Equation (\ref{eqn_appreliability_app}). Note: if application does not use the shared  bus $\rel_{B}=1$. Equation (\ref{eqn_nodes_app}) finds the units \ttssp{N} that the application \ttar uses by traversing the partition \ttx in linear time.
 \begin{align}
 	\label{eqn_appreliability_app}
-	&Reliability_{A_k}(\x)=Reliability_{\ssp{N}}(\x)*Reliability_B\\
+	&Reliability_{\ar}(\x)=Reliability_{\ssp{N}}(\x)*Reliability_B\\
 	\label{eqn_nodes_app}
 	&\ssp{N}=\{e\in N| \forall ij\ e=m_h\},\mbox{ where } h=\ssx{k}{ij}
 \end{align}
@@ -75,15 +72,16 @@ The reliability of the units is $Reliability_N(\x)=e^{-\lambda_N(\x) t}$, where 
 	\centering
 	\begin{tabular}{@{}llll@{}}
 		\toprule
+		Units Config. & Probability & Comonent Status & Application Status \\ 
 		$s\in\xi$   & $p_s$     & $\forall i\ s_{c_i}$ & $f_s$ \\ \midrule
-		\{0,0,0\} & 0.0000000000 & \{0, 0, 0\}        & 0     \\
-		\{0,0,1\} & 0.0000000099 & \{0, 0, 1\}         & 0     \\
-		\{0,1,0\} & 0.0000000099 & \{1, 0, 0\}          & 0     \\
-		\{0,1,1\}  & 0.0000999800 & \{1, 1, 1\}         & 1     \\
-		\{1,0,0\} & 0.0000000099 &\{1, 0, 1\}         & 0    \\
-		\{1,0,1\} & 0.0000999800 & \{1, 1, 1\}        & 1     \\
-		\{1,1,0\} & 0.0000999800 & \{1, 1, 1\}          & 1     \\
-		\{1,1,1\} & 0.9997000299 & \{1, 1, 1\}           & 1     \\ \bottomrule
+		$\{0,0,0\}$ & 0.0000000000 & $\{0, 0, 0\}$        & 0     \\
+		$\{0,0,1\}$ & 0.0000000099 & $\{0, 0, 1\}$         & 0     \\
+		$\{0,1,0\}$ & 0.0000000099 & $\{1, 0, 0\}$          & 0     \\
+		$\{0,1,1\}$  & 0.0000999800 & $\{1, 1, 1\}$         & 1     \\
+		$\{1,0,0\}$ & 0.0000000099 &$\{1, 0, 1\}$         & 0    \\
+		$\{1,0,1\}$ & 0.0000999800 & $\{1, 1, 1\}$        & 1     \\
+		$\{1,1,0\}$ & 0.0000999800 & $\{1, 1, 1\}$          & 1     \\
+		$\{1,1,1\}$ & 0.9997000299 & $\{1, 1, 1\}$           & 1     \\ \bottomrule
 	\end{tabular}
 	\caption{Example of Application Reliability Calculation using State Enumeration Over 10-years Operational Lifetime: an Application with Component Types $C=\{c_1,c_2,c_3\}$, Replicas $Q=\{c_{1,1},c_{1,2};c_{2,1},c_{2,2};c_{3,1},c_{3,2}\}$ Partitioned on $N=\{n_1,n_2,n_3\}$ according to Figure (\ref{fig_deployment}), the Variable $s_{c_i}\in\{0,1\}$ Indicates if the Replicas of Type $c_i$ Fails or Functions, Respectively.}
 	\label{tbl_application_rel}
@@ -107,37 +105,79 @@ Thus, the failure rate of the $N$-unit system $\lambda_N(\x)$ is the sum of the 
 	\lambda_N(\x)=\sum_{s\in \xi|f_s(\x)=0}p_s(\x)
 \]
 \begin{example}[Reliability Calculation]
-Let us assume we want to calculate the reliability of the application in Table (\ref{tbl_application_rel}) over a 10-year (or 87600h) operational lifetime. The reliability of the units is $\rel_N=e^{-\lambda_N t}=0.99736671$, where $\lambda_N=p_1+p_2+p_3+p_5=0.0000000301$. Assume $\lambda_B=0.00000001$, hence $\rel_B=e^{-\lambda_B t}=0.99912438$. Then, the reliability of the application is $\rel_N*\rel_B=0.99649339932$.
+Let us assume we want to calculate the reliability of the application in Table~\ref{tbl_application_rel} over a 10-year (or 87600h) operational lifetime. The reliability of the units is $\rel_N=e^{-\lambda_N t}=0.99736671$, where $\lambda_N=p_1+p_2+p_3+p_5=0.0000000301$. Assume $\lambda_B=0.00000001$, hence $\rel_B=e^{-\lambda_B t}=0.99912438$. Then, the reliability of the application is $\rel_N*\rel_B=0.99649339932$.
 \end{example}
 
-\subsection{Timing constraints}
-The timing constraints ensure that the schedulability of each applications on the execution platform, that is, the tasks and the cause-effect chains of each application should meet their timing specifications. The schedulability of each task is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis}, and the cause-effect chains using the age-delay analysis shown in Subsection \ref{subsec_causeeffectchains}. 
 
-\subsection{Tasks Timing constraints}
-The timing constraints over the tasks ensure that the worst-case response time of each task in the system meets its respective deadline, in the partition \ttx, that is $\forall k\forall \tau\in V(g_r(\x))$ $ResponseTime_\tau\leq Deadline_\tau$, where $V(\sss{g_r(\x)})$ is the nodes in the tasks graphs. To compute the worst-case response time of the tasks, first we arrange the tasks per node as represented by the $\ssb{T}[n_h]$, by traversing the tasks graphs using Equation (\ref{eqn_tasks_nodes}). The complexity of this equation, considering an adjucency matrix implementation, is linear time $O(N_a*\ssp{n})$, where \ttssp{n} is the sum of nodes and the links of graph $\sss{g}[k][\tau](\x)$.
+
+\subsection{Chains Timing Constraints}
+The chains timing constraints over \ttx ensure that the delays of chains meet thier respective end-to-end requirements, that is $\forall k\forall \gamma\in \ssp{\Gamma}\ Delay_\gamma(\x)\leq \sss{\mathrm{EE}}[k][\gamma]$. The delays calculations require that the tasks and messages in the chains meet their deadlines. Since, each task is used in at least one chain, we check the schedulability of all tasks and the message  before we calculate the chains timing constraints. The schedulability of the tasks and the message is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis} and  Subsection \ref{subsec_responsetimeanalysis}, respectively. Moreover, the schedulability of the chains is checked using the age-delay analysis shown in Subsection \ref{subsec_causeeffectchains}. 
+
+\subsubsection{Tasks Timing Constraints}
+The tasks timing constraints ensure that the tasks in the distributed system meet their respective deadlines. Tasks replicas mapped to the same unit do not improve realiability of the applications since we assume a permanent failure of computing units would lead to the total failure of the software running on the units. Consequently, the replicas except one are discarded, hence exists only a maximum of one replica per computing unit. The replica can be identified from other replicas based on the unit to which it is mapped. Assume $\tau\in \gr{V}{\at}$ is a task node and $\sss{\mathcal{N}}[k][\tau]$ is the set of units to which its replicas can be mapped. Thus, the replicas of $\tau$ are represented a paired-set $\mathcal{R}=\{(\tau,n)|n\in\sss{\mathcal{N}}[k][\tau]\}$, where $(\tau,n)$ is the replica of $\tau$ mapped to $n$.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/task_replicas}
+\end{figure}
+
+To constract the tasks timing constraints, first we arrange the tasks per computing unit, $\ssb{T}[n_h]$, so that the tasks graphs are not traversed everytime the response-time of tasks is computed. So, we traverse the tasks graphs, consequently in each task node $\tau\in V(\at(\x))$, we check if the replica $\tau_{i,j}$ is mapped to $n_h\in N$. If the condition is true, we collect the task node $\tau_i$ as shown in Equation (\ref{eqn_tasks_nodes}). 
 \begin{align}
 \label{eqn_tasks_nodes}
-T_{n_h}&=\{e\in V(\sss{g}[k][\tau](\x)) | \sss{Node}[k][e] =n_h \} & \mbox{ for all } h=1,...,n_N,
+T_{n_h}&=\{\tau\in \mathcal{V}(\at(\x)) | \forall j\in\sss{\mathcal{N}}[k][\tau_i][b]\ j=n_h\} & \mbox{ for all } h=1,...,n_N,
 \end{align}
-where $\mbox{ where }h=\xkij$.
+where $\mbox{ where }h=\xkij$. The complexity of this equation, considering an adjucency matrix implementation, is exponential time $O(\sum{|\gr{V}{\at}|*n_N^2})$, where $\gr{V}{\at}$ is tasks nodes in $\at$, and $N$ is the total computing units in the distributed system. 
 
-Then, we calculate the response time of each task $\tau \in T_{m}$ by invoking the response-time analyais formula, and construct the tasks timing constraints as shown in Equation (\ref{eqn_tasks_constraints}).
+Subsequently, we calculate the response time of each task $\tau \in T_{m}$ in \ttx by invoking the response-time analyais formula, and construct the tasks timing constraints as shown in Equation (\ref{eqn_tasks_constraints}).
 \begin{align}
 \label{eqn_tasks_constraints}
-\forall \tau\in T_{m} \ ResponseTime_\tau(\x)&\leq Deadline_\tau
+\forall \tau\in T_{n} \ ResponseTime_\tau(\x)&\leq Deadline_\tau
 \end{align}
 
-\subsection{Cause-effect Chains Timing constraints}
-For a mapping \x, the age delays of cause-effect chains should meet thier respective end-to-end requirements, that is $\forall k\forall ij\ AgeDelay_\Gamma(\x)\leq \sss{E2eReq}[k][\Gamma]$, where $\Gamma\in \sss{\Gamma}$. To calculate the age delays, first we identify the messages scheduled by the CAN bus for the mapping \ttx using Equation (\ref{eqn_messages}). 
-\begin{align}
-\label{eqn_messages}
-	M=\{e|\forall (a,b)\in g_\tau(\x)\forall n\in N\ (a\mapsto n \land b\mapsto n=false)\implies createMsg(e)\},
-\end{align}
-where $Period(e)=Period(a)$, that is the message inherits the period of its predecessor (or sender) task. Accordingly, we update only the chains that communicate over the shared CAN bus to incorporate the messages, that is $\sss{\Gamma}=\{\tau_1,e^*\}$, where $\tau_1,\tau_2$ are $Source(\sss{\Gamma}) and Sink(\sss{\Gamma})$, respectively, and $e\in V(g_\tau(\x))\cup M$. Then, the cause-effect timing constrains are formulated over the updated list of chains $\sss{\Gamma}$ using Equation (\ref{eqn_chains_constraints}).
+\subsubsection{Messages Timing Constraints}
+The messages timing constraints ensure that the response-time of message in the CAN bus meet their respective deadlines, which is equal to their periods. The messages $M$ in \ttx are determined from the communication links of the tasks graphs. Assume $(t1,t2)\in\gr{E}{\at}$ is a link in the task graph. Due to replication, the link represents a set of sub-links $\sss{\mathcal{R}}[k][t2][b]\times\sss{\mathcal{R}}[k][t2][b]$ that communicate the replicas of $t1$, $\sss{\mathcal{R}}[k][t1][b]$, and the replicas of $t2$, $\sss{\mathcal{R}}[k][t2][b]$. Thus, if the task $(t1,n1)\in\sss{\mathcal{R}}[k][t1][b]$ and $(t2,n2)\in\sss{\mathcal{R}}[k][t2][b]$ are mapped to the same  computing units, that is $n1=n2$, the link is not mapped on the bus, rather uses a shared variable or inter-process communication. Whereas, if the tasks are mapped on different units, the link is mapped to a bus, hence a message is used to establish the communication between the tasks. Equation (\ref{eqn_tasks_nodes}) shows how the messages in the distribured systems are determined by traversing the sub-links of the tasks graphs, 
+\begin{equation}
+\label{eqn_tasks_nodes}
+M=\{m_i | \forall (t1,t2)\in \mathcal{E}(\atx)\forall (i,j)\in\sss{\mathcal{R}}[k][t1][b]\times\sss{\mathcal{R}}[k][t2][b]\ n_i\neq n_j\},
+\end{equation}
+where $(i,j)$ is a sub-link of $(t1,t2)$, $m_{i}$ is the message that the replica $i$ uses to communicate with the replica $j$.  We assume the message arrival behavior is periodic, similar to $t1$, i.e., $P_{m_i }= P_{t1}$. Likewise, it herits its criticality from $t1$, i.e., $\mathrm{CL}_{m_i}=\mathrm{CL}_{t1}$, so that the criticality is preserved at the network, as well.
+
+\subsubsection{Delay  Constraints}
+The delay calculation of chains is multiplicity due to replication. Assume the chain $\Gamma=(\tau_i)_{i=1}^l=(\tau_1,...,\tau_l)$, then the set of chains with replication is a cartesian product of the tasks replicas (or the tasks nodes mapping to computing units according to $\x$) in the chain, that is $\Gamma^*(\x)= \sss{\mathcal{R}}[k][\tau_1][b]\times,...,\times\sss{\mathcal{R}}[k][\tau_l][b]$, where $l$ is the chain length. Assume we want to calculate the delay of the chain $\gamma\in \Gamma^*$ compositionally, where $\gamma=(t_i)_{i=1}^l=(t_1,...,t_l)$: first we identify the subchains $I$ and messages $J$ of the chain. The subchains $I$ are subsets of the chain $\gamma$ where the communication between the sender and receiver tasks of the chain use a network bus. That is, if $t_i$ is the sender task, and its receiver task $t_{i+1}$ is mapped to a different unit, i.e., $n_{t_i}\neq n_{t_{i+1}}$, then $(t_h)_{h=i'}^i\in I$ is a subchain of $\gamma$ and $m_{t_i}\in J$ is the message used by the subchain, where $0\leq i'\leq i$, captured by the expression
+$
+	(I;J)=\{(t_i)_{i=0}^{l-1};m_{t_i} | n_{t_i}\neq n_{t_{i+1}}\}
+$.
+	
+Thus, the delay $\Delta_\gamma(\x)$ for a mapping \ttx is computed as the sum of the age delays of its subchains and the response-times of the messages,
+\[
+	\Delta_{\gamma}(\x)=\sum_{i\in I_{\gamma}(\x)}{\Delta^{sub}_{i}(\x)} + \sum_{j\in J_{\gamma}(\x)}{\delta^{msg}_i(\x)},
+\]
+according to the age-delay formula shown in Equation (\ref{eqn_agedelay_multinode}), where $\Delta^{sub}$, $\delta^{msg}$ are the functions that compute the age delay of $i$ subchain, and the response-time of $j$ message, respectively. Thus, the chains timing constraints are formulated over \ttx and applications $A$ using Equation (\ref{eqn_chains_constraints}).
 \begin{align}
 \label{eqn_chains_constraints}
-\forall \gamma \in \sss{\Gamma} \ Delay_\gamma(\x)&\leq E2eReq_\gamma
+\forall \gamma \in \ssp{\Gamma} \ \sss{\Delta}[k][{\gamma}](\x) & \leq \sss{\mathrm{EE}}[k][\gamma],
 \end{align}
+\begin{example}[Delay Calculation] Consider the chain $\Gamma=\tau_1\rightarrow\tau_2\rightarrow\tau_4$ from Figure~\ref{fig_appexample} where $\tau_1$ and $\tau_2$ realize the component types $c_1$, and $\tau_4$ realizes $c_2$. The mapping of the components is shown in Figure~\ref{fig_deployment} (b), i.e., with replication. Thus, the units to which $\tau_1$ and $\tau_2$ are mapped are $\sss{\mathcal{R}}[k][\tau_l][b]=\sss{\mathcal{R}}[k][\tau_2][b]=\{n_1,n_2\}$, and $\tau_4$ to $\sss{\mathcal{R}}[k][\tau_4][b]=\{n_2,n_3\}$, by infering the mappings of respective components. Table~\ref{tbl_chains_with_replication} illustrates how compute the chains, considering replication of degree 2, which is $\Gamma^* = \sss{\mathcal{R}}[k][\tau_1][b] \times \sss{\mathcal{R}}[k][\tau_2][b] \times \sss{\mathcal{R}}[k][\tau_4][b]$, and also how to compute the subchains and messages of each chain $\gamma\in \Gamma^*$. The delays of the subchains is computed according to the age-delay semantics demonstrated in Subsection~\ref{subsec_cause_effect_chains}.
+\end{example} 
+\begin{table}[]
+	\begin{tabular}{@{}lll@{}}
+		\toprule
+		$\gamma\in \Gamma^*$ & $i\in I_\gamma$ & $j\in J_\gamma$ \\ \midrule
+		$(\tau_1,n_1)\rightarrow (\tau_2,n_1)\rightarrow(\tau_4,n_2)$ & $(\tau_1,n_1)\rightarrow (\tau_2,n_1),(\tau_4,n_2)$ & $m_{(\tau_2,n_1), (\tau_4,n_2)}$ \\
+		$(\tau_1,n_1)\rightarrow (\tau_2,n_1)\rightarrow(\tau_4,n_3)$ & $(\tau_1,n_1)\rightarrow (\tau_2,n_1),(\tau_4,n_3)$ & $m_{(\tau_2,n_1), (\tau_4,n_3)}$ \\
+		$(\tau_1,n_2)\rightarrow(\tau_2,n_2)\rightarrow(\tau_4,n_2)$ & $(\tau_1,n_2)\rightarrow(\tau_2,n_2)\rightarrow(\tau_4,n_2)$ & $\emptyset$ \\
+		$(\tau_1,n_2)\rightarrow(\tau_2,n_2)\rightarrow(\tau_4,n_3)$ & $(\tau_1,n_2)\rightarrow(\tau_2,n_2),(\tau_4,n_3)$ & $m_{(\tau_2,n_2), (\tau_4,n_3)}$ \\ \bottomrule
+	\end{tabular}
+\caption{Chains-with-Replication of Degree 2 for the Chain $\Gamma=\tau_1\rightarrow\tau_2\rightarrow\tau_4$, its Subchains $I$ and Messages $J$.}
+\label{tbl_chains_with_replication}
+\end{table}
+
+\subsection{Approximation of Delay Calculation}
+Due to the replication, the number of chains-with-replication per chain $\Gamma$ grows exponentially as the degree of the replication $D$ linearly increases, $|\Gamma|^D$. Likewise, the length of the chain has a polynomial effect as it grows. Moreover, the age-delay calculation is exhaustive search as demonstrated in the example. For these main reasons, the delays computation is normall expesive. Such computationally expensive operations are challenging for metaheuristics, due meta-heuristic algorithms compute large-space candidate solutions. Therefore, we propose an appoximation algorithm to efficiently compute the delays by selecting only the chain-with-repications that use the buses the most.
+
+
+
+
+
 
 \subsection{Software Allocation Optimization	}\label{sec_allocation}
 The software allocation is defined as a single-objective optimization problem. The objective function  $Power(\x)$ is a cost function which minimizes the total power consumption of the software applications as deployed in the heterogenuous computing units, where \ttx is the decision variable (or solution) of the optimization. The cost function is formulated in Equation \ref{eqn_optimization}, with inequality constraints shown by Equation (\ref{eqn_reliability}, \ref{eqn_responsetime},\ref{eqn_e2e}). The constraints ensure the solution meet the reliability requirements, the tasks deadlines,  and the chains end-to-end requirements.  Furthermore, the overlapping constrain shown in Equation (\ref{eqn_overlapping}) ensure that replicas are not allocated to the same computing units.
@@ -150,8 +190,8 @@ The software allocation is defined as a single-objective optimization problem. T
 \forall \tau\in T_{m_h}\    ResponseTime_{\tau}(\x)&\leq Deadline_{\tau}& \mbox{forall } h=1,...,n_{M}\\ 
 \label{eqn_e2e}
 \forall \gamma \in \ssp{\Gamma}\  Delay_\gamma(\x)&\leq E2eReq_\gamma& \mbox{forall } k=1,...,n_{A}\\
-\label{eqn_overlapping}
-\forall k\forall ij\ x_{ij}^{(k)}&\neq x_{ij}^{(k')},&  \mbox{ where } k\neq k'=1,...,n_{rep}
+%\label{eqn_overlapping}
+%\forall k\forall ij\ x_{ij}^{(k)}&\neq x_{ij}^{(k')},&  \mbox{ where } k\neq k'=1,...,n_{rep}
 \end{align}
 where $X$ is the search space of the problem, $\textbf{x}\in X$ is a feasible solution, and $\xkij\in \textbf{x}$ is a mapping of a component $\sss{q}[k][i,j]$ to the node $m_h$, where $h=\xkij$
 %

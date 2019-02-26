@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  21 FEB 2019 00:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  26 FEB 2019 00:49
 entering extended mode
 **./main.tex
 (main.tex
@@ -1231,10 +1231,10 @@ Package: xparse 2018-10-17 L3 Experimental document command parser
 \c@rccounter=\count347
 ) (main.aux
 
+LaTeX Warning: Label `eqn_tasks_nodes' multiply defined.
+
+
 LaTeX Warning: Label `tbl_app_ranges' multiply defined.
-
-
-LaTeX Warning: Label `tbl_samples' multiply defined.
 
 )
 \openout1 = `main.aux'.
@@ -1677,235 +1677,277 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 13.
 
 
-Overfull \hbox (34.24763pt too wide) in paragraph at lines 15--51
+Underfull \hbox (badness 10000) in paragraph at lines 15--49
 [][]
  []
 
+
+Overfull \hbox (21.63033pt too wide) in paragraph at lines 53--54
+\OT1/cmr/m/n/10 applications across different execution platforms. Basically, r
+unnables are schedulable
+ []
+
 [4 <./img/system_model.pdf>] [5]
-Overfull \hbox (43.51996pt too wide) in paragraph at lines 61--62
-[]\OT1/cmr/m/n/10 It is modeled as a set of communicating
+Overfull \hbox (15.9294pt too wide) in paragraph at lines 58--60
+[][][] \OT1/cmr/m/n/10 We define an AUTOSAR
  []
 
 
-Package natbib Warning: Citation `bibid' on page 6 undefined on input line 64.
-
-
-Overfull \hbox (4.63034pt too wide) in paragraph at lines 64--65
-\OT1/cmr/m/n/10 criticality applications on higher-criticality applications. Th
-e isolation of different
+Overfull \hbox (6.0273pt too wide) in paragraph at lines 58--60
+\OT1/cmr/m/n/10 software appplication as a set of communicating AUTOSAR softwar
+e components,
  []
 
 
-Overfull \hbox (2.40666pt too wide) in paragraph at lines 69--70
+Overfull \hbox (1.9052pt too wide) in paragraph at lines 58--60
+\OT1/cmr/m/n/10 which is modeled as a \OT1/cmr/m/it/10 directed acyclic vertex-
+weighted \OT1/cmr/m/n/10 graph $\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 V; L; w; \OM
+S/cmsy/m/n/10 i$ \OT1/cmr/m/n/10 of periodic
+ []
+
+
+Overfull \hbox (5.47282pt too wide) in paragraph at lines 63--64
+[]\OT1/cmr/m/n/10 According to mixed-criticality design [[]], several applicati
+ons can be executed
+ []
+
+[6]
+Overfull \hbox (2.40666pt too wide) in paragraph at lines 68--69
 []\OT1/cmr/m/n/10 In this work, we consider the \OT1/cmr/m/it/10 partitioned cr
 iticality (PA) \OT1/cmr/m/n/10 technique to schedule
  []
 
 
-Overfull \hbox (29.19516pt too wide) in paragraph at lines 69--70
+Overfull \hbox (29.19516pt too wide) in paragraph at lines 68--69
 \OT1/cmr/m/n/10 the mixed-criticality applications, which basically prioritizes
  higher critical applications
  []
 
 
-Package natbib Warning: Citation `Sha-RTS-2004' on page 6 undefined on input li
-ne 72.
+Overfull \hbox (27.50064pt too wide) in paragraph at lines 71--76
+\OT1/cmr/m/n/10 tasks, and the tasks execute the runnables respecting the forme
+rs' timing specifications.
+ []
 
-[6]
+<img/runnable_task_dag.pdf, id=110, 388.45125pt x 186.6975pt>
+File: img/runnable_task_dag.pdf Graphic file (type pdf)
+<use img/runnable_task_dag.pdf>
+Package pdftex.def Info: img/runnable_task_dag.pdf  used on input line 80.
+(pdftex.def)             Requested size: 241.49895pt x 116.07031pt.
 
-Package natbib Warning: Citation `RobDavis-CAN-2007' on page 7 undefined on inp
-ut line 94.
+Package natbib Warning: Citation `Sha-RTS-2004' on page 7 undefined on input li
+ne 130.
 
+[7 <./img/runnable_task_dag.pdf
 
-Overfull \hbox (3.30501pt too wide) in paragraph at lines 111--112
+pdfTeX warning: pdflatex (file ./img/runnable_task_dag.pdf): PDF inclusion: inv
+alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
+
+Package natbib Warning: Citation `RobDavis-CAN-2007' on page 8 undefined on inp
+ut line 152.
+
+[8]
+Overfull \hbox (3.30501pt too wide) in paragraph at lines 169--170
 \OT1/cmr/m/n/10 priority messages using the CAN bus (since it is non-preemptive
 ) and is computed
  []
 
-<img/cause_effect_chain_ntk.pdf, id=110, 340.27126pt x 119.44624pt>
+<img/cause_effect_chain_ntk.pdf, id=136, 340.27126pt x 119.44624pt>
 File: img/cause_effect_chain_ntk.pdf Graphic file (type pdf)
 <use img/cause_effect_chain_ntk.pdf>
-Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 117
+Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 175
 .
 (pdftex.def)             Requested size: 241.49895pt x 84.7746pt.
 
-Overfull \hbox (7.72287pt too wide) in paragraph at lines 114--122
+Overfull \hbox (7.72287pt too wide) in paragraph at lines 172--180
 \OT1/cmr/m/n/10 usually by external events (or causal actions or stimuli) and p
 roduce corresponding
  []
 
 
-Overfull \hbox (13.88014pt too wide) in paragraph at lines 114--122
+Overfull \hbox (13.88014pt too wide) in paragraph at lines 172--180
 \OT1/cmr/m/n/10 system, pressing a brake pedal to slow down a car, etc. The end
 -to-end requirements
  []
 
-
-Overfull \hbox (2.94502pt too wide) in paragraph at lines 114--122
-\OT1/cmr/m/n/10 register buffers for communication, which is a common practice 
-in control systems
- []
-
-[7]
-<img/timedchain_ntk.pdf, id=117, 386.44376pt x 183.68625pt>
+<img/timedchain_ntk.pdf, id=137, 386.44376pt x 183.68625pt>
 File: img/timedchain_ntk.pdf Graphic file (type pdf)
 <use img/timedchain_ntk.pdf>
-Package pdftex.def Info: img/timedchain_ntk.pdf  used on input line 126.
+Package pdftex.def Info: img/timedchain_ntk.pdf  used on input line 184.
 (pdftex.def)             Requested size: 310.4979pt x 147.58821pt.
 
+LaTeX Warning: Reference `fig_timedpath' on page 9 undefined on input line 189.
 
-LaTeX Warning: Reference `fig_timedpath' on page 8 undefined on input line 131.
 
-
-[8 <./img/cause_effect_chain_ntk.pdf
+[9 <./img/cause_effect_chain_ntk.pdf
 
 pdfTeX warning: pdflatex (file ./img/cause_effect_chain_ntk.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
 ed.
-> <./img/timedchain_ntk.pdf
+>] [10 <./img/timedchain_ntk.pdf
 
 pdfTeX warning: pdflatex (file ./img/timedchain_ntk.pdf): PDF inclusion: invali
 d other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-Overfull \hbox (5.15814pt too wide) in paragraph at lines 144--145
-\OT1/cmr/m/n/10 automotive applications across different execution platforms. B
-asically, runnables
+Overfull \hbox (1.7506pt too wide) in paragraph at lines 211--240
+[]\OT1/cmr/m/n/10 Under these assumptions, the reliability of a software applic
+ation is equivalent
  []
 
-
-Overfull \hbox (37.41748pt too wide) in paragraph at lines 144--145
-\OT1/cmr/m/n/10 runnables' functional and extra-functional properties, e.g., ti
-ming, memory requirements,
- []
-
-[9]
-Overfull \hbox (4.3111pt too wide) in paragraph at lines 147--148
-[]\OT1/cmr/m/n/10 It is modeled as
- []
-
-<img/runnable_task_dag.pdf, id=162, 388.45125pt x 186.6975pt>
-File: img/runnable_task_dag.pdf Graphic file (type pdf)
-<use img/runnable_task_dag.pdf>
-Package pdftex.def Info: img/runnable_task_dag.pdf  used on input line 152.
-(pdftex.def)             Requested size: 241.49895pt x 116.07031pt.
-[10 <./img/runnable_task_dag.pdf
-
-pdfTeX warning: pdflatex (file ./img/runnable_task_dag.pdf): PDF inclusion: inv
-alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
->] [11]
-<img/rbd_replication.pdf, id=185, 372.43138pt x 153.6942pt>
+[11]
+<img/rbd_replication.pdf, id=186, 370.5042pt x 153.6942pt>
 File: img/rbd_replication.pdf Graphic file (type pdf)
 <use img/rbd_replication.pdf>
-Package pdftex.def Info: img/rbd_replication.pdf  used on input line 252.
-(pdftex.def)             Requested size: 276.00105pt x 113.90544pt.
+Package pdftex.def Info: img/rbd_replication.pdf  used on input line 244.
+(pdftex.def)             Requested size: 276.00105pt x 114.49174pt.
 
-Overfull \hbox (1.16267pt too wide) in paragraph at lines 249--256
+Overfull \hbox (1.16267pt too wide) in paragraph at lines 241--248
 \OT1/cmr/m/n/10 replication. Note: the red-dashed line between $\OML/cmm/m/it/1
 0 n[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 n[]$ \OT1/cmr/m/n/10 indicates the
  possibility
  []
 
 ) (tex/extrafuncmodel.tex
-Overfull \hbox (12.44505pt too wide) in paragraph at lines 2--3
-\OT1/cmr/m/n/10 by fulfilling the user-defined software applications requiremen
-ts such as applications
+Overfull \hbox (12.27835pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 by satisfing the user-defined software applications requirement
+s such as applications
  []
 
 
-Overfull \hbox (2.66385pt too wide) in paragraph at lines 2--3
+Overfull \hbox (3.17244pt too wide) in paragraph at lines 2--3
 \OT1/cmr/m/n/10 reliability $\OML/cmm/m/it/10 RL[]$\OT1/cmr/m/n/10 , end-to-end
- timing requirements of chains $\OML/cmm/m/it/10 EE[]$ \OT1/cmr/m/n/10 and soft
-ware
+ timing requirements of chains $\OML/cmm/m/it/10 EE[]$ \OT1/cmr/m/n/10 and appl
+ications
  []
 
 
-Overfull \hbox (3.58865pt too wide) in paragraph at lines 2--3
-\OT1/cmr/m/n/10 applications criticality $\OML/cmm/m/it/10 cl[]$\OT1/cmr/m/n/10
- , and by meeting design constrains such as placement
+Overfull \hbox (9.56831pt too wide) in paragraph at lines 2--3
+\OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 x[]$\OT1/cmr/m/n/10 representing the map
+ping of the software component $\OML/cmm/m/it/10 q[]$ \OT1/cmr/m/n/10 to the co
+mpuing
  []
 
 
-Overfull \hbox (5.51918pt too wide) in paragraph at lines 2--3
-\OT1/cmr/m/n/10 restrictions committed by the designer. The partitioning is con
-ducted by mapping
+Overfull \hbox (10.27101pt too wide) in paragraph at lines 2--3
+\OML/cmm/m/it/10 Reliability[]\OT1/cmr/m/n/10 ([])$, the timing of chains $\OML
+/cmm/m/it/10 Delay[]\OT1/cmr/m/n/10 ([])$ should satify the cooresponding
  []
 
-[12 <./img/rbd_replication.pdf>] [13]
-Overfull \hbox (6.60255pt too wide) in paragraph at lines 37--38
-\OT1/cmr/m/n/10 constituent tasks as shown in Equation (11[]). Finally, the tot
+[12 <./img/rbd_replication.pdf>]
+Overfull \hbox (1.42155pt too wide) in paragraph at lines 4--5
+\OT1/cmr/m/n/10 on the tasks graphs $[] \OML/cmm/m/it/10 g[]$\OT1/cmr/m/n/10 , 
+as well as the mapping of the tasks nodes to computing
+ []
+
+
+LaTeX Warning: Reference `subsec_autosarsystem' on page 13 undefined on input l
+ine 10.
+
+[13]
+Overfull \hbox (6.60255pt too wide) in paragraph at lines 34--35
+\OT1/cmr/m/n/10 constituent tasks as shown in Equation (12[]). Finally, the tot
 al power-consumption
  []
 
 
-Overfull \hbox (13.44505pt too wide) in paragraph at lines 58--60
+Overfull \hbox (13.44505pt too wide) in paragraph at lines 55--57
 \OT1/cmr/m/n/10 Note: we assume applications are mutuallye exclusive, that is n
 o shared components
  []
 
 
-Overfull \hbox (8.75056pt too wide) in paragraph at lines 58--60
+Overfull \hbox (8.75056pt too wide) in paragraph at lines 55--57
 \OT1/cmr/m/n/10 exist between any two applications, therefore, we can safety ca
 lculate the reliability
  []
 
 [14]
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 63.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 60.
 
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
 /ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (2.7054pt too wide) in paragraph at lines 63--64
+Overfull \hbox (2.7054pt too wide) in paragraph at lines 60--61
 \OT1/cmr/m/n/10 computing units $\OML/cmm/m/it/10 N \OT1/cmr/m/n/10 = \OMS/cmsy
 /m/n/10 f\OML/cmm/m/it/10 n[]; ::; n[]\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , the 
 states of the units (or configuration)
  []
 
 
-Overfull \hbox (3.54524pt too wide) in paragraph at lines 65--66
+Overfull \hbox (3.54524pt too wide) in paragraph at lines 62--63
 []$\OML/cmm/m/it/10  \OT1/cmr/m/n/10 = 
 []$ are elementary events that correspond to the possible configurations
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 79.
 
-("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
-/omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 79.
-
-Overfull \hbox (8.41853pt too wide) in paragraph at lines 105--106
+Overfull \hbox (8.41853pt too wide) in paragraph at lines 103--104
 []\OT1/cmr/m/n/10 Thus, the failure rate of the $\OML/cmm/m/it/10 N$\OT1/cmr/m/
 n/10 -unit system $\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 ([])$ is the sum of the 
 probabilities
  []
 
+[15]
 
-Overfull \hbox (7.281pt too wide) in paragraph at lines 110--111
-\OT1/cmr/m/it/10 the reliability of the application in Table (3[]) over a 10-ye
-ar (or 87600h) operational
+LaTeX Warning: Reference `subsec_responsetimeanalysis' on page 16 undefined on 
+input line 114.
+
+
+LaTeX Warning: Reference `subsec_responsetimeanalysis' on page 16 undefined on 
+input line 114.
+
+
+LaTeX Warning: Reference `subsec_causeeffectchains' on page 16 undefined on inp
+ut line 114.
+
+<img/task_replicas.pdf, id=240, 247.92625pt x 73.27374pt>
+File: img/task_replicas.pdf Graphic file (type pdf)
+<use img/task_replicas.pdf>
+Package pdftex.def Info: img/task_replicas.pdf  used on input line 120.
+(pdftex.def)             Requested size: 241.49895pt x 71.37506pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16]
+Overfull \hbox (2.96736pt too wide) in paragraph at lines 127--129
+\OT1/cmr/m/n/10 where $[]\OML/cmm/m/it/10 h \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 
+x[]$\OT1/cmr/m/n/10 . The complexity of this equation, considering an adjucency
+
  []
 
-[15] [16]
-Overfull \hbox (4.37563pt too wide) in paragraph at lines 143--144
+[17 <./img/task_replicas.pdf
+
+pdfTeX warning: pdflatex (file ./img/task_replicas.pdf): PDF inclusion: invalid
+ other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 161.
+
+[18]
+
+LaTeX Warning: Reference `eqn_overlapping' on page 19 undefined on input line 1
+83.
+
+
+Overfull \hbox (4.37563pt too wide) in paragraph at lines 183--184
 \OT1/cmr/m/n/10 computing units, where $[]$ is the decision variable (or soluti
 on) of the optimization.
  []
 
 ) (tex/metaheuristic.tex
-Overfull \hbox (1.05605pt too wide) in paragraph at lines 237--1
+Overfull \hbox (1.05605pt too wide) in paragraph at lines 277--1
 []\OT1/cmr/m/n/10 In the next section, we discuss our proposed method to addres
 s the considered
  []
 
-[17]
+[19]
 
-Package natbib Warning: Citation `bibid' on page 18 undefined on input line 4.
+Package natbib Warning: Citation `bibid' on page 20 undefined on input line 4.
 
 
-Package natbib Warning: Citation `bibid' on page 18 undefined on input line 4.
+Package natbib Warning: Citation `bibid' on page 20 undefined on input line 4.
 
 
 Overfull \hbox (10.19505pt too wide) in paragraph at lines 4--5
@@ -1914,80 +1956,98 @@ less, the solutions
  []
 
 
-Overfull \hbox (6.91615pt too wide) in paragraph at lines 6--7
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 10.
+
+[20]
+Overfull \hbox (6.91615pt too wide) in paragraph at lines 22--23
 []\OT1/cmr/m/n/10 A meta-heuristic algorithm comprises two major parts: solutio
 n representation
  []
 
 
-Overfull \hbox (0.13019pt too wide) in paragraph at lines 6--7
+Overfull \hbox (0.13019pt too wide) in paragraph at lines 22--23
 \OT1/cmr/m/n/10 and violates less constraints is indicated by a lower fitness v
 alue. In the following,
  []
 
-[18]
-Overfull \hbox (0.40302pt too wide) in paragraph at lines 57--66
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 70.
+
+[21]
+Overfull \hbox (0.40302pt too wide) in paragraph at lines 83--85
 []\OT1/cmr/m/n/10 The fitness function $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : []
  \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \OT1/cmr/m/n/10 is a type of objective fun
 ction that summerizes
  []
 
 
-Overfull \hbox (4.158pt too wide) in paragraph at lines 78--85
+Overfull \hbox (19.83398pt too wide) in paragraph at lines 86--93
+\OT1/cmr/m/n/10 that solution $[][]$ slightly violates only one constraint, whe
+reas solution $[][]$ significantly
+ []
+
+
+Overfull \hbox (4.158pt too wide) in paragraph at lines 86--93
 \OT1/cmr/m/n/10 violates multiple constraints. If the heuristic algorithm can p
 erceive the difference
  []
 
 
-Overfull \hbox (3.48566pt too wide) in paragraph at lines 86--89
+LaTeX Warning: Reference `sec_penaltyfunction' on page 22 undefined on input li
+ne 96.
+
+
+Overfull \hbox (3.48566pt too wide) in paragraph at lines 94--97
 \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 ([])$ with the constrains, represented by a s
 et of \OT1/cmr/m/it/10 penalty functions $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 [
 ]\OT1/cmr/m/n/10 ([])\OML/cmm/m/it/10 ;$
  []
 
-[19]
+[22]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 145.
-
-[20]
-Overfull \hbox (11.77739pt too wide) in paragraph at lines 193--194
-[]\OT1/cmr/m/n/10 Similar to PSO, Differential Evolution (DE) is a population-b
-ased metaheuristic
- []
+LaTeX Warning: Reference `sec:penaltycoefficient' on page 23 undefined on input
+ line 112.
 
 
-Overfull \hbox (20.13959pt too wide) in paragraph at lines 193--194
-\OT1/cmr/m/n/10 technique for the global optimization which includes non-linear
- and non-differentiable
- []
-
-
-Overfull \hbox (9.72289pt too wide) in paragraph at lines 195--196
-\OT1/cmr/m/n/10 selection according to the formulas shown in Equation , (33[]),
- and (34[]), respectively.
- []
-
-[21]
-Overfull \hbox (17.6384pt too wide) in paragraph at lines 214--215
+Overfull \hbox (17.6384pt too wide) in paragraph at lines 181--182
 []\OT1/cmr/m/n/10 The canonical PSO technique uses the constriction factors to 
 balance exploitation
  []
 
 
-Overfull \hbox (12.54584pt too wide) in paragraph at lines 216--217
+Overfull \hbox (12.54584pt too wide) in paragraph at lines 183--184
 \OT1/cmr/m/n/10 when hybridized with DE on constrained, discrete, large benchma
 rks. Furthermore,
  []
 
+[23]
+Overfull \hbox (11.77739pt too wide) in paragraph at lines 226--227
+[]\OT1/cmr/m/n/10 Similar to PSO, Differential Evolution (DE) is a population-b
+ased metaheuristic
+ []
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 259.
+
+Overfull \hbox (20.13959pt too wide) in paragraph at lines 226--227
+\OT1/cmr/m/n/10 technique for the global optimization which includes non-linear
+ and non-differentiable
+ []
+
+
+Overfull \hbox (9.72289pt too wide) in paragraph at lines 228--229
+\OT1/cmr/m/n/10 selection according to the formulas shown in Equation , (34[]),
+ and (35[]), respectively.
+ []
+
+[24]
+
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 249.
 
 
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 259.
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 249.
 
 
-[22]) (tex/evaluation.tex
+) (tex/evaluation.tex
 Overfull \hbox (17.69505pt too wide) in paragraph at lines 2--3
 \OT1/cmr/m/n/10 The software-application specifications consist of the number o
 f software components
@@ -2001,7 +2061,7 @@ cmm/m/it/10 g$\OT1/cmr/m/n/10 . The specifications are synthesized
  []
 
 
-LaTeX Warning: Reference `tbl_appsspec' on page 23 undefined on input line 4.
+LaTeX Warning: Reference `tbl_appsspec' on page 25 undefined on input line 4.
 
 
 Overfull \hbox (13.16737pt too wide) in paragraph at lines 4--22
@@ -2009,22 +2069,29 @@ Overfull \hbox (13.16737pt too wide) in paragraph at lines 4--22
 varying the parameters
  []
 
+[25]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 41.
+
+("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
+/omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
 
 Underfull \hbox (badness 3568) in paragraph at lines 41--41
-[]\OT1/cmr/m/n/8 Table 5: |Ranges of Values for
+[]\OT1/cmr/m/n/8 Table 6: |Ranges of Values for
  []
 
 
 Underfull \hbox (badness 1163) in paragraph at lines 58--58
-[]\OT1/cmr/m/n/8 Table 6: |Ranges of Values for Execution
+[]\OT1/cmr/m/n/8 Table 7: |Ranges of Values for Execution
  []
 
 
-LaTeX Warning: Reference `tbl_reqs' on page 23 undefined on input line 95.
+LaTeX Warning: Reference `tbl_reqs' on page 26 undefined on input line 95.
 
-[23]
+
 Overfull \hbox (14.62787pt too wide) in paragraph at lines 97--98
  \OT1/cmr/m/it/10 Evaluation Setup.[] \OT1/cmr/m/n/10 The evaluation is conduct
 ed on a MacBook Pro laptop comptuer,
@@ -2036,18 +2103,7 @@ Overfull \hbox (6.88957pt too wide) in paragraph at lines 100--115
 lity (or solutions
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `tbl_exec_ranges' on page 24 undefined on input line 1
-31.
-
-
-LaTeX Warning: Reference `tbl_exec_ranges' on page 24 undefined on input line 1
-31.
-
-
+[26]
 Overfull \hbox (15.9167pt too wide) in paragraph at lines 116--134
  \OT1/cmr/m/it/10 Experiment 1.[] \OT1/cmr/m/n/10 According to the specificatio
 ns of the range discussed, we synthesized
@@ -2065,84 +2121,78 @@ Overfull \hbox (14.08397pt too wide) in paragraph at lines 116--134
  power-consumption
  []
 
-[24] (tex/evaluation_result_computationtime.tex
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 3.
-
-)
-Overfull \hbox (9.41728pt too wide) in paragraph at lines 172--174
-[]\OT1/cmr/m/n/10 Table 9[] shows a summary of the evaluation results from exec
-uting Experiment 1
- []
-
-[25]
-
-LaTeX Warning: Reference `sub_repl_delay' on page 26 undefined on input line 17
-5.
+LaTeX Warning: Reference `sub_repl_delay' on page 27 undefined on input line 13
+4.
 
 
-Overfull \hbox (17.38907pt too wide) in paragraph at lines 175--191
+Overfull \hbox (17.38907pt too wide) in paragraph at lines 134--150
  \OT1/cmr/m/it/10 Experiment 2.[] \OT1/cmr/m/n/10 Usually the replication exert
 s heavy computation over the calculation
  []
 
 
-Overfull \hbox (5.39435pt too wide) in paragraph at lines 175--191
+Overfull \hbox (5.39435pt too wide) in paragraph at lines 134--150
 \OT1/cmr/m/n/10 optimization problems $\OML/cmm/m/it/10 c[]g[]n[]$ \OT1/cmr/m/n
 /10 and $\OML/cmm/m/it/10 c[]g[]n[]$ \OT1/cmr/m/n/10 with 2 and 3 degrees of re
 plication,
  []
 
 
-Overfull \hbox (12.00053pt too wide) in paragraph at lines 193--194
+Overfull \hbox (12.00053pt too wide) in paragraph at lines 152--153
 []\OT1/cmr/m/n/10 In this subsection, we analyze the results from experiement 1
  and 2, respectively. 
  []
 
-<img/power_consumption.pdf, id=277, 736.7525pt x 471.7625pt>
+[27] (tex/evaluation_result_computationtime.tex
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 3.
+
+)
+Overfull \hbox (14.4173pt too wide) in paragraph at lines 154--156
+[]\OT1/cmr/m/n/10 Table 11[] shows a summary of the evaluation results from exe
+cuting Experiment 1
+ []
+
+<img/power_consumption.pdf, id=363, 736.7525pt x 471.7625pt>
 File: img/power_consumption.pdf Graphic file (type pdf)
 <use img/power_consumption.pdf>
-Package pdftex.def Info: img/power_consumption.pdf  used on input line 200.
+Package pdftex.def Info: img/power_consumption.pdf  used on input line 162.
 (pdftex.def)             Requested size: 345.0pt x 220.90776pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<img/time_summary.pdf, id=278, 795.97375pt x 491.8375pt>
+[28] [29]
+<img/time_summary.pdf, id=370, 795.97375pt x 491.8375pt>
 File: img/time_summary.pdf Graphic file (type pdf)
 <use img/time_summary.pdf>
-Package pdftex.def Info: img/time_summary.pdf  used on input line 208.
+Package pdftex.def Info: img/time_summary.pdf  used on input line 170.
 (pdftex.def)             Requested size: 345.0pt x 213.17458pt.
-[26] [27]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (8.1303pt too wide) in paragraph at lines 213--214
+Overfull \hbox (8.1303pt too wide) in paragraph at lines 175--176
 \OT1/cmr/m/n/10 enables exploration of higher dimenstional problems possible. H
 owever, somestime
  []
 
-[28 <./img/power_consumption.pdf>]
-<img/chains_replication_improvements.pdf, id=314, 361.35pt x 217.81375pt>
+[30 <./img/power_consumption.pdf>]
+<img/chains_replication_improvements.pdf, id=400, 361.35pt x 217.81375pt>
 File: img/chains_replication_improvements.pdf Graphic file (type pdf)
 <use img/chains_replication_improvements.pdf>
 Package pdftex.def Info: img/chains_replication_improvements.pdf  used on input
- line 221.
+ line 183.
 (pdftex.def)             Requested size: 241.49895pt x 145.57217pt.
-) (tex/relatedwork.tex
+ [31 <./img/time_summary.pdf>])
+(tex/relatedwork.tex
 Overfull \hbox (25.97287pt too wide) in paragraph at lines 2--3
 []\OT1/cmr/m/n/10 In a heterogeneous distributed system where computing nodes a
 nd communications
  []
 
-[29 <./img/time_summary.pdf>]
+
 Overfull \hbox (3.66731pt too wide) in paragraph at lines 4--5
 \OT1/cmr/m/n/10 design approach, redundancy (or replication) of software or har
 dware components
  []
 
-) (tex/conclusion.tex
+[32 <./img/chains_replication_improvements.pdf>]) (tex/conclusion.tex
 Overfull \hbox (18.19508pt too wide) in paragraph at lines 8--1
 \OT1/cmr/m/n/10 reliability of a distributed system subject to real-time requir
 ements of the automotive
@@ -2160,7 +2210,7 @@ Overfull \hbox (16.1951pt too wide) in paragraph at lines 8--1
 ent power consumption,
  []
 
-[30 <./img/chains_replication_improvements.pdf>]
+
 Overfull \hbox (1.8525pt too wide) in paragraph at lines 2--3
 \OT1/cmr/m/n/10 of distributed and safety-critical embedded systems. Effective 
 software allocation
@@ -2184,7 +2234,7 @@ Overfull \hbox (10.80627pt too wide) in paragraph at lines 6--7
 mplex applications.
  []
 
-) [31] (main.bbl
+[33]) (main.bbl
 Underfull \hbox (badness 1048) in paragraph at lines 37--43
 \OT1/cmr/m/n/10 for Mapping AUTOSAR Runnables on Multi-core Architectures, in:
  []
@@ -2215,7 +2265,7 @@ Underfull \hbox (badness 4266) in paragraph at lines 52--57
 \OT1/cmr/m/n/10 Vehicular Embedded Systems, IEEE Access 6 (2018) 6424--6445.
  []
 
-[32]
+[34]
 Underfull \hbox (badness 1325) in paragraph at lines 86--93
 \OT1/cmr/m/n/10 Polynomials, Computers as Components (2010) 528doi:10.1088/1751
 -
@@ -2248,7 +2298,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--129
 \OT1/cmr/m/n/10 World Scientific Publishing Company (June 29, 2017), 2017.
  []
 
-
+[35]
 Underfull \hbox (badness 1895) in paragraph at lines 142--149
 \OT1/cmr/m/n/10 real-time systems, in: Proceedings 19th IEEE Real-Time Systems
  []
@@ -2258,7 +2308,7 @@ Underfull \hbox (badness 3118) in paragraph at lines 142--149
 \OT1/cmr/m/n/10 Symposium (Cat. No.98CB36279), IEEE Comput. Soc, pp. 4--13.
  []
 
-[33]
+
 Underfull \hbox (badness 1755) in paragraph at lines 151--156
 \OT1/cmr/m/n/10 T. Nolte, Designing end-to-end resource reservations in predict
 able
@@ -2270,7 +2320,7 @@ Underfull \hbox (badness 4673) in paragraph at lines 183--187
 in / user _ upload / standards /
  []
 
-
+[36]
 Underfull \hbox (badness 5446) in paragraph at lines 207--213
 \OT1/cmr/m/n/10 R. B. Brown, MiBench: A Free, Commercially Representative
  []
@@ -2280,7 +2330,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--213
 \OT1/cmr/m/n/10 on Workload Characterization, WWC 2001, 2001, pp. 3--14.
  []
 
-[34]
+
 Underfull \hbox (badness 1874) in paragraph at lines 219--224
 []\OT1/cmr/m/n/10 C. Lucet, J.-F. Manouvrier, Exact Methods to Compute Network
  []
@@ -2318,7 +2368,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 274--281
 cience / article / pii /
  []
 
-
+[37]
 Underfull \hbox (badness 3492) in paragraph at lines 283--288
 []\OT1/cmr/m/n/10 N. Mahmud, G. Rodriguez-Navas, H. R. Faragardi, S. Mubeen,
  []
@@ -2329,24 +2379,24 @@ Underfull \hbox (badness 4316) in paragraph at lines 283--288
 te
  []
 
-[35]
+
 Underfull \hbox (badness 1521) in paragraph at lines 311--315
 \OT1/cmr/m/n/10 for Distributed Embedded Systems under Reliability and Real-tim
 e
  []
 
-
+[38]
 Underfull \hbox (badness 1237) in paragraph at lines 340--344
 \OT1/cmr/m/n/10 Real-Time Distributed Computing, 2006. ISORC 2006. Ninth IEEE
  []
 
-[36])
+)
 
 Package natbib Warning: There were undefined citations.
 
 
 AED: lastpage setting LastPage
-[37] (main.aux)
+[39] (main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2356,16 +2406,16 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 199 ({)
+### simple group (level 1) entered at line 71 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 40425 strings out of 494865
- 924489 string characters out of 3176629
- 1040950 words of memory out of 3000000
- 43434 multiletter control sequences out of 15000+200000
- 543230 words of font info for 65 fonts, out of 3000000 for 9000
+ 40480 strings out of 494865
+ 925207 string characters out of 3176629
+ 1041192 words of memory out of 3000000
+ 43488 multiletter control sequences out of 15000+200000
+ 543226 words of font info for 65 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 62i,18n,96p,1937b,629s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,96p,1937b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
  </Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/f
 onts/pk/ljfour/jknappen/ec/dpi600/tcbx1000.pk> </Users/nmd02/Library/Applicatio
 n Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk></U
@@ -2374,47 +2424,47 @@ sers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
 /install/fonts/type1/public/amsfonts/cm/cmbx6.pfb></Users/nmd02/Library/Applica
 tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx7.pfb></U
 sers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
-/amsfonts/cm/cmbx8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/
-install/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/nmd02/Library/Applicat
-ion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></U
-sers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
-/amsfonts/cmextra/cmex9.pfb></Users/nmd02/Library/Application Support/MiKTeX/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/nmd02/Library/Ap
-plication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pf
+/amsfonts/cm/cmbx9.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/
+install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/nmd02/Library/Applica
+tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cmextra/cmex9.pf
 b></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/p
-ublic/amsfonts/cm/cmmi6.pfb></Users/nmd02/Library/Application Support/MiKTeX/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/nmd02/Library/App
-lication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+ublic/amsfonts/cm/cmmi10.pfb></Users/nmd02/Library/Application Support/MiKTeX/t
+exmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/nmd02/Library/Ap
+plication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb></Users/nmd02/Library/Application Support/MiKTeX/te
+xmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/nmd02/Library/App
+lication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb
 ></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pu
-blic/amsfonts/cm/cmmi9.pfb></Users/nmd02/Library/Application Support/MiKTeX/tex
-mfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/nmd02/Library/Appl
-ication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-</Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pub
-lic/amsfonts/cm/cmr5.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmf
-s/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></Users/nmd02/Library/Applica
-tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Us
-ers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/
-amsfonts/cm/cmr8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/in
-stall/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/nmd02/Library/Application
- Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></User
+blic/amsfonts/cm/cmr10.pfb></Users/nmd02/Library/Application Support/MiKTeX/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/nmd02/Library/Appl
+ication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb><
+/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs
+/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/nmd02/Library/Applicat
+ion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Use
+rs/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmr9.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/ins
+tall/fonts/type1/public/amsfonts/cm/cmss10.pfb></Users/nmd02/Library/Applicatio
+n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Use
+rs/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmsy5.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/in
+stall/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/nmd02/Library/Applicatio
+n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></User
 s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmsy5.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/nmd02/Library/Application
- Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users
-/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/ams
-fonts/cm/cmsy8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmsy9.pfb></Users/nmd02/Library/Application 
-Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users
-/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/ams
-fonts/cm/cmti8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/Application
- Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></Users
-/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/ams
-fonts/symbols/msam10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmf
-s/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (37 pages, 875170 bytes).
+sfonts/cm/cmsy8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/ins
+tall/fonts/type1/public/amsfonts/cm/cmsy9.pfb></Users/nmd02/Library/Application
+ Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></User
+s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
+sfonts/cm/cmti8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/ins
+tall/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/Applicatio
+n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></User
+s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texm
+fs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (39 pages, 942541 bytes).
 PDF statistics:
- 492 PDF objects out of 1000 (max. 8388607)
+ 577 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

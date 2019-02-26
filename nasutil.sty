@@ -19,7 +19,6 @@
 \newcommand{\east}[0]{{\sc EAST-ADL}\xspace}
 
 
-
 % Theorems
 \newtheorem{remarkex}{Remark}
 \newtheorem{remarkreq}{Remark}
@@ -85,35 +84,46 @@ Contribution \therccounter}
 {\end{center}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% SPECIFIC %%%%%%%%%%%%%%%%%%%%%
-% Application
-\newcommand{\A}[1][k]{A_{#1}}
-\newcommand{\ttA}[1][k]{$A_{#1}$ }
+% application
+
+\newcommand{\ar}[1][k]{a_{#1}}
+\newcommand{\at}[1][k]{b_{#1}}
+\newcommand{\ttar}[1][k]{$a_{#1} $ }
+\newcommand{\ttat}[1][k]{$b_{#1} $ }
+\newcommand{\arx}[1][k]{a_{#1}(\x)}
+\newcommand{\atx}[1][k]{b_{#1}(\x)}
+\newcommand{\ttarx}[1][k]{$a_{#1}(\x) $ }
+\newcommand{\ttatx}[1][k]{$b_{#1}(\x) $ }
+
+%% Graphs
+\newcommand{\ttgr}[2][V]{$\mathcal{#1}(#2)$}
+\newcommand{\gr}[2]{\mathcal{#1}(#2)}
 
 \newcommand{\rel}{Reliability}
 \newcommand{\rst}{ResponseTime}
 \newcommand{\ete}{EndToEnd}
 
 %% Matrix
-\newcommand{\xk}[1][k]{\textbf{x}^{(A_#1)}}
-\newcommand{\ttxk}[1][k]{$\textbf{x}^{(A_#1)}$}
+\newcommand{\xk}[1][k]{\textbf{x}^{a_#1}}
+\newcommand{\ttxk}[1][k]{$\textbf{x}^{a_#1}$}
 
 %% Solution x - bold
 \newcommand{\ttx}{$\textbf{x}$ }
 \newcommand{\x}{\textbf{x}}
 %% Solution x^k - bold
 \newcommand{\ttxsp}[1]{$\textbf{x}^{(#1)}$}
-\newcommand{\xsp}[1]{\textbf{x}^{(#1)}}
+\newcommand{\xsp}[1]{\textbf{x}^{#1}}
 
 \newcommand{\sbx}[2][x]{$#1_{#2}$}
-\newcommand{\spx}[2][x]{$#1^{(A_#2)}$}
+\newcommand{\spx}[2][x]{$#1^{a_#2}$}
 
 %% Solution: text mode
-\newcommand{\ttxkij}{$x^{(k)}_{ij}$}
-\newcommand{\ttssx}[3]{$#1^{(A_#2)}_{#3}$}
-\newcommand{\ttbspx}[1]{$\textbf{x}^{(A_#1)}$}
+\newcommand{\ttxkij}{$x^{a_k}_{ij}$}
+\newcommand{\ttssx}[3]{$#1^{(a_#2)}_{#3}$}
+\newcommand{\ttbspx}[1]{$\textbf{x}^{a_#1}$}
 
 %% Solution: math mode
-\newcommand{\xkij}{x^{(k)}_{ij}}
+\newcommand{\xkij}{x^{b_k}_{ij}}
 %\newcommand{\ttxkij}{$x^{(k)}_{ij}$}
 \newcommand{\ssx}[3][x]{#1^{(#2)}_{#3}}
 \newcommand{\bspx}[1]{\textbf{x}^{(#1)}}
@@ -122,30 +132,30 @@ Contribution \therccounter}
 \newcommand{\n}[1]{n_{#1}}
 \newcommand{\ttn}[1]{$n_{#1}$}
 %% sets: math mode
-\NewDocumentCommand{\sss}{m O{k} O{i}}{#1^{({A_#2})}_{#3}}
-\NewDocumentCommand{\ssp}{m O{k}}{#1^{(A_#2)}}
+\NewDocumentCommand{\sss}{m O{k} O{i} O{a}}{#1^{#4_#2}_{#3}}
+\NewDocumentCommand{\ssp}{m O{k} O{a}}{#1^{#3_#2}}
 \NewDocumentCommand{\ssb}{m O{i}}{#1_{#2}}
 %% sets: text mode
-\NewDocumentCommand{\ttsss}{m O{k} O{i}}{$#1^{({#2})}_{#3}$}
-\NewDocumentCommand{\ttssp}{m O{k}}{$#1^{(A_#2)}$}
+\NewDocumentCommand{\ttsss}{m O{k} O{i} O{a}}{$#1^{(#4_#2)}_{#3}$}
+\NewDocumentCommand{\ttssp}{m O{k} O{a}}{$#1^{(#3_#2)}$}
 \NewDocumentCommand{\ttssb}{m O{i}}{$#1_{#2}$}
 
 %% set expressions
 %set +  expression, e.g.,
 \NewDocumentCommand{\ttsexp}{m m O{i}}{$#1=\{#2_{#3}: #3=1,\dots, n_#1\}$ }%set
-\NewDocumentCommand{\sexp}{m m O{i}}{#1=\{#2_{#3}: #3=1,\dots, n_#1\} }%set
+\NewDocumentCommand{\sexp}{m m O{i}}{#1=\{#2_{#3}: #3=1,\dots, n_{#1}\} }%set
 %set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
 %\NewDocumentCommand{\sexpsp}{m m O{i}}{$#1=\{#2^{(k)}: #3=1,\dots, n_#1\}$ }
 %set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
-\NewDocumentCommand{\sexpsp}{m O{k} m O{i}}{$#1^{(#2)}=\{#3^{(#2)}_{#4}: #4=1,\dots, n_#1\}$  }
+\NewDocumentCommand{\sexpsp}{m O{k} m O{i}}{$#1^{a_#2}=\{#3^{a_#2}_{#4}: #4=1,\dots, n_#1\}$  }
 %set + superscript + + subscript + expression, e.g., Q^(k)_i={q_ij^(k): j=1,...,N_Q_i}
-\NewDocumentCommand{\sexpss}{m O{i} m O{j}}{$#1^{(k)}_{#2}=\{#3^{(k)}_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
+\NewDocumentCommand{\sexpss}{m O{i} m O{j}}{$#1^{a_k}_{#2}=\{#3^{a_k}_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
 
 
 
 %%%%%%%
-\newcommand{\sspxx}[3][k]{$#2^{(#1)}=\{#3^{(#1)}: #1=1,\dots, N_#2\}$  }%set of elements with superscript
-\newcommand{\ssbxx}[3][k]{$#2_{(#1)}=\{#3_{(#1)}: #1=1,\dots, N_#2\}$  }%set of elements with subscript
+\newcommand{\sspxx}[3][k]{$#2^{(#1)}=\{#3^{(a_#1)}: #1=1,\dots, N_#2\}$  }%set of elements with superscript
+\newcommand{\ssbxx}[3][k]{$#2_{(#1)}=\{#3_{(a_#1)}: #1=1,\dots, N_#2\}$  }%set of elements with subscript
 \newcommand{\sssxx}[4][k]{$#3_{#2}=\{#4^{(#1)}_{#2}: #2=1,\dots, N_#3\}$  }%set of elements with subscript + superscript
 %\newcommand{\sssExp}[2][#2]{$#1=\{#1^{(k)}_{#3}: #3=1,\dots, N_#2\}$  }%set of sets with subscript + superscript
 \NewDocumentCommand{\pb}{m m m}{$c_{#1}g_{#2}n_{#3}$}
