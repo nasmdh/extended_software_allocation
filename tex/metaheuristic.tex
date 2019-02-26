@@ -136,6 +136,50 @@ where $\beta_1$ to $\beta_4$ are penalty coefficients used to tune the weight of
 
 \subsection{Penalty Coefficients}
 \label{sec:penaltycoefficient}
+To calculate the value of the penalty coefficient ($\beta_1 to \beta_4$) we use the same analytical approach proposed in[cite to faragardi2018efficient]
+%@article{faragardi2018efficient,
+%  title={An efficient placement of sinks and SDN controller nodes for optimizing the design cost of industrial IoT systems},
+%  author={Faragardi, Hamid Reza and Vahabi, Maryam and Fotouhi, Hossein and Nolte, Thomas and Fahringer, Thomas},
+%  journal={Software: Practice and Experience},
+%  volume={48},
+%  number={10},
+%  pages={1893--1919},
+%  year={2018},
+%  publisher={Wiley Online Library}
+%}
+where the value of each penalty coefficient determined separately with respect to the relative proportion of the range of the penalty function to the range of the objective function (which is P(x) in our problem). Indeed, the penalty coefficient should be determined such that all the feasible solutions have a lower fitness value in comparison to infeasible solutions, meaning that all the feasible solutions are always preferred to an infeasible solution~\cite{faragardi2018JSS}. On the other hand, the penalty coefficient should not be extremely large since it hinders the search algorithm to search among infeasible solutions to find a way to reach the global optimum~\cite{talbi2009metaheuristics}.
+
+To calculate the minimum value of $\beta_1$ we consider two solutions for the problem. Solution 1 has the best power consumption (denoted by $P^{min}$) while it just infinitesimally violates the reliability constraint. Solution 2 has the worst possible value of $P(x)$ (denoted by $P^{max}$), while it satisfies the reliability constraint. We expect that Solution 2 has a lower fitness value than that of solution 1. Accordingly,
+
+\begin{equation}
+\label{eq:PnelatyMem1}
+P^{min} + \beta_1 \times Min\{Penalty Value\} > P^{max} + 0
+\end{equation}  
+Let us assume that (i) $P^{min} = 0$, (ii) $P^{max}$ is set equal to the total power consumption of all nodes when they are fully utilized, and (iii) $Min\{Penalty Value\} = 10^{-8}$ which is the minimum value of $\phi_{reliability}$ in an unfeasible solution. Hence,
+
+\begin{equation}
+\label{eq:PnelatyMem2}
+\beta_1 > 10^8 \times P^{max}
+\end{equation}  
+
+Our experiments also verify this theoretical discussion. We observed that when $\beta_1 = 10^8 \times P^{max}$, we always converge to a feasible solution and when it is set to a lower value, in some experiments, we converge to an infeasible solution. We also observed that when $\beta_1$ is set to a significantly higher value, the deviation from the best fitness value found in multiple experiments goes up, and the average fitness value is increased, thereby, the quality of the solutions is decreased.
+
+Similarly, for the other penalty coefficients we use these calculations which result in
+\begin{equation}
+\label{}
+  \beta_2 > 1 \times P^{max}  
+\end{equation}
+
+\begin{equation}
+\label{}
+    \beta_3 > 1 \times P^{max}
+\end{equation}
+
+\begin{equation}
+\label{}
+    \beta_4 > 1 \times P^{max}
+\end{equation}
+It should be noted that the minimum violation of $\phi_{deadline}$, $\phi_{e2e}$, and $\phi_{rep}$ is one.
 
 \subsection{Metaheuristic Algorithms}
 \subsubsection{Particle Swarm Optimization}
