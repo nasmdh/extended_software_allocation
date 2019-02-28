@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  26 FEB 2019 00:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  26 FEB 2019 10:29
 entering extended mode
 **./main.tex
 (main.tex
@@ -1959,45 +1959,45 @@ less, the solutions
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 10.
 
 [20]
-Overfull \hbox (6.91615pt too wide) in paragraph at lines 22--23
+Overfull \hbox (6.91615pt too wide) in paragraph at lines 21--22
 []\OT1/cmr/m/n/10 A meta-heuristic algorithm comprises two major parts: solutio
 n representation
  []
 
 
-Overfull \hbox (0.13019pt too wide) in paragraph at lines 22--23
+Overfull \hbox (0.13019pt too wide) in paragraph at lines 21--22
 \OT1/cmr/m/n/10 and violates less constraints is indicated by a lower fitness v
 alue. In the following,
  []
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 70.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 69.
 
 [21]
-Overfull \hbox (0.40302pt too wide) in paragraph at lines 83--85
+Overfull \hbox (0.40302pt too wide) in paragraph at lines 82--84
 []\OT1/cmr/m/n/10 The fitness function $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : []
  \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R$ \OT1/cmr/m/n/10 is a type of objective fun
 ction that summerizes
  []
 
 
-Overfull \hbox (19.83398pt too wide) in paragraph at lines 86--93
+Overfull \hbox (19.83398pt too wide) in paragraph at lines 85--92
 \OT1/cmr/m/n/10 that solution $[][]$ slightly violates only one constraint, whe
 reas solution $[][]$ significantly
  []
 
 
-Overfull \hbox (4.158pt too wide) in paragraph at lines 86--93
+Overfull \hbox (4.158pt too wide) in paragraph at lines 85--92
 \OT1/cmr/m/n/10 violates multiple constraints. If the heuristic algorithm can p
 erceive the difference
  []
 
 
 LaTeX Warning: Reference `sec_penaltyfunction' on page 22 undefined on input li
-ne 96.
+ne 95.
 
 
-Overfull \hbox (3.48566pt too wide) in paragraph at lines 94--97
+Overfull \hbox (3.48566pt too wide) in paragraph at lines 93--96
 \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 ([])$ with the constrains, represented by a s
 et of \OT1/cmr/m/it/10 penalty functions $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 [
 ]\OT1/cmr/m/n/10 ([])\OML/cmm/m/it/10 ;$
@@ -2005,46 +2005,57 @@ et of \OT1/cmr/m/it/10 penalty functions $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 [
 
 [22]
 
-LaTeX Warning: Reference `sec:penaltycoefficient' on page 23 undefined on input
- line 112.
+Package natbib Warning: Citation `faragardi2018JSS' on page 23 undefined on inp
+ut line 144.
 
 
-Overfull \hbox (17.6384pt too wide) in paragraph at lines 181--182
+Package natbib Warning: Citation `talbi2009metaheuristics' on page 23 undefined
+ on input line 144.
+
+
+Overfull \hbox (24.14378pt too wide) in paragraph at lines 151--153
+\OT1/cmr/m/n/10 consumption of all nodes when they are fully utilized, and (iii
+) $\OML/cmm/m/it/10 Min\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 PenaltyValue\OMS/cmsy
+/m/n/10 g \OT1/cmr/m/n/10 =
+ []
+
+[23]
+Overfull \hbox (17.6384pt too wide) in paragraph at lines 228--229
 []\OT1/cmr/m/n/10 The canonical PSO technique uses the constriction factors to 
 balance exploitation
  []
 
 
-Overfull \hbox (12.54584pt too wide) in paragraph at lines 183--184
+Overfull \hbox (12.54584pt too wide) in paragraph at lines 230--231
 \OT1/cmr/m/n/10 when hybridized with DE on constrained, discrete, large benchma
 rks. Furthermore,
  []
 
-[23]
-Overfull \hbox (11.77739pt too wide) in paragraph at lines 226--227
+[24]
+Overfull \hbox (11.77739pt too wide) in paragraph at lines 273--274
 []\OT1/cmr/m/n/10 Similar to PSO, Differential Evolution (DE) is a population-b
 ased metaheuristic
  []
 
 
-Overfull \hbox (20.13959pt too wide) in paragraph at lines 226--227
+Overfull \hbox (20.13959pt too wide) in paragraph at lines 273--274
 \OT1/cmr/m/n/10 technique for the global optimization which includes non-linear
  and non-differentiable
  []
 
 
-Overfull \hbox (9.72289pt too wide) in paragraph at lines 228--229
-\OT1/cmr/m/n/10 selection according to the formulas shown in Equation , (34[]),
- and (35[]), respectively.
+Overfull \hbox (9.72289pt too wide) in paragraph at lines 275--276
+\OT1/cmr/m/n/10 selection according to the formulas shown in Equation , (39[]),
+ and (40[]), respectively.
  []
 
-[24]
+[25]
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 249.
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 296.
 
 
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 249.
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 296.
 
 
 ) (tex/evaluation.tex
@@ -2061,7 +2072,7 @@ cmm/m/it/10 g$\OT1/cmr/m/n/10 . The specifications are synthesized
  []
 
 
-LaTeX Warning: Reference `tbl_appsspec' on page 25 undefined on input line 4.
+LaTeX Warning: Reference `tbl_appsspec' on page 26 undefined on input line 4.
 
 
 Overfull \hbox (13.16737pt too wide) in paragraph at lines 4--22
@@ -2069,7 +2080,7 @@ Overfull \hbox (13.16737pt too wide) in paragraph at lines 4--22
 varying the parameters
  []
 
-[25]
+[26]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 41.
 
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
@@ -2089,7 +2100,7 @@ Underfull \hbox (badness 1163) in paragraph at lines 58--58
  []
 
 
-LaTeX Warning: Reference `tbl_reqs' on page 26 undefined on input line 95.
+LaTeX Warning: Reference `tbl_reqs' on page 27 undefined on input line 95.
 
 
 Overfull \hbox (14.62787pt too wide) in paragraph at lines 97--98
@@ -2103,7 +2114,7 @@ Overfull \hbox (6.88957pt too wide) in paragraph at lines 100--115
 lity (or solutions
  []
 
-[26]
+[27]
 Overfull \hbox (15.9167pt too wide) in paragraph at lines 116--134
  \OT1/cmr/m/it/10 Experiment 1.[] \OT1/cmr/m/n/10 According to the specificatio
 ns of the range discussed, we synthesized
@@ -2122,7 +2133,7 @@ Overfull \hbox (14.08397pt too wide) in paragraph at lines 116--134
  []
 
 
-LaTeX Warning: Reference `sub_repl_delay' on page 27 undefined on input line 13
+LaTeX Warning: Reference `sub_repl_delay' on page 28 undefined on input line 13
 4.
 
 
@@ -2144,7 +2155,7 @@ Overfull \hbox (12.00053pt too wide) in paragraph at lines 152--153
  and 2, respectively. 
  []
 
-[27] (tex/evaluation_result_computationtime.tex
+[28] (tex/evaluation_result_computationtime.tex
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 3.
@@ -2155,13 +2166,13 @@ Overfull \hbox (14.4173pt too wide) in paragraph at lines 154--156
 cuting Experiment 1
  []
 
-<img/power_consumption.pdf, id=363, 736.7525pt x 471.7625pt>
+<img/power_consumption.pdf, id=366, 736.7525pt x 471.7625pt>
 File: img/power_consumption.pdf Graphic file (type pdf)
 <use img/power_consumption.pdf>
 Package pdftex.def Info: img/power_consumption.pdf  used on input line 162.
 (pdftex.def)             Requested size: 345.0pt x 220.90776pt.
-[28] [29]
-<img/time_summary.pdf, id=370, 795.97375pt x 491.8375pt>
+[29] [30]
+<img/time_summary.pdf, id=373, 795.97375pt x 491.8375pt>
 File: img/time_summary.pdf Graphic file (type pdf)
 <use img/time_summary.pdf>
 Package pdftex.def Info: img/time_summary.pdf  used on input line 170.
@@ -2172,14 +2183,14 @@ Overfull \hbox (8.1303pt too wide) in paragraph at lines 175--176
 owever, somestime
  []
 
-[30 <./img/power_consumption.pdf>]
-<img/chains_replication_improvements.pdf, id=400, 361.35pt x 217.81375pt>
+[31 <./img/power_consumption.pdf>]
+<img/chains_replication_improvements.pdf, id=404, 361.35pt x 217.81375pt>
 File: img/chains_replication_improvements.pdf Graphic file (type pdf)
 <use img/chains_replication_improvements.pdf>
 Package pdftex.def Info: img/chains_replication_improvements.pdf  used on input
  line 183.
 (pdftex.def)             Requested size: 241.49895pt x 145.57217pt.
- [31 <./img/time_summary.pdf>])
+ [32 <./img/time_summary.pdf>])
 (tex/relatedwork.tex
 Overfull \hbox (25.97287pt too wide) in paragraph at lines 2--3
 []\OT1/cmr/m/n/10 In a heterogeneous distributed system where computing nodes a
@@ -2192,7 +2203,7 @@ Overfull \hbox (3.66731pt too wide) in paragraph at lines 4--5
 dware components
  []
 
-[32 <./img/chains_replication_improvements.pdf>]) (tex/conclusion.tex
+[33 <./img/chains_replication_improvements.pdf>]) (tex/conclusion.tex
 Overfull \hbox (18.19508pt too wide) in paragraph at lines 8--1
 \OT1/cmr/m/n/10 reliability of a distributed system subject to real-time requir
 ements of the automotive
@@ -2234,7 +2245,7 @@ Overfull \hbox (10.80627pt too wide) in paragraph at lines 6--7
 mplex applications.
  []
 
-[33]) (main.bbl
+[34]) (main.bbl
 Underfull \hbox (badness 1048) in paragraph at lines 37--43
 \OT1/cmr/m/n/10 for Mapping AUTOSAR Runnables on Multi-core Architectures, in:
  []
@@ -2265,7 +2276,7 @@ Underfull \hbox (badness 4266) in paragraph at lines 52--57
 \OT1/cmr/m/n/10 Vehicular Embedded Systems, IEEE Access 6 (2018) 6424--6445.
  []
 
-[34]
+[35]
 Underfull \hbox (badness 1325) in paragraph at lines 86--93
 \OT1/cmr/m/n/10 Polynomials, Computers as Components (2010) 528doi:10.1088/1751
 -
@@ -2298,7 +2309,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--129
 \OT1/cmr/m/n/10 World Scientific Publishing Company (June 29, 2017), 2017.
  []
 
-[35]
+[36]
 Underfull \hbox (badness 1895) in paragraph at lines 142--149
 \OT1/cmr/m/n/10 real-time systems, in: Proceedings 19th IEEE Real-Time Systems
  []
@@ -2320,7 +2331,7 @@ Underfull \hbox (badness 4673) in paragraph at lines 183--187
 in / user _ upload / standards /
  []
 
-[36]
+[37]
 Underfull \hbox (badness 5446) in paragraph at lines 207--213
 \OT1/cmr/m/n/10 R. B. Brown, MiBench: A Free, Commercially Representative
  []
@@ -2368,7 +2379,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 274--281
 cience / article / pii /
  []
 
-[37]
+[38]
 Underfull \hbox (badness 3492) in paragraph at lines 283--288
 []\OT1/cmr/m/n/10 N. Mahmud, G. Rodriguez-Navas, H. R. Faragardi, S. Mubeen,
  []
@@ -2385,7 +2396,7 @@ Underfull \hbox (badness 1521) in paragraph at lines 311--315
 e
  []
 
-[38]
+[39]
 Underfull \hbox (badness 1237) in paragraph at lines 340--344
 \OT1/cmr/m/n/10 Real-Time Distributed Computing, 2006. ISORC 2006. Ninth IEEE
  []
@@ -2396,7 +2407,7 @@ Package natbib Warning: There were undefined citations.
 
 
 AED: lastpage setting LastPage
-[39] (main.aux)
+[40] (main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2409,10 +2420,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 71 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 40480 strings out of 494865
- 925207 string characters out of 3176629
- 1041192 words of memory out of 3000000
- 43488 multiletter control sequences out of 15000+200000
+ 40482 strings out of 494865
+ 925239 string characters out of 3176629
+ 1041225 words of memory out of 3000000
+ 43490 multiletter control sequences out of 15000+200000
  543226 words of font info for 65 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  62i,18n,96p,1937b,630s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2462,9 +2473,9 @@ n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></User
 s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
 sfonts/symbols/msam10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texm
 fs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (39 pages, 942541 bytes).
+Output written on main.pdf (40 pages, 945832 bytes).
 PDF statistics:
- 577 PDF objects out of 1000 (max. 8388607)
+ 580 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
