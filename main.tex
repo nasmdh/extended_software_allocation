@@ -1,8 +1,6 @@
 \documentclass[preprint]{elsarticle}
 
 %% Packages
-\usepackage{subcaption}
-\usepackage{graphicx}
 \usepackage{listings}
 \usepackage[cmex10]{amsmath}
 \usepackage{url}
@@ -41,10 +39,10 @@
 
 % start of the document
 \begin{document}
-
+\sloppy
 % the title, author, abstract
 \begin{frontmatter}
-\title{Power-aware Allocation of Fault-tolerant AUTOSAR Software Applications with End-to-end Constraints via Hybrid Particle Swarm Optimization}
+\title{Power-aware Allocation of Fault-tolerant AUTOSAR Systems with End-to-end Timing Constraints via Hybrid Particle Swarm Optimization}
 \input{./author}
 \input{./tex/abstract}
 \end{frontmatter}
@@ -53,10 +51,10 @@
 \input{./tex/introduction}
 \input{./tex/preliminary}
 \input{./tex/systemmodel}
-\input{./tex/extrafuncmodel}
+\input{./tex/problem}
 %\input{./tex/ilp}
 %\input{./tex/problemdefinition}
-\input{./tex/metaheuristic}
+\input{./tex/solution}
 
 \input{./tex/evaluation}
 \input{./tex/relatedwork}

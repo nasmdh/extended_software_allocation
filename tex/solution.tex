@@ -1,0 +1,299 @@
+\section{Solution using Hybrid Particle Swarm Optimization (PSO)}\label{sec_solution}
+In our previous work, we provided an ILP model for the same optimization problem, then the CPLEX solver returned optimal solutions to problems in the range \textit{small} and \textit{medim}, where the small problem refers to a software application with software components less than 10, chains less than 30, and similarly the medium problem refers to applications with components less than 15, and chains less than 40. The problems specifications are stipulated from the real automotive benchmark proposed by Kramel et al.~\cite{Kramer2015RealFree}. However, the ILP approach, as also shown for similar problems, suffered from the scalability problem of large software allocation problems. In this section, we propose a metaheuristic approach based on the particle-swarm optimization (PSO), evolutionary, differential evolution (DE), hybrid PSO with DE,  hill-climbing and stochastic hill-climbing. 
+
+Metaheuristics does not guarantee optimal solutions, nevertheless, the solutions can be good enough (or acceptable) in practice. Thus, although the power consumption of the applications may not be optimal, the solution can be deemed acceptable. PSO has been applied to solve a wide range of problems, including a task allocation problem \cite{yin2007task}, and DE is shown to scale well for problems with high dimensions. In fact, PSO and DE are used together for improved performance in several optimization problems \cite{bibid}, likewise, PSO is used with local search techniques such as Hill climbing to intensify the search \cite{bibid}. Finally, we evaluate the different meta-heuristic methods based on solution quality and computation time for different software allocation problems.
+
+\subsection{Particle Swarm Optimization}
+% What is PSO
+PSO is a population-based technique proposed by Eberhart and Kennedy in 1995 to study social behavior, as inspired by natural swarm intelligence observed from the flocking of birds and schooling of fishes \cite{Kennedy1995ParticleOptimization}. Since then, it is extended in order to address various metaheuristic optimization challenges, such as intensification, diversification, convergence analysis, local optima, parameter tuning, computation time, etc. It is successfully applied on several complex real-world problems, e.g., diagnosis and classification of diseases, efficient engineering designs, tuning control design parameters, scheduling problems, etc \cite{Poli2008AnApplications}. 
+
+In PSO, the population (or swarm) $PN=\{p_1,p_2,…,p_N\}$ is a collection of particles $p_i\in PN$, organized according to a certain population topology \cite{Liu2016TopologyOptimization}. A particle has a position $\textbf{x}$ and a velocity $\textbf{v}$, which denote current location and direction of the particle's motion, and current momentum, respectively. It is a memory-based technique, that is, it remembers the best performance of every particle as well as the best performance of the swarm $\textbf{z}$ in order to plan for the next move of the particles, where $\textbf{y},\textbf{z}$ are position vectors and have the same dimensions as $\textbf{x}$. The velocity of a particle is the resultant vector of its current velocity and the particles attraction vectors $(\textbf{y}-\textbf{x}), (\textbf{z}-\textbf{x})$, respectively, known as \textit{cognitive} and \textit{social} components of the  particle's velocity formula, as shown in Equation \ref{eqn_pso_velocity}. The attraction vectors impose force of attraction on the particle to move closer to their respective components. Thus, the next position of a particle is the resultant of its current position and its next velocity as shown in Equation (\ref{eqn_pso_position}).
+\begin{align}
+\label{eqn_pso_velocity}
+\textbf{v} &\leftarrow  \omega\textbf{v} + c_1Rand()\circ(\textbf{z}-\textbf{x}) + c_2Rand()\circ(\textbf{z}-\textbf{x})\\
+\label{eqn_pso_position}
+\textbf{x} &\leftarrow \textbf{x} + \textbf{v}
+\end{align}
+where $\omega$ is the weight of the velocity, also known as \textit{inertia coefficient}, and controls the convergence of the algorithm, $c_1, c_2$ are acceleration coefficients and controls the weight of attraction towards the cognitive and social components, respectively, $Rand()\in U(0,1)$ is a random function, along the acceleration coefficients, is element-wise multiplied with the components to improve diversity of the search by introducing stochastic behavior.
+
+Although PSO was originally proposed for continuous problem, it is applied to discrete problems successfully as well. In the latter case, the solutions are represented by \textit{0-1} integer variables \cite{KennedyAAlgorithm} or integer-linear by approximation to the nearest integer values \cite{Clerc2000DiscreteProblem}, which is the representation employed adopted in our problem as it is compact, hence fewer decision variables. Accordingly, after the new position (or candidate solution) is determined, following Equations \ref{eqn_pso_velocity} and \ref{eqn_pso_position}, the solution is discretized by rounding off the its elements to the nearest integer values, that is $\textbf{x}\leftarrow [\textbf{x}]$.
+
+A meta-heuristic algorithm comprises two major parts: solution representation and an objective function. The solution representation shows the data structure that is used to represent each point in the problem space, and it has a significant impact on the performance of the meta-heuristic algorithm. The fitness function is used to evaluate the quality of candidate solutions based on their fitness to meet the problem objectives. A solution that delivers lower power consumption and violates less constraints is indicated by a lower fitness value. In the following, we describe the solution representation and the objective function proposed in our solution framework to run the meta-heuristic algorithms. 
+
+\subsection{Solution Representation}
+The software allocation is a type of Assignment optimization problem, as such, the solutions are discrete values. There are two commonly used solution encodings (or representations) are binary (0-1) and integer. The binary variable indicates if a component is allocated to a computing node or not. In the integer representation, the variable indicate the computing-node identifier to which the component is allocated. The two representations are demonstrated in Figure~\ref{fig_solutionrep} using the example provided in Figure~\ref{fig_deployment}. 
+\begin{figure}
+	\centering
+		\begin{minipage}{.5\textwidth}
+		\centering
+				\begin{minipage}{.3\textwidth}
+				\centering
+				\begin{equation*}
+				\begin{bmatrix} 
+				1 & 0& 0\\
+				0 & 1& 0\\
+				1 &  1& 0\\
+				\end{bmatrix}
+				\end{equation*}
+			\end{minipage}%
+			\begin{minipage}{.3\textwidth}
+				\centering
+				\begin{equation*}
+				\begin{bmatrix} 
+				0 & 1& 0\\
+				0 & 0& 1\\
+				0 &  0& 1\\
+				\end{bmatrix}
+				\end{equation*}
+			\end{minipage}
+		\captionof{figure}{Binary (0-1) Representation.}
+		\label{fig_binary}
+	\end{minipage}
+	\begin{minipage}{.4\textwidth}
+		\centering
+		\begin{equation*}
+		\begin{bmatrix} 
+		1 & 2\\
+		2& 3\\
+		1& 3\\
+		\end{bmatrix}
+		\end{equation*}
+		\captionof{figure}{Integer Representation.}
+		\label{fig_integer}
+	\end{minipage}
+		\caption{Solution Representations for Components $\{c_1,c_2,c_3\}$ Mapped to Computiong Nodes $\{n_1,n_2,n_3\}$ based on Table \ref{fig_depwr}.}
+		\label{fig_solutionrep}
+\end{figure}
+
+In this work, we consider the integer representation due to efficient encoding (much fewer variables) as shown in Figure~\ref{eqn_solution}, and  it is computationally more efficient, considering the various operations in the optimization problem, e.g., the binary representation shown in Figure~\ref{fig_solutionrep} uses a pair of metrices to represent the primary and secondary replicas using 18 binary variables versus only 6 variables used in the case of integer representation shown in Figure~\ref{fig_integer}.
+The solution to the allocation problem is represented by a vector-matrix $\x=\{\xsp{A_k}:k=1,...,N_a\}$ as shown in Equation (\ref{eqn_solution}), where \ttxsp{k} is a matrix of size $n_C\times K$, and \ttssx{x}{k}{ij}$=h\in \{1,…,n_N\}$ denotes the mapping of the  software-component replica \ttssx{q}{k}{i,j} to the computinG node $n_h$.
+\begin{equation}
+\label{eqn_solution}
+\bspx{k}=
+\begin{bmatrix} 
+\ssx{k}{11} & \ssx{k}{12} & \dots & \ssx{k}{1K}\\
+\ssx{k}{21} & \ssx{k}{22} & \dots & \ssx{k}{2K}\\
+\vdots & \vdots & \ddots & \vdots\\
+\ssx{k}{N_c1} & \ssx{k}{N_c2} & \cdots & \ssx{k}{N_cK}
+\end{bmatrix}
+\end{equation}
+
+\subsection{Fitness Function}
+The fitness function $f:\textbf{x}\rightarrow \mathbb{R}$ is a type of objective function that summerizes the contriutions of the decision variables via real numbers. The fitness value is used to compare feasible solutions, that is the higher the fitness, the better. In the context of metaheuristics, it is highly desirable to integrate the goal function and all constraints into one function that can be
+used as a fitness function. [cite to talbi2009metaheuristics and faragardi2018efficient]. Thus, it combines the objective function, which is the power-consumption minimization, with the constraints such as the reliability and timing constraints into a single function by using a penality function. 
+
+The benefit of using a single function, including all penalty functions, is to provide a metric to distinguish between two unfeasible solutions. For example, let us assume that $\x_1$ and $\x_1$ are two different solutions for the allocation problem while both violate
+some constraints of the problem. Let us also assume that solution
+$\x_1$ slightly violates only one constraint, whereas solution
+$\x_1$ significantly violates multiple constraints. If the heuristic algorithm can perceive the difference between $\x_1$ and $\x_2$
+in terms of being far away from a feasible solution, the fitness function guides the search toward a feasible solution more efficiently, compared to the case that the heuristic algorithm only knows that they are both infeasible. The integration of the goal function with all
+the penalty functions is a promising solution to provide knowledge about how far an unfeasible solution is from a feasible
+solution. 
+
+Consequently, the original constrained optimization problem is transformed into unconstrained optimization problem, by extending the objective function $P(\textbf{x})$ with the constrains, represented by a set of \textit{penalty functions} $\{\phi_{reliability}(\textbf{x}),$  $\phi_{deadline}(\textbf{x}),$ $\phi_{e2e}(\textbf{x}), \phi_{rep}(\textbf{x})\}$. The first penalty function corresponds to the reliability constraint which returns 0 if the reliability constrain is not violated, otherwise returns a positive number denoting how far the reliability constraint is violated. The further the violation, the higher value of the penalty function. Similarly, the other penalty functions correspond to the deadline, the end-to-end timing requirement, and the replication constraints, respectively. 
+I
+ndeed, the penalty function penalizes the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. Section~\ref{sec_penaltyfunction} explains how our solution framework formulates the penalty functions.
+
+The fitness function $f(x)$ is computed as follows.
+%The fitness function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability.
+
+%\begin{align}
+%\label{}
+%    \min_{\textbf{x}\in X}\;\;& f(\textbf{x})=P(\textbf{x}) + \alpha %\Phi(\textbf{x})\\
+%    \label{eqn_penalityfunc}\Phi(\textbf{x}) &= \sum\phi_i(\textbf{x})
+%\end{align}
+
+\begin{align}
+\label{eqn_penalityfunc}
+\min_{\textbf{x}\in X}\;\;& f(\textbf{x})=P(\textbf{x}) + \beta_1 \phi_{reliability}(\textbf{x}) + \beta_2 \phi_{deadline}(\textbf{x}) + \beta_3 \phi_{e2e}(\textbf{x}) + \beta_4 \phi_{rep}(\textbf{x}) 
+\end{align}
+%The fitness function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability.
+where $\beta_1$ to $\beta_4$ are penalty coefficients used to tune the weight of the penalty functions with regard to the range of the objective function. In Section~\ref{sec:penaltycoefficient}, the proper value of the penalty coefficients is discussed in more details.
+
+\subsection{Penalty Function}
+\label{sec:penaltyfunction}
+
+\begin{equation}
+\label{}
+    \phi_{reliability}(\textbf{x}) = \sum_{k=1}^{n_{A_k}}{Max \{0, \rel_{A_k}(\x) - RelReq_{A_k} \}}
+\end{equation}
+
+\begin{equation}
+\label{}
+    \phi_{deadline}(\textbf{x}) = \sum_{\forall \tau\in T_{m_h}}{Max \{0, ResponseTime_{\tau}(\x) - Deadline_{\tau} \}}
+\end{equation}
+
+\begin{equation}
+\label{}
+    \phi_{e2e}(\textbf{x}) = \sum_{\forall \gamma \in \ssp{\Gamma}}{Max \{0, Delay_\gamma(\x) - E2eReq_\gamma \}}
+\end{equation}
+
+\subsection{Penalty Coefficients}
+\label{sec:penaltycoefficient}
+To calculate the value of the penalty coefficient ($\beta_1 to \beta_4$) we use the same analytical approach proposed in[cite to faragardi2018efficient]
+%@article{faragardi2018efficient,
+%  title={An efficient placement of sinks and SDN controller nodes for optimizing the design cost of industrial IoT systems},
+%  author={Faragardi, Hamid Reza and Vahabi, Maryam and Fotouhi, Hossein and Nolte, Thomas and Fahringer, Thomas},
+%  journal={Software: Practice and Experience},
+%  volume={48},
+%  number={10},
+%  pages={1893--1919},
+%  year={2018},
+%  publisher={Wiley Online Library}
+%}
+where the value of each penalty coefficient determined separately with respect to the relative proportion of the range of the penalty function to the range of the objective function (which is P(x) in our problem). Indeed, the penalty coefficient should be determined such that all the feasible solutions have a lower fitness value in comparison to infeasible solutions, meaning that all the feasible solutions are always preferred to an infeasible solution~\cite{faragardi2018JSS}. On the other hand, the penalty coefficient should not be extremely large since it hinders the search algorithm to search among infeasible solutions to find a way to reach the global optimum~\cite{talbi2009metaheuristics}.
+
+To calculate the minimum value of $\beta_1$ we consider two solutions for the problem. Solution 1 has the best power consumption (denoted by $P^{min}$) while it just infinitesimally violates the reliability constraint. Solution 2 has the worst possible value of $P(x)$ (denoted by $P^{max}$), while it satisfies the reliability constraint. We expect that Solution 2 has a lower fitness value than that of solution 1. Accordingly,
+
+\begin{equation}
+\label{eq:PnelatyMem1}
+P^{min} + \beta_1 \times Min\{Penalty Value\} > P^{max} + 0
+\end{equation}  
+Let us assume that (i) $P^{min} = 0$, (ii) $P^{max}$ is set equal to the total power consumption of all nodes when they are fully utilized, and (iii) $Min\{Penalty Value\} = 10^{-8}$ which is the minimum value of $\phi_{reliability}$ in an unfeasible solution. Hence,
+
+\begin{equation}
+\label{eq:PnelatyMem2}
+\beta_1 > 10^8 \times P^{max}
+\end{equation}  
+
+Our experiments also verify this theoretical discussion. We observed that when $\beta_1 = 10^8 \times P^{max}$, we always converge to a feasible solution and when it is set to a lower value, in some experiments, we converge to an infeasible solution. We also observed that when $\beta_1$ is set to a significantly higher value, the deviation from the best fitness value found in multiple experiments goes up, and the average fitness value is increased, thereby, the quality of the solutions is decreased.
+
+Similarly, for the other penalty coefficients we use these calculations which result in
+\begin{equation}
+\label{}
+\beta_2 > 1 \times P^{max}  
+\end{equation}
+
+\begin{equation}
+\label{}
+\beta_3 > 1 \times P^{max}
+\end{equation}
+
+\begin{equation}
+\label{}
+\beta_4 > 1 \times P^{max}
+\end{equation}
+It should be noted that the minimum violation of $\phi_{deadline}$, $\phi_{e2e}$, and $\phi_{rep}$ is one.
+
+
+%\begin{equation}
+%\label{}
+%    \phi_{rep}(\textbf{x}) = \sum_{\forall c_i}{\sum_{\forall n_j}{\sum_{k=1}^{n_{rep}-1}{\sum_{k'=k+1}^{n_{rep}} x_{ij}^{(k)} x_{ij}^{(k')}}}}
+%\end{equation}
+
+
+%\rel_{A_k}(\x)&\leq RelReq_{A_k} & \mbox{ forall } k=1,...,n_{A_k}\\
+%\label{eqn_responsetime}
+%\forall \tau\in T_{m_h}\    ResponseTime_{\tau}(\x)&\leq %Deadline_{\tau}& \mbox{forall } h=1,...,n_{M}\\ 
+%\label{eqn_e2e}
+%\forall \gamma \in \ssp{\Gamma}\  Delay_\gamma(\x)&\leq E2eReq_\gamma& %\mbox{forall } k=1,...,n_{A}\\
+%\forall k\forall ij\ x_{ij}^{(k)}&\neq x_{ij}^{(k')},&  \mbox{ where } %k\neq k'=1,...,n_{rep}
+
+
+% Show the representation of the a solution
+% Demonstrated it on the example
+% \begin{algorithm}
+% \caption{PSO Algorithm}\label{alg_pso}
+% \begin{algorithmic}[1]
+% \Require n
+% \Ensure Near (Optimal) Solution
+% \State $x_{sb}\leftarrow$ getWorstPosition()
+% \State $Particles\leftarrow$ createParticles($n$)
+% \State initParticles($Particles$)
+% \While{$!stoppingCritera$}
+%     % Calculate personal best, swarm best positions
+%     \State \Comment{Calculate personal best and swarm best positions of the particles}
+%     \ForAll{$p \in Particles$}
+%         \State $particle \leftarrow$  getPosition($p$)
+%         \State $x_{pb} \leftarrow$  getPosition($p$) 
+%         \If{$fitness(x)\leq fitness(x_{pb})$} \Comment{Personal best position}
+%             \State $x_{pb}\leftarrow x$
+%             \If{$fitness(x)\leq fitness(x_{sb})$} \Comment{Swarm best position}
+%                 \State $x_{sb}\leftarrow x$
+%             \EndIf 
+%         \EndIf 
+%     \EndFor
+%     % Calculate next positions of the particles
+%     \State \Comment{Calculate next positions of the particles}
+% 	\ForAll{$p \in Particles$}
+%         \State $v\leftarrow v+c1*r1*(x_{pb}-x)+c2*r2*(x_{sb}-x)$ 
+%         \State $x\leftarrow$ getPosition($p$)$ + v$
+%         %\State setParticlePosition($p,x$)
+%     \EndFor
+% \EndWhile
+% \end{algorithmic}
+% \end{algorithm}\vspace{-0.2cm}
+
+\subsection{Hybrid PSO}
+The canonical PSO technique uses the constriction factors to balance exploitation and exploration of the search space, that is to deliver better quality solutions. Nevertheless, it still suffers from local minima especially for complex and large problems that exhibit especially multimodal behavior. Hybridization of PSO is one the most widely studied approach in the improvement of the the PSO technique. Basically, it combines other optimization techniques, for instance to intensify local search, and improve diversification by introducing stochastic search. However, hybridization of PSO usually incurs additional computation time. Therefore, the benefit of hybridization has to be studied carefully in conjunction to computation time. Moreover, it should not complicate the user-configurable parameters, to be inline with the philosophy of PSO for ease-of-use.
+
+PSO is hybridized with several optimization techniques, such as Genetic Algorithm (GA), DE, local searches (e.g., Hill-climbing, gradient decent, etc.), ant colony, simulated annealing, etc. Of which, it is shown to perform better when hybridized with DE on constrained, discrete, large benchmarks. Furthermore, it is shown to perform better when hybridized with Hill-climbing (specifically \textit{Steepest-descent} variant)for software allocation problem \cite{} in particular. In this paper, we hybridize PSO with DE (DEPSO) and Hill-climbing (HCPSO) to the solve the software allocation problem as formulated in Equation (x). In the latter case, we also apply the stochastic variant of Hill-climbing (SHPSO) in order to offset stagnation of the steepest Hill-climbing when applied on large software allocation problems.
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+\SetKwData{P}{P}\SetKwData{S}{sBest}
+\SetKwData{Generation}{Generation}
+\SetKwData{Interval}{Interval}
+\SetKwData{Particles}{Particles}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+\SetKwFunction{OptimizeUsingDE}{optimizeUsingDE}
+\SetKwFunction{OptimizeUsingHC}{optimizeUsingHC}
+\SetKwFunction{OptimizeUsingSHC}{optimizeUsingSHC}
+\SetKwFunction{ComputeParticleVelocity}{computeParticleVelocity}
+\SetKwFunction{ComputeParticlePosition}{computeParticlePosition}
+\SetKwFunction{InitPSO}{initPSO}
+\SetKwFunction{ComputePersonalBest}{ComputePersonalBest}
+\SetKwFunction{ComputeSwarmBest}{ComputeSwarmBest}
+
+\BlankLine
+\Input{PSO parameters, DE parameters}
+\Output{Software allocation solution \S .\textbf{x}}
+\BlankLine
+\Particles $P$ $\leftarrow$ \InitPSO{}\;
+\BlankLine
+\While{termination criteria}{
+	$P$ $\leftarrow$\ComputePersonalBest{$P$}\;
+	\S $\leftarrow$\ComputeSwarmBest{$P$}\;
+	\BlankLine
+	\ForEach{$p\in P$}{
+		\ComputeParticleVelocity{$p$} according to Equation (\ref{eqn_pso_velocity})\;
+		\ComputeParticlePosition{$p$} according to Equation (\ref{eqn_pso_position})\;
+	}
+	\If{interval criteria}{
+		$P$ $\leftarrow$ \OptimizeUsingDE{$P$}\;
+		\tcp{$P$ $\leftarrow$ \OptimizeUsingHC{$P$}}\label{hc}
+		\tcp{$P$ $\leftarrow$ \OptimizeUsingSHC{$P$}}\label{sh}
+	}
+}
+ \caption{Hybrid PSO Algorithms.}
+ \label{alg_depso}
+\end{algorithm}\DecMargin{1em}
+
+\subsection{Differential Evolution}
+Similar to PSO, Differential Evolution (DE) is a population-based metaheuristic technique for the global optimization which includes non-linear and non-differentiable problems. It was initially proposed by Storn and Price in 19995 \cite{Storn1997DifferentialSpaces}, since then it has improved with regard to the different operators of DE such as mutation and crossover, and variants over population topology and hybridization \cite{Das2016RecentSurvey}. It is a parallel search technique, therefore, is ideal for computationally intensive problems, and employs mutation and crossover operators that allow the search to skip local minima as opposed to PSO.
+
+In every generation, the population undergoes mutation, crossover, and selection according to the formulas shown in Equation , (\ref{eqn_de_crossover}), and (\ref{eqn_de_selection}), respectively. A mutant vector $v$ is created from randomly selected elements $\{a,b,c\}\in PN$ according the mutation operation shown in Equation (\ref{eqn_de_mutation}), that is by adding the base matrix to the weighted difference matrix $F\circ(b-c)$, where $F$ controls the amplification of the $(\textbf{b}-\textbf{c})$ variation.
+\begin{align}
+    \label{eqn_de_mutation}
+    \textbf{v} & \leftarrow   \textbf{a} + F\circ(\textbf{b}-\textbf{c})\\
+    \label{eqn_de_crossover}
+    u_{ik} & \leftarrow 
+    \begin{cases}
+    v_{ik} & \mbox{if } U(0,1) \leq CF \mbox{ and } h = (i*K+k)\\
+    x_{ik} & \mbox{if } U(0,1) > CF \mbox{ and } h \neq (i*K+j)
+    \end{cases}\\
+    \label{eqn_de_selection}
+    \textbf{x} &\leftarrow 
+    \begin{cases}
+    \textbf{u} & \mbox{if } f(\textbf{u}) < f(\textbf{x})\mbox{ functions}\\
+    \textbf{x} & \mbox{otherwise }
+    \end{cases}
+\end{align}
+
+DE complements the classical PSO by introducing stochastic behavior via the evolutionary operators such as mutation, cross-over and selection. In this specific hybridization approach, we allow the DE algorithm to run intermittently for some number of generations before the next PSO generation starts.
+
+\subsubsection{Hill-climbing PSO}
+Hill-climbing is a popular local search based on the notion of \textit{neighborhood}, that is, the candidate solution (or neighbor) that performs better is selected iteratively until no improvements can be made. The software allocation solution $\textbf{x}$ is neighbor to $\textbf{x\textquotesingle}$ if $\textbf{x}=\textbf{x\textquotesingle}$ except $\exists i,j|\;x_{ij}\neq x\textquotesingle_{ij}$, that is, a single mapping is different. In every iteration, the best neighbor is selected, and subsequently replaces the current candidate solution if it performs better, and continues until maximum iteration, this variant is known as Steepest-descent Hill-climbing (SHC).
+
+Since SHC exhaustively checks all neighbors before moving to the next iteration, the computation time is high especially for high-dimensional problems. To offset this problem, we also apply the stochastic version of Hill-climbing. In the later case, the neighbor is selected randomly, first by selecting the dimension, that is the component $c_{ij}$, where $i=U(1,I)$ and $j=U(1,K)$, second, selecting the value, that is the node $n_j$, where $j=U(1,J)$. If the neighbor improves the current candidate solution sufficiently, the search moves to the next iteration, which is until no more improvements can be made.
+
