@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  28 FEB 2019 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  28 FEB 2019 17:17
 entering extended mode
 **./main.tex
 (main.tex
@@ -1515,12 +1515,6 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 1.
 onts/umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 2020) in paragraph at lines 2--3
-\OT1/cmr/m/n/10 that would accommodate the current and future demands of softwa
-re
- []
-
-
 Overfull \hbox (2.22221pt too wide) has occurred while \output is active
 [] 
  []
@@ -1541,19 +1535,13 @@ Package natbib Warning: Citation `bibid' on page 2 undefined on input line 7.
 Package natbib Warning: Citation `bibid' on page 2 undefined on input line 7.
 
 [2]
-Underfull \hbox (badness 1320) in paragraph at lines 9--15
-\OT1/cmr/m/n/10 and stochastic hill-climbing algorithms. Our approach is evalua
-ted on
- []
-
-
 Underfull \hbox (badness 2005) in paragraph at lines 16--21
 \OT1/cmr/m/n/10 modeling, and software allocation, Section 3[] describes the AU
 TOSAR
  []
 
 ) (tex/preliminary.tex [3]) (tex/systemmodel.tex [4]
-<./img/system_model.pdf, id=49, 376.52669pt x 207.65579pt>
+<./img/system_model.pdf, id=52, 376.52669pt x 207.65579pt>
 File: ./img/system_model.pdf Graphic file (type pdf)
 <use ./img/system_model.pdf>
 Package pdftex.def Info: ./img/system_model.pdf  used on input line 7.
@@ -1568,12 +1556,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--47
 [][]
  []
 
-[5 <./img/system_model.pdf>] [6]
+
 Underfull \hbox (badness 10000) in paragraph at lines 56--58
 [][][] \OT1/cmr/m/n/10 We define an
  []
 
-[7]
+[5 <./img/system_model.pdf>] [6] [7]
 <img/runnable_task_dag.pdf, id=113, 388.45125pt x 186.6975pt>
 File: img/runnable_task_dag.pdf Graphic file (type pdf)
 <use img/runnable_task_dag.pdf>
@@ -1593,13 +1581,13 @@ alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
 Package natbib Warning: Citation `RobDavis-CAN-2007' on page 9 undefined on inp
 ut line 150.
 
-[9]
-<img/cause_effect_chain_ntk.pdf, id=138, 340.27126pt x 119.44624pt>
+<img/cause_effect_chain_ntk.pdf, id=134, 340.27126pt x 119.44624pt>
 File: img/cause_effect_chain_ntk.pdf Graphic file (type pdf)
 <use img/cause_effect_chain_ntk.pdf>
 Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 173
 .
 (pdftex.def)             Requested size: 241.49895pt x 84.7746pt.
+[9]
 <img/timedchain_ntk.pdf, id=139, 386.44376pt x 183.68625pt>
 File: img/timedchain_ntk.pdf Graphic file (type pdf)
 <use img/timedchain_ntk.pdf>
@@ -1615,28 +1603,27 @@ LaTeX Warning: Reference `fig_timedpath' on page 10 undefined on input line 187
 pdfTeX warning: pdflatex (file ./img/cause_effect_chain_ntk.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
 ed.
->] [11 <./img/timedchain_ntk.pdf
+> <./img/timedchain_ntk.pdf
 
 pdfTeX warning: pdflatex (file ./img/timedchain_ntk.pdf): PDF inclusion: invali
 d other resource which is no dict (key 'ProcSets', type <array>); ignored.
->]
+>] [11]
 Underfull \hbox (badness 1152) in paragraph at lines 209--238
 []\OT1/cmr/m/n/10 Under these assumptions, the reliability of a software applic
 ation is
  []
 
-[12]
-<img/rbd_replication.pdf, id=188, 370.5042pt x 153.6942pt>
+<img/rbd_replication.pdf, id=185, 370.5042pt x 153.6942pt>
 File: img/rbd_replication.pdf Graphic file (type pdf)
 <use img/rbd_replication.pdf>
 Package pdftex.def Info: img/rbd_replication.pdf  used on input line 242.
 (pdftex.def)             Requested size: 276.00105pt x 114.49174pt.
-) (tex/problem.tex [13 <./img/rbd_replication.pdf>]
+[12]) (tex/problem.tex
 
-LaTeX Warning: Reference `subsec_autosarsystem' on page 14 undefined on input l
+LaTeX Warning: Reference `subsec_autosarsystem' on page 13 undefined on input l
 ine 10.
 
-[14] [15]
+[13 <./img/rbd_replication.pdf>] [14]
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 60.
 
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
@@ -1654,7 +1641,7 @@ Underfull \hbox (badness 1454) in paragraph at lines 62--63
  , therefore, the events are mutually
  []
 
-[16]
+[15] [16]
 
 LaTeX Warning: Reference `subsec_responsetimeanalysis' on page 17 undefined on 
 input line 114.
@@ -1667,44 +1654,42 @@ input line 114.
 LaTeX Warning: Reference `subsec_causeeffectchains' on page 17 undefined on inp
 ut line 114.
 
-<img/task_replicas.pdf, id=242, 247.92625pt x 73.27374pt>
+<img/task_replicas.pdf, id=243, 247.92625pt x 73.27374pt>
 File: img/task_replicas.pdf Graphic file (type pdf)
 <use img/task_replicas.pdf>
 Package pdftex.def Info: img/task_replicas.pdf  used on input line 120.
 (pdftex.def)             Requested size: 207.0021pt x 61.17943pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[17] [18 <./img/task_replicas.pdf
+[17 <./img/task_replicas.pdf
 
 pdfTeX warning: pdflatex (file ./img/task_replicas.pdf): PDF inclusion: invalid
  other resource which is no dict (key 'ProcSets', type <array>); ignored.
->]
+>] [18]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 161.
 
-[19]
 
-LaTeX Warning: Reference `eqn_overlapping' on page 20 undefined on input line 1
+LaTeX Warning: Reference `eqn_overlapping' on page 19 undefined on input line 1
 83.
 
-) (tex/solution.tex [20]
+[19]) (tex/solution.tex
 
-Package natbib Warning: Citation `bibid' on page 21 undefined on input line 4.
+Package natbib Warning: Citation `bibid' on page 20 undefined on input line 4.
 
 
-Package natbib Warning: Citation `bibid' on page 21 undefined on input line 4.
+Package natbib Warning: Citation `bibid' on page 20 undefined on input line 4.
 
+[20]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 10.
 
-[21]
+
 Underfull \hbox (badness 5302) in paragraph at lines 21--22
 []\OT1/cmr/m/n/10 A meta-heuristic algorithm comprises two major parts: solutio
 n
  []
 
+[21]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 69.
 
@@ -2017,11 +2002,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  40480 strings out of 494865
  925178 string characters out of 3176629
- 1043617 words of memory out of 3000000
+ 1043614 words of memory out of 3000000
  43489 multiletter control sequences out of 15000+200000
  543226 words of font info for 65 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 62i,18n,96p,1992b,625s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,96p,1997b,625s stack positions out of 5000i,500n,10000p,200000b,50000s
  </Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/f
 onts/pk/ljfour/jknappen/ec/dpi600/tcbx1000.pk> </Users/nmd02/Library/Applicatio
 n Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk></U
@@ -2068,7 +2053,7 @@ n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></User
 s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
 sfonts/symbols/msam10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texm
 fs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (41 pages, 949341 bytes).
+Output written on main.pdf (41 pages, 948982 bytes).
 PDF statistics:
  583 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
