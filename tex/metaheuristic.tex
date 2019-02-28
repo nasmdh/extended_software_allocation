@@ -18,7 +18,6 @@ where $\omega$ is the weight of the velocity, also known as \textit{inertia coef
 
 Although PSO was originally proposed for continuous problem, it is applied to discrete problems successfully as well. In the latter case, the solutions are represented by \textit{0-1} integer variables \cite{KennedyAAlgorithm} or integer-linear by approximation to the nearest integer values \cite{Clerc2000DiscreteProblem}, which is the representation employed adopted in our problem as it is compact, hence fewer decision variables. Accordingly, after the new position (or candidate solution) is determined, following Equations \ref{eqn_pso_velocity} and \ref{eqn_pso_position}, the solution is discretized by rounding off the its elements to the nearest integer values, that is $\textbf{x}\leftarrow [\textbf{x}]$.
 
-
 A meta-heuristic algorithm comprises two major parts: solution representation and an objective function. The solution representation shows the data structure that is used to represent each point in the problem space, and it has a significant impact on the performance of the meta-heuristic algorithm. The fitness function is used to evaluate the quality of candidate solutions based on their fitness to meet the problem objectives. A solution that delivers lower power consumption and violates less constraints is indicated by a lower fitness value. In the following, we describe the solution representation and the objective function proposed in our solution framework to run the meta-heuristic algorithms. 
 
 \subsection{Solution Representation}
@@ -92,8 +91,7 @@ the penalty functions is a promising solution to provide knowledge about how far
 solution. 
 
 Consequently, the original constrained optimization problem is transformed into unconstrained optimization problem, by extending the objective function $P(\textbf{x})$ with the constrains, represented by a set of \textit{penalty functions} $\{\phi_{reliability}(\textbf{x}),$  $\phi_{deadline}(\textbf{x}),$ $\phi_{e2e}(\textbf{x}), \phi_{rep}(\textbf{x})\}$. The first penalty function corresponds to the reliability constraint which returns 0 if the reliability constrain is not violated, otherwise returns a positive number denoting how far the reliability constraint is violated. The further the violation, the higher value of the penalty function. Similarly, the other penalty functions correspond to the deadline, the end-to-end timing requirement, and the replication constraints, respectively. 
-I
-ndeed, the penalty function penalizes the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. Section~\ref{sec_penaltyfunction} explains how our solution framework formulates the penalty functions.
+Indeed, the penalty function penalizes the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. Section~\ref{sec_penaltyfunction} explains how our solution framework formulates the penalty functions.
 
 The fitness function $f(x)$ is computed as follows.
 %The fitness function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability.
@@ -128,6 +126,54 @@ where $\beta_1$ to $\beta_4$ are penalty coefficients used to tune the weight of
 \label{}
     \phi_{e2e}(\textbf{x}) = \sum_{\forall \gamma \in \ssp{\Gamma}}{Max \{0, Delay_\gamma(\x) - E2eReq_\gamma \}}
 \end{equation}
+
+\subsection{Penalty Coefficients}
+\label{sec:penaltycoefficient}
+To calculate the value of the penalty coefficient ($\beta_1 to \beta_4$) we use the same analytical approach proposed in[cite to faragardi2018efficient]
+%@article{faragardi2018efficient,
+%  title={An efficient placement of sinks and SDN controller nodes for optimizing the design cost of industrial IoT systems},
+%  author={Faragardi, Hamid Reza and Vahabi, Maryam and Fotouhi, Hossein and Nolte, Thomas and Fahringer, Thomas},
+%  journal={Software: Practice and Experience},
+%  volume={48},
+%  number={10},
+%  pages={1893--1919},
+%  year={2018},
+%  publisher={Wiley Online Library}
+%}
+where the value of each penalty coefficient determined separately with respect to the relative proportion of the range of the penalty function to the range of the objective function (which is P(x) in our problem). Indeed, the penalty coefficient should be determined such that all the feasible solutions have a lower fitness value in comparison to infeasible solutions, meaning that all the feasible solutions are always preferred to an infeasible solution~\cite{faragardi2018JSS}. On the other hand, the penalty coefficient should not be extremely large since it hinders the search algorithm to search among infeasible solutions to find a way to reach the global optimum~\cite{talbi2009metaheuristics}.
+
+To calculate the minimum value of $\beta_1$ we consider two solutions for the problem. Solution 1 has the best power consumption (denoted by $P^{min}$) while it just infinitesimally violates the reliability constraint. Solution 2 has the worst possible value of $P(x)$ (denoted by $P^{max}$), while it satisfies the reliability constraint. We expect that Solution 2 has a lower fitness value than that of solution 1. Accordingly,
+
+\begin{equation}
+\label{eq:PnelatyMem1}
+P^{min} + \beta_1 \times Min\{Penalty Value\} > P^{max} + 0
+\end{equation}  
+Let us assume that (i) $P^{min} = 0$, (ii) $P^{max}$ is set equal to the total power consumption of all nodes when they are fully utilized, and (iii) $Min\{Penalty Value\} = 10^{-8}$ which is the minimum value of $\phi_{reliability}$ in an unfeasible solution. Hence,
+
+\begin{equation}
+\label{eq:PnelatyMem2}
+\beta_1 > 10^8 \times P^{max}
+\end{equation}  
+
+Our experiments also verify this theoretical discussion. We observed that when $\beta_1 = 10^8 \times P^{max}$, we always converge to a feasible solution and when it is set to a lower value, in some experiments, we converge to an infeasible solution. We also observed that when $\beta_1$ is set to a significantly higher value, the deviation from the best fitness value found in multiple experiments goes up, and the average fitness value is increased, thereby, the quality of the solutions is decreased.
+
+Similarly, for the other penalty coefficients we use these calculations which result in
+\begin{equation}
+\label{}
+\beta_2 > 1 \times P^{max}  
+\end{equation}
+
+\begin{equation}
+\label{}
+\beta_3 > 1 \times P^{max}
+\end{equation}
+
+\begin{equation}
+\label{}
+\beta_4 > 1 \times P^{max}
+\end{equation}
+It should be noted that the minimum violation of $\phi_{deadline}$, $\phi_{e2e}$, and $\phi_{rep}$ is one.
+
 
 %\begin{equation}
 %\label{}
