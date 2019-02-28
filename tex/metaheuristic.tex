@@ -91,8 +91,7 @@ the penalty functions is a promising solution to provide knowledge about how far
 solution. 
 
 Consequently, the original constrained optimization problem is transformed into unconstrained optimization problem, by extending the objective function $P(\textbf{x})$ with the constrains, represented by a set of \textit{penalty functions} $\{\phi_{reliability}(\textbf{x}),$  $\phi_{deadline}(\textbf{x}),$ $\phi_{e2e}(\textbf{x}), \phi_{rep}(\textbf{x})\}$. The first penalty function corresponds to the reliability constraint which returns 0 if the reliability constrain is not violated, otherwise returns a positive number denoting how far the reliability constraint is violated. The further the violation, the higher value of the penalty function. Similarly, the other penalty functions correspond to the deadline, the end-to-end timing requirement, and the replication constraints, respectively. 
-I
-ndeed, the penalty function penalizes the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. Section~\ref{sec_penaltyfunction} explains how our solution framework formulates the penalty functions.
+Indeed, the penalty function penalizes the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. Section~\ref{sec_penaltyfunction} explains how our solution framework formulates the penalty functions.
 
 The fitness function $f(x)$ is computed as follows.
 %The fitness function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability.
