@@ -20,6 +20,7 @@
 
 
 % Theorems
+\newtheorem{lemma}{Lemma}
 \newtheorem{remarkex}{Remark}
 \newtheorem{remarkreq}{Remark}
 \newtheorem{remarkdef}{Remark}
@@ -111,7 +112,7 @@ Contribution \therccounter}
 \newcommand{\ttx}{$\textbf{x}$ }
 \newcommand{\x}{\textbf{x}}
 %% Solution x^k - bold
-\newcommand{\ttxsp}[1]{$\textbf{x}^{(#1)}$}
+\newcommand{\ttxsp}[1]{$\textbf{x}^{#1}$}
 \newcommand{\xsp}[1]{\textbf{x}^{#1}}
 
 \newcommand{\sbx}[2][x]{$#1_{#2}$}
@@ -119,14 +120,14 @@ Contribution \therccounter}
 
 %% Solution: text mode
 \newcommand{\ttxkij}{$x^{a_k}_{ij}$}
-\newcommand{\ttssx}[3]{$#1^{(a_#2)}_{#3}$}
+\newcommand{\ttssx}[3]{$#1^{a_#2}_{#3}$}
 \newcommand{\ttbspx}[1]{$\textbf{x}^{a_#1}$}
 
 %% Solution: math mode
 \newcommand{\xkij}{x^{b_k}_{ij}}
 %\newcommand{\ttxkij}{$x^{(k)}_{ij}$}
 \newcommand{\ssx}[3][x]{#1^{(#2)}_{#3}}
-\newcommand{\bspx}[1]{\textbf{x}^{(#1)}}
+\newcommand{\bspx}[1]{\textbf{x}^{#1}}
 
 
 \newcommand{\n}[1]{n_{#1}}
@@ -136,8 +137,8 @@ Contribution \therccounter}
 \NewDocumentCommand{\ssp}{m O{k} O{a}}{#1^{#3_#2}}
 \NewDocumentCommand{\ssb}{m O{i}}{#1_{#2}}
 %% sets: text mode
-\NewDocumentCommand{\ttsss}{m O{k} O{i} O{a}}{$#1^{(#4_#2)}_{#3}$}
-\NewDocumentCommand{\ttssp}{m O{k} O{a}}{$#1^{(#3_#2)}$}
+\NewDocumentCommand{\ttsss}{m O{k} O{i} O{a}}{$#1^{#4_#2}_{#3}$}
+\NewDocumentCommand{\ttssp}{m O{k} O{a}}{$#1^{#3_#2}$}
 \NewDocumentCommand{\ttssb}{m O{i}}{$#1_{#2}$}
 
 %% set expressions

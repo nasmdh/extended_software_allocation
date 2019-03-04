@@ -1,4 +1,4 @@
-\section{Problem Definition of Software Applications}\label{sec_problem}
+\section{Allocation Problem of Software Applications}\label{sec_problem}
 The software applications $A$ are partitioned on the execution platform $\langle N,B\rangle$ by satisfing the user-defined software applications requirements such as applications reliability $\ssp{RL}$, end-to-end timing requirements of chains $\sss{EE}$ and applications criticality $\ssp{cl}$, and by meeting design constrains such as placement restrictions committed by the designer. Essentially, the partitioning is achieved by mapping software-component replicas (or software components) of applications effectively on the computing units $N'$. The partitioning should result in a reduced total power-consumption of the applications $Power(\textbf{x})$, which is achieved by selecting lower-power computing units $N'\subseteq N$, where $\textbf{x}$ is a possible mapping matrix, with \ttxkij representing the mapping of the software component \ttsss{q}[k][i,j] to the compuing unit $n_h$, where $h=\xkij$.  Note: under this partition, the reliability of applications $Reliability_{A_k}(\textbf{x})$, the timing of chains $Delay_{\sss{\Gamma}}(\textbf{x})$ should satify the cooresponding requirements. 
 
 The power consumption of applications as well as the delay of chains depend on the tasks graphs $\bigcup\sss{g}[k][\tau]$, as well as the mapping of the tasks nodes to computing units and the links to the network bus. In this case, the tasks graphs has be constructed from the partition \ttx. However, if the tasks graphs are apriori to the software partitioning problem,  which can be the case if no runnables from different components map to a single task, only the tasks nodes and the links are updated with the mapping information.
@@ -7,7 +7,7 @@ The power consumption of applications as well as the delay of chains depend on t
 The task graph formulation implies the generation of a task graph \ttat from a runnables graph \ttar in \ttx, and involves two steps: 
 \begin{enumerate*}[label=(\roman*)]
 	\item updating the mapping information of the runnables according to \ttx, that is for every component type $\sss{c}$ mapped to \ttx, we reterive its runnables $\sss{R}[k][c_i]$. Subsequently, we update the computing units $\sss{\mathcal{N}}[k][r]$ to which the runnables are mapped as show in Equation (\ref{eqn_uprdaterunnables}), in linear-time complexity $O(\sum n_{\ssp{C}}*D)$, where $n_{\ssp{C}}$ are the number of component types in \ttar, $D$ is the maximum degree of replication allowed;
-	\item the runnables graph is traversed iteratively to constract the corresponding tasks graph by applying the merging rules as shown in Equation (\ref{eqn_uprdatetasks}), using the method described in Subsection~\ref{subsec_autosarsystem}.
+	\item the runnables graph is traversed iteratively to constract the corresponding tasks graph by applying the merging rules as shown in Equation (\ref{eqn_uprdatetasks}), using the method described in Subsection~\ref{subsec_runnables-to-tasks}.
 \end{enumerate*}
 \begin{align}
 \label{eqn_uprdaterunnables}
@@ -111,16 +111,16 @@ Let us assume we want to calculate the reliability of the application in Table~\
 
 
 \subsection{Chains Timing Constraints}
-The chains timing constraints over \ttx ensure that the delays of chains meet thier respective end-to-end requirements, that is $\forall k\forall \gamma\in \ssp{\Gamma}\ Delay_\gamma(\x)\leq \sss{\mathrm{EE}}[k][\gamma]$. The delays calculations require that the tasks and messages in the chains meet their deadlines. Since, each task is used in at least one chain, we check the schedulability of all tasks and the message  before we calculate the chains timing constraints. The schedulability of the tasks and the message is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_responsetimeanalysis} and  Subsection \ref{subsec_responsetimeanalysis}, respectively. Moreover, the schedulability of the chains is checked using the age-delay analysis shown in Subsection \ref{subsec_causeeffectchains}. 
+The chains timing constraints over \ttx ensure that the delays of chains meet thier respective end-to-end requirements, that is $\forall \gamma\in \ssp{\Gamma}\ Delay_\gamma(\x)\leq \sss{\mathrm{EE}}[k][\gamma]$ for all $k=1,...,n_A$. The delays calculations require that the tasks and messages in the chains meet their deadlines. Since, each task is used in at least one chain, we check the schedulability of all tasks and the message  before we calculate the chains timing constraints. The schedulability of the tasks and the message is checked using the worst-case response-time anlaysis presented in Subsection \ref{subsec_response-time_analysis}. Moreover, the schedulability of the chains is checked using the age-delay analysis shown in Subsection \ref{subsec_cause-effect_chains}. 
 
 \subsubsection{Tasks Timing Constraints}
 The tasks timing constraints ensure that the tasks in the distributed system meet their respective deadlines. Tasks replicas mapped to the same unit do not improve realiability of the applications since we assume a permanent failure of computing units would lead to the total failure of the software running on the units. Consequently, the replicas except one are discarded, hence exists only a maximum of one replica per computing unit. The replica can be identified from other replicas based on the unit to which it is mapped. Assume $\tau\in \gr{V}{\at}$ is a task node and $\sss{\mathcal{N}}[k][\tau]$ is the set of units to which its replicas can be mapped. Thus, the replicas of $\tau$ are represented a paired-set $\mathcal{R}=\{(\tau,n)|n\in\sss{\mathcal{N}}[k][\tau]\}$, where $(\tau,n)$ is the replica of $\tau$ mapped to $n$.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{img/task_replicas}
+	\includegraphics[width=0.6\linewidth]{img/task_replication}
 \end{figure}
 
-To constract the tasks timing constraints, first we arrange the tasks per computing unit, $\ssb{T}[n_h]$, so that the tasks graphs are not traversed everytime the response-time of tasks is computed. So, we traverse the tasks graphs, consequently in each task node $\tau\in V(\at(\x))$, we check if the replica $\tau_{i,j}$ is mapped to $n_h\in N$. If the condition is true, we collect the task node $\tau_i$ as shown in Equation (\ref{eqn_tasks_nodes}). 
+To constract the tasks timing constraints, first we arrange the tasks per computing unit, $\ssb{T}[n_h]$, so that the tasks graphs are not traversed everytime the response-time of tasks is computed. So, after traversing the tasks graphs, consequently in each task node $\tau\in V(\at(\x))$, we check if the replica $\tau_{i,j}$ is mapped to $n_h\in N$. If the condition is true, we collect the task node $\tau_i$ as shown in Equation (\ref{eqn_tasks_nodes}). 
 \begin{align}
 \label{eqn_tasks_nodes}
 T_{n_h}&=\{\tau\in \mathcal{V}(\at(\x)) | \forall j\in\sss{\mathcal{N}}[k][\tau_i][b]\ j=n_h\} & \mbox{ for all } h=1,...,n_N,
@@ -149,14 +149,14 @@ $.
 	
 Thus, the delay $\Delta_\gamma(\x)$ for a mapping \ttx is computed as the sum of the age delays of its subchains and the response-times of the messages,
 \[
-	\Delta_{\gamma}(\x)=\sum_{i\in I_{\gamma}(\x)}{\Delta^{sub}_{i}(\x)} + \sum_{j\in J_{\gamma}(\x)}{\delta^{msg}_i(\x)},
+	\Delta_{\gamma}(\x)=\sum_{i\in I_{\gamma}(\x)}{\Delta^{sub}_{i}(\x)} + \sum_{j\in J_{\gamma}(\x)}{\delta^{msg}_j(\x)},
 \]
 according to the age-delay formula shown in Equation (\ref{eqn_agedelay_multinode}), where $\Delta^{sub}$, $\delta^{msg}$ are the functions that compute the age delay of $i$ subchain, and the response-time of $j$ message, respectively. Thus, the chains timing constraints are formulated over \ttx and applications $A$ using Equation (\ref{eqn_chains_constraints}).
 \begin{align}
 \label{eqn_chains_constraints}
 \forall \gamma \in \ssp{\Gamma} \ \sss{\Delta}[k][{\gamma}](\x) & \leq \sss{\mathrm{EE}}[k][\gamma],
 \end{align}
-\begin{example}[Delay Calculation] Consider the chain $\Gamma=\tau_1\rightarrow\tau_2\rightarrow\tau_4$ from Figure~\ref{fig_appexample} where $\tau_1$ and $\tau_2$ realize the component types $c_1$, and $\tau_4$ realizes $c_2$. The mapping of the components is shown in Figure~\ref{fig_deployment} (b), i.e., with replication. Thus, the units to which $\tau_1$ and $\tau_2$ are mapped are $\sss{\mathcal{R}}[k][\tau_l][b]=\sss{\mathcal{R}}[k][\tau_2][b]=\{n_1,n_2\}$, and $\tau_4$ to $\sss{\mathcal{R}}[k][\tau_4][b]=\{n_2,n_3\}$, by infering the mappings of respective components. Table~\ref{tbl_chains_with_replication} illustrates how compute the chains, considering replication of degree 2, which is $\Gamma^* = \sss{\mathcal{R}}[k][\tau_1][b] \times \sss{\mathcal{R}}[k][\tau_2][b] \times \sss{\mathcal{R}}[k][\tau_4][b]$, and also how to compute the subchains and messages of each chain $\gamma\in \Gamma^*$. The delays of the subchains is computed according to the age-delay semantics demonstrated in Subsection~\ref{subsec_cause_effect_chains}.
+\begin{example}[Delay Calculation] Consider the chain $\Gamma=\tau_1\rightarrow\tau_2\rightarrow\tau_4$ from Figure~\ref{fig_dag_tasks} where $\tau_1$ and $\tau_2$ realize the component types $c_1$, and $\tau_4$ realizes $c_2$. The mapping of the components is shown in Figure~\ref{fig_deployment} (b), i.e., with replication. Thus, the units to which $\tau_1$ and $\tau_2$ are mapped are $\sss{\mathcal{R}}[k][\tau_l][b]=\sss{\mathcal{R}}[k][\tau_2][b]=\{n_1,n_2\}$, and $\tau_4$ to $\sss{\mathcal{R}}[k][\tau_4][b]=\{n_2,n_3\}$, by infering the mappings of respective components. Table~\ref{tbl_chains_with_replication} illustrates how to compute the chains, considering replication of degree 2, which is $\Gamma^* = \sss{\mathcal{R}}[k][\tau_1][b] \times \sss{\mathcal{R}}[k][\tau_2][b] \times \sss{\mathcal{R}}[k][\tau_4][b]$, and also how to compute the subchains and messages of each chain $\gamma\in \Gamma^*$. The delays of the subchains is computed according to the age-delay semantics demonstrated in Subsection~\ref{subsec_cause_effect_chains}.
 \end{example} 
 \begin{table}[]
 	\begin{tabular}{@{}lll@{}}
@@ -172,9 +172,17 @@ according to the age-delay formula shown in Equation (\ref{eqn_agedelay_multinod
 \end{table}
 
 \subsection{Approximation of Delay Calculation}
-Due to the replication, the number of chains-with-replication per chain $\Gamma$ grows exponentially as the degree of the replication $D$ linearly increases, $|\Gamma|^D$. Likewise, the length of the chain has a polynomial effect as it grows. Moreover, the age-delay calculation is exhaustive search as demonstrated in the example. For these main reasons, the delays computation is normall expesive. Such computationally expensive operations are challenging for metaheuristics, due meta-heuristic algorithms compute large-space candidate solutions. Therefore, we propose an appoximation algorithm to efficiently compute the delays by selecting only the chain-with-repications that use the buses the most.
-
-
+Due to the replication, the number of chains-with-replication per chain $\Gamma$ grows exponentially as the degree of the replication $D$ linearly increases, $|\Gamma|^D$. Likewise, the length of the chain has a polynomial effect on the number of replicated chains. Moreover, the age-delay calculation is an exhaustive search as demonstrated in Subsection \ref{subsec_cause-effect_chains}. For these main reasons, the age delay computation is expensive especially with replication, which is challenging for metaheuristics, due meta-heuristic algorithms compute large-space candidate solutions. Therefore, we propose an appoximation algorithm to efficiently compute the delays based on worst-case age delay, defined as the maximum delay that be observed in a chain. It is estimated by the following lemma as follows:
+\begin{lemma}[Worst-case Edge Delay] 
+	In the case of replication, the worst-case age delay of a chain mapped on a single computing unit follows the maximization of the age delay formula shown in Equation (), which occurs between the earliest activation of the source task and the latest activation of the sink task plust the maximum worst-case response time of the sink task of a chain. The earliest activation occurs when the source task start time conincides its release time, and latest activation time of the sink task occurs not latter than the second hyper-period since the data is picked up by the source task. 
+	
+	
+	Thus, the worst-case age delay of a chain mapped to multiple units occur the replicated chain uses the shared network bus the maximum. Therefore, the worst-case edge delay of the chain $\Gamma$ is calculated as follows:
+	\begin{align}
+		\exists \gamma\in\Gamma^*\ \max{|J_\gamma|}\\
+		\Delta^{worst}=2H+\sum_{j\in J_{\gamma}(\x)}{\delta^{msg}_j(\x)}, & \mbox{ where } H=lcm(\gamma)
+	\end{align}
+\end{lemma}
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  28 FEB 2019 17:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  4 MAR 2019 11:52
 entering extended mode
 **./main.tex
 (main.tex
@@ -1223,13 +1223,17 @@ Package: xparse 2018-10-17 L3 Experimental document command parser
 \l__xparse_v_nesting_int=\count340
 )
 \c@grammar=\count341
-\c@remarkex=\count342
-\c@remarkreq=\count343
-\c@remarkdef=\count344
-\c@definition=\count345
-\c@rgcounter=\count346
-\c@rccounter=\count347
+\c@lemma=\count342
+\c@remarkex=\count343
+\c@remarkreq=\count344
+\c@remarkdef=\count345
+\c@definition=\count346
+\c@rgcounter=\count347
+\c@rccounter=\count348
 ) (main.aux
+
+LaTeX Warning: Label `tbl_runnables_specs1' multiply defined.
+
 
 LaTeX Warning: Label `eqn_tasks_nodes' multiply defined.
 
@@ -1255,16 +1259,16 @@ LaTeX Font Info:    ... okay on input line 41.
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/context/ba
 se/supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count348
+\scratchcounter=\count349
 \scratchdimen=\dimen332
 \scratchbox=\box109
-\nofMPsegments=\count349
-\nofMParguments=\count350
+\nofMPsegments=\count350
+\nofMParguments=\count351
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count351
+\MPscratchCnt=\count352
 \MPscratchDim=\dimen333
-\MPnumerator=\count352
-\makeMPintoPDFobject=\count353
+\MPnumerator=\count353
+\makeMPintoPDFobject=\count354
 \everyMPtoPDFconversion=\toks46
 )
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/ober
@@ -1484,7 +1488,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-\c@lstlisting=\count354
+\c@lstlisting=\count355
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: longtable package is loaded.
@@ -1540,90 +1544,130 @@ Underfull \hbox (badness 2005) in paragraph at lines 16--21
 TOSAR
  []
 
-) (tex/preliminary.tex [3]) (tex/systemmodel.tex [4]
-<./img/system_model.pdf, id=52, 376.52669pt x 207.65579pt>
-File: ./img/system_model.pdf Graphic file (type pdf)
-<use ./img/system_model.pdf>
-Package pdftex.def Info: ./img/system_model.pdf  used on input line 7.
-(pdftex.def)             Requested size: 301.22174pt x 166.12485pt.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 11.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--47
-[][]
+) (tex/preliminary.tex [3]) (tex/systemmodel.tex
+<./img/system_model2.pdf, id=46, 376.40625pt x 181.67876pt>
+File: ./img/system_model2.pdf Graphic file (type pdf)
+<use ./img/system_model2.pdf>
+Package pdftex.def Info: ./img/system_model2.pdf  used on input line 5.
+(pdftex.def)             Requested size: 301.1254pt x 145.34319pt.
+ [4]
+Underfull \hbox (badness 2941) in paragraph at lines 27--27
+[]|$\OML/cmm/m/it/10 ; c; m; $ \OT1/cmr/m/n/10 denote iterator variables, res
+pectively for task,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
-[][][] \OT1/cmr/m/n/10 We define an
+Underfull \hbox (badness 1701) in paragraph at lines 31--31
+[]|$\OML/cmm/m/it/10 k; i; j$ \OT1/cmr/m/n/10 denote iterator index-variables, 
+respectively for the
  []
 
-[5 <./img/system_model.pdf>] [6] [7]
-<img/runnable_task_dag.pdf, id=113, 388.45125pt x 186.6975pt>
-File: img/runnable_task_dag.pdf Graphic file (type pdf)
-<use img/runnable_task_dag.pdf>
-Package pdftex.def Info: img/runnable_task_dag.pdf  used on input line 78.
-(pdftex.def)             Requested size: 241.49895pt x 116.07031pt.
+
+Overfull \hbox (1.13925pt too wide) in alignment at lines 13--39
+ [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 39
+ []
+
+
+Overfull \hbox (1.13925pt too wide) in alignment at lines 39--42
+ [] [] [] 
+ []
+
+[5 <./img/system_model2.pdf
+
+pdfTeX warning: pdflatex (file ./img/system_model2.pdf): PDF inclusion: invalid
+ other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+[][][] \OT1/cmr/m/n/10 We represent a
+ []
+
+<img/dag_runnables.pdf, id=89, 169.63374pt x 150.5625pt>
+File: img/dag_runnables.pdf Graphic file (type pdf)
+<use img/dag_runnables.pdf>
+Package pdftex.def Info: img/dag_runnables.pdf  used on input line 57.
+(pdftex.def)             Requested size: 114.71347pt x 101.81596pt.
+[6]
+
+Package natbib Warning: Citation `bibid' on page 7 undefined on input line 85.
+
+
+LaTeX Warning: Reference `fig_appexample' on page 7 undefined on input line 88.
+
+
+[7 <./img/dag_runnables.pdf
+
+pdfTeX warning: pdflatex (file ./img/dag_runnables.pdf): PDF inclusion: invalid
+ other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
+<img/dag_tasks.pdf, id=133, 149.55875pt x 143.53625pt>
+File: img/dag_tasks.pdf Graphic file (type pdf)
+<use img/dag_tasks.pdf>
+Package pdftex.def Info: img/dag_tasks.pdf  used on input line 104.
+(pdftex.def)             Requested size: 98.32726pt x 94.36844pt.
 
 
 Package natbib Warning: Citation `Sha-RTS-2004' on page 8 undefined on input li
-ne 128.
+ne 181.
 
-[8 <./img/runnable_task_dag.pdf
+[8 <./img/dag_tasks.pdf
 
-pdfTeX warning: pdflatex (file ./img/runnable_task_dag.pdf): PDF inclusion: inv
-alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+pdfTeX warning: pdflatex (file ./img/dag_tasks.pdf): PDF inclusion: invalid oth
+er resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
 
 Package natbib Warning: Citation `RobDavis-CAN-2007' on page 9 undefined on inp
-ut line 150.
+ut line 203.
 
-<img/cause_effect_chain_ntk.pdf, id=134, 340.27126pt x 119.44624pt>
+
+LaTeX Warning: Reference `fig_dag_runnables' on page 9 undefined on input line 
+223.
+
+<img/cause_effect_chain_ntk.pdf, id=170, 340.27126pt x 119.44624pt>
 File: img/cause_effect_chain_ntk.pdf Graphic file (type pdf)
 <use img/cause_effect_chain_ntk.pdf>
-Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 173
+Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 226
 .
 (pdftex.def)             Requested size: 241.49895pt x 84.7746pt.
 [9]
-<img/timedchain_ntk.pdf, id=139, 386.44376pt x 183.68625pt>
+<img/timedchain_ntk.pdf, id=175, 386.44376pt x 183.68625pt>
 File: img/timedchain_ntk.pdf Graphic file (type pdf)
 <use img/timedchain_ntk.pdf>
-Package pdftex.def Info: img/timedchain_ntk.pdf  used on input line 182.
+Package pdftex.def Info: img/timedchain_ntk.pdf  used on input line 234.
 (pdftex.def)             Requested size: 310.4979pt x 147.58821pt.
 
 
-LaTeX Warning: Reference `fig_timedpath' on page 10 undefined on input line 187
-.
+LaTeX Warning: Reference `fig_causeeffectchainntk' on page 10 undefined on inpu
+t line 235.
+
+
+LaTeX Warning: Reference `fig_causeeffectchainntk' on page 10 undefined on inpu
+t line 235.
 
 [10 <./img/cause_effect_chain_ntk.pdf
 
 pdfTeX warning: pdflatex (file ./img/cause_effect_chain_ntk.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
 ed.
-> <./img/timedchain_ntk.pdf
+>] [11 <./img/timedchain_ntk.pdf
 
 pdfTeX warning: pdflatex (file ./img/timedchain_ntk.pdf): PDF inclusion: invali
 d other resource which is no dict (key 'ProcSets', type <array>); ignored.
->] [11]
-Underfull \hbox (badness 1152) in paragraph at lines 209--238
+>]
+Underfull \hbox (badness 1152) in paragraph at lines 261--290
 []\OT1/cmr/m/n/10 Under these assumptions, the reliability of a software applic
 ation is
  []
 
-<img/rbd_replication.pdf, id=185, 370.5042pt x 153.6942pt>
+<img/rbd_replication.pdf, id=222, 370.5042pt x 153.6942pt>
 File: img/rbd_replication.pdf Graphic file (type pdf)
 <use img/rbd_replication.pdf>
-Package pdftex.def Info: img/rbd_replication.pdf  used on input line 242.
+Package pdftex.def Info: img/rbd_replication.pdf  used on input line 294.
 (pdftex.def)             Requested size: 276.00105pt x 114.49174pt.
-[12]) (tex/problem.tex
-
-LaTeX Warning: Reference `subsec_autosarsystem' on page 13 undefined on input l
-ine 10.
-
-[13 <./img/rbd_replication.pdf>] [14]
+) (tex/problem.tex [12] [13 <./img/rbd_replication.pdf>] [14]
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 60.
 
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
@@ -1642,35 +1686,28 @@ Underfull \hbox (badness 1454) in paragraph at lines 62--63
  []
 
 [15] [16]
+<img/task_replication.pdf, id=279, 225.84375pt x 73.27374pt>
+File: img/task_replication.pdf Graphic file (type pdf)
+<use img/task_replication.pdf>
+Package pdftex.def Info: img/task_replication.pdf  used on input line 120.
+(pdftex.def)             Requested size: 207.0021pt x 67.16443pt.
+ [17 <./img/task_replication.pdf
 
-LaTeX Warning: Reference `subsec_responsetimeanalysis' on page 17 undefined on 
-input line 114.
+pdfTeX warning: pdflatex (file ./img/task_replication.pdf): PDF inclusion: inva
+lid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>]
 
+LaTeX Warning: Reference `subsec_cause_effect_chains' on page 18 undefined on i
+nput line 159.
 
-LaTeX Warning: Reference `subsec_responsetimeanalysis' on page 17 undefined on 
-input line 114.
-
-
-LaTeX Warning: Reference `subsec_causeeffectchains' on page 17 undefined on inp
-ut line 114.
-
-<img/task_replicas.pdf, id=243, 247.92625pt x 73.27374pt>
-File: img/task_replicas.pdf Graphic file (type pdf)
-<use img/task_replicas.pdf>
-Package pdftex.def Info: img/task_replicas.pdf  used on input line 120.
-(pdftex.def)             Requested size: 207.0021pt x 61.17943pt.
-[17 <./img/task_replicas.pdf
-
-pdfTeX warning: pdflatex (file ./img/task_replicas.pdf): PDF inclusion: invalid
- other resource which is no dict (key 'ProcSets', type <array>); ignored.
->] [18]
+[18]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 161.
 
 
 LaTeX Warning: Reference `eqn_overlapping' on page 19 undefined on input line 1
-83.
+91.
 
 [19]) (tex/solution.tex
 
@@ -1755,12 +1792,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 41.
 
 Underfull \hbox (badness 3568) in paragraph at lines 41--41
-[]\OT1/cmr/m/n/8 Table 6: |Ranges of Values for
+[]\OT1/cmr/m/n/8 Table 5: |Ranges of Values for
  []
 
 
 Underfull \hbox (badness 1163) in paragraph at lines 58--58
-[]\OT1/cmr/m/n/8 Table 7: |Ranges of Values for Execution
+[]\OT1/cmr/m/n/8 Table 6: |Ranges of Values for Execution
  []
 
 
@@ -1774,7 +1811,7 @@ ns of the range discussed,
 
 
 Underfull \hbox (badness 1527) in paragraph at lines 116--134
-\OT1/cmr/m/n/10 we synthesized six optimization problems as shown in Table 9[].
+\OT1/cmr/m/n/10 we synthesized six optimization problems as shown in Table 8[].
  The
  []
 
@@ -1788,13 +1825,13 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 3.
 
 )
-<img/power_consumption.pdf, id=369, 736.7525pt x 471.7625pt>
+<img/power_consumption.pdf, id=409, 736.7525pt x 471.7625pt>
 File: img/power_consumption.pdf Graphic file (type pdf)
 <use img/power_consumption.pdf>
 Package pdftex.def Info: img/power_consumption.pdf  used on input line 162.
 (pdftex.def)             Requested size: 345.0pt x 220.90776pt.
  [30] [31]
-<img/time_summary.pdf, id=377, 795.97375pt x 491.8375pt>
+<img/time_summary.pdf, id=418, 795.97375pt x 491.8375pt>
 File: img/time_summary.pdf Graphic file (type pdf)
 <use img/time_summary.pdf>
 Package pdftex.def Info: img/time_summary.pdf  used on input line 170.
@@ -1806,7 +1843,7 @@ owever,
  []
 
 [32 <./img/power_consumption.pdf>]
-<img/chains_replication_improvements.pdf, id=407, 361.35pt x 217.81375pt>
+<img/chains_replication_improvements.pdf, id=448, 361.35pt x 217.81375pt>
 File: img/chains_replication_improvements.pdf Graphic file (type pdf)
 <use img/chains_replication_improvements.pdf>
 Package pdftex.def Info: img/chains_replication_improvements.pdf  used on input
@@ -1997,65 +2034,64 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 69 ({)
+### simple group (level 1) entered at line 88 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 40480 strings out of 494865
- 925178 string characters out of 3176629
- 1043614 words of memory out of 3000000
- 43489 multiletter control sequences out of 15000+200000
- 543226 words of font info for 65 fonts, out of 3000000 for 9000
+ 40501 strings out of 494865
+ 925469 string characters out of 3176629
+ 1043713 words of memory out of 3000000
+ 43507 multiletter control sequences out of 15000+200000
+ 544998 words of font info for 70 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 62i,18n,96p,1997b,625s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,96p,1997b,622s stack positions out of 5000i,500n,10000p,200000b,50000s
  </Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/f
 onts/pk/ljfour/jknappen/ec/dpi600/tcbx1000.pk> </Users/nmd02/Library/Applicatio
 n Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk></U
 sers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
 /amsfonts/cm/cmbx10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs
-/install/fonts/type1/public/amsfonts/cm/cmbx6.pfb></Users/nmd02/Library/Applica
-tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx7.pfb></U
+/install/fonts/type1/public/amsfonts/cm/cmbx7.pfb></Users/nmd02/Library/Applica
+tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx8.pfb></U
 sers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
 /amsfonts/cm/cmbx9.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/
-install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/nmd02/Library/Applica
-tion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cmextra/cmex9.pf
-b></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb></Users/nmd02/Library/Application Support/MiKTeX/t
-exmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/nmd02/Library/Ap
-plication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pf
-b></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb></Users/nmd02/Library/Application Support/MiKTeX/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/nmd02/Library/App
-lication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb
-></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></Users/nmd02/Library/Application Support/MiKTeX/tex
-mfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/nmd02/Library/Appl
-ication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb><
+install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></Users/nmd02/Library/Appli
+cation Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb></Users/nmd02/Library/Application Support/MiKTeX/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/nmd02/Library/Appl
+ication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></Users/nmd02/Library/Application Support/MiKTeX/texm
+fs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/nmd02/Library/Appli
+cation Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
 /Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/publ
-ic/amsfonts/cm/cmr6.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs
-/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/nmd02/Library/Applicat
-ion Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Use
-rs/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/a
-msfonts/cm/cmr9.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmss10.pfb></Users/nmd02/Library/Applicatio
-n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Use
-rs/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/a
-msfonts/cm/cmsy5.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/in
-stall/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/nmd02/Library/Applicatio
-n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></User
-s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmsy9.pfb></Users/nmd02/Library/Application
- Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></User
-s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
-sfonts/cm/cmti8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/Applicatio
-n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></User
-s/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/am
-sfonts/symbols/msam10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texm
-fs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (41 pages, 948982 bytes).
+ic/amsfonts/cm/cmr10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/nmd02/Library/Applic
+ation Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb></U
+sers/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public
+/amsfonts/cm/cmr6.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/i
+nstall/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/nmd02/Library/Applicatio
+n Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users
+/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/ams
+fonts/cm/cmr9.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/insta
+ll/fonts/type1/public/amsfonts/cm/cmss10.pfb></Users/nmd02/Library/Application 
+Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users
+/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/ams
+fonts/cm/cmsy5.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/inst
+all/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/nmd02/Library/Application 
+Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users/
+nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/insta
+ll/fonts/type1/public/amsfonts/cm/cmsy9.pfb></Users/nmd02/Library/Application S
+upport/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/
+nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsf
+onts/cm/cmti8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/insta
+ll/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/Application 
+Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></Users/
+nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on main.pdf (41 pages, 867316 bytes).
 PDF statistics:
- 583 PDF objects out of 1000 (max. 8388607)
+ 621 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
