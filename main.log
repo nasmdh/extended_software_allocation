@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  4 MAR 2019 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  4 MAR 2019 12:07
 entering extended mode
 **./main.tex
 (main.tex
@@ -960,20 +960,6 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \algocf@hangindent=\skip78
 
-
-! LaTeX Error: Unknown option `options' for package `algorithm2e'.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1489 \@algocf@algotitleofalgo
-                               % fix name for \TitleOfAlgo to \algorithmcfna...
-
-The option `options' was not declared in package `algorithm2e', perhaps you
-misspelled its name. Try typing  <return>  to proceed.
-
-
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/tool
 s/xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -1231,9 +1217,6 @@ Package: xparse 2018-10-17 L3 Experimental document command parser
 \c@rgcounter=\count347
 \c@rccounter=\count348
 ) (main.aux
-
-LaTeX Warning: Label `tbl_runnables_specs1' multiply defined.
-
 
 LaTeX Warning: Label `eqn_tasks_nodes' multiply defined.
 
@@ -1695,12 +1678,7 @@ Package pdftex.def Info: img/task_replication.pdf  used on input line 120.
 
 pdfTeX warning: pdflatex (file ./img/task_replication.pdf): PDF inclusion: inva
 lid other resource which is no dict (key 'ProcSets', type <array>); ignored.
->]
-
-LaTeX Warning: Reference `subsec_cause_effect_chains' on page 18 undefined on i
-nput line 159.
-
-[18]
+>] [18]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 161.
@@ -2037,10 +2015,10 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 88 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 40501 strings out of 494865
- 925469 string characters out of 3176629
- 1043713 words of memory out of 3000000
- 43507 multiletter control sequences out of 15000+200000
+ 40500 strings out of 494865
+ 925447 string characters out of 3176629
+ 1043714 words of memory out of 3000000
+ 43506 multiletter control sequences out of 15000+200000
  544998 words of font info for 70 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  62i,18n,96p,1997b,622s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2089,7 +2067,7 @@ ll/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/Application
 Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></Users/
 nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on main.pdf (41 pages, 867316 bytes).
+Output written on main.pdf (41 pages, 867311 bytes).
 PDF statistics:
  621 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
