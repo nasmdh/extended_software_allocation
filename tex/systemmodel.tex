@@ -11,44 +11,45 @@ Figure~\ref{fig_system} illustrates the system model in consideration which cons
 \paragraph{Notations} For easy reading, we introduce the main notations used throught the paper as follows:
 
 \begin{longtable}{@{}llp{0.5\textwidth}@{}}
-\toprule	\small
- & Notation                        & Description                                             \\ 
-\midrule
- &/* Application related */&\\
-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{\ttsexp{A}{a}   denote software applications, modeled as directed acyclic graphs of runnables, where $\mathcal{V}(a_k)$ are the nodes and $\mathcal{E}(a_k)$ the directed edges of the graph $a_k$.*}\\
+\small
+ &\multicolumn{2}{l}{/* Related to software applications */}\\
+$\bullet$ & \ttsexp{A}{a}    		             & AUTOSAR software applications\\
+$\bullet$ & \ttar    		                     & a software application, modeled as directed acyclic graph of runnables\\
+$\bullet$ & $\mathcal{V}(a_k)\in \sss{R},\mathcal{E}(a_k)$  & nodes and links of \ttar, respectively\\
+$\bullet$ & \sexpsp{\Gamma}{\Gamma}  & end-to-end chains             \\
+$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a path in $\mathcal{V}(\sss{g}[k][r])$, denotes a chain, where $Z$ is the length of the chain\\[9pt] 
+&\multicolumn{2}{l}{/* Related to software components */}\\
 $\bullet$ & \sexpsp{C}{c}     		             & software-component types used in \ttar\\
 $\bullet$ & \sexpss{Q}{q}    		            & component replicas of type \ttsss{c}\\
 $\bullet$ & \sexpss{R}[i]{r}[j]   	             & runnables of \ttsss{c}\\
-$\bullet$ & \sexpss{T}[i]{r}[j]   	             & tasks mapped to \ttsss{c}\\
+$\bullet$ & \ttsexp{M}{m}         	           & messages on the CAN bus   \\[9pt]
 
-&/* Execution platform related */ &\\
+&\multicolumn{2}{l}{/* Related to the execution platform */}\\
 $\bullet$ & \ttsexp{N}{n}         	            & computation (or computing) nodes      \\
-$\bullet$ & \ttsexp{M}{m}         	           & messages on the CAN bus   \\
-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote iterator variables,  respectively for task, component, chain and node, e.g., $\forall \tau \in  \sss{T}$ of \ttsss{c}.}\\
- &/* Mapping related */&\\
+$\bullet$ & $B$        	           & the shared network bus\\[9pt]
 
-$\bullet$ & \ttsexp{\textbf{x}}{\textbf{x}}[k]         & a mapping vector from \ttssp{Q} to $M$             \\
-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$k,i,j$ denote iterator index-variables,  respectively for the mapping vector \ttx, and rows and columns of the matrix \ttxsp{k}, e.g., \ttxkij.***}\\
-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\sexp{B}{b}$   directed acyclic graphs of tasks, where $b_k$ refines $a_k$ using merging rules.} \\
-$\bullet$ & \sexpsp{\Gamma}{\Gamma}  & end-to-end chains             \\
-$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a chain of $e\in V(\sss{g}[k][\tau])\cup M$\\ 
-&/* Functions related */ &\\
+ &\multicolumn{2}{l}{/* Related to the mapping */}\\
+$\bullet$ & \ttsexp{\textbf{x}}{\textbf{x}}[k]         & a mapping vector from \ttssp{Q} to $N$             \\
+$\bullet$ & \ttxkij & the mapping of \ttsss{c} to $n_l$, where $l=\xkij$\\
+$\bullet$ & \ttat    		                     & a software application, modeled as directed acyclic graph of tasks, refines \ttar \\[9pt]
+
+
+&\multicolumn{2}{l}{/* Related to the optimization */}\\
 
 $\bullet$ & $Power(\textbf{x})$                		& total power consumption of  $A$ in \ttx    \\
 $\bullet$ & $Reliability_{a}(\x)$      					& application reliability  of $a\in A$ in \ttx              \\
 $\bullet$ & $ResponseTime_{\tau}(\x)$     		& response time of  $\tau \in V(\sss{g}[k][\tau])(\x)$                       \\
 $\bullet$ & $Delay_\gamma(\x)$            			& age delay of $\gamma \in \ssp{\Gamma} $   in \ttx     \\
-\bottomrule\\
+%\bottomrule\\
 \end{longtable}
 {\footnotesize 
-	*Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes the number of applications in the set $S$, essentially it refers to its cardinality.\\
-   *** For other uses of the iterators, they are defined in the context.}
+	* Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes the number of applications in the set $S$, essentially it refers to its cardinality.}
 
 \subsection{Software Applications}
 A software application represents an independent and self-contained user-defined software functionality, e.g., x-by-wire, electronic throttle control, flight control, etc. In AUTOSAR, software applications are developed using a \textit{Software Component} (SW-C), which is design-time concept that represents the lowest-level hierarchical element in software architecture of the software application, hence is atomic. Consequently, a software component is mapped to single computing unit. It is implented by the AUTOSAR runnables, which are schedulable pieces of codes (or objects), and contains specifications of timing behavior as well as resources requirements of the runnables. We formall represent an AUTOSAR software application as follows:
 
 \begin{definition}[AUTOSAR Software Application]\footnote{ Note: only relevant concepts of the official AUTOSAR software application definition is assumed to avoid unnecessary complexity. }\label{def_application}
-We represent a AUTOSAR software appplication a \textit{directed acyclic vertex-weighted} graph $\langle V, L, w, \rangle$ of periodic runnables, where $V$ denote runnable nodes, $a_{ij}\in L$ a data-dependency link from $r_i$ to $r_j$, where $i \neq j$. The assignment function $w: V\rightarrow (\mathrm{E}_i\mathrm{,D,P, N})$ sets each runnable nodes the computation cost such as worst-case execution times (WCET) $\mathrm{E=\{E}_h:h=1,...,n_N\}$, deadline D and period P, where $\mathrm{E}_h\in \mathrm{E}$ is the WCET of $r$ on the computing unit $n_h\in \mathcal{N}$.
+We represent an AUTOSAR software appplication a \textit{directed acyclic vertex-weighted} graph $\langle V, L, w, \rangle$ of periodic runnables, where $V$ denote runnable nodes, $a_{ij}\in L$ a data-dependency link from $r_i$ to $r_j$, where $i \neq j$. The assignment function $w: V\rightarrow (\mathrm{E}_i\mathrm{,D,P, N})$ sets each runnable nodes the computation cost such as worst-case execution times (WCET) $\mathrm{E=\{E}_h:h=1,...,n_N\}$, deadline D and period P, where $\mathrm{E}_h\in \mathrm{E}$ is the WCET of $r$ on the computing unit $n_h\in \mathcal{N}$.
 \end{definition}
 \begin{figure}
 	\centering
@@ -249,16 +250,21 @@ where $\alpha(\tau)$ computes the activation of the task $\tau$, based on the ag
 Assume $\Gamma \in \ssp{\Gamma}$ is a chain, if the chain is mapped on a single computing unit, the age delay is a mere difference between the activation of the sink task $\ssb{\alpha}[\tau_j]$ and the activation of the source task $\ssb{\alpha}[\tau_i]$ plus the worst-case response time of the sink task $\ssb{\delta}[\tau_j]$ in the longest timed path according to the semantics of the age delay. On the other hand, if the chain is mapped to multiple nodes, the age delay $\Delta_{multi}$ can be compositionally computed~\cite{Feiertag2009ASemantics} as follows: the chain is partitioned  into a set of sub-chains per node, indicated by the predicate $subch(\Gamma)$, and for each sub-chain $a\in subch(\Gamma)$, the age delay is computed recursively using the same method to used to compute the age delay for a single node, and the result is added to the response-times of the messages involved in the chain, $msg(\Gamma)$.
 
 \subsection{Reliability of Software Applications}\label{sub_reliability}
-Redundancy is the most common way to increase the reliability of a system. In this context, \textit{software application reliability} refers to the probability that a software application functions correctly by the time $t$, or within the time interval $[0, t]$ \cite{Goel1985SoftwareApplicability}. Redandancy can be implemented according to different schemes, such as hot stand-by, cold stand-by, etc~\cite{Dubrova2013Fault-tolerantDesign}, in this work, we consider the hot-standby scheme, where replicated components maintain the same state. However, only the \textit{primary} replicas act on the environment, e.g., activating an actuator. The primary software component is the one in operation and is indicated by \ttsss{q}[k][i,1], the secondary software component, which is in the stand-by, by \ttsss{q}[k][i,2], etc., for a software application $A_k$.  Note: the software components are replicated unless the reliability requirements of applications are satisfied.
+In this context, \textit{software application reliability} refers to the probability that a software application functions correctly by the time $t$, or within the time interval $[0, t]$ \cite{Goel1985SoftwareApplicability}. Redundancy is the most common way for implementing fault tolerance and increasing the reliability of a system. Redundancy can be implemented according to different schemes, such as hot stand-by, cold stand-by, etc.~\cite{Dubrova2013Fault-tolerantDesign}, which differ on the number of replicas that are active as well as the methods for detection and compensation of faulty replicas. In our system model, we consider the hot-standby scheme, where replicated components maintain the same state, but only one replica (the so-called \textit{primary}) effectively acts on the environment, for instance issuing an input. The primary software component will be denoted as \ttsss{q}[k][i,1], whereas the secondary software component, which is in the stand-by, by \ttsss{q}[k][i,2], etc., for a software application $A_k$.
+
+%Note: the software components are replicated unless the reliability requirements of applications are satisfied.
+
 
 In this work the details of the redundancy scheme are abstracted away under the following assumptions:
 \begin{enumerate*}[label=(\roman*)]
-	\item hot stand-by redundancy technique is used for the replacement of failed components, which are identical and are allocated on different nodes, ii) software components need to be replicated if the application's reliability requirement is not met without replication, otherwise they are not replicated;
-	\item the time needed to detect and replace a faulty component is considered negligible and will not be taken into account in the response time analysis of tasks and delay calculation of cause-effect chains;
-	\item because of its simplicity, the mechanism for detection and replacement of faulty components will be considered fault-free, and therefore will not be included in the reliability calculations
+    \item Software does not contain design errors. This has two implications: first, that hardware elements, i.e. computing nodes and communication buses, are the only causes of failure and, second, that introduction of N-version programming is not required. Different replicas of the same software component execute exactly the same program.
+	\item Hot stand-by redundancy (also known as Primary/backup) is used for detection and replacement of failed components.
+	\item Software components need to be replicated only if the application's reliability requirement is not met without replication, otherwise they are not replicated.
+	\item The time needed to detect and replace a faulty component is considered negligible and will not be taken into account in the response time analysis of tasks and delay calculation of cause-effect chains;
+	\item Because of its simplicity, the mechanism for detection and replacement of faulty components will be considered fault-free, and therefore will not be included in the reliability calculations
 \end{enumerate*}
 
-Under these assumptions, the reliability of a software application is equivalent to the reliability of the execuiton platform such as the computing units the communication bus, if any, on wich the application is deployed. The reliability of a computing unit or the bus is calculated using $e^{\lambda t}$, where $\lambda$ is an exponentially distributed failure-rate. However, the reliability calcultion of the execution platform that services a software application is not trivial in the case with replication, e.g., the series-parallel reliability approach cannot be applied in the general case, due to the \textit{functional} interdependency created between computing nodes as the result. To demonstrate the functional interdependency, let us assume a software application $A_k$, having  component configurations with and without replication as shown Table \ref{fig_depwr} and \ref{fig_depwor}, respectively, where $\sss{q}[k][i,j]$ is the $j^{th}$ software-component replica of software-component type $\sss{c}\in \sss{C}$. Note: for readability of the example, we remove the superscript $k$.
+Note that under these assumptions, the reliability of a software application is equivalent to the reliability of the platform on which it is deployed. The reliability of a computing unit (and of the bus) can be easily calculated as $e^{\lambda t}$, where $\lambda$ is an exponentially distributed failure-rate. However, calculating the reliability of the whole execution platform is not trivial for the case with replication. In particular, the traditional series-parallel reliability approach cannot be applied because of the \textit{functional} interdependencies created between computing nodes as the result of replication and allocation. To illustrate the difficulty, let us assume a software application $A_k$, having  component configurations with and without replication as shown Table \ref{fig_depwr} and \ref{fig_depwor}, respectively, where $\sss{q}[k][i,j]$ is the $j^{th}$ software-component replica of software-component type $\sss{c}\in \sss{C}$. Note: for readability of the example, we remove the superscript $k$.
 \begin{figure}
 	\begin{subfigure}{.5\textwidth}
 		\centering
@@ -288,7 +294,7 @@ Under these assumptions, the reliability of a software application is equivalent
 	\label{fig_deployment}
 \end{figure}
 
-The reliability of the software application without replication forms a series path, indicated by the reliability block diagram (RBD) of Figure~\ref{fig_rbd}a, hence is computed as products of the reliability of $n_1,n_2$ and $B$. However, with replication, two computing nodes can form as series and parallel to service the sofware application,  e.g., due to \ttssb{q}[1,1] and \ttssb{q}[2,2] or \ttssb{q}[3,2], $n_1$ and $n_3$ make series, and due to \ttssb{q}[3,1] and \ttssb{q}[3,2], the nodes make parallel, to relialize partional functionality of the application. In this case, the series-parallel diagram depicted in Figure~\ref{fig_rbd}b does not accurately capture the reliaiblity calculation of the application with replication. Note: the red-dashed line between $n_1$ and $n_3$ indicates the possibility of the computing nodes becoming series. To address this problem, we use the exact reliability calculation technique based on the enumeration of the different failure states of the computing nodes, that is the different failure states of the execution platform is enumerated exaustively, and subsequently, the total probability the software application functions is computed, which is discussed in great length in Subsection~\ref{subsec_reliability_constraint}.
+The reliability of the software application without replication forms a series path, indicated by the reliability block diagram (RBD) of Figure~\ref{fig_rbd}a, hence is computed as products of the reliability of $n_1,n_2$ and $B$. However, with replication, two computing nodes can form as series and parallel to service the software application,  e.g., due to \ttssb{q}[1,1] and \ttssb{q}[2,2] or \ttssb{q}[3,2], $n_1$ and $n_3$ make series, and due to \ttssb{q}[3,1] and \ttssb{q}[3,2], the nodes make parallel, to realize a partial functionality of the application. In this case, the series-parallel diagram depicted in Figure~\ref{fig_rbd}b does not accurately capture the reliability calculation of the application with replication. Note: the red-dashed line between $n_1$ and $n_3$ indicates the possibility of the computing nodes becoming series. To overcome this problem, we will use an exact technique for reliability calculation based on the enumeration of the different failure states of the computing nodes; that is, the different failure states of the execution platform are enumerated exhaustively, and subsequently, the total probability the software application functions is computed. This technique will be discussed in great length in Subsection~\ref{subsec_reliability_constraint}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{img/rbd_replication}
