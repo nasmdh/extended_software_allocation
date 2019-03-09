@@ -37,7 +37,7 @@ Likewise, the specifications for an execution platform consist of the processor 
 			\bottomrule
 		\end{tabular}
 		\caption{Ranges of Values for Applications Requirements.}
-		\label{tbl_app_ranges}
+		\label{tbl_app_reqs_ranges}
 	}
 ~
 	\parbox{.5\linewidth}{
@@ -48,8 +48,8 @@ Likewise, the specifications for an execution platform consist of the processor 
 			\midrule
 			Nodes $n_N$							& $4-10$\\
 			$P_{min},P_{max}$ (Watt)	& $1-10$\\
-			$\lambda_n$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
-			$\lambda_B$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
+			$P_{max}$ (Watt)	& $1-10$\\
+			$\lambda_n,\lambda_B$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
 			$Hz$ (MHz)			 	& $80-800$\\
 			\bottomrule
 		\end{tabular}
@@ -57,42 +57,8 @@ Likewise, the specifications for an execution platform consist of the processor 
 		\label{tbl_execpla}
 	}
 \end{table}
-%\begin{table}
-%	\small
-%\begin{subtable}[b]{0.5\textwidth}
-%		\begin{tabular}{@{}ll@{}}
-%	\toprule
-%	Parameter  		& Range\\ 
-%	\midrule
-%	Nodes $n_N$							& $4-10$\\
-%	$P_{min},P_{max}$ (Watt)	& $1-10$\\
-%	$\lambda_n$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
-%	$\lambda_B$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
-%	$Hz$ (MHz)			 	& $80-800$\\
-%	\bottomrule
-%	\end{tabular}
-%		\caption{Ranges of Values for Execution Platforms.}
-%		\label{tbl_execpla}
-%	\end{subtable}
-%	~
-%	\begin{subtable}[b]{0.4\textwidth}
-%		\begin{tabular}{@{}ll@{}}
-%		\toprule
-%		Parameter  			& Range\\ 
-%		\midrule
-%		EE					 	& 100$n_\Gamma$\\
-%		RL 						& 0.99999999\\
-%		CL 						& \{A,B,C,D\}\\
-%		\bottomrule
-%	\end{tabular}
-%		\caption{Ranges of Values for Applications Requirements..}
-%		\label{tbl_app_ranges}
-%\end{subtable}
-%\caption{Samples Specifications.}
-%\label{tbl_samplesspecs}
-%\end{table}
 
-\paragraph{Applications Requirements Specifications } Table~\ref{tbl_reqs}  shows the range of values used in our experiment to specify the requirements of software applications, that include the end-to-end timing requirements $EE$ of chains, the reliability requirement $RL$ and the criticality level $CL$. The end-to-end requiremens are assumed as a function of length of the chain $n_\Gamma$, that is the longer the chain, the higher the number. The reliability range of safety-critical automotive application is usually given in higher degree of 9, for operation of over a long period of time, which implies almost no failure during the specified duration.
+\paragraph{Applications Requirements Specifications } Table~\ref{tbl_app_reqs_ranges}  shows the range of values used in our experiment to specify the requirements of software applications, that include the end-to-end timing requirements EE of chains, the reliability requirement RL and the criticality level CL. The end-to-end requiremens are assumed as a function of length of the chain $n_\Gamma$, that is the longer the chain, the higher the number. The reliability range of safety-critical automotive application is usually given in higher degree of 9, for operation of over a long period of time, which implies almost no failure during the specified duration.
 
 \paragraph{Evaluation Setup} The evaluation is conducted on a MacBook Pro laptop comptuer, with hardware specifications as follows: Intel Core i7 processor type, 2.6.GHz processor speed, 6 Cores , 9 MB L3 cache, and 16 GB memory.
 
@@ -131,7 +97,7 @@ We conduted two experiments: i) the first experiment is designed to compare the 
 \caption{Specifications of Optimization Problems.}
 \label{tbl_opt_problems}
 \end{table}
-\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculation of the cause-effect delays due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{sub_repl_delay}, optimizes the calculation of the cause-effec chain delays in the presenece of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
+\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculation of the cause-effect delays due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{subsec_approximation_alg}, optimizes the calculation of the cause-effect chain delays in the presence of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
 \begin{table}
 	\centering
 	\begin{tabular}{@{}llll@{}}
