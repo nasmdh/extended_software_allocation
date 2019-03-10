@@ -11,24 +11,44 @@ Figure~\ref{fig_system} illustrates the system model in consideration which cons
 \paragraph{Notations} For easy reading, we introduce the main notations used throught the paper as follows:
 
 \begin{longtable}{@{}llp{0.5\textwidth}@{}}
+\small
+&\multicolumn{2}{l}{/* Related to software applications */}\\
+$\bullet$ & \ttsexp{A}{a}    		             & AUTOSAR software applications\\
+$\bullet$ & \ttar    		                     & a software application, modeled as directed acyclic graph of runnables\\
+$\bullet$ & $\mathcal{V}(a_k)\in \sss{R},\mathcal{E}(a_k)$  & nodes and links of \ttar, respectively\\
+$\bullet$ & \sexpsp{\Gamma}{\Gamma}  & end-to-end chains             \\
+$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a path in $\mathcal{V}(\sss{g}[k][r])$, denotes a chain, where $Z$ is the length of the chain\\[9pt] 
+
+&\multicolumn{2}{l}{/* Related to software components */}\\
 $\bullet$ & \sexpsp{C}{c}     		             & software-component types used in \ttar\\
 $\bullet$ & \sexpss{Q}{q}    		            & component replicas of type \ttsss{c}\\
 $\bullet$ & \sexpss{R}[i]{r}[j]   	             & runnables of \ttsss{c}\\
+$\bullet$ & \sexpss{T}[i]{r}[j]   	             & tasks mapped to \ttsss{c}\\[9pt]
 
+&\multicolumn{2}{l}{/* Related to the execution platform */}\\
 $\bullet$ & \ttsexp{N}{n}         	            & computation (or computing) nodes      \\
+$\bullet$ & $B$        	           & the shared network bus\\[9pt]
 
+&\multicolumn{2}{l}{/* Related to the mapping */}\\
+$\bullet$ & \ttsexp{\textbf{x}}{\textbf{x}}[k]         & a mapping vector from \ttssp{Q} to $N$             \\
+$\bullet$ & \ttxkij & the mapping of \ttsss{c} to $n_l$, where $l=\xkij$\\
+$\bullet$ & \ttat    		                     & a software application, modeled as directed acyclic graph of tasks, refines \ttar \\[9pt]
 
+&\multicolumn{2}{l}{/* Related to the optimization */}\\
 $\bullet$ & $Power(\textbf{x})$                		& total power consumption of  $A$ in \ttx    \\
 $\bullet$ & $Reliability_{a}(\x)$      					& application reliability  of $a\in A$ in \ttx              \\
 $\bullet$ & $ResponseTime_{\tau}(\x)$     		& response time of  $\tau \in V(\sss{g}[k][\tau])(\x)$                       \\
 $\bullet$ & $Delay_\gamma(\x)$            			& age delay of $\gamma \in \ssp{\Gamma} $   in \ttx     \\
+%\bottomrule\\
 \end{longtable}
 {\footnotesize 
+* Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes the number of applications in the set $S$, essentially it refers to its cardinality.}
 
 \subsection{Software Applications}
 A software application represents an independent and self-contained user-defined software functionality, e.g., x-by-wire, electronic throttle control, flight control, etc. In AUTOSAR, software applications are developed using a \textit{Software Component} (SW-C), which is design-time concept that represents the lowest-level hierarchical element in software architecture of the software application, hence is atomic. Consequently, a software component is mapped to single computing unit. It is implented by the AUTOSAR runnables, which are schedulable pieces of codes (or objects), and contains specifications of timing behavior as well as resources requirements of the runnables. We formall represent an AUTOSAR software application as follows:
 
 \begin{definition}[AUTOSAR Software Application]\footnote{ Note: only relevant concepts of the official AUTOSAR software application definition is assumed to avoid unnecessary complexity. }\label{def_application}
+	We represent an AUTOSAR software appplication a \textit{directed acyclic vertex-weighted} graph $\langle V, L, w, \rangle$ of periodic runnables, where $V$ denote runnable nodes, $a_{ij}\in L$ a data-dependency link from $r_i$ to $r_j$, where $i \neq j$. The assignment function $w: V\rightarrow (\mathrm{E}_i\mathrm{,D,P, N})$ sets each runnable nodes the computation cost such as worst-case execution times (WCET) $\mathrm{E=\{E}_h:h=1,...,n_N\}$, deadline D and period P, where $\mathrm{E}_h\in \mathrm{E}$ is the WCET of $r$ on the computing unit $n_h\in \mathcal{N}$.
 \end{definition}
 \begin{figure}
 	\centering
