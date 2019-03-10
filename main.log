@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  4 MAR 2019 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  10 MAR 2019 02:35
 entering extended mode
 **./main.tex
 (main.tex
@@ -1529,51 +1529,27 @@ Overfull \hbox (2.22221pt too wide) has occurred while \output is active
 {/Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/pdftex/config/pdft
 ex.map}]
 
-Package natbib Warning: Citation `Osman2005' on page 2 undefined on input line 
-5.
+Package natbib Warning: Citation `Osman2005Metaheuristics:Bibliography' on page
+ 2 undefined on input line 7.
 
 
-Package natbib Warning: Citation `bibid' on page 2 undefined on input line 7.
+Package natbib Warning: Citation `2006HandbookMetaheuristics' on page 2 undefin
+ed on input line 9.
 
-
-Package natbib Warning: Citation `bibid' on page 2 undefined on input line 7.
-
-[2]
-Underfull \hbox (badness 2005) in paragraph at lines 16--21
-\OT1/cmr/m/n/10 modeling, and software allocation, Section 3[] describes the AU
-TOSAR
- []
-
-) (tex/preliminary.tex [3]) (tex/systemmodel.tex
+[2]) (tex/preliminary.tex [3]) (tex/systemmodel.tex
 <./img/system_model2.pdf, id=46, 376.40625pt x 181.67876pt>
 File: ./img/system_model2.pdf Graphic file (type pdf)
 <use ./img/system_model2.pdf>
 Package pdftex.def Info: ./img/system_model2.pdf  used on input line 5.
 (pdftex.def)             Requested size: 301.1254pt x 145.34319pt.
  [4]
-Underfull \hbox (badness 2941) in paragraph at lines 27--27
-[]|$\OML/cmm/m/it/10 ; c; m; $ \OT1/cmr/m/n/10 denote iterator variables, res
-pectively for task,
+Underfull \hbox (badness 2913) in paragraph at lines 17--18
+[]|\OT1/cmr/m/n/10 a software application, modeled as
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 31--31
-[]|$\OML/cmm/m/it/10 k; i; j$ \OT1/cmr/m/n/10 denote iterator index-variables, 
-respectively for the
- []
-
-
-Overfull \hbox (1.13925pt too wide) in alignment at lines 13--39
- [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 39
- []
-
-
-Overfull \hbox (1.13925pt too wide) in alignment at lines 39--42
- [] [] [] 
+Underfull \hbox (badness 2913) in paragraph at lines 34--34
+[]|\OT1/cmr/m/n/10 a software application, modeled as
  []
 
 [5 <./img/system_model2.pdf
@@ -1581,37 +1557,36 @@ Overfull \hbox (1.13925pt too wide) in alignment at lines 39--42
 pdfTeX warning: pdflatex (file ./img/system_model2.pdf): PDF inclusion: invalid
  other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 50--52
-[][][] \OT1/cmr/m/n/10 We represent a
+Underfull \hbox (badness 5316) in paragraph at lines 51--53
+[][][] \OT1/cmr/m/n/10 We represent an
  []
 
-<img/dag_runnables.pdf, id=89, 169.63374pt x 150.5625pt>
+<img/dag_runnables.pdf, id=88, 169.63374pt x 150.5625pt>
 File: img/dag_runnables.pdf Graphic file (type pdf)
 <use img/dag_runnables.pdf>
-Package pdftex.def Info: img/dag_runnables.pdf  used on input line 57.
+Package pdftex.def Info: img/dag_runnables.pdf  used on input line 58.
 (pdftex.def)             Requested size: 114.71347pt x 101.81596pt.
 [6]
 
-Package natbib Warning: Citation `bibid' on page 7 undefined on input line 85.
-
-
-LaTeX Warning: Reference `fig_appexample' on page 7 undefined on input line 88.
-
+Package natbib Warning: Citation `bibid' on page 7 undefined on input line 86.
 
 [7 <./img/dag_runnables.pdf
 
 pdfTeX warning: pdflatex (file ./img/dag_runnables.pdf): PDF inclusion: invalid
  other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
+
+LaTeX Warning: Reference `fig_appexample' on page 8 undefined on input line 89.
+
+
 <img/dag_tasks.pdf, id=133, 149.55875pt x 143.53625pt>
 File: img/dag_tasks.pdf Graphic file (type pdf)
 <use img/dag_tasks.pdf>
-Package pdftex.def Info: img/dag_tasks.pdf  used on input line 104.
+Package pdftex.def Info: img/dag_tasks.pdf  used on input line 105.
 (pdftex.def)             Requested size: 98.32726pt x 94.36844pt.
 
-
 Package natbib Warning: Citation `Sha-RTS-2004' on page 8 undefined on input li
-ne 181.
+ne 182.
 
 [8 <./img/dag_tasks.pdf
 
@@ -1620,32 +1595,32 @@ er resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
 
 Package natbib Warning: Citation `RobDavis-CAN-2007' on page 9 undefined on inp
-ut line 203.
+ut line 204.
 
 
 LaTeX Warning: Reference `fig_dag_runnables' on page 9 undefined on input line 
-223.
+224.
 
 <img/cause_effect_chain_ntk.pdf, id=170, 340.27126pt x 119.44624pt>
 File: img/cause_effect_chain_ntk.pdf Graphic file (type pdf)
 <use img/cause_effect_chain_ntk.pdf>
-Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 226
+Package pdftex.def Info: img/cause_effect_chain_ntk.pdf  used on input line 227
 .
 (pdftex.def)             Requested size: 241.49895pt x 84.7746pt.
 [9]
 <img/timedchain_ntk.pdf, id=175, 386.44376pt x 183.68625pt>
 File: img/timedchain_ntk.pdf Graphic file (type pdf)
 <use img/timedchain_ntk.pdf>
-Package pdftex.def Info: img/timedchain_ntk.pdf  used on input line 234.
+Package pdftex.def Info: img/timedchain_ntk.pdf  used on input line 235.
 (pdftex.def)             Requested size: 310.4979pt x 147.58821pt.
 
 
 LaTeX Warning: Reference `fig_causeeffectchainntk' on page 10 undefined on inpu
-t line 235.
+t line 236.
 
 
 LaTeX Warning: Reference `fig_causeeffectchainntk' on page 10 undefined on inpu
-t line 235.
+t line 236.
 
 [10 <./img/cause_effect_chain_ntk.pdf
 
@@ -1657,17 +1632,12 @@ ed.
 pdfTeX warning: pdflatex (file ./img/timedchain_ntk.pdf): PDF inclusion: invali
 d other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-Underfull \hbox (badness 1152) in paragraph at lines 261--290
-[]\OT1/cmr/m/n/10 Under these assumptions, the reliability of a software applic
-ation is
- []
-
 <img/rbd_replication.pdf, id=222, 370.5042pt x 153.6942pt>
 File: img/rbd_replication.pdf Graphic file (type pdf)
 <use img/rbd_replication.pdf>
-Package pdftex.def Info: img/rbd_replication.pdf  used on input line 294.
+Package pdftex.def Info: img/rbd_replication.pdf  used on input line 300.
 (pdftex.def)             Requested size: 276.00105pt x 114.49174pt.
-) (tex/problem.tex [12] [13 <./img/rbd_replication.pdf>] [14]
+ [12]) (tex/problem.tex [13 <./img/rbd_replication.pdf>] [14]
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 60.
 
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
@@ -1695,86 +1665,72 @@ Package pdftex.def Info: img/task_replication.pdf  used on input line 120.
 
 pdfTeX warning: pdflatex (file ./img/task_replication.pdf): PDF inclusion: inva
 lid other resource which is no dict (key 'ProcSets', type <array>); ignored.
->]
-
-LaTeX Warning: Reference `subsec_cause_effect_chains' on page 18 undefined on i
-nput line 159.
-
-[18]
+>] [18]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 161.
 
+[19]
 
-LaTeX Warning: Reference `eqn_overlapping' on page 19 undefined on input line 1
+LaTeX Warning: Reference `eqn_overlapping' on page 20 undefined on input line 1
 91.
 
-[19]) (tex/solution.tex
+) (tex/solution.tex [20]
 
-Package natbib Warning: Citation `bibid' on page 20 undefined on input line 4.
+Package natbib Warning: Citation `bibid' on page 21 undefined on input line 4.
 
 
-Package natbib Warning: Citation `bibid' on page 20 undefined on input line 4.
+Package natbib Warning: Citation `bibid' on page 21 undefined on input line 4.
 
-[20]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 10.
 
-
+[21]
 Underfull \hbox (badness 5302) in paragraph at lines 21--22
 []\OT1/cmr/m/n/10 A meta-heuristic algorithm comprises two major parts: solutio
 n
  []
 
-[21]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 69.
 
 [22]
 
+Package natbib Warning: Citation `Talbi2009Metaheuristics:Implementation' on pa
+ge 23 undefined on input line 82.
+
+
 LaTeX Warning: Reference `sec_penaltyfunction' on page 23 undefined on input li
-ne 95.
-
-
-Underfull \hbox (badness 3118) in paragraph at lines 93--96
-\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 ([])$ with the constrains, represented by a s
-et of \OT1/cmr/m/it/10 penalty functions
- []
+ne 93.
 
 [23]
 
-Package natbib Warning: Citation `faragardi2018JSS' on page 24 undefined on inp
-ut line 144.
+Package natbib Warning: Citation `Faragardi2018AnSystems' on page 24 undefined 
+on input line 122.
 
 
-Package natbib Warning: Citation `talbi2009metaheuristics' on page 24 undefined
- on input line 144.
-
-
-Underfull \hbox (badness 1082) in paragraph at lines 151--153
-\OT1/cmr/m/n/10 power consumption of all nodes when they are fully utilized, an
-d (iii)
- []
+Package natbib Warning: Citation `Talbi2009Metaheuristics:Implementation' on pa
+ge 24 undefined on input line 123.
 
 [24]
-Underfull \hbox (badness 1019) in paragraph at lines 230--231
+Underfull \hbox (badness 1019) in paragraph at lines 142--143
 \OT1/cmr/m/n/10 Furthermore, it is shown to perform better when hybridized with
  Hill-
  []
 
 [25]
-Underfull \hbox (badness 2799) in paragraph at lines 273--274
+Underfull \hbox (badness 2799) in paragraph at lines 185--186
 []\OT1/cmr/m/n/10 Similar to PSO, Differential Evolution (DE) is a population-b
 ased
  []
 
 [26]
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 296.
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 208.
 
 
 
-LaTeX Warning: Command \textquotesingle invalid in math mode on input line 296.
+LaTeX Warning: Command \textquotesingle invalid in math mode on input line 208.
 
 
 ) (tex/evaluation.tex
@@ -1801,23 +1757,24 @@ Underfull \hbox (badness 1163) in paragraph at lines 58--58
  []
 
 
-LaTeX Warning: Reference `tbl_reqs' on page 28 undefined on input line 95.
+LaTeX Warning: Reference `tbl_app_reqs_ranges' on page 28 undefined on input li
+ne 61.
 
 [28]
-Underfull \hbox (badness 2970) in paragraph at lines 116--134
+Underfull \hbox (badness 2970) in paragraph at lines 82--100
  \OT1/cmr/m/it/10 Experiment 1.[] \OT1/cmr/m/n/10 According to the specificatio
 ns of the range discussed,
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 116--134
+Underfull \hbox (badness 1527) in paragraph at lines 82--100
 \OT1/cmr/m/n/10 we synthesized six optimization problems as shown in Table 8[].
  The
  []
 
 
-LaTeX Warning: Reference `sub_repl_delay' on page 29 undefined on input line 13
-4.
+LaTeX Warning: Reference `subsec_approximation_alg' on page 29 undefined on inp
+ut line 100.
 
 [29] (tex/evaluation_result_computationtime.tex
 
@@ -1828,16 +1785,16 @@ LaTeX Warning: No positions in optional float specifier.
 <img/power_consumption.pdf, id=409, 736.7525pt x 471.7625pt>
 File: img/power_consumption.pdf Graphic file (type pdf)
 <use img/power_consumption.pdf>
-Package pdftex.def Info: img/power_consumption.pdf  used on input line 162.
+Package pdftex.def Info: img/power_consumption.pdf  used on input line 128.
 (pdftex.def)             Requested size: 345.0pt x 220.90776pt.
  [30] [31]
 <img/time_summary.pdf, id=418, 795.97375pt x 491.8375pt>
 File: img/time_summary.pdf Graphic file (type pdf)
 <use img/time_summary.pdf>
-Package pdftex.def Info: img/time_summary.pdf  used on input line 170.
+Package pdftex.def Info: img/time_summary.pdf  used on input line 136.
 (pdftex.def)             Requested size: 345.0pt x 213.17458pt.
 
-Underfull \hbox (badness 1005) in paragraph at lines 175--176
+Underfull \hbox (badness 1005) in paragraph at lines 141--142
 \OT1/cmr/m/n/10 enables exploration of higher dimenstional problems possible. H
 owever,
  []
@@ -1847,7 +1804,7 @@ owever,
 File: img/chains_replication_improvements.pdf Graphic file (type pdf)
 <use img/chains_replication_improvements.pdf>
 Package pdftex.def Info: img/chains_replication_improvements.pdf  used on input
- line 183.
+ line 149.
 (pdftex.def)             Requested size: 241.49895pt x 145.57217pt.
  [33 <./img/time_summary.pdf>])
 (tex/relatedwork.tex
@@ -2034,16 +1991,16 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 88 ({)
+### simple group (level 1) entered at line 89 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 40501 strings out of 494865
- 925469 string characters out of 3176629
- 1043713 words of memory out of 3000000
- 43507 multiletter control sequences out of 15000+200000
+ 40502 strings out of 494865
+ 925496 string characters out of 3176629
+ 1043712 words of memory out of 3000000
+ 43508 multiletter control sequences out of 15000+200000
  544998 words of font info for 70 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
- 62i,18n,96p,1997b,622s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,18n,96p,1939b,622s stack positions out of 5000i,500n,10000p,200000b,50000s
  </Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/f
 onts/pk/ljfour/jknappen/ec/dpi600/tcbx1000.pk> </Users/nmd02/Library/Applicatio
 n Support/MiKTeX/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk></U
@@ -2089,7 +2046,7 @@ ll/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/Application
 Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></Users/
 nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on main.pdf (41 pages, 867316 bytes).
+Output written on main.pdf (41 pages, 866991 bytes).
 PDF statistics:
  621 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

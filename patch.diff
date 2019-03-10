@@ -1,0 +1,520 @@
+From a219af257e247c686a818352ec31f0ef972fadfb Mon Sep 17 00:00:00 2001
+From: NasGit <nesredin.mahmud@mdh.se>
+Date: Sat, 9 Mar 2019 23:47:17 +0100
+Subject: [PATCH] introduction, notations modified
+
+---
+ reference.bib        |  61 ++++---------------
+ tex/evaluation.tex   |  44 ++------------
+ tex/introduction.tex |  13 +++--
+ tex/problem.tex      |   8 +--
+ tex/solution.tex     | 136 ++++++++-----------------------------------
+ tex/systemmodel.tex  |  58 +++++++++---------
+ 6 files changed, 83 insertions(+), 237 deletions(-)
+
+diff --git a/reference.bib b/reference.bib
+index ecec1ec..e10ffd7 100644
+--- a/reference.bib
++++ b/reference.bib
+@@ -714,6 +714,16 @@
+     pmid = {21527761}
+ }
+ 
++@inproceedings{Faragardi2018AnSystems,
++    title = {{An efficient placement of sinks and SDN controller nodes for optimizing the design cost of industrial IoT systems}},
++    year = {2018},
++    booktitle = {Software - Practice and Experience},
++    author = {Faragardi, Hamid Reza and Vahabi, Maryam and Fotouhi, Hossein and Nolte, Thomas and Fahringer, Thomas},
++    doi = {10.1002/spe.2593},
++    issn = {1097024X},
++    keywords = {industrial IoT, node placement, parallel ant colony optimization, software-defined networking, wireless sensor networks}
++}
++
+ @inproceedings{Dyba2004AnGuides,
+     title = {{An empirical investigation on factors affecting software developer acceptance and utilization of electronic process guides}},
+     year = {2004},
+@@ -1009,19 +1019,6 @@
+     issn = {09505849}
+ }
+ 
+-@article{Siqueira2018ComparingReplicationb,
+-    title = {{Comparing the comprehensibility of requirements models: An experiment replication}},
+-    year = {2018},
+-    journal = {Information and Software Technology},
+-    author = {Siqueira, Fábio Levy},
+-    month = {4},
+-    pages = {1--13},
+-    volume = {96},
+-    url = {https://linkinghub.elsevier.com/retrieve/pii/S0950584917305050},
+-    doi = {10.1016/j.infsof.2017.11.002},
+-    issn = {09505849}
+-}
+-
+ @article{Bircher2012CompleteEvents,
+     title = {{Complete System Power Estimation Using Processor Performance Events}},
+     year = {2012},
+@@ -2664,43 +2661,7 @@
+     doi = {10.1007/978-94-017-9297-4{\_}7}
+ }
+ 
+-@incollection{Mahmud2017SpecificationLogic,
+-    title = {{Specification and Semantic Analysis of Embedded Systems Requirements: From Description Logic to Temporal Logic}},
+-    year = {2017},
+-    author = {Mahmud, Nesredin and Seceleanu, Cristina and Ljungkrantz, Oscar},
+-    month = {9},
+-    pages = {332--348},
+-    publisher = {Springer, Cham},
+-    url = {http://link.springer.com/10.1007/978-3-319-66197-1_21},
+-    doi = {10.1007/978-3-319-66197-1{\_}21}
+-}
+-
+-@incollection{Mahmud2017SpecificationLogicb,
+-    title = {{Specification and Semantic Analysis of Embedded Systems Requirements: From Description Logic to Temporal Logic}},
+-    year = {2017},
+-    author = {Mahmud, Nesredin and Seceleanu, Cristina and Ljungkrantz, Oscar},
+-    editor = {Cimatti, Alessandro and and Sirjani, Marjan},
+-    pages = {332--348},
+-    publisher = {Springer International Publishing},
+-    url = {http://link.springer.com/10.1007/978-3-319-66197-1_21},
+-    isbn = {978-3-319-66197-1},
+-    doi = {10.1007/978-3-319-66197-1{\_}21}
+-}
+-
+-@book{Mahmud2017SpecificationLogicc,
+-    title = {{Specification and semantic analysis of embedded systems requirements: From description logic to temporal logic}},
+-    year = {2017},
+-    booktitle = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+-    author = {Mahmud, N. and Seceleanu, C. and Ljungkrantz, O.},
+-    number = {},
+-    volume = {10469 LNCS},
+-    isbn = {9783319661964},
+-    doi = {10.1007/978-3-319-66197-1{\_}21},
+-    issn = {16113349},
+-    keywords = {Description logic, Embedded systems, Event-based semantics, Ontology, Requirements analysis, Requirements specification, Thematic roles, Timed computation tree logic}
+-}
+-
+-@article{Mahmud2017SpecificationLogicd,
++@article{Mahmud2017SpecificationLogic,
+     title = {{Specification and semantic analysis of embedded systems requirements: From description logic to temporal logic}},
+     year = {2017},
+     journal = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+diff --git a/tex/evaluation.tex b/tex/evaluation.tex
+index 746a116..ea5a137 100644
+--- a/tex/evaluation.tex
++++ b/tex/evaluation.tex
+@@ -37,7 +37,7 @@ Likewise, the specifications for an execution platform consist of the processor
+ 			\bottomrule
+ 		\end{tabular}
+ 		\caption{Ranges of Values for Applications Requirements.}
+-		\label{tbl_app_ranges}
++		\label{tbl_app_reqs_ranges}
+ 	}
+ ~
+ 	\parbox{.5\linewidth}{
+@@ -48,8 +48,8 @@ Likewise, the specifications for an execution platform consist of the processor
+ 			\midrule
+ 			Nodes $n_N$							& $4-10$\\
+ 			$P_{min},P_{max}$ (Watt)	& $1-10$\\
+-			$\lambda_n$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
+-			$\lambda_B$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
++			$P_{max}$ (Watt)	& $1-10$\\
++			$\lambda_n,\lambda_B$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
+ 			$Hz$ (MHz)			 	& $80-800$\\
+ 			\bottomrule
+ 		\end{tabular}
+@@ -57,42 +57,8 @@ Likewise, the specifications for an execution platform consist of the processor
+ 		\label{tbl_execpla}
+ 	}
+ \end{table}
+-%\begin{table}
+-%	\small
+-%\begin{subtable}[b]{0.5\textwidth}
+-%		\begin{tabular}{@{}ll@{}}
+-%	\toprule
+-%	Parameter  		& Range\\ 
+-%	\midrule
+-%	Nodes $n_N$							& $4-10$\\
+-%	$P_{min},P_{max}$ (Watt)	& $1-10$\\
+-%	$\lambda_n$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
+-%	$\lambda_B$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
+-%	$Hz$ (MHz)			 	& $80-800$\\
+-%	\bottomrule
+-%	\end{tabular}
+-%		\caption{Ranges of Values for Execution Platforms.}
+-%		\label{tbl_execpla}
+-%	\end{subtable}
+-%	~
+-%	\begin{subtable}[b]{0.4\textwidth}
+-%		\begin{tabular}{@{}ll@{}}
+-%		\toprule
+-%		Parameter  			& Range\\ 
+-%		\midrule
+-%		EE					 	& 100$n_\Gamma$\\
+-%		RL 						& 0.99999999\\
+-%		CL 						& \{A,B,C,D\}\\
+-%		\bottomrule
+-%	\end{tabular}
+-%		\caption{Ranges of Values for Applications Requirements..}
+-%		\label{tbl_app_ranges}
+-%\end{subtable}
+-%\caption{Samples Specifications.}
+-%\label{tbl_samplesspecs}
+-%\end{table}
+ 
+-\paragraph{Applications Requirements Specifications } Table~\ref{tbl_reqs}  shows the range of values used in our experiment to specify the requirements of software applications, that include the end-to-end timing requirements $EE$ of chains, the reliability requirement $RL$ and the criticality level $CL$. The end-to-end requiremens are assumed as a function of length of the chain $n_\Gamma$, that is the longer the chain, the higher the number. The reliability range of safety-critical automotive application is usually given in higher degree of 9, for operation of over a long period of time, which implies almost no failure during the specified duration.
++\paragraph{Applications Requirements Specifications } Table~\ref{tbl_app_reqs_ranges}  shows the range of values used in our experiment to specify the requirements of software applications, that include the end-to-end timing requirements EE of chains, the reliability requirement RL and the criticality level CL. The end-to-end requiremens are assumed as a function of length of the chain $n_\Gamma$, that is the longer the chain, the higher the number. The reliability range of safety-critical automotive application is usually given in higher degree of 9, for operation of over a long period of time, which implies almost no failure during the specified duration.
+ 
+ \paragraph{Evaluation Setup} The evaluation is conducted on a MacBook Pro laptop comptuer, with hardware specifications as follows: Intel Core i7 processor type, 2.6.GHz processor speed, 6 Cores , 9 MB L3 cache, and 16 GB memory.
+ 
+@@ -131,7 +97,7 @@ We conduted two experiments: i) the first experiment is designed to compare the
+ \caption{Specifications of Optimization Problems.}
+ \label{tbl_opt_problems}
+ \end{table}
+-\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculation of the cause-effect delays due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{sub_repl_delay}, optimizes the calculation of the cause-effec chain delays in the presenece of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
++\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculation of the cause-effect delays due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{subsec_approximation_alg}, optimizes the calculation of the cause-effect chain delays in the presence of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
+ \begin{table}
+ 	\centering
+ 	\begin{tabular}{@{}llll@{}}
+diff --git a/tex/introduction.tex b/tex/introduction.tex
+index 222cf49..bc186f7 100644
+--- a/tex/introduction.tex
++++ b/tex/introduction.tex
+@@ -1,18 +1,19 @@
+ \section{Introduction}
+-Over the last decades, the complexity of automotive functionality has increased tremendously, that is, the electical/electronic platform is running more and more automotive functions (or software applications), with millions lines of code, over complex network infrastructure. Moreover, some automotive applications are computationally intensive, e.g., the computer-vision detection in self-driving vehicles using deep learning. Thus, there is a need for powerful computing architectures that can accommodate the current and future demands of software applications. The distributed computing in automotive systems enables deployment of automotive applications on multiple units to realize complex functionality, e.g., end-to-end behavior, which have strict timing constraints. Moreover, consolidation of applications on the same execution platform for efficiency has gained interest in the automotive domain, also known as \textit{mixed-criticality} design, whicc is after demonstrated the avionics domain. The distributed computing of applications and mixed-criticality design are interesting phenomena in the evolution of automotive systems development. In the context of software allocation, they bring two main challengs: i) real-time analysis is complex in distributed environment due to independently executing functions on the different units. Considering independent failures of the computing units, the distriburted architecture provides an opportunity to improve the reliability of the software applications by replicating functionality on multiple units; ii) the allocation of distributed software applciations is normally NP hard, and therefore finding optimal solutions is exponential. %In this paper, we provide an integral software allocation approach basesd on metaheuristics that considers the timing and reliability requirements of software applications, and optimize the total power-consumption of the distribured systesm.
++The automotive electrical/electronic infrastructure executes several safety-critical software functions (or software applications), e.g.,throttle control, brake-by-wire control, traction control, etc. Moreover, it is a distributed architecture, thus executes some applications on multiple electrical computing units (ECU). The automotive functionality is getting complex, e.g., modern cars support hundreds of software applications and executes millions of lines of codes, therefore, efficient partitioning of the distributed software functionality is crucial to ensure software extensibility, that is to support current and future software growth. In this regard, the main concern in embedded system design including in the automotive design includes the optimization of power and energy, which has been researched at different levels such as electronic circuit design, dynamic power and energy management, software/hardware partitioning, software applications allocation, etc. In this paper, we propose power-efficient allocation of distributed software applications on heterogeneous computing units.
+ 
+-Software allocation is a well-researched area in the domain of embedded systems, including in hardware/software co-design \cite{Wolf2003ACodesign}, platform-based system design \cite{Sangiovanni-Vincentelli2004BenefitsDesign} and the Y-chart design approach \cite{ychart_Kienhuis2002}. It is a type of job-shop problem with constraints, and therefore finding an optimal solution, in the general case, is  NP-hard \cite{Fernandez-Baca1989AllocatingSystem}. The methods to solve such problems can be \textit{exact} or \textit{heuristic}. The exact methods, e.g., branch and bound, dynamic programming, etc., gurantee optimal solutions, neverthless, they do not scale to large-scale problems \cite{Saidi2015AnArchitectures}. Moreover, applying exact methods on-non linear problems, which are prevalent in practice, is prohobitively expensive. Our previous work on solving the software allocation problem \cite{Mahmud5222}, we demonstrate the limitation of integer-linear programming (ILP) \cite{Bradley1977AppliedProgramming} using exact method by the CPLEX solver . Similary, the scalability issues of exact methods on software allocation is indicated in several research \cite{Saidi2015AnArchitectures}. In contrast, heuristic methods device a working technique to solve practical problems, which are usually large-scale, non-linear, without gurantee of optimality \cite{faragardi2018AECUs,Bucaioni2018MoVES:Systems}.  A particular type of heuristic is \textit{metaheuristics} which can be defined as ``an iterative generation process which guides a subordinate heuristic by combining intelligently different concepts for exploring and exploiting the search space, learning strategies are used to structure information in order to
+-find efficiently near-optimal solutions." \cite{Osman2005}.
++In distributed computing, the risk of software functionality failure is greater due to higher transient and permanent faults, thus maximizing reliability of the distributed system is desirable. In the safety-critical design, the software applications are required to meet reliability goals in order to assure correct operation of the software over some period of time. The most common way to maximize reliability is by applying \textit{fault tolerance}, that is via redundant software and hardware components. However, fault tolerance requires additional computation resources, and consumes more power and energy. Therefore, the software allocation should consider meeting the reliability goals besides optimizing the power consumption of distributed software applications, since different software allocation satisfying the reliability goals could deliver different power consumption.
+ 
+-Metaheuristics has found wide applications in many domains, e.g.,  cellular networks, cloud computing, softwar design, etc \cite{bibid}. Many of the existing meta-heuristic algorithms are nature inspired, e.g., genetic algorithm, evolutionary algorithms, simulated annehealing, ant colony, paticle-swarm optimization, etc. Applications of metaheuristics on the software allocation of real-time systems are in the early stages, neverthless, there exist some work, e.g., by Qin-Ma et al. \cite{bibid} on maximizing reliability of distributed computing sytems using hanybee algorithm, maximizing reliability of distributed systems using hill-climbing particle-swarm optimization by Yin et al. \cite{yin2007task}, etc. In this work, we apply differential evolution and hybrid particle-swarm optimization algorithms on a fault-tolerant distributed software applications to optimize the total power consumption of a distributed system. The software applications are developed using the AUTOSAR software components that are implemented by periodically activated runnables. Sequencies of runnables deployed on the same unit or netowrk of units realize end-to-end functionality, also known as \textit{cause-effect} chains. The chains are triggered by different sampling rates, also known as  \textit{multirate}~\cite{Vinet2010APolynomials}. The propagation of signals over multirate chains result in undersampling/oversampling effects, which makes end-to-end timing analysis difficult \cite{mubeen2013support}. In order to maximize software applications reliability and meet their reliability goals, we implement fault-tolerance. % of software components. The applications are distributed over heterogeneous computing units that share a single network. In comparison to related works~\cite{Wozniak2013AnArchitectures, vsvogor2014extended,Saidi2015AnArchitectures}, 
++Software allocation is a well-researched area in the domain of embedded systems, including in hardware/software co-design \cite{Wolf2003ACodesign}, platform-based system design \cite{Sangiovanni-Vincentelli2004BenefitsDesign} and the Y-chart design \cite{ychart_Kienhuis2002} approaches. It is a type of job-shop problem with constraints, and therefore finding an optimal solution, in the general case, is  NP-hard \cite{Fernandez-Baca1989AllocatingSystem}. The methods to solve such problems can be \textit{exact} or \textit{heuristic}. The exact methods, e.g., branch and bound, dynamic programming, etc., guarantee optimal solutions, nevertheless, they do not scale to large-scale problems \cite{Saidi2015AnArchitectures}. Moreover, applying exact methods on-non linear problems, which are prevalent in practice, is prohibitively expensive. Our previous work on solving the software allocation problem \cite{Mahmud5222}, we demonstrate the limitation of integer-linear programming (ILP) \cite{Bradley1977AppliedProgramming} using exact method by the CPLEX solver. Similarly, the scalability issues of exact methods on software allocation is indicated in several research \cite{Saidi2015AnArchitectures}. In contrast, heuristic methods device a working technique to solve practical problems, which are usually large-scale, non-linear, without guarantee of optimality \cite{faragardi2018AECUs,Bucaioni2018MoVES:Systems}.  A particular type of heuristic is \textit{metaheuristics} which can be defined as ``an iterative generation process which guides a subordinate heuristic by combining intelligently different concepts for exploring and exploiting the search space, learning strategies are used to structure information in order to
++find efficiently near-optimal solutions" \cite{Osman2005Metaheuristics:Bibliography}.
+ 
+-The contributions of our work are summerized as follows: 
++Metaheuristics has found wide applications in many domains, e.g.,  cellular networks, cloud computing, software design, etc \cite{2006HandbookMetaheuristics}. Many of the existing meta-heuristic algorithms are nature inspired, e.g., genetic algorithm, evolutionary algorithms, simulated annehealing, ant colony, particle-swarm optimization, etc. Applications of metaheuristics on the software allocation of real-time systems are in the early stages, nevertheless, there exist some work, e.g., by Qin-Ma et al. \cite{kartik1997task} on maximizing reliability of distributed computing systems using hanybee algorithm, maximizing reliability of distributed systems using hill-climbing particle-swarm optimization by Yin et al. \cite{yin2007task}, etc. In this work, we apply differential evolution and hybrid particle-swarm optimization algorithms on a fault-tolerant distributed software applications to optimize the total power consumption of a distributed system. The software applications are developed using the AUTOSAR software components that are implemented by periodically activated runnables. Sequences of runnables deployed on the same unit or network of units realize end-to-end functionality, also known as \textit{cause-effect} chains. The chains are triggered by different sampling rates, also known as  \textit{multirate}~\cite{Vinet2010APolynomials}. The propagation of signals over multirate chains result in undersampling/oversampling effects, which makes end-to-end timing analysis difficult \cite{mubeen2013support}. In order to maximize software applications reliability and meet their reliability goals, we implement fault-tolerance. 
++
++The contributions of our work are summarized as follows: 
+ \begin{enumerate*}[label=(\roman*)]
+ 	\item we provide a fitness function with end-to-end timing and reliability constraints of the software applications,
+ 	\item due to the overhead of fault-tolerance, we propose an approximation algorithm to reduce the end-to-end delays of computation,
+ 	\item we provide performance comparison of the ILP method with CPLEX, differential evolution, and hybrid particle-swarm optimization algorithms with differential evolution, hill-climbing and stochastic hill-climbing algorithms
+ \end{enumerate*}. Our approach is evaluated on synthetic automotive applications that are generated according to the real-world automotive benchmark proposed by Kramer et al. \cite{Kramer2015RealFree}. In the evaluation, we show comparative performance of the various optimization algorithms interms of quality of solutions (or optimality), computation time,  and stability of the algorithms, for small and large software allocation problems. The tool applied in the evaluation is publicly accessible from BitBucket\footnote{\url{https://bitbucket.org/nasmdh/archsynapp/src/master/}}. 
+-
+ The rest of the paper is organized as follows:
+ Section~\ref{sec_autosar} provides a brief overview of AUTOSAR, emphasizing on end-to-end timing and reliability modeling, and software allocation,
+ Section~\ref{sec_system} describes the AUTOSAR system model, including timing analysis, reliability and power-consumption assumptions.
+diff --git a/tex/problem.tex b/tex/problem.tex
+index bd59577..e5708c3 100644
+--- a/tex/problem.tex
++++ b/tex/problem.tex
+@@ -156,7 +156,7 @@ according to the age-delay formula shown in Equation (\ref{eqn_agedelay_multinod
+ \label{eqn_chains_constraints}
+ \forall \gamma \in \ssp{\Gamma} \ \sss{\Delta}[k][{\gamma}](\x) & \leq \sss{\mathrm{EE}}[k][\gamma],
+ \end{align}
+-\begin{example}[Delay Calculation] Consider the chain $\Gamma=\tau_1\rightarrow\tau_2\rightarrow\tau_4$ from Figure~\ref{fig_dag_tasks} where $\tau_1$ and $\tau_2$ realize the component types $c_1$, and $\tau_4$ realizes $c_2$. The mapping of the components is shown in Figure~\ref{fig_deployment} (b), i.e., with replication. Thus, the units to which $\tau_1$ and $\tau_2$ are mapped are $\sss{\mathcal{R}}[k][\tau_l][b]=\sss{\mathcal{R}}[k][\tau_2][b]=\{n_1,n_2\}$, and $\tau_4$ to $\sss{\mathcal{R}}[k][\tau_4][b]=\{n_2,n_3\}$, by infering the mappings of respective components. Table~\ref{tbl_chains_with_replication} illustrates how to compute the chains, considering replication of degree 2, which is $\Gamma^* = \sss{\mathcal{R}}[k][\tau_1][b] \times \sss{\mathcal{R}}[k][\tau_2][b] \times \sss{\mathcal{R}}[k][\tau_4][b]$, and also how to compute the subchains and messages of each chain $\gamma\in \Gamma^*$. The delays of the subchains is computed according to the age-delay semantics demonstrated in Subsection~\ref{subsec_cause_effect_chains}.
++\begin{example}[Delay Calculation] Consider the chain $\Gamma=\tau_1\rightarrow\tau_2\rightarrow\tau_4$ from Figure~\ref{fig_dag_tasks} where $\tau_1$ and $\tau_2$ realize the component types $c_1$, and $\tau_4$ realizes $c_2$. The mapping of the components is shown in Figure~\ref{fig_deployment} (b), i.e., with replication. Thus, the units to which $\tau_1$ and $\tau_2$ are mapped are $\sss{\mathcal{R}}[k][\tau_l][b]=\sss{\mathcal{R}}[k][\tau_2][b]=\{n_1,n_2\}$, and $\tau_4$ to $\sss{\mathcal{R}}[k][\tau_4][b]=\{n_2,n_3\}$, by infering the mappings of respective components. Table~\ref{tbl_chains_with_replication} illustrates how to compute the chains, considering replication of degree 2, which is $\Gamma^* = \sss{\mathcal{R}}[k][\tau_1][b] \times \sss{\mathcal{R}}[k][\tau_2][b] \times \sss{\mathcal{R}}[k][\tau_4][b]$, and also how to compute the subchains and messages of each chain $\gamma\in \Gamma^*$. The delays of the subchains is computed according to the age-delay semantics demonstrated in Subsection~\ref{subsec_cause-effect_chains}.
+ \end{example} 
+ \begin{table}[]
+ 	\begin{tabular}{@{}lll@{}}
+@@ -171,10 +171,10 @@ according to the age-delay formula shown in Equation (\ref{eqn_agedelay_multinod
+ \label{tbl_chains_with_replication}
+ \end{table}
+ 
+-\subsection{Approximation of Delay Calculation}
+-Due to the replication, the number of chains-with-replication per chain $\Gamma$ grows exponentially as the degree of the replication $D$ linearly increases, $|\Gamma|^D$. Likewise, the length of the chain has a polynomial effect on the number of replicated chains. Moreover, the age-delay calculation is an exhaustive search as demonstrated in Subsection \ref{subsec_cause-effect_chains}. For these main reasons, the age delay computation is expensive especially with replication, which is challenging for metaheuristics, due meta-heuristic algorithms compute large-space candidate solutions. Therefore, we propose an appoximation algorithm to efficiently compute the delays based on worst-case age delay, defined as the maximum delay that be observed in a chain. It is estimated by the following lemma as follows:
++\subsection{Approximation of Delay Calculation}\label{subsec_approximation_alg}
++Due to the replication, the number of chains-with-replication per chain $\Gamma$ grows exponentially as the degree of the replication $D$ linearly increases, $|\Gamma|^D$. Likewise, the length of the chain has a polynomial effect on the number of replicated chains. Moreover, the age-delay calculation is an exhaustive search as demonstrated in Subsection \ref{subsec_cause-effect_chains}. For these main reasons, the age delay computation is expensive especially with replication, which is challenging for metaheuristics, due meta-heuristic algorithms compute large-space candidate solutions. Therefore, we propose an approximation algorithm to efficiently compute the delays based on worst-case age delay, defined as the maximum delay that be observed in a chain. It is estimated by the following lemma as follows:
+ \begin{lemma}[Worst-case Edge Delay] 
+-	In the case of replication, the worst-case age delay of a chain mapped on a single computing unit follows the maximization of the age delay formula shown in Equation (), which occurs between the earliest activation of the source task and the latest activation of the sink task plust the maximum worst-case response time of the sink task of a chain. The earliest activation occurs when the source task start time conincides its release time, and latest activation time of the sink task occurs not latter than the second hyper-period since the data is picked up by the source task. 
++	In the case of replication, the worst-case age delay of a chain mapped on a single computing unit follows the maximization of the age delay formula shown in Equation (), which occurs between the earliest activation of the source task and the latest activation of the sink task plus the maximum worst-case response time of the sink task of a chain. The earliest activation occurs when the source task start time concedes its release time, and latest activation time of the sink task occurs not latter than the second hyper-period since the data is picked up by the source task. 
+ 	
+ 	
+ 	Thus, the worst-case age delay of a chain mapped to multiple units occur the replicated chain uses the shared network bus the maximum. Therefore, the worst-case edge delay of the chain $\Gamma$ is calculated as follows:
+diff --git a/tex/solution.tex b/tex/solution.tex
+index 8369ae7..5834dce 100644
+--- a/tex/solution.tex
++++ b/tex/solution.tex
+@@ -79,8 +79,7 @@ The solution to the allocation problem is represented by a vector-matrix $\x=\{\
+ \end{equation}
+ 
+ \subsection{Fitness Function}
+-The fitness function $f:\textbf{x}\rightarrow \mathbb{R}$ is a type of objective function that summerizes the contriutions of the decision variables via real numbers. The fitness value is used to compare feasible solutions, that is the higher the fitness, the better. In the context of metaheuristics, it is highly desirable to integrate the goal function and all constraints into one function that can be
+-used as a fitness function. [cite to talbi2009metaheuristics and faragardi2018efficient]. Thus, it combines the objective function, which is the power-consumption minimization, with the constraints such as the reliability and timing constraints into a single function by using a penality function. 
++The fitness function $f:\textbf{x}\rightarrow \mathbb{R}$ is a type of objective function that summerizes the contributions of the decision variables via real numbers. The fitness value is used to compare feasible solutions, that is the higher the fitness, the better. In the context of metaheuristics, it is highly desirable to integrate the goal function and all constraints into one function that can be used as a fitness function~\cite{Talbi2009Metaheuristics:Implementation,faragardi2018AECUs}. Thus, it combines the objective function, which is the power-consumption minimization, with the constraints such as the reliability and timing constraints into a single function by using a penalty function. 
+ 
+ The benefit of using a single function, including all penalty functions, is to provide a metric to distinguish between two unfeasible solutions. For example, let us assume that $\x_1$ and $\x_1$ are two different solutions for the allocation problem while both violate
+ some constraints of the problem. Let us also assume that solution
+@@ -90,139 +89,52 @@ in terms of being far away from a feasible solution, the fitness function guides
+ the penalty functions is a promising solution to provide knowledge about how far an unfeasible solution is from a feasible
+ solution. 
+ 
+-Consequently, the original constrained optimization problem is transformed into unconstrained optimization problem, by extending the objective function $P(\textbf{x})$ with the constrains, represented by a set of \textit{penalty functions} $\{\phi_{reliability}(\textbf{x}),$  $\phi_{deadline}(\textbf{x}),$ $\phi_{e2e}(\textbf{x}), \phi_{rep}(\textbf{x})\}$. The first penalty function corresponds to the reliability constraint which returns 0 if the reliability constrain is not violated, otherwise returns a positive number denoting how far the reliability constraint is violated. The further the violation, the higher value of the penalty function. Similarly, the other penalty functions correspond to the deadline, the end-to-end timing requirement, and the replication constraints, respectively. 
+-I
+-ndeed, the penalty function penalizes the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. Section~\ref{sec_penaltyfunction} explains how our solution framework formulates the penalty functions.
++Consequently, the original constrained optimization problem is transformed into unconstrained optimization problem, by extending the objective function $Power(\textbf{x})$ with the constrains, represented by a set of \textit{penalty functions} $\{\phi_{reliability}(\textbf{x}),$  $\phi_{deadline}(\textbf{x}),$ $\phi_{e2e}(\textbf{x})\}$. The first penalty function corresponds to the reliability constraint which returns 0 if the reliability constrain is not violated, otherwise returns a positive number denoting how far the reliability constraint is violated. The further the violation, the higher value of the penalty function. Similarly, the other penalty functions correspond to the deadline and the end-to-end timing requirement, respectively. 
++Indeed, the penalty function penalizes the candidate solution by increasing its fitness (for our minimization problem), thus discriminating the solution. Section~\ref{sec_penaltyfunction} explains how our solution framework formulates the penalty functions.
+ 
+ The fitness function $f(x)$ is computed as follows.
+-%The fitness function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability.
+-
+-%\begin{align}
+-%\label{}
+-%    \min_{\textbf{x}\in X}\;\;& f(\textbf{x})=P(\textbf{x}) + \alpha %\Phi(\textbf{x})\\
+-%    \label{eqn_penalityfunc}\Phi(\textbf{x}) &= \sum\phi_i(\textbf{x})
+-%\end{align}
+-
+ \begin{align}
+ \label{eqn_penalityfunc}
+-\min_{\textbf{x}\in X}\;\;& f(\textbf{x})=P(\textbf{x}) + \beta_1 \phi_{reliability}(\textbf{x}) + \beta_2 \phi_{deadline}(\textbf{x}) + \beta_3 \phi_{e2e}(\textbf{x}) + \beta_4 \phi_{rep}(\textbf{x}) 
++\min_{\textbf{x}\in X}\;\;& f(\textbf{x})=Power(\textbf{x}) + \beta_1 \phi_{rel}(\textbf{x}) + \beta_2 \phi_{ddl}(\textbf{x}) + \beta_3 \phi_{e2e}(\textbf{x})),
+ \end{align}
+-%The fitness function is a combination of $\beta\sum{g_i(\textbf{x})}$ and $\gamma h(\textbf{x})$ functions, respectively computes the timing violations and a software application reliability violation, and each function is weighted to indicate the size of the penalty separately. Moreover, the penalty function $\Phi({\textbf{x}})$ is weighted to indicate the size of penalty that imposed on the combined violations of timing and reliability.
+-where $\beta_1$ to $\beta_4$ are penalty coefficients used to tune the weight of the penalty functions with regard to the range of the objective function. In Section~\ref{sec:penaltycoefficient}, the proper value of the penalty coefficients is discussed in more details.
++where $\beta_1$ to $\beta_3$ are penalty coefficients used to tune the weight of the penalty functions with regard to the range of the objective function. In Section~\ref{sec:penaltycoefficient}, the proper values of the penalty coefficients are discussed in more details.
+ 
+ \subsection{Penalty Function}
+ \label{sec:penaltyfunction}
+ 
+ \begin{equation}
+ \label{}
+-    \phi_{reliability}(\textbf{x}) = \sum_{k=1}^{n_{A_k}}{Max \{0, \rel_{A_k}(\x) - RelReq_{A_k} \}}
++    \phi_{rel}(\textbf{x}) = \sum_{k=1}^{n_{A}}{\max {\{0, \rel_{a_k}(\x) - \mathrm{RL}_{a_k} \}}}
+ \end{equation}
+ 
+ \begin{equation}
+ \label{}
+-    \phi_{deadline}(\textbf{x}) = \sum_{\forall \tau\in T_{m_h}}{Max \{0, ResponseTime_{\tau}(\x) - Deadline_{\tau} \}}
++    \phi_{ddl}(\textbf{x}) = \sum_{\forall \tau\in T_{m_h}}{\max \{0, ResponseTime_{\tau}(\x) - \mathrm{DL}_{\tau} \}}
+ \end{equation}
+ 
+ \begin{equation}
+ \label{}
+-    \phi_{e2e}(\textbf{x}) = \sum_{\forall \gamma \in \ssp{\Gamma}}{Max \{0, Delay_\gamma(\x) - E2eReq_\gamma \}}
++    \phi_{e2e}(\textbf{x}) = \sum_{\forall \gamma \in \ssp{\Gamma}}{\max \{0, Delay_\gamma(\x) - \mathrm{EE}_\gamma \}}
+ \end{equation}
+ 
+ \subsection{Penalty Coefficients}
+ \label{sec:penaltycoefficient}
+-To calculate the value of the penalty coefficient ($\beta_1 to \beta_4$) we use the same analytical approach proposed in[cite to faragardi2018efficient]
+-%@article{faragardi2018efficient,
+-%  title={An efficient placement of sinks and SDN controller nodes for optimizing the design cost of industrial IoT systems},
+-%  author={Faragardi, Hamid Reza and Vahabi, Maryam and Fotouhi, Hossein and Nolte, Thomas and Fahringer, Thomas},
+-%  journal={Software: Practice and Experience},
+-%  volume={48},
+-%  number={10},
+-%  pages={1893--1919},
+-%  year={2018},
+-%  publisher={Wiley Online Library}
+-%}
+-where the value of each penalty coefficient determined separately with respect to the relative proportion of the range of the penalty function to the range of the objective function (which is P(x) in our problem). Indeed, the penalty coefficient should be determined such that all the feasible solutions have a lower fitness value in comparison to infeasible solutions, meaning that all the feasible solutions are always preferred to an infeasible solution~\cite{faragardi2018JSS}. On the other hand, the penalty coefficient should not be extremely large since it hinders the search algorithm to search among infeasible solutions to find a way to reach the global optimum~\cite{talbi2009metaheuristics}.
+-
+-To calculate the minimum value of $\beta_1$ we consider two solutions for the problem. Solution 1 has the best power consumption (denoted by $P^{min}$) while it just infinitesimally violates the reliability constraint. Solution 2 has the worst possible value of $P(x)$ (denoted by $P^{max}$), while it satisfies the reliability constraint. We expect that Solution 2 has a lower fitness value than that of solution 1. Accordingly,
+-
+-\begin{equation}
+-\label{eq:PnelatyMem1}
+-P^{min} + \beta_1 \times Min\{Penalty Value\} > P^{max} + 0
+-\end{equation}  
+-Let us assume that (i) $P^{min} = 0$, (ii) $P^{max}$ is set equal to the total power consumption of all nodes when they are fully utilized, and (iii) $Min\{Penalty Value\} = 10^{-8}$ which is the minimum value of $\phi_{reliability}$ in an unfeasible solution. Hence,
+-
+-\begin{equation}
+-\label{eq:PnelatyMem2}
+-\beta_1 > 10^8 \times P^{max}
+-\end{equation}  
+-
+-Our experiments also verify this theoretical discussion. We observed that when $\beta_1 = 10^8 \times P^{max}$, we always converge to a feasible solution and when it is set to a lower value, in some experiments, we converge to an infeasible solution. We also observed that when $\beta_1$ is set to a significantly higher value, the deviation from the best fitness value found in multiple experiments goes up, and the average fitness value is increased, thereby, the quality of the solutions is decreased.
+-
+-Similarly, for the other penalty coefficients we use these calculations which result in
+-\begin{equation}
+-\label{}
+-\beta_2 > 1 \times P^{max}  
+-\end{equation}
+-
+-\begin{equation}
+-\label{}
+-\beta_3 > 1 \times P^{max}
+-\end{equation}
+-
+-\begin{equation}
+-\label{}
+-\beta_4 > 1 \times P^{max}
+-\end{equation}
+-It should be noted that the minimum violation of $\phi_{deadline}$, $\phi_{e2e}$, and $\phi_{rep}$ is one.
+-
+-
+-%\begin{equation}
+-%\label{}
+-%    \phi_{rep}(\textbf{x}) = \sum_{\forall c_i}{\sum_{\forall n_j}{\sum_{k=1}^{n_{rep}-1}{\sum_{k'=k+1}^{n_{rep}} x_{ij}^{(k)} x_{ij}^{(k')}}}}
+-%\end{equation}
+-
+-
+-%\rel_{A_k}(\x)&\leq RelReq_{A_k} & \mbox{ forall } k=1,...,n_{A_k}\\
+-%\label{eqn_responsetime}
+-%\forall \tau\in T_{m_h}\    ResponseTime_{\tau}(\x)&\leq %Deadline_{\tau}& \mbox{forall } h=1,...,n_{M}\\ 
+-%\label{eqn_e2e}
+-%\forall \gamma \in \ssp{\Gamma}\  Delay_\gamma(\x)&\leq E2eReq_\gamma& %\mbox{forall } k=1,...,n_{A}\\
+-%\forall k\forall ij\ x_{ij}^{(k)}&\neq x_{ij}^{(k')},&  \mbox{ where } %k\neq k'=1,...,n_{rep}
+-
+-
+-% Show the representation of the a solution
+-% Demonstrated it on the example
+-% \begin{algorithm}
+-% \caption{PSO Algorithm}\label{alg_pso}
+-% \begin{algorithmic}[1]
+-% \Require n
+-% \Ensure Near (Optimal) Solution
+-% \State $x_{sb}\leftarrow$ getWorstPosition()
+-% \State $Particles\leftarrow$ createParticles($n$)
+-% \State initParticles($Particles$)
+-% \While{$!stoppingCritera$}
+-%     % Calculate personal best, swarm best positions
+-%     \State \Comment{Calculate personal best and swarm best positions of the particles}
+-%     \ForAll{$p \in Particles$}
+-%         \State $particle \leftarrow$  getPosition($p$)
+-%         \State $x_{pb} \leftarrow$  getPosition($p$) 
+-%         \If{$fitness(x)\leq fitness(x_{pb})$} \Comment{Personal best position}
+-%             \State $x_{pb}\leftarrow x$
+-%             \If{$fitness(x)\leq fitness(x_{sb})$} \Comment{Swarm best position}
+-%                 \State $x_{sb}\leftarrow x$
+-%             \EndIf 
+-%         \EndIf 
+-%     \EndFor
+-%     % Calculate next positions of the particles
+-%     \State \Comment{Calculate next positions of the particles}
+-% 	\ForAll{$p \in Particles$}
+-%         \State $v\leftarrow v+c1*r1*(x_{pb}-x)+c2*r2*(x_{sb}-x)$ 
+-%         \State $x\leftarrow$ getPosition($p$)$ + v$
+-%         %\State setParticlePosition($p,x$)
+-%     \EndFor
+-% \EndWhile
+-% \end{algorithmic}
+-% \end{algorithm}\vspace{-0.2cm}
++To calculate the values of the penalty coefficients $\beta_1,\beta_2$ and $\beta_3$, we use the similar analytical approach proposed in \cite{Faragardi2018AnSystems},
++where the value of each penalty coefficient is determined separately with respect to the relative proportion of the range of the penalty function to the range of the objective function, which is $Power(x)$ in our problem. Indeed, the penalty coefficients should be determined such that all the feasible solutions have a lower fitness value in comparison to the infeasible solutions, meaning that all the feasible solutions are always preferred to infeasible solutions~\cite{faragardi2018AECUs}. On the other hand, the penalty coefficients should not be extremely large since it hinders the search algorithm to search among infeasible solutions to find a way to reach the global optimum~\cite{Talbi2009Metaheuristics:Implementation}.
++
++To calculate the minimum value of $\beta_1$ we consider two solutions for the problem. Assume Solution 1 has the best power consumption (denoted by $Power^{min}$) while it just infinitesimally violates the reliability constraint. Solution 2 has the worst possible value of $Power(x)$ (denoted by $Power^{max}$), while it satisfies the reliability constraint. We expect that Solution 2 has a lower fitness value than that of solution 1. Accordingly,
++\begin{equation*}
++\label{eqn_PnelatyMem1}
++Power^{min} + \beta_1 \times Min\{Penalty Value\} > Power^{max} + 0
++\end{equation*}  
++Let us assume that (i) $Power^{min} = 0$, (ii) $Power^{max}$ is set equal to the total power consumption of all nodes when they are fully utilized, and (iii) $Min\{Penalty Value\} = 10^{-8}$ which is the minimum value of $\phi_{reliability}$ in an unfeasible solution. Hence,
++\begin{equation*}
++\label{eqn_PnelatyMem2}
++\beta_1 > 10^8 \times Power^{max}
++\end{equation*}  
++
++Our experiments also verify this theoretical discussion. We observed that when $\beta_1 = 10^8P^{max}$, we always converge to a feasible solution and when it is set to a lower value, in some experiments, we converge to an infeasible solution. We also observed that when $\beta_1$ is set to a significantly higher value, the deviation from the best fitness value found in multiple experiments goes up, and the average fitness value is increased, thereby, the quality of the solutions is decreased. Similarly, for the other penalty coefficients, we use similar calculations, which result in $\beta_2 > 1 \times Power^{max}$ and
++$\beta_3 > 1 \times Power^{max}$. Note: the minimum violation of $\phi_{ddl}$ and $\phi_{e2e}$ is one.
+ 
+ \subsection{Hybrid PSO}
+ The canonical PSO technique uses the constriction factors to balance exploitation and exploration of the search space, that is to deliver better quality solutions. Nevertheless, it still suffers from local minima especially for complex and large problems that exhibit especially multimodal behavior. Hybridization of PSO is one the most widely studied approach in the improvement of the the PSO technique. Basically, it combines other optimization techniques, for instance to intensify local search, and improve diversification by introducing stochastic search. However, hybridization of PSO usually incurs additional computation time. Therefore, the benefit of hybridization has to be studied carefully in conjunction to computation time. Moreover, it should not complicate the user-configurable parameters, to be inline with the philosophy of PSO for ease-of-use.
+diff --git a/tex/systemmodel.tex b/tex/systemmodel.tex
+index f670c80..6be1fbb 100644
+--- a/tex/systemmodel.tex
++++ b/tex/systemmodel.tex
+@@ -11,44 +11,45 @@ Figure~\ref{fig_system} illustrates the system model in consideration which cons
+ \paragraph{Notations} For easy reading, we introduce the main notations used throught the paper as follows:
+ 
+ \begin{longtable}{@{}llp{0.5\textwidth}@{}}
+-\toprule	\small
+- & Notation                        & Description                                             \\ 
+-\midrule
+- &/* Application related */&\\
+-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{\ttsexp{A}{a}   denote software applications, modeled as directed acyclic graphs of runnables, where $\mathcal{V}(a_k)$ are the nodes and $\mathcal{E}(a_k)$ the directed edges of the graph $a_k$.*}\\
++\small
++ &\multicolumn{2}{l}{/* Related to software applications */}\\
++$\bullet$ & \ttsexp{A}{a}    		             & AUTOSAR software applications\\
++$\bullet$ & \ttar    		                     & a software application, modeled as directed acyclic graph of runnables\\
++$\bullet$ & $\mathcal{V}(a_k)\in \sss{R},\mathcal{E}(a_k)$  & nodes and links of \ttar, respectively\\
++$\bullet$ & \sexpsp{\Gamma}{\Gamma}  & end-to-end chains             \\
++$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a path in $\mathcal{V}(\sss{g}[k][r])$, denotes a chain, where $Z$ is the length of the chain\\[9pt] 
++&\multicolumn{2}{l}{/* Related to software components */}\\
+ $\bullet$ & \sexpsp{C}{c}     		             & software-component types used in \ttar\\
+ $\bullet$ & \sexpss{Q}{q}    		            & component replicas of type \ttsss{c}\\
+ $\bullet$ & \sexpss{R}[i]{r}[j]   	             & runnables of \ttsss{c}\\
+-$\bullet$ & \sexpss{T}[i]{r}[j]   	             & tasks mapped to \ttsss{c}\\
++$\bullet$ & \ttsexp{M}{m}         	           & messages on the CAN bus   \\[9pt]
+ 
+-&/* Execution platform related */ &\\
++&\multicolumn{2}{l}{/* Related to the execution platform */}\\
+ $\bullet$ & \ttsexp{N}{n}         	            & computation (or computing) nodes      \\
+-$\bullet$ & \ttsexp{M}{m}         	           & messages on the CAN bus   \\
+-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\tau,c,m,\gamma$ denote iterator variables,  respectively for task, component, chain and node, e.g., $\forall \tau \in  \sss{T}$ of \ttsss{c}.}\\
+- &/* Mapping related */&\\
++$\bullet$ & $B$        	           & the shared network bus\\[9pt]
++
++ &\multicolumn{2}{l}{/* Related to the mapping */}\\
++$\bullet$ & \ttsexp{\textbf{x}}{\textbf{x}}[k]         & a mapping vector from \ttssp{Q} to $N$             \\
++$\bullet$ & \ttxkij & the mapping of \ttsss{c} to $n_l$, where $l=\xkij$\\
++$\bullet$ & \ttat    		                     & a software application, modeled as directed acyclic graph of tasks, refines \ttar \\[9pt]
+ 
+-$\bullet$ & \ttsexp{\textbf{x}}{\textbf{x}}[k]         & a mapping vector from \ttssp{Q} to $M$             \\
+-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$k,i,j$ denote iterator index-variables,  respectively for the mapping vector \ttx, and rows and columns of the matrix \ttxsp{k}, e.g., \ttxkij.***}\\
+-$\bullet$ & \multicolumn{2}{p{0.8\textwidth}}{$\sexp{B}{b}$   directed acyclic graphs of tasks, where $b_k$ refines $a_k$ using merging rules.} \\
+-$\bullet$ & \sexpsp{\Gamma}{\Gamma}  & end-to-end chains             \\
+-$\bullet$ & \ttsss{\Gamma}$=(e_i)_{i=1}^Z$   & a chain of $e\in V(\sss{g}[k][\tau])\cup M$\\ 
+-&/* Functions related */ &\\
++
++&\multicolumn{2}{l}{/* Related to the optimization */}\\
+ 
+ $\bullet$ & $Power(\textbf{x})$                		& total power consumption of  $A$ in \ttx    \\
+ $\bullet$ & $Reliability_{a}(\x)$      					& application reliability  of $a\in A$ in \ttx              \\
+ $\bullet$ & $ResponseTime_{\tau}(\x)$     		& response time of  $\tau \in V(\sss{g}[k][\tau])(\x)$                       \\
+ $\bullet$ & $Delay_\gamma(\x)$            			& age delay of $\gamma \in \ssp{\Gamma} $   in \ttx     \\
+-\bottomrule\\
++%\bottomrule\\
+ \end{longtable}
+ {\footnotesize 
+-	*Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes the number of applications in the set $S$, essentially it refers to its cardinality.\\
+-   *** For other uses of the iterators, they are defined in the context.}
++	* Note: the total elements in a set $S$ is denoted by \ttn{S}, e.g., \ttn{A} denotes the number of applications in the set $S$, essentially it refers to its cardinality.}
+ 
+ \subsection{Software Applications}
+ A software application represents an independent and self-contained user-defined software functionality, e.g., x-by-wire, electronic throttle control, flight control, etc. In AUTOSAR, software applications are developed using a \textit{Software Component} (SW-C), which is design-time concept that represents the lowest-level hierarchical element in software architecture of the software application, hence is atomic. Consequently, a software component is mapped to single computing unit. It is implented by the AUTOSAR runnables, which are schedulable pieces of codes (or objects), and contains specifications of timing behavior as well as resources requirements of the runnables. We formall represent an AUTOSAR software application as follows:
+ 
+ \begin{definition}[AUTOSAR Software Application]\footnote{ Note: only relevant concepts of the official AUTOSAR software application definition is assumed to avoid unnecessary complexity. }\label{def_application}
+-We represent a AUTOSAR software appplication a \textit{directed acyclic vertex-weighted} graph $\langle V, L, w, \rangle$ of periodic runnables, where $V$ denote runnable nodes, $a_{ij}\in L$ a data-dependency link from $r_i$ to $r_j$, where $i \neq j$. The assignment function $w: V\rightarrow (\mathrm{E}_i\mathrm{,D,P, N})$ sets each runnable nodes the computation cost such as worst-case execution times (WCET) $\mathrm{E=\{E}_h:h=1,...,n_N\}$, deadline D and period P, where $\mathrm{E}_h\in \mathrm{E}$ is the WCET of $r$ on the computing unit $n_h\in \mathcal{N}$.
++We represent an AUTOSAR software appplication a \textit{directed acyclic vertex-weighted} graph $\langle V, L, w, \rangle$ of periodic runnables, where $V$ denote runnable nodes, $a_{ij}\in L$ a data-dependency link from $r_i$ to $r_j$, where $i \neq j$. The assignment function $w: V\rightarrow (\mathrm{E}_i\mathrm{,D,P, N})$ sets each runnable nodes the computation cost such as worst-case execution times (WCET) $\mathrm{E=\{E}_h:h=1,...,n_N\}$, deadline D and period P, where $\mathrm{E}_h\in \mathrm{E}$ is the WCET of $r$ on the computing unit $n_h\in \mathcal{N}$.
+ \end{definition}
+ \begin{figure}
+ 	\centering
+@@ -249,16 +250,21 @@ where $\alpha(\tau)$ computes the activation of the task $\tau$, based on the ag
+ Assume $\Gamma \in \ssp{\Gamma}$ is a chain, if the chain is mapped on a single computing unit, the age delay is a mere difference between the activation of the sink task $\ssb{\alpha}[\tau_j]$ and the activation of the source task $\ssb{\alpha}[\tau_i]$ plus the worst-case response time of the sink task $\ssb{\delta}[\tau_j]$ in the longest timed path according to the semantics of the age delay. On the other hand, if the chain is mapped to multiple nodes, the age delay $\Delta_{multi}$ can be compositionally computed~\cite{Feiertag2009ASemantics} as follows: the chain is partitioned  into a set of sub-chains per node, indicated by the predicate $subch(\Gamma)$, and for each sub-chain $a\in subch(\Gamma)$, the age delay is computed recursively using the same method to used to compute the age delay for a single node, and the result is added to the response-times of the messages involved in the chain, $msg(\Gamma)$.
+ 
+ \subsection{Reliability of Software Applications}\label{sub_reliability}
+-Redundancy is the most common way to increase the reliability of a system. In this context, \textit{software application reliability} refers to the probability that a software application functions correctly by the time $t$, or within the time interval $[0, t]$ \cite{Goel1985SoftwareApplicability}. Redandancy can be implemented according to different schemes, such as hot stand-by, cold stand-by, etc~\cite{Dubrova2013Fault-tolerantDesign}, in this work, we consider the hot-standby scheme, where replicated components maintain the same state. However, only the \textit{primary} replicas act on the environment, e.g., activating an actuator. The primary software component is the one in operation and is indicated by \ttsss{q}[k][i,1], the secondary software component, which is in the stand-by, by \ttsss{q}[k][i,2], etc., for a software application $A_k$.  Note: the software components are replicated unless the reliability requirements of applications are satisfied.
++In this context, \textit{software application reliability} refers to the probability that a software application functions correctly by the time $t$, or within the time interval $[0, t]$ \cite{Goel1985SoftwareApplicability}. Redundancy is the most common way for implementing fault tolerance and increasing the reliability of a system. Redundancy can be implemented according to different schemes, such as hot stand-by, cold stand-by, etc.~\cite{Dubrova2013Fault-tolerantDesign}, which differ on the number of replicas that are active as well as the methods for detection and compensation of faulty replicas. In our system model, we consider the hot-standby scheme, where replicated components maintain the same state, but only one replica (the so-called \textit{primary}) effectively acts on the environment, for instance issuing an input. The primary software component will be denoted as \ttsss{q}[k][i,1], whereas the secondary software component, which is in the stand-by, by \ttsss{q}[k][i,2], etc., for a software application $A_k$.
++
++%Note: the software components are replicated unless the reliability requirements of applications are satisfied.
++
+ 
+ In this work the details of the redundancy scheme are abstracted away under the following assumptions:
+ \begin{enumerate*}[label=(\roman*)]
+-	\item hot stand-by redundancy technique is used for the replacement of failed components, which are identical and are allocated on different nodes, ii) software components need to be replicated if the application's reliability requirement is not met without replication, otherwise they are not replicated;
+-	\item the time needed to detect and replace a faulty component is considered negligible and will not be taken into account in the response time analysis of tasks and delay calculation of cause-effect chains;
+-	\item because of its simplicity, the mechanism for detection and replacement of faulty components will be considered fault-free, and therefore will not be included in the reliability calculations
++    \item Software does not contain design errors. This has two implications: first, that hardware elements, i.e. computing nodes and communication buses, are the only causes of failure and, second, that introduction of N-version programming is not required. Different replicas of the same software component execute exactly the same program.
++	\item Hot stand-by redundancy (also known as Primary/backup) is used for detection and replacement of failed components.
++	\item Software components need to be replicated only if the application's reliability requirement is not met without replication, otherwise they are not replicated.
++	\item The time needed to detect and replace a faulty component is considered negligible and will not be taken into account in the response time analysis of tasks and delay calculation of cause-effect chains;
++	\item Because of its simplicity, the mechanism for detection and replacement of faulty components will be considered fault-free, and therefore will not be included in the reliability calculations
+ \end{enumerate*}
+ 
+-Under these assumptions, the reliability of a software application is equivalent to the reliability of the execuiton platform such as the computing units the communication bus, if any, on wich the application is deployed. The reliability of a computing unit or the bus is calculated using $e^{\lambda t}$, where $\lambda$ is an exponentially distributed failure-rate. However, the reliability calcultion of the execution platform that services a software application is not trivial in the case with replication, e.g., the series-parallel reliability approach cannot be applied in the general case, due to the \textit{functional} interdependency created between computing nodes as the result. To demonstrate the functional interdependency, let us assume a software application $A_k$, having  component configurations with and without replication as shown Table \ref{fig_depwr} and \ref{fig_depwor}, respectively, where $\sss{q}[k][i,j]$ is the $j^{th}$ software-component replica of software-component type $\sss{c}\in \sss{C}$. Note: for readability of the example, we remove the superscript $k$.
++Note that under these assumptions, the reliability of a software application is equivalent to the reliability of the platform on which it is deployed. The reliability of a computing unit (and of the bus) can be easily calculated as $e^{\lambda t}$, where $\lambda$ is an exponentially distributed failure-rate. However, calculating the reliability of the whole execution platform is not trivial for the case with replication. In particular, the traditional series-parallel reliability approach cannot be applied because of the \textit{functional} interdependencies created between computing nodes as the result of replication and allocation. To illustrate the difficulty, let us assume a software application $A_k$, having  component configurations with and without replication as shown Table \ref{fig_depwr} and \ref{fig_depwor}, respectively, where $\sss{q}[k][i,j]$ is the $j^{th}$ software-component replica of software-component type $\sss{c}\in \sss{C}$. Note: for readability of the example, we remove the superscript $k$.
+ \begin{figure}
+ 	\begin{subfigure}{.5\textwidth}
+ 		\centering
+@@ -288,7 +294,7 @@ Under these assumptions, the reliability of a software application is equivalent
+ 	\label{fig_deployment}
+ \end{figure}
+ 
+-The reliability of the software application without replication forms a series path, indicated by the reliability block diagram (RBD) of Figure~\ref{fig_rbd}a, hence is computed as products of the reliability of $n_1,n_2$ and $B$. However, with replication, two computing nodes can form as series and parallel to service the sofware application,  e.g., due to \ttssb{q}[1,1] and \ttssb{q}[2,2] or \ttssb{q}[3,2], $n_1$ and $n_3$ make series, and due to \ttssb{q}[3,1] and \ttssb{q}[3,2], the nodes make parallel, to relialize partional functionality of the application. In this case, the series-parallel diagram depicted in Figure~\ref{fig_rbd}b does not accurately capture the reliaiblity calculation of the application with replication. Note: the red-dashed line between $n_1$ and $n_3$ indicates the possibility of the computing nodes becoming series. To address this problem, we use the exact reliability calculation technique based on the enumeration of the different failure states of the computing nodes, that is the different failure states of the execution platform is enumerated exaustively, and subsequently, the total probability the software application functions is computed, which is discussed in great length in Subsection~\ref{subsec_reliability_constraint}.
++The reliability of the software application without replication forms a series path, indicated by the reliability block diagram (RBD) of Figure~\ref{fig_rbd}a, hence is computed as products of the reliability of $n_1,n_2$ and $B$. However, with replication, two computing nodes can form as series and parallel to service the software application,  e.g., due to \ttssb{q}[1,1] and \ttssb{q}[2,2] or \ttssb{q}[3,2], $n_1$ and $n_3$ make series, and due to \ttssb{q}[3,1] and \ttssb{q}[3,2], the nodes make parallel, to realize a partial functionality of the application. In this case, the series-parallel diagram depicted in Figure~\ref{fig_rbd}b does not accurately capture the reliability calculation of the application with replication. Note: the red-dashed line between $n_1$ and $n_3$ indicates the possibility of the computing nodes becoming series. To overcome this problem, we will use an exact technique for reliability calculation based on the enumeration of the different failure states of the computing nodes; that is, the different failure states of the execution platform are enumerated exhaustively, and subsequently, the total probability the software application functions is computed. This technique will be discussed in great length in Subsection~\ref{subsec_reliability_constraint}.
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=0.8\linewidth]{img/rbd_replication}
+-- 
+2.18.0
+
