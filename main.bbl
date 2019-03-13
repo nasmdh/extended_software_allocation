@@ -41,6 +41,19 @@ S.~E. Saidi, S.~Cotard, K.~Chaaban, K.~Marteil, {An ILP Approach for Mapping
 \newblock \href {http://dx.doi.org/10.1145/2693433.2693439}
   {\path{doi:10.1145/2693433.2693439}}.
 
+\bibitem{Mahmud5222}
+N.~Mahmud, G.~Rodriguez-Navas, H.~R. Faragardi, S.~Mubeen, C.~Seceleanu,
+  \href{http://www.es.mdh.se/publications/5222-}{{Power-aware Allocation of
+  Fault-tolerant Multi-rate AUTOSAR Applications}}, in: 25th Asia-Pacific
+  Software Engineering Conference, 2018.
+\newline\urlprefix\url{http://www.es.mdh.se/publications/5222-}
+
+\bibitem{Bradley1977AppliedProgramming}
+H.~Bradley, {Applied Mathematical Programming}, Addison-Wesley, 1977.
+\newblock \href
+  {http://dx.doi.org/http://agecon2.tamu.edu/people/faculty/mccarl-bruce/books.htm}
+  {\path{doi:http://agecon2.tamu.edu/people/faculty/mccarl-bruce/books.htm}}.
+
 \bibitem{faragardi2018AECUs}
 H.~R. faragardi, B.~Lisper, K.~Sandstr{\"{o}}m, T.~Nolte, {A Resource Efficient
   Framework to Run Automotive Embedded Software on Multi-core ECUs}, Journal of
@@ -55,32 +68,25 @@ A.~Bucaioni, L.~Addazi, A.~Cicchetti, F.~Ciccozzi, R.~Eramo, S.~Mubeen,
 \newblock \href {http://dx.doi.org/10.1109/ACCESS.2018.2789400}
   {\path{doi:10.1109/ACCESS.2018.2789400}}.
 
-\bibitem{Bradley1977AppliedProgramming}
-H.~Bradley, {Applied Mathematical Programming}, Addison-Wesley, 1977.
-\newblock \href
-  {http://dx.doi.org/http://agecon2.tamu.edu/people/faculty/mccarl-bruce/books.htm}
-  {\path{doi:http://agecon2.tamu.edu/people/faculty/mccarl-bruce/books.htm}}.
+\bibitem{Osman2005Metaheuristics:Bibliography}
+I.~H. Osman, G.~Laporte, {Metaheuristics: A bibliography}, Annals of Operations
+  Research\href {http://dx.doi.org/10.1007/bf02125421}
+  {\path{doi:10.1007/bf02125421}}.
 
-\bibitem{Wozniak2013AnArchitectures}
-E.~Wozniak, A.~Mehiaoui, C.~Mraidha, S.~Tucci-Piergiovanni, S.~Gerard, {An
-  Optimization Approach for the Synthesis of AUTOSAR Architectures}, in: IEEE
-  International Conference on Emerging Technologies and Factory Automation,
-  ETFA, 2013.
-\newblock \href {http://dx.doi.org/10.1109/ETFA.2013.6647952}
-  {\path{doi:10.1109/ETFA.2013.6647952}}.
+\bibitem{2006HandbookMetaheuristics}
+{Handbook of Metaheuristics}, 2006.
+\newblock \href {http://arxiv.org/abs/0102188v1} {\path{arXiv:0102188v1}},
+  \href {http://dx.doi.org/10.1007/b101874} {\path{doi:10.1007/b101874}}.
 
-\bibitem{Fernandez2014SystemApproach}
-J.~Fernandez, C.~Galindo, I.~Garc{\'{i}}a, {System Engineering and Automation
-  An Interactive Educational Approach}, 2014.
-\newblock \href {http://dx.doi.org/10.1007/s13398-014-0173-7.2}
-  {\path{doi:10.1007/s13398-014-0173-7.2}}.
+\bibitem{kartik1997task}
+S.~Kartik, C.~S.~R. Murthy, {Task Allocation Algorithms for Maximizing
+  Reliability of Distributed Computing Systems}, IEEE Transactions on computers
+  46~(6) (1997) 719--724.
 
-\bibitem{Kopetz1989DistributedApproach}
-H.~Kopetz, A.~Damm, C.~Koza, M.~Mulazzani, W.~Schwabl, C.~Senft, R.~Zainlinger,
-  {Distributed Fault-tolerant Real-Time Systems: the Mars Approach}, IEEE Micro
-  9~(1) (1989) 25--40.
-\newblock \href {http://dx.doi.org/10.1109/40.16792}
-  {\path{doi:10.1109/40.16792}}.
+\bibitem{yin2007task}
+P.-Y. Yin, S.-S. Yu, P.-P. Wang, Y.-T. Wang, {Task Allocation for Maximizing
+  Reliability of a Distributed System using Hybrid Particle Swarm
+  Optimization}, Journal of Systems and Software 80~(5) (2007) 724--735.
 
 \bibitem{Vinet2010APolynomials}
 L.~Vinet, A.~Zhedanov, \href{http://arxiv.org/abs/1011.1669
@@ -102,11 +108,6 @@ S.~Kramer, D.~Ziegenbein, A.~Hamann, {Real World Automotive Benchmarks for
   Free}, in: 6th International Workshop on Analysis Tools and Methodologies for
   Embedded and Real-time Systems (WATERS), 2015.
 
-\bibitem{vsvogor2014extended}
-I.~{\v{S}}vogor, I.~Crnkovic, N.~Vrcek, {An Extended Model for Multi-Criteria
-  Software Component Allocation on a Heterogeneous Embedded Platform}, Journal
-  of computing and information technology 21~(4) (2014) 211--222.
-
 \bibitem{NaumannAUTOSARBus}
 N.~Naumann, {AUTOSAR Runtime Environment and Virtual Function Bus},
   Hasso-Plattner-Institut, Tech. Rep.
@@ -117,26 +118,18 @@ N.~Naumann, {AUTOSAR Runtime Environment and Virtual Function Bus},
   of Timing Extensions}}, Tech. rep., AUTOSAR (2017).
 \newline\urlprefix\url{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_TPS_TimingExtensions.pdf}
 
-\bibitem{iso201126262}
-I.~ISO, {26262: Road vehicles-Functional safety}, Tech. rep., ISO/TC 22/SC 32
-  Electrical and electronic components and general system aspects (2011).
-
-\bibitem{softwarecomponents}
-S.~d.~C. Kung-Kiu~Lau, {What are Software Components?}, World Scientific
-  Publishing Company (June 29, 2017), 2017.
-\newblock \href {http://dx.doi.org/10.1142/9789813221888{\_}0002}
-  {\path{doi:10.1142/9789813221888{\_}0002}}.
-
-\bibitem{Crnkovic2002BuildingSystems}
-I.~Crnkovic, M.~Larsson, I.~Ebrary, {Building Reliable Component-based Software
-  Systems} (2002).
-
 \bibitem{Vestal2007PreemptiveAssurance}
 S.~Vestal, {Preemptive scheduling of multi-criticality systems with varying
   degrees of execution time assurance}, in: Proceedings - Real-Time Systems
   Symposium, 2007.
 \newblock \href {http://dx.doi.org/10.1109/RTSS.2007.47}
   {\path{doi:10.1109/RTSS.2007.47}}.
+
+\bibitem{Baruah2011Response-timeSystems}
+S.~K. Baruah, A.~Burns, R.~I. s, {Response-time analysis for mixed criticality
+  systems}, in: Proceedings - Real-Time Systems Symposium, 2011.
+\newblock \href {http://dx.doi.org/10.1109/RTSS.2011.12}
+  {\path{doi:10.1109/RTSS.2011.12}}.
 
 \bibitem{AbeniIntegratingSystems}
 L.~Abeni, G.~Buttazzo,
@@ -161,17 +154,30 @@ R.~Inam, N.~Mahmud, M.~Behnam, T.~Nolte, M.~Sj{\"{o}}din, {The Multi-Resource
 \newblock \href {http://dx.doi.org/10.1109/RTAS.2014.6925986}
   {\path{doi:10.1109/RTAS.2014.6925986}}.
 
-\bibitem{Baruah2011Response-timeSystems}
-S.~K. Baruah, A.~Burns, R.~I. Davis, {Response-time analysis for mixed
-  criticality systems}, in: Proceedings - Real-Time Systems Symposium, 2011.
-\newblock \href {http://dx.doi.org/10.1109/RTSS.2011.12}
-  {\path{doi:10.1109/RTSS.2011.12}}.
+\bibitem{AUTOSAR2017SpecificationSoftware}
+{AUTOSAR},
+  \href{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_SWS_RTE.pdf}{{Specification
+  of RTE Software}}, Tech. rep., AUTOSAR (2017).
+\newline\urlprefix\url{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_SWS_RTE.pdf}
 
-\bibitem{Becker2017End-to-endSystems}
-M.~Becker, D.~Dasari, S.~Mubeen, M.~Behnam, T.~Nolte, {End-to-end timing
-  analysis of cause-effect chains in automotive embedded systems}, Journal of
-  Systems Architecture\href {http://dx.doi.org/10.1016/j.sysarc.2017.09.004}
-  {\path{doi:10.1016/j.sysarc.2017.09.004}}.
+\bibitem{AUTOSAR2018Specification4.2.2}
+{AUTOSAR},
+  \href{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-2/AUTOSAR_SWS_OS.pdf}{{Specification
+  of Operating System AUTOSAR Release 4.2.2}}, Tech. rep., AUTOSAR (2018).
+\newline\urlprefix\url{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-2/AUTOSAR_SWS_OS.pdf}
+
+\bibitem{Sha2004RealPerspective}
+L.~Sha, T.~Abdelzaher, K.~E. {\AA}rz{\'{e}}n, A.~Cervin, T.~Baker, A.~Burns,
+  G.~Buttazzo, M.~Caccamo, J.~Lehoczky, A.~K. Mok, {Real time scheduling
+  theory: A historical perspective} (2004).
+\newblock \href {http://dx.doi.org/10.1023/B:TIME.0000045315.61234.1e}
+  {\path{doi:10.1023/B:TIME.0000045315.61234.1e}}.
+
+\bibitem{Davis2007ControllerRevised}
+R.~I. Davis, A.~Burns, R.~J. Bril, J.~J. Lukkien, {Controller Area Network
+  (CAN) schedulability analysis: Refuted, revisited and revised} (2007).
+\newblock \href {http://dx.doi.org/10.1007/s11241-007-9012-7}
+  {\path{doi:10.1007/s11241-007-9012-7}}.
 
 \bibitem{Feiertag2009ASemantics}
 N.~Feiertag, K.~Richter, J.~Nordlander, J.~Jonsson, {A Compositional Framework
@@ -179,11 +185,11 @@ N.~Feiertag, K.~Richter, J.~Nordlander, J.~Jonsson, {A Compositional Framework
   Path Semantics}, in: IEEE Real-Time Systems Symposium: 30/11/2009-03/12/2009,
   IEEE Communications Society, 2009.
 
-\bibitem{AUTOSAR2017SpecificationSoftware}
-{AUTOSAR},
-  \href{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_SWS_RTE.pdf}{{Specification
-  of RTE Software}}, Tech. rep., AUTOSAR (2017).
-\newline\urlprefix\url{https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_SWS_RTE.pdf}
+\bibitem{Becker2017End-to-endSystems}
+M.~Becker, D.~Dasari, S.~Mubeen, M.~Behnam, T.~Nolte, {End-to-end timing
+  analysis of cause-effect chains in automotive embedded systems}, Journal of
+  Systems Architecture\href {http://dx.doi.org/10.1016/j.sysarc.2017.09.004}
+  {\path{doi:10.1016/j.sysarc.2017.09.004}}.
 
 \bibitem{Goel1985SoftwareApplicability}
 A.~Goel, {Software Reliability Models: Assumptions, Limitations, and
@@ -222,10 +228,18 @@ C.~Lucet, J.-F. Manouvrier, {Exact Methods to Compute Network Reliability}, in:
 \newblock \href {http://dx.doi.org/10.1007/978-1-4612-1782-4{\_}20}
   {\path{doi:10.1007/978-1-4612-1782-4{\_}20}}.
 
-\bibitem{yin2007task}
-P.-Y. Yin, S.-S. Yu, P.-P. Wang, Y.-T. Wang, {Task Allocation for Maximizing
-  Reliability of a Distributed System using Hybrid Particle Swarm
-  Optimization}, Journal of Systems and Software 80~(5) (2007) 724--735.
+\bibitem{Sengupta2018ParticlePerspectives}
+S.~Sengupta, S.~Basak, R.~Alan, P.~Ii, {Particle Swarm Optimization: A survey
+  of historical and recent developments with hybridization perspectives},
+  arXiv:1804.05319\href {http://dx.doi.org/10.20944/preprints201809.0007.v1}
+  {\path{doi:10.20944/preprints201809.0007.v1}}.
+
+\bibitem{Mirjalili2019ParticleOptimisation}
+S.~Mirjalili, {Particle swarm optimisation}, in: Studies in Computational
+  Intelligence, 2019.
+\newblock \href {http://arxiv.org/abs/0510023v1} {\path{arXiv:0510023v1}},
+  \href {http://dx.doi.org/10.1007/978-3-319-93025-1{\_}2}
+  {\path{doi:10.1007/978-3-319-93025-1{\_}2}}.
 
 \bibitem{Kennedy1995ParticleOptimization}
 J.~Kennedy, R.~Eberhart, C.~A.~C. Coello, G.~T. Pulido, M.~S. Lechuga,
@@ -246,29 +260,40 @@ Q.~Liu, W.~Wei, H.~Yuan, Z.~H. Zhan, Y.~Li, {Topology selection for particle
   {http://dx.doi.org/10.1016/j.ins.2016.04.050}
   {\path{doi:10.1016/j.ins.2016.04.050}}.
 
-\bibitem{KennedyAAlgorithm}
-J.~Kennedy, R.~Eberhart, \href{http://ieeexplore.ieee.org/document/637339/}{{A
-  discrete binary version of the particle swarm algorithm}}, in: 1997 IEEE
-  International Conference on Systems, Man, and Cybernetics. Computational
-  Cybernetics and Simulation, Vol.~5, IEEE, pp. 4104--4108.
-\newblock \href {http://dx.doi.org/10.1109/ICSMC.1997.637339}
-  {\path{doi:10.1109/ICSMC.1997.637339}}.
-\newline\urlprefix\url{http://ieeexplore.ieee.org/document/637339/}
-
 \bibitem{Clerc2000DiscreteProblem}
 M.~Clerc, {Discrete particle swarm optimization, illustrated by the traveling
   salesman problem}, in: New optimization techniques in engineering, 2000.
 \newblock \href {http://dx.doi.org/10.1007/978-3-540-39930-8{\_}8}
   {\path{doi:10.1007/978-3-540-39930-8{\_}8}}.
 
+\bibitem{Talbi2009Metaheuristics:Implementation}
+E.~G. Talbi, {Metaheuristics: From Design to Implementation}, 2009.
+\newblock \href {http://dx.doi.org/10.1002/9780470496916}
+  {\path{doi:10.1002/9780470496916}}.
+
+\bibitem{Faragardi2018AnSystems}
+H.~R. Faragardi, M.~Vahabi, H.~Fotouhi, T.~Nolte, T.~Fahringer, {An efficient
+  placement of sinks and SDN controller nodes for optimizing the design cost of
+  industrial IoT systems}, in: Software - Practice and Experience, 2018.
+\newblock \href {http://dx.doi.org/10.1002/spe.2593}
+  {\path{doi:10.1002/spe.2593}}.
+
+\bibitem{Rini2011ParticleChallenges}
+D.~P. Rini, S.~M. Shamsuddin, {Particle Swarm Optimization: Technique, System
+  and Challenges}, International Journal of Applied Information Systems\href
+  {http://dx.doi.org/10.5120/ijais-3651} {\path{doi:10.5120/ijais-3651}}.
+
+\bibitem{Sengupta2018ParticlePerspectivesb}
+S.~Sengupta, S.~Basak, R.~Alan, P.~Ii, {Particle Swarm Optimization: A survey
+  of historical and recent developments with hybridization perspectives},
+  arXiv:1804.05319\href {http://dx.doi.org/10.20944/preprints201809.0007.v1}
+  {\path{doi:10.20944/preprints201809.0007.v1}}.
+
 \bibitem{Storn1997DifferentialSpaces}
-R.~Storn, K.~Price,
-  \href{http://link.springer.com/10.1023/A:1008202821328}{{Differential
-  Evolution – A Simple and Efficient Heuristic for global Optimization over
-  Continuous Spaces}}, Journal of Global Optimization 11~(4) (1997) 341--359.
-\newblock \href {http://dx.doi.org/10.1023/A:1008202821328}
+R.~Storn, K.~Price, {Differential Evolution - A Simple and Efficient Heuristic
+  for Global Optimization over Continuous Spaces}, Journal of Global
+  Optimization\href {http://dx.doi.org/10.1023/A:1008202821328}
   {\path{doi:10.1023/A:1008202821328}}.
-\newline\urlprefix\url{http://link.springer.com/10.1023/A:1008202821328}
 
 \bibitem{Das2016RecentSurvey}
 S.~Das, S.~S. Mullick, P.~Suganthan,
@@ -279,22 +304,10 @@ S.~Das, S.~S. Mullick, P.~Suganthan,
   {\path{doi:10.1016/J.SWEVO.2016.01.004}}.
 \newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S2210650216000146}
 
-\bibitem{Mahmud5222}
-N.~Mahmud, G.~Rodriguez-Navas, H.~R. Faragardi, S.~Mubeen, C.~Seceleanu,
-  \href{http://www.es.mdh.se/publications/5222-}{{Power-aware Allocation of
-  Fault-tolerant Multi-rate AUTOSAR Applications}}, in: 25th Asia-Pacific
-  Software Engineering Conference, 2018.
-\newline\urlprefix\url{http://www.es.mdh.se/publications/5222-}
-
 \bibitem{shatz1992task}
 S.~M. Shatz, J.-P. Wang, M.~Goto, {Task Allocation for Maximizing Reliability
   of Distributed Computer Systems}, IEEE Transactions on Computers 41~(9)
   (1992) 1156--1168.
-
-\bibitem{kartik1997task}
-S.~Kartik, C.~S.~R. Murthy, {Task Allocation Algorithms for Maximizing
-  Reliability of Distributed Computing Systems}, IEEE Transactions on computers
-  46~(6) (1997) 719--724.
 
 \bibitem{zhang2015maximizing}
 L.~Zhang, K.~Li, Y.~Xu, J.~Mei, F.~Zhang, K.~Li, {Maximizing Reliability with
@@ -302,10 +315,18 @@ L.~Zhang, K.~Li, Y.~Xu, J.~Mei, F.~Zhang, K.~Li, {Maximizing Reliability with
   Information Sciences 319 (2015) 113--131.
 
 \bibitem{faragardi2013optimal}
-H.~R. Faragardi, R.~Shojaee, M.~A. Keshtkar, H.~Tabani, {Optimal Task
-  Allocation for Maximizing Reliability in Distributed Real-time Systems}, in:
-  Computer and Information Science (ICIS), 2013 IEEE/ACIS 12th International
-  Conference On, IEEE, 2013, pp. 513--519.
+H.~R. Faragardi, R.~Shojaee, M.~A. Keshtkar, H.~Tabani, {Optimal ocation for
+  Maximizing Reliability in Distributed Real-time Systems}, in: Computer and
+  Information Science (ICIS), 2013 IEEE/ACIS 12th International Conference On,
+  IEEE, 2013, pp. 513--519.
+
+\bibitem{Wozniak2013AnArchitectures}
+E.~Wozniak, A.~Mehiaoui, C.~Mraidha, S.~Tucci-Piergiovanni, S.~Gerard, {An
+  Optimization Approach for the Synthesis of AUTOSAR Architectures}, in: IEEE
+  International Conference on Emerging Technologies and Factory Automation,
+  ETFA, 2013.
+\newblock \href {http://dx.doi.org/10.1109/ETFA.2013.6647952}
+  {\path{doi:10.1109/ETFA.2013.6647952}}.
 
 \bibitem{assayad2004bi}
 I.~Assayad, A.~Girault, H.~Kalla, {A Bi-criteria Scheduling Heuristic for
@@ -352,5 +373,10 @@ S.~Wang, J.~R. Merrick, K.~G. Shin, {Component Allocation with Multiple
   Resource Constraints for Large Embedded Real-time Software Design}, in: IEEE
   10th Real-Time and Embedded Technology and Applications Symposium, 2004.,
   IEEE, 2004, pp. 219--226.
+
+\bibitem{vsvogor2014extended}
+I.~{\v{S}}vogor, I.~Crnkovic, N.~Vrcek, {An Extended Model for Multi-Criteria
+  Software Component Allocation on a Heterogeneous Embedded Platform}, Journal
+  of computing and information technology 21~(4) (2014) 211--222.
 
 \end{thebibliography}
