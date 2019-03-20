@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  12 MAR 2019 21:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930) (preloaded format=pdflatex 2019.1.30)  20 MAR 2019 16:50
 entering extended mode
 **./main.tex
 (main.tex
@@ -1602,20 +1602,20 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 78.
 
 [15] [16]
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 121.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 116.
 
 
 ("/Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/tex/latex/base
 /ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 1960) in paragraph at lines 123--124
+Underfull \hbox (badness 1960) in paragraph at lines 118--119
 []$\OML/cmm/m/it/10  \OT1/cmr/m/n/10 = 
 []$ are elementary events that correspond to the possible
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 123--124
+Underfull \hbox (badness 1454) in paragraph at lines 118--119
 \OT1/cmr/m/n/10 configurations of the units $\OML/cmm/m/it/10 N$\OT1/cmr/m/n/10
  , therefore, the events are mutually
  []
@@ -1623,7 +1623,7 @@ Underfull \hbox (badness 1454) in paragraph at lines 123--124
 [17]
 
 LaTeX Warning: Reference `eqn_overlapping' on page 18 undefined on input line 1
-72.
+67.
 
 ) (tex/solution.tex [18]
 
@@ -1649,6 +1649,16 @@ l evolution algorithms for job shop scheduling problem' on page 23 undefined on
  input line 136.
 
 [23]
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 204.
+
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <9> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 204.
+
+
 
 LaTeX Warning: Command \textquotesingle invalid in math mode on input line 205.
 
@@ -1697,12 +1707,12 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 3.
 
 ) [27]
-<img/power_consumption.pdf, id=326, 736.7525pt x 471.7625pt>
+<img/power_consumption.pdf, id=327, 736.7525pt x 471.7625pt>
 File: img/power_consumption.pdf Graphic file (type pdf)
 <use img/power_consumption.pdf>
 Package pdftex.def Info: img/power_consumption.pdf  used on input line 128.
 (pdftex.def)             Requested size: 345.0pt x 220.90776pt.
-<img/time_summary.pdf, id=327, 795.97375pt x 491.8375pt>
+<img/time_summary.pdf, id=328, 795.97375pt x 491.8375pt>
 File: img/time_summary.pdf Graphic file (type pdf)
 <use img/time_summary.pdf>
 Package pdftex.def Info: img/time_summary.pdf  used on input line 136.
@@ -1714,7 +1724,7 @@ owever,
  []
 
 [28] [29] [30 <./img/power_consumption.pdf> <./img/time_summary.pdf>]
-<img/chains_replication_improvements.pdf, id=375, 361.35pt x 217.81375pt>
+<img/chains_replication_improvements.pdf, id=377, 361.35pt x 217.81375pt>
 File: img/chains_replication_improvements.pdf Graphic file (type pdf)
 <use img/chains_replication_improvements.pdf>
 Package pdftex.def Info: img/chains_replication_improvements.pdf  used on input
@@ -1924,11 +1934,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 40559 strings out of 494865
- 926608 string characters out of 3176629
- 1043237 words of memory out of 3000000
- 43562 multiletter control sequences out of 15000+200000
- 545310 words of font info for 71 fonts, out of 3000000 for 9000
+ 40565 strings out of 494865
+ 926660 string characters out of 3176629
+ 1043252 words of memory out of 3000000
+ 43565 multiletter control sequences out of 15000+200000
+ 545148 words of font info for 71 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
  62i,16n,96p,1984b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
  </Users/nmd02/Library/Application Support/MiKTeX/texmfs/data/fonts/pk/ljfour
@@ -1941,45 +1951,48 @@ iKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx7.pfb></Users/nmd02/Lib
 rary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/c
 mbx8.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/
 type1/public/amsfonts/cm/cmbx9.pfb></Users/nmd02/Library/Application Support/Mi
-KTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></Users/nmd02/L
-ibrary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm
-/cmex10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb></Users/nmd02/Library/Application Suppor
-t/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi5.pfb></Users/nmd02/
-Library/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/c
-m/cmmi6.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></Users/nmd02/Library/Application Support
-/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/nmd02/L
-ibrary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm
-/cmmi9.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/font
-s/type1/public/amsfonts/cm/cmr10.pfb></Users/nmd02/Library/Application Support/
-MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/nmd02/Li
-brary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/
-cmr5.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmr6.pfb></Users/nmd02/Library/Application Support/MiK
-TeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/nmd02/Librar
-y/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8
+KTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/nmd02/Lib
+rary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmmi5.pfb></Users/nmd02/Library/Application Support/M
+iKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></Users/nmd02/Lib
+rary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></Users/nmd02/Library/Application Support/Mi
+KTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi9.pfb></Users/nmd02/Libr
+ary/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb></Users/nmd02/Library/Application Support/MiK
+TeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr5.pfb></Users/nmd02/Librar
+y/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6
 .pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type
-1/public/amsfonts/cm/cmr9.pfb></Users/nmd02/Library/Application Support/MiKTeX/
-texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></Users/nmd02/Library/
-Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10
+1/public/amsfonts/cm/cmr7.pfb></Users/nmd02/Library/Application Support/MiKTeX/
+texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/nmd02/Library/Ap
+plication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr9.pfb
+></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1/pu
+blic/amsfonts/cm/cmss10.pfb></Users/nmd02/Library/Application Support/MiKTeX/te
+xmfs/install/fonts/type1/public/amsfonts/cm/cmss9.pfb></Users/nmd02/Library/App
+lication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.
+pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1
+/public/amsfonts/cm/cmssi9.pfb></Users/nmd02/Library/Application Support/MiKTeX
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/nmd02/Library
+/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy5
 .pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type
-1/public/amsfonts/cm/cmsy5.pfb></Users/nmd02/Library/Application Support/MiKTeX
-/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb></Users/nmd02/Library/
-Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.
+1/public/amsfonts/cm/cmsy6.pfb></Users/nmd02/Library/Application Support/MiKTeX
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb></Users/nmd02/Library/
+Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.
 pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb></Users/nmd02/Library/Application Support/MiKTeX/
-texmfs/install/fonts/type1/public/amsfonts/cm/cmsy9.pfb></Users/nmd02/Library/A
-pplication Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.
+/public/amsfonts/cm/cmsy9.pfb></Users/nmd02/Library/Application Support/MiKTeX/
+texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/nmd02/Library/
+Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.
 pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1
-/public/amsfonts/cm/cmti8.pfb></Users/nmd02/Library/Application Support/MiKTeX/
-texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/
-Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.
-pfb></Users/nmd02/Library/Application Support/MiKTeX/texmfs/install/fonts/type1
-/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (39 pages, 818634 bytes).
+/public/amsfonts/cm/cmtt10.pfb></Users/nmd02/Library/Application Support/MiKTeX
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb></Users/nmd02/Library/
+Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb>
+Output written on main.pdf (39 pages, 834600 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
+ 548 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
