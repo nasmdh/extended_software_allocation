@@ -1,7 +1,7 @@
 \section{Evaluation}\label{sec_evaluation}
-In this section, we evaluate our proposed hybrid PSO algorithms for the allocation of software applications on heterogenous computing units, which conform to the system model presented in Section \ref{sec_system}. The algorithms are evaluated against different specifications of automotive software applications and execution platforms with regard to effectiveness, stabilitity and scalability. The software-application specifications consist of the number of software components $c$, runnables $r$, tasks $t$ and cause-effect chains $g$.  The specifications are synthesized from the automotive benchmark proposed by Kramel et al.~\cite{Kramer2015RealFree}. The benchmark indicates a strong correlation between runnables and cause-effect chains in terms of timing and activation patterns. It shows the timing specifications of runnables and their shares in an engine management system. Moreover, it shows the activation patterns of cause-effect chains, the runnables per activation and their shares in the system. The engine management system is one of the most complex automotive systems in the vehicular electical/electronic execution platform. 
+In this section, we evaluate our proposed hybrid \pso{} algorithms for the allocation of software applications to heterogeneous computing units, which conform to the system model presented in Section \ref{sec_system}. The algorithms are evaluated against different specifications of automotive software applications and execution platforms with regard to effectiveness, stability and scalability. The software-application specifications consist of the number of software components $c$, runnables $r$, tasks $t$ and cause-effect chains $g$.  The specifications are synthesized from the automotive benchmark proposed by Kramel et al.~\cite{Kramer2015RealFree}. The benchmark indicates a strong correlation between runnables and cause-effect chains in terms of timing and activation patterns. It shows the timing specifications of runnables and their shares in an engine management system. Moreover, it shows the activation patterns of cause-effect chains, the runnables per activation and their shares in the system. The engine management system is one of the most complex automotive systems in the vehicular electrical/electronic execution platform. 
 
-\paragraph{Software Applications Benchmark} Based on our experience in the automotive industry, the benchmark results  are extrapolated to characterize different classes of automotive software applications specifications, that is by varying the parameters related to the software components, runnables, and cause-effect chains. The different classes of specifications range from Spec-I to Spec-V as shown in Table~\ref{tbl_appsspec}. The specification classes are useful to evaluate and discusse the effectiveness and scalability of the different optimization algorithms. The first specification class Spec-I encompases small software applications with number of components less than 10, runnables less than 50, tasks 30, cause-effect chains less than 30. The Spec-I and Spec-II classes represent medium and large software applications, and the last specification class is introduced to strech the performance analysis. 
+\paragraph{Software Applications Benchmark} Based on our experience in the automotive industry, the benchmark results  are extrapolated to characterize different classes of automotive software application specifications, that is by varying the parameters related to the software components, runnables, and cause-effect chains. The different classes of specifications range from Spec-I to Spec-V as shown in Table~\ref{tbl_app_ranges}. The specification classes are useful to evaluate and discuss the effectiveness and scalability of the different optimization algorithms. The first specification class Spec-I encompasses small software applications with number of components less than 10, runnables less than 50, tasks 30, cause-effect chains less than 30. The Spec-I and Spec-II classes represent medium and large software applications, and the last specification class is introduced to stretch the performance analysis. 
 \begin{table}
 \centering\small
 \begin{tabular}{@{}lllll@{}}
@@ -21,7 +21,7 @@ share of activation-patterns	& \multicolumn{4}{c}{$\{0.7, 0.2, 0.1\}$}\\
 \end{table}
 
 \paragraph{Execution Platform Specifications}
-Likewise, the specifications for an execution platform consist of the processor speed, power specifications and failure rates of computing units, and we assume the range of values to these parameters as shown in Table~\ref{tbl_execpla}.
+Likewise, the specifications for an execution platform consist of the processor speed, power specifications and failure rates of computing units. The values of these parameters are shown in Table~\ref{tbl_execpla}.
 \begin{table}
 	\small
 	\parbox{.4\linewidth}{
@@ -31,39 +31,39 @@ Likewise, the specifications for an execution platform consist of the processor 
 			\toprule
 			Parameter  			& Range\\ 
 			\midrule
-			EE					 	& 100$n_\Gamma$\\
-			RL 						& 0.99999999\\
-			CL 						& \{A,B,C,D\}\\
+			\ttEE					 	& 100$n_\Gamma$\\
+			\ttRL 						& 0.99999999\\
+			\ttCL 						& \{A,B,C,D\}\\
 			\bottomrule
 		\end{tabular}
-		\caption{Ranges of Values for Applications Requirements.}
+		\caption{Ranges of values for applications requirements.}
 		\label{tbl_app_reqs_ranges}
 	}
 ~
-	\parbox{.5\linewidth}{
+	\parbox{.6\linewidth}{
 		\centering\raggedbottom
 		\begin{tabular}{@{}ll@{}}
 			\toprule
 			Parameter  		& Range\\ 
 			\midrule
-			Nodes $n_N$							& $4-10$\\
-			$P_{min},P_{max}$ (Watt)	& $1-10$\\
-			$P_{max}$ (Watt)	& $1-10$\\
-			$\lambda_n,\lambda_B$ ($h^{-1}$) 	& $10^{-4}-10^{-2}$\\
-			$Hz$ (MHz)			 	& $80-800$\\
+			Nodes $n_N$							& $[4,10]$\\
+			$P_{idle}$ (Watt)	& $[10,200]$\\
+			$P_{busy}$ (Watt)	& $[20,500]$\\
+			$\lambda_n,\lambda_B$ ($h^{-1}$) 	& $[10^{-8},10^{-6}]$\\
+			$Hz$ & processor speed*\\
 			\bottomrule
 		\end{tabular}
-		\caption{Ranges of Values for Execution Platforms.}
+		\caption{Ranges of values for execution platforms. \\Note: *~is reflected in the worst-case execution time.}
 		\label{tbl_execpla}
 	}
 \end{table}
 
-\paragraph{Applications Requirements Specifications } Table~\ref{tbl_app_reqs_ranges}  shows the range of values used in our experiment to specify the requirements of software applications, that include the end-to-end timing requirements EE of chains, the reliability requirement RL and the criticality level CL. The end-to-end requiremens are assumed as a function of length of the chain $n_\Gamma$, that is the longer the chain, the higher the number. The reliability range of safety-critical automotive application is usually given in higher degree of 9, for operation of over a long period of time, which implies almost no failure during the specified duration.
+\paragraph{Applications Requirements Specifications} Table~\ref{tbl_app_reqs_ranges}  shows the range of values used in our experiments to specify the requirements of software applications, that include the end-to-end timing requirements (\ttEE) of chains, the reliability requirement (\ttRL) and the criticality level (\ttCL). The end-to-end requirements are assumed as a function of length of the chain $n_\Gamma$, i.e., the longer the chain the higher the number. The reliability range of a typical safety-critical automotive application is usually given in higher degree of 9, for operation of over a long period of time, which implies almost no failure during the specified duration.
 
-\paragraph{Evaluation Setup} The evaluation is conducted on a MacBook Pro laptop comptuer, with hardware specifications as follows: Intel Core i7 processor type, 2.6.GHz processor speed, 6 Cores , 9 MB L3 cache, and 16 GB memory.
+\paragraph{Evaluation Setup} The evaluation is conducted on a MacBook Pro laptop computer, with hardware specifications as follows: Intel Core i7 processor type, 2.6.GHz processor speed, 6 Cores , 9 MB L3 cache, and 16 GB memory.
 
-\subsection{Result}
-We conduted two experiments: i) the first experiment is designed to compare the performance  such as convergence time, computation time, optimality (or quality of solutions), and stability of solutions of the meta-heuristic algorithms used in this paper, ii) the second experiment is designed to evaluate the overhead of increasing replication on the optimization especially on the computation of cause-effect chains, and also to evaluate the effect of the approximation algorithms proposed in Subsection x to reduce the overheadd and maybe trade-off with optimality of solutions.
+\subsection{Results}
+We conducted two experiments: i) the first experiment is designed to compare the performance such as the convergence time, computation time, optimality (or quality of solutions) and stability of the meta-heuristic algorithms used in this paper, ii) the second experiment is designed to evaluate the overhead of increasing replication on the optimization especially due to the computation of end-to-end delays, and also to evaluate the effect of the approximation algorithm proposed in Subsection~\ref{subsec_approximation_alg} to reduce the overhead.
 \begin{table}
 	\centering\small
 	\begin{tabular}{@{}lp{0.8\linewidth}@{}}
@@ -72,14 +72,14 @@ We conduted two experiments: i) the first experiment is designed to compare the 
 		\midrule
 		\pso	& Particle Swarm Optimization: learning factors $c_1=c_2=1.49445\in [0,4]$,  number of particles 40, iterations 5000	\\
 		\de	& Differential Evolution: crossover $CR=0.5\in[0,1]$, scale factor $F=0.7\in[0,2]$  \\
-		PF& Penality Function:  $\beta_1$=,  $\beta_2=$, $ \beta_3=$\\
+		PF& Penalty Function:  $\beta_1=\mathcal{P}^{max}$,  $\beta_2=\mathcal{P}^{max}, \beta_3=10^8\mathcal{P}^{max}$, where  $\mathcal{P}^{max}=\sum_{i\in \mathcal{N}}{P_{busy_i}}$\\
 		\bottomrule
 	\end{tabular}
-	\caption{Parameters Settings of the Metaheuristic Optimization. .}
+	\caption{Parameters settings of the metaheuristic optimization.}
 	\label{tbl_para}
 \end{table}
 
-\paragraph{Experiment 1} According to the specifications of the range discussed, we synthesized six optimization problems as shown in Table~\ref{tbl_opt_problems}. The problems emulate the software allocation safety-critical distributed automotive applications on a CAN network of heterogenous computing nodes. The problems are identified by handlers of type $\langle c_ig_jn_i\rangle$ to improve readability, where the $c,g,n$ variables indicate respectively the number of components, cause-effect chains and computing nodes. The \pb{6}{10}{4}  and \pb{8}{20}{6} problems conform to Spec-I and denote a small (or light) optimization problem, the \pb{10}{20}{8} problems is based on Spec-II and denote a medium size problem, the \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20} are based on Spec-III and denote large size problem. The optimization problems are executed each 30$\times$ using our \ilp{} method proposed in \cite{Mahmud5222} and the meta-heuristic algorithms presented in Section~\ref{sec_solution}. The optimization parameters such as the penality function coefficient and the meta-heuristic parameters control the metaheuristics optimization, and their settings are shown in  Table~\ref{tbl_para}. The settings are obtained from literature as best practices of using the algorithms, as well as from our experimentaion of the algoriths with the problems at hand. Subsequently, we recorded the computation time, fitness values, power-consumption delivered by each algorithm.
+\paragraph{Experiment 1} Based on the ranges specifications presented in Table~\ref{tbl_app_reqs_ranges}, Table~\ref{tbl_app_ranges} and Table~\ref{tbl_execpla}, we synthesized six optimization problems as shown in Table~\ref{tbl_opt_problems}. The problems emulate the software allocation of safety-critical distributed automotive applications on heterogeneous computing units with respect to processor speed, failure rate and power consumption. The problems are identified by handlers of type $\langle c_ig_jn_i\rangle$ for readability, where the $c,g,n$ variables denote number of components, cause-effect chains and computing units, respectively. The \pb{6}{10}{4} and \pb{8}{20}{6} problems correspond to Spec-I, thus represent the allocation of small size software applications. The \pb{10}{20}{8} problem is based on Spec-II, thus denote the allocation of medium size software applications, and the \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20} are based on Spec-III, thus denote the allocation of large size software applications. The optimization problems are executed each 30$\times$ using our \ilp{} method proposed in \cite{Mahmud5222} and the meta-heuristic algorithms presented in Section~\ref{sec_solution}. The optimization parameters such as the penalty function coefficients and the meta-heuristic parameters control the optimization, and their settings are shown in Table~\ref{tbl_para}. The optimization parameter values are obtained from literature as well as from our experimentation. Subsequently, we recorded the computation time, fitness values and power consumption delivered by each algorithm.
 \begin{table}
 	\centering
 	\begin{tabular}{@{}lllll@{}}
@@ -97,7 +97,7 @@ We conduted two experiments: i) the first experiment is designed to compare the 
 \caption{Specifications of Optimization Problems.}
 \label{tbl_opt_problems}
 \end{table}
-\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculation of the cause-effect delays due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{subsec_approximation_alg}, optimizes the calculation of the cause-effect chain delays in the presence of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
+\paragraph{Experiment 2} Usually the replication exerts heavy computation over the calculations of the cause-effect delay due its combinatorial nature. The approximation technique, which is presented in Subsection~\ref{subsec_approximation_alg} optimizes the calculations of the cause-effect chain delay in the presence of replication. We executed the optimization problems \pb{50}{40}{20} and \pb{80}{60}{20} with 2 and 3 degrees of replication, and also with and without the approximation technique applied according to the specification in Table~\ref{tbl_samples}. The degree of replication indicates the multiplicity of each component in the software applications.
 \begin{table}
 	\centering
 	\begin{tabular}{@{}llll@{}}
@@ -114,15 +114,13 @@ We conduted two experiments: i) the first experiment is designed to compare the 
 	\label{tbl_samples}
 \end{table}
 
-\subsection{Analysis}
-In this subsection, we analyze the results from experiement 1 and 2, respectively.
-\subsubsection{Analysis of Experiment 1}
-Table~\ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic} shows a summary of the evaluation results from executing Experiment~1 such as the average and standard deviation of the computation times and fitness values, as well as the quality of solutions. The latter is determined by comparing the power-consumption outcomes delivered from each algorithms agains the optimal or best solutions found (or benchmarks), which are indicated by the \textbf{boldface} type. It simplly indicates how optimal or good the solution is as compared to the benchmark. In the first three optimization problems, the \ilp{} is the benchmark since it returned optimal solutions. Similarly, the \shpso{} is the benchmark in the problems \pb{20}{30}{10} and \pb{50}{40}{20}, and \shpso{} is the benchmark in the last probem \pb{80}{60}{20}.
-\input{tex/evaluation_result_computationtime.tex}
+%\subsection{Analysis}
+%In this subsection, we analyze the results from experiment 1 and 2, respectively.
+\subsection{Analysis of Experiment 1}
+Table~\ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic} shows a summary of the evaluation results from executing Experiment~1 such as the average and standard deviation of the computation times and fitness values, and the quality of solutions. The latter is calculated as a percentage of solution deviation from the best solution per optimization problem, which is indicated by the \textbf{boldface} type. In the first three optimization problems, the \ilp{} method returns the best (or optimal) solution. The \shpso{} algorithm returns the best solution for the \pb{20}{30}{10} and \pb{50}{40}{20} problems, and \shpso{} for the last problem \pb{80}{60}{20}.
+\input{tex/evaluation_result_computationtime.tex} We analyze the results over three matrices: solution quality, computation time, and stability.
 
-We analyze the results over three metrices: solution quality, computation time, and stability, in order.
-
-\paragraph{Solution Quality} In the $1^{st}$ optimization problem  \pb{6}{10}{4}, the ILP, \de, \lpso, \hcpso, \shpso{} returned the optimal power consumption, which is 227KW, but \depso{} and \pso{} returned near optimal solutions with $>99\%$ quality measures. In the $2^{nd}$ problem  \pb{8}{20}{6}, similar results are obtained from  \ilp , \hcpso{} and \shpso, which are optimal, but this time, in contrast, \de, \lpso{} and \depso{} performed worse by less than 1\% but better than \pso{} by ~2\%.  In the $3^{rd}$ problem \pb{12}{20}{8}, only \ilp{} returned the optimal solution, followed by \depso, \lpso, \hcpso, \shpso{} with near optimal solutions of $>99\%$ quality measure, and rest performed worse. In the last three optimization problems \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20} , \ilp did not return solutions due to extremly large computation time, hence terminated manually. However, the hybrid algorithms based on hill-climbing such as \hcpso{} and \shpso{} performed well, followed by \depso{} in the problems \pb{20}{30}{10} and \pb{80}{60}{20} . However, \hcpso{} failed to return solutions in the largest problem \pb{80}{60}{20} but its stochastic verion \shpso{} did.
+\paragraph{Solution Quality} In the \pb{6}{10}{4} optimization, all except \depso{} and \pso{} returned the optimal power consumption 227KW. \depso{} and \pso{} returned near optimal solutions, with $>99\%$ quality measures (or optimality) as compared to \ilp. In the \pb{8}{20}{6} optimization, \ilp, \hcpso{} and \shpso returned optimal solutions. Whereas \de, \lpso{} and \depso{} performed worse than \ilp by $~1\%$ but better than \pso{} by ~2\%.  In the \pb{10}{20}{8} optimization, only \ilp returned optimal solution whereas the hybrid algorithms returned worse and \pso and \de returned the worst. In the last three optimization problems \pb{20}{30}{10}, \pb{50}{40}{20} and \pb{80}{60}{20}, \ilp did not return solutions due to extremely large computation time, as a result, it was terminated manually. However, the hybrid algorithms based on hill-climbing such as \hcpso{} and \shpso{} performed well, which is followed by \depso{} in the \pb{20}{30}{10} and \pb{80}{60}{20} optimization. \hcpso{} failed to return solution in the largest optimization problem \pb{80}{60}{20}, however, the stochastic version of the hill-climbing algorithm \shpso{} returned a near optimal solution.
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{img/power_consumption.pdf}
@@ -130,25 +128,33 @@ We analyze the results over three metrices: solution quality, computation time, 
 \label{fig_powerconsumption_ilp_metaheuristic}\vspace{-0.4cm}
 \end{figure}
 
-\paragraph{Convergence Time} In the case of metaheuristics, the convergence time refers to the amount of time taken by the algorithm to return solutions before the steady state where new fitness values are observed. In this evalution, it is calculated over a maximum of 5000 iterations (or generations) only for the duration before steady period, which is bounded by 5 minutes. Note: the steady time, where no fitness values change within the maximum iterations, is not considered in the converge time.  Figure \ref{fig_allocationtime_ilp_metaheuristic} summarizes the computation time of the algorithms for the samples listed in Table~\ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic}. For the samples the \ilp{} method returned solutions, the computation times are usually larger than the rest, which are in milliseconds for the $1^{st}$ sample and in seconds for the $2^{st}$  and $3^{rd}$.  The the meta-heuristic algorithms, the convergence time is in milliseconds for the first four samples, and is in seconds for the rest. However, the computation times of the meta-heuristic algorithms, which are not shown in the table usually took less than 50 minutes for the larest sample.
+\paragraph{Computation Time} In this context, the computation time is the elapsed time between the start of the optimization and the time at which the fitness value becomes steady, and evaluated for 5000 iterations (or generations). In a way, the computation time also indicates the convergence speed of the best solution. Figure \ref{fig_allocationtime_ilp_metaheuristic} summarizes the computation time of the algorithms for the optimization problems listed in Table~\ref{tbl_samples}. The computation time of \ilp is extremely higher than the rest, which is in the scale of milliseconds for the \pb{6}{10}{4} sample, and in seconds for the \pb{8}{20}{6} and \pb{10}{20}{8}. In the case of the non-hybrid meta-heuristic algorithms, the computation time is in the scale of milliseconds in all of the optimization problems. The computation time of the hybrid \pso{} with the hill-climbing algorithm \hcpso{} got exponential in \pb{50}{20}{40} and returns no solution in the next largest problem. However, the stochastic version of the hill-climbing algorithm returned near optimal solution in $~2sec$ while performing better than the hybrid \pso{} with the differential algorithm \depso, which returned in $\leq 6sec$.
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{img/time_summary.pdf}
-\caption{Computation Time of the Various Algorithms for Solving Different Instances of the Software Allocation Problem.}
+\caption{Computation time of the various algorithms for solving different instances of the software allocation problem.}
 \label{fig_allocationtime_ilp_metaheuristic}\vspace{-0.4cm}
 \end{figure}
-%\input{tex/evaluation_result_table.tex}
-\paragraph{Solutions Stability} the \pso, DE are characterized by random search which enables exploration of higher dimenstional problems possible. However, somestime this creates instability in the solutions, that is for the same problem, it is possible to observe different performance, e.g., fitness values, computation time, etc. The stability of the solutions depend on the nature of the algorithms as well as the problems at hand. Therefore, it is crucial to evaluate the stability of the meta-heuristic algorithms used in this work. One way measuring the stability is using standar deviation, and Figure x and Figure y show the deviation of each algorithms for the (near) optimal power consumption of the different samples.
 
-In general, with regard to quality of the solutions, the hybrid \pso{} with hill-climbing are more stable in the first three samples, but also \de and \lpso{} in $1^{st}$ sample, as compared to \pso{} and \depso. However, as the problem size increases to $1^{st},2^{nd}, 3^{rd}$,  the hybrid \pso{} with hill-climbing performed worse and \pso{} and others improved. With regard to convergence time, the stability usually decreased, that is with uniformity for the \pso, \de, \hcpso and \shpso, however, for the rest it is not uniform.
+\paragraph{Solutions Stability} The \pso{} and \de{} are characterized by random search that facilitates exploration of the search space. However, the randomness also introduces instability of the solutions, that is when the algorithms are executed for the same input, the solutions vary. Such variations are depends on the nature of the algorithms as well as on the optimization problems at hand. In this work, we use  the standard deviation to measure the degree of stability, of the meta-heuristic algorithms. Figure~\ref{tbl_fitness_allocationtime_ilp_plus_metaheuristic} and Figure~\ref{fig_powerconsumption_ilp_metaheuristic} show the deviation of each algorithms from the (near) optimal solutions for the different samples.
 
-\subsubsection{Analysis of Experiment 2}
-Table~\ref{fig_chainsreplicationimprovements} shows results of executing experiment 2, which shows improvements of the computation time by applying the approximation algorithm in stead of the exact approach. In the case of the approximation, the delays are exaustively calculated in the presence of replication. However, the quality of the solutions are degraded as expected due to the approximation. Specifically, the result shown $61\%-81\%$ computation time improvement over the exac method while facing quality degradation only for samples $g_{30}d_{2}$ and  $g_{30}d_{2}$. The improvements are in seconds, which implies for a single usage (or run) of the meta-heuristic optimization algorithms, it is not significant. However, considering practical systems design process, which requires several iterations, the commulative effect of the algorithms can negatively impact the responsivess to engineers. Thus, the improvements can be in trade-off with optimality of the solutions.
+Regarding quality of the solutions, the results showed that \hcpso{} is more stable in the first three optimization problems, similarly \de{} and \lpso{} in the first problem. However, as the problem size increases to $g_{10}d_{20}n_8$, the \hcpso{} performed worse while \pso{} and others improve. Regarding computation time, the algorithms become less stable as the problem size increased uniformly for \pso, \de, \hcpso{} and \shpso, however, it is not the case for rest of algorithms.
+
+\subsection{Analysis of Experiment 2}
+Figure~\ref{fig_chainsreplicationimprovements} shows results of executing experiment 2, which shows improvements of the computation time by applying the approximation algorithm instead of the exact approach. In the case of the approximation, the delays are exhaustively calculated in the presence of replication. However, the quality of the solutions are degraded as expected due to the approximation. Specifically, the results show $61\%-81\%$ computation time improvement over the exact method while facing quality degradation only for samples $g_{30}d_{3}$ and  $g_{60}d_{2}$. The improvements are in seconds, which implies for a single usage (or run) of the meta-heuristic optimization algorithms, it is not significant. However, considering practical systems design process, which requires several iterations, the commutative effect of the algorithms can negatively impact the responsiveness to engineers. Thus, the improvements can be in trade-off with optimality of the solutions.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{img/chains_replication_improvements}
-	\caption{Effect of Approximate Algorithm over Delay Calculations with Replication.}
+	\caption{Effect of approximate algorithm over delay calculations with replication.}
 	\label{fig_chainsreplicationimprovements}
 \end{figure}
 
-\section{Discussion}
+\subsection{Discussion}
+The presented software allocation problem considers the complex AUTOSAR system model, which contains AUTOSAR software applications and a network of heterogeneous computing units with respect to power consumption, failure rate and processor speed. The software applications have end-to-end timing and reliability requirements, which are satisfied by effectively and efficiently mapping the software components of the applications to the computing units. We assume the worst-case response time analysis to check the schedulability of the tasks, and age delay analysis to check the schedulability of chains in the system. 
+
+The allocation problem is even more complex since we apply fault tolerance to maximize and subsequently meet the reliability requirements of the applications. The fault tolerance, which is realized by replicating software components, imposes heavy computation on the age delay of the chains. The reliability is computed using state enumeration, which is an exact method, as compared to series-parallel method due to functional inter-dependency between computing units.
+
+Considering the complexity of the system model, the exact method based on the integer-linear programming is limited only to small and medium software allocation problems as shown in Experiment 1. Although, the meta-heuristic algorithms did not always return the optimal solutions, the results are actually very close to the results obtained from \ilp, and the computation time is quite low as compared to the \ilp results.
+
+In terms of optimality, the stochastic hill-climbing performed best next to \ilp which is attributed to the intensive local search of the algorithm. However, it felt short to return near optimal solutions in the largest optimization problem, which is not the case for its stochastic version. Thus, the hybrid \pso{} with the stochastic hill-climbing algorithm relatively more robust, effective and scales well as compared to the rest of the hybridization algorithms.
+

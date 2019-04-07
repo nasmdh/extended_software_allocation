@@ -110,12 +110,13 @@ Contribution \therccounter}
 
 \newcommand{\pso}{{\sffamily\small PSO}}
 \newcommand{\hcpso}{{\sffamily\small HCPSO}}
- \newcommand{\depso}{{\sffamily\small DEPSO}}
- \newcommand{\shpso}{{\sffamily\small SHPSO}}
- \newcommand{\lpso}{{\sffamily\small LPSO}}
-  \newcommand{\de}{{\sffamily\small DE}}
-    \newcommand{\ilp}{{\sffamily\small ILP}}
- 
+\newcommand{\depso}{{\sffamily\small DEPSO}}
+\newcommand{\shpso}{{\sffamily\small SHPSO}}
+\newcommand{\lpso}{{\sffamily\small LPSO}}
+\newcommand{\de}{{\sffamily\small DE}}
+\newcommand{\ilp}{{\sffamily\small ILP}}
+\newcommand{\cplex}{{\sffamily\small CPLEX}}
+
 %% Graphs
 \newcommand{\ttgr}[2][V]{$\mathcal{#1}(#2)$}
 \newcommand{\gr}[2]{\mathcal{#1}(#2)}
@@ -146,7 +147,7 @@ Contribution \therccounter}
 %% Solution: math mode
 \newcommand{\xkij}{x^{k}_{ij}}
 %\newcommand{\ttxkij}{$x^{(k)}_{ij}$}
-\newcommand{\ssx}[3][x]{#1^{(#2)}_{#3}}
+\newcommand{\ssx}[3][x]{#1^{#2}_{#3}}
 \newcommand{\bspx}[1]{\textbf{x}^{#1}}
 
 
@@ -168,7 +169,7 @@ Contribution \therccounter}
 %set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
 %\NewDocumentCommand{\sexpsp}{m m O{i}}{$#1=\{#2^{(k)}: #3=1,\dots, n_#1\}$ }
 %set + superscript + expression, e.g., C^(k)={C^(k)_i}: i=1,...,N_C}
-\NewDocumentCommand{\sexpsp}{m O{k} m O{i}}{$#1=\{#3^{a_#2}: #4=1,\dots, n_#1\}$  }
+\NewDocumentCommand{\sexpsp}{m O{k} m O{i}}{$#1=\{#3^{A_#2}: #4=1,\dots, n_#1\}$  }
 %set + superscript + + subscript + expression, e.g., Q^(k)_i={q_ij^(k): j=1,...,N_Q_i}
 \NewDocumentCommand{\sexpss}{m O{i} m O{j}}{$#1^{a_k}_{#2}=\{#3^{a_k}_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
 \NewDocumentCommand{\sexpsb}{m O{i} m O{j}}{$#1_{#2}=\{#3_{#2,#4}: #4=1,\dots, n_{#1_{#2}}\}$  }%set with superscript
@@ -180,7 +181,18 @@ Contribution \therccounter}
 \newcommand{\sssxx}[4][k]{$#3_{#2}=\{#4^{(#1)}_{#2}: #2=1,\dots, N_#3\}$  }%set of elements with subscript + superscript
 %\newcommand{\sssExp}[2][#2]{$#1=\{#1^{(k)}_{#3}: #3=1,\dots, N_#2\}$  }%set of sets with subscript + superscript
 
-
+%% requirements
+\newcommand{\RL}{\mathsf{RL}}
+\newcommand{\EE}{\mathsf{EE}}
+\newcommand{\DL}{\mathsf{DL}}
+\newcommand{\CL}{\mathsf{CL}}
+\newcommand{\ttRL}{{\sffamily RL}}
+\newcommand{\ttEE}{{\sffamily EE}}
+\newcommand{\ttDL}{{\sffamily DL}}
+\newcommand{\ttCL}{{\sffamily CL}}
+%% platform
+\newcommand{\nodes}{\mathcal{N}}
+\newcommand{\bus}{\mathcal{B}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 

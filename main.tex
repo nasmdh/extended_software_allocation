@@ -27,11 +27,12 @@
 \pgfplotsset{compat=1.9}
 \usetikzlibrary{patterns}
 \usepackage{adjustbox}
-\usepackage{algorithm2e}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage[inline]{enumitem}
 \usepackage{todonotes}
 \usepackage{sansmath}
-
+\usepackage{authorbiography}
+\usepackage{hyperref}%
 
 % \patchcmd{\thebibliography}{\clubpenalty4000}{\clubpenalty10000}{}{}
 % \patchcmd{\thebibliography}{\widowpenalty4000}{\clubpenalty10000}{}{}
@@ -42,9 +43,15 @@
 \sloppy
 % the title, author, abstract
 \begin{frontmatter}
-\title{Power-aware Allocation of Fault-tolerant AUTOSAR Systems with End-to-end Timing Constraints via Hybrid Particle Swarm Optimization}
+\title{Integrated Allocation of Fault-tolerant Embedded Software Considering End-to-end Timing Constraints via Hybrid Particle Swarm Optimization}
+\tnotetext[archsyn]{ArchSyn tool download link: https://bitbucket.org/nasmdh/archsyn/src/master/}
 \input{./author}
 \input{./tex/abstract}
+\begin{keyword}
+real time system\sep safety critical system\sep software allocation\sep fault tolerance\sep end to end delay\sep AUTOSAR
+\MSC[2010] 00-01\sep  99-00
+\end{keyword}
+
 \end{frontmatter}
 
 % The rest of the sections
@@ -61,7 +68,7 @@
 \input{./tex/conclusion}
 
 % The references
-\bibliography{reference}
+\bibliography{references}
 \bibliographystyle{elsarticle-num}
 
 \end{document} 

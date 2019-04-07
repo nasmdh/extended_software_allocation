@@ -1,0 +1,27 @@
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{authorbiography}%
+
+\usepackage{graphicx}%
+\usepackage{xparse}%
+\usepackage{textcomp}%
+
+\usepackage{tocloft}
+
+\usepackage{morewrites}%
+\usepackage{wrapfig}%
+\usepackage{xkeyval}%
+\usepackage{etoolbox}%
+
+\usepackage{tcolorbox}%
+
+\newwrite\authorbibfile%
+
+\AtBeginDocument{%
+  \immediate\openout\authorbibfile=\jobname.aub%
+}%
+
+
+\newlength{\AuthorbioTopSkip}%
+\newlength{\AuthorbioBottomSkip}%
+\setlength{\AuthorbioTopSkip}{\baselineskip}%
+\setlength{\AuthorbioBottomSkip}{\baselineskip}%
