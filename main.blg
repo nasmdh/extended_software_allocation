@@ -1,4 +1,16 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+White space in argument---line 153 of file main.aux
+ : \citation{Optimizing
+ :                      the Task Allocation Step for Multi-Core Processors within AUTOSAR}
+I'm skipping whatever remains of this command
+White space in argument---line 155 of file main.aux
+ : \citation{A
+ :             hybrid algorithm based on particle swarm optimization and simulated annealing to holon task allocation for holonic manufacturing system}
+I'm skipping whatever remains of this command
+White space in argument---line 156 of file main.aux
+ : \citation{A
+ :             particle swarm optimization and differential evolution algorithms for job shop scheduling problem}
+I'm skipping whatever remains of this command
 The style file: elsarticle-num.bst
 Database file #1: reference.bib
 Warning--empty pages in Mahmud5222
@@ -17,4 +29,4 @@ Warning--empty pages in Clerc2000DiscreteProblem
 Warning--empty publisher in Talbi2009Metaheuristics:Implementation
 Warning--empty pages in Faragardi2018AnSystems
 Warning--empty pages in Wozniak2013AnArchitectures
-(There were 16 warnings)
+(There were 3 error messages)
