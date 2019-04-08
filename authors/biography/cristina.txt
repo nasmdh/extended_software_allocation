@@ -1,0 +1,11 @@
+Docent Cristina Seceleanu is Associate Professor at M{\"a}lardalen University, Sweden,
+Embedded Systems Division, and leader of the Formal Modeling and Analysis of
+Embedded Systems research group. She has a MSc. in Electronics (Polytechnic
+University of Bucharest, Romania) and a Ph.D. in Computer Science ({\AA}bo Akademi,
+Finland). Her research focuses on developing formal models and verification
+techniques for predictable real-time and adaptive embedded systems. She has been
+involved in several national and European research projects (FP7, ARTEMISIA,
+AAL), out of which she is currently leading three. She has served in the editorial
+boards of several journals such as Frontiers in ICT: Formal Methods, and
+International Journal of Embedded and Real-Time Communication Systems
+(IJERTCS), as well as in the PC of about 100 conferences in the field. 

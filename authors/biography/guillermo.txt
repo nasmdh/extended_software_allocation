@@ -1,0 +1,11 @@
+Guillermo Rodriguez-Navas received the telecommunication engineer degree from
+the University of Vigo, Spain, in 2001, and the doctorate in informatics from the
+University of the Balearic Islands (UIB), Spain, in 2010. At present, he is senior
+lecturer at the School of Innovation, Design and Engineering of the M{\"a}lardalen
+University, Sweden. He has authored or co-authored +60 peer-reviewed scientific
+papers and is currently co-supervising three doctoral dissertations. His research
+interests include dependability and safety aspects of complex embedded systems,
+fault tolerance for distributed embedded systems, clock synchronization, scheduling
+algorithms for real-time time-triggered networks, and application of formal
+verification techniques to requirements engineering and system specification,
+particularly in the domains of automotive and cyber-physical systems. 

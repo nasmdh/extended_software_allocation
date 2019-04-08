@@ -93,29 +93,29 @@ If the merging conditions are met, the timing specifications of $v$ are set as f
 	\item the WCET of the task is set to the sum of the WCET of the runnables, i.e., E$_h^v=$E$_h^a + $E$_h^b$, for all $h:1,...,n_N$,
 	\item the period and deadline of the task is set to the minimum of the runnables' periods, P$_v$=D$_v=min($P$_a, $P$_b)$
 \end{enumerate*}
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{gull}
-        \caption{A Software Application Modeled as Directed Acyclic Graph.}
-        \label{fig:gull}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-      %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{tiger}
-        \caption{A tiger}
-        \label{fig:tiger}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-    %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{mouse}
-        \caption{A mouse}
-        \label{fig:mouse}
-    \end{subfigure}
-    \caption{Pictures of animals}\label{fig:animals}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%         \includegraphics[width=\textwidth]{img/dag_tasks}
+%         \caption{A Software Application Modeled as Directed Acyclic Graph.}
+%         \label{fig:gull}
+%     \end{subfigure}
+%     ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+%       %(or a blank line to force the subfigure onto a new line)
+%     \begin{subfigure}[b]{0.3\textwidth}
+%         \includegraphics[width=\textwidth]{tiger}
+%         \caption{A tiger}
+%         \label{fig:tiger}
+%     \end{subfigure}
+%     ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+%     %(or a blank line to force the subfigure onto a new line)
+%     \begin{subfigure}[b]{0.3\textwidth}
+%         \includegraphics[width=\textwidth]{mouse}
+%         \caption{A mouse}
+%         \label{fig:mouse}
+%     \end{subfigure}
+%     \caption{Pictures of animals}\label{fig:animals}
+% \end{figure}
 
 \begin{figure}
 \vspace{0pt}\raggedbottom
@@ -208,7 +208,7 @@ The execution behavior of the chain is illustrated in Figure~\ref{fig_timedchain
 	\label{fig_timedchainntk}
 \end{figure}
 
-Thus, if the chain is mapped to a single computing unit, the age delay  $\Delta^{sub}$ is computed using Equation (\ref{eqn_agedelay_singlenode}), that is by taking the difference between the activation of the sink and the source tasks, plus the response-time of the sink task. Otherwise, if it is mapped to multiple units and the bus, the delay $\Delta$ is computed compositionally by identifying the subchains using Equation (\ref{eqn_agedelay_multinode}). In the latter case, the response-time of messages $\delta^{msg}$, and the ``just missed'' case that is by adding the period of the successor task $P_{suc(j)}$ are  taken into consideration. 
+Thus, if the chain is mapped to a single computing unit, the age delay  $\Delta^{sub}$ is computed using Equation (\ref{eqn_agedelay_singlenode}), that is by taking the difference between the activation of the sink and the source tasks, plus the response-time of the sink task. Otherwise, if it is mapped to multiple units and the bus, the delay $\Delta$ is computed compositionally by identifying the subchains using Equation (\ref{eqn_agedelay_multinode}). In the latter case, the response-time of messages $\delta^{msg}$, and the ``just missed'' case that is by adding the period of the successor task $P_{suc(j)}$ are  taken into consideration.
 \begin{align}
 	\label{eqn_agedelay_singlenode}
 	\Delta^{sub}(\gamma) &= \alpha(sin(\gamma))-\alpha(src(\gamma)) + \delta(sink(\gamma)) & \text{single unit}\\

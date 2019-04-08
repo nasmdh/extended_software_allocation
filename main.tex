@@ -1,6 +1,7 @@
 \documentclass[preprint]{elsarticle}
-
+%preprint
 %% Packages
+\usepackage{picinpar}
 \usepackage{listings}
 \usepackage[cmex10]{amsmath}
 \usepackage{url}
@@ -31,8 +32,10 @@
 \usepackage[inline]{enumitem}
 \usepackage{todonotes}
 \usepackage{sansmath}
-\usepackage{authorbiography}
-\usepackage{hyperref}%
+
+\usepackage{authorbiography}%
+\usepackage{blindtext}%
+\usepackage{lineno}
 
 % \patchcmd{\thebibliography}{\clubpenalty4000}{\clubpenalty10000}{}{}
 % \patchcmd{\thebibliography}{\widowpenalty4000}{\clubpenalty10000}{}{}
@@ -43,32 +46,32 @@
 \sloppy
 % the title, author, abstract
 \begin{frontmatter}
-\title{Integrated Allocation of Fault-tolerant Embedded Software Considering End-to-end Timing Constraints via Hybrid Particle Swarm Optimization}
+\title{Optimized Allocation of Fault-tolerant Embedded Software with End-to-end Timing Constraints}
 \tnotetext[archsyn]{ArchSyn tool download link: https://bitbucket.org/nasmdh/archsyn/src/master/}
-\input{./author}
+\input{./authors/names}
 \input{./tex/abstract}
 \begin{keyword}
 real time system\sep safety critical system\sep software allocation\sep fault tolerance\sep end to end delay\sep AUTOSAR
 \MSC[2010] 00-01\sep  99-00
 \end{keyword}
-
 \end{frontmatter}
+%\linenumbers
 
 % The rest of the sections
 \input{./tex/introduction}
 \input{./tex/preliminary}
 \input{./tex/systemmodel}
 \input{./tex/problem}
-%\input{./tex/ilp}
-%\input{./tex/problemdefinition}
 \input{./tex/solution}
-
 \input{./tex/evaluation}
 \input{./tex/relatedwork}
 \input{./tex/conclusion}
 
+\pagebreak
+\section*{References}
 % The references
-\bibliography{references}
 \bibliographystyle{elsarticle-num}
+\bibliography{references}
+
 
 \end{document} 
